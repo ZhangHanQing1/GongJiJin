@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.GrywmxxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Grywmxxx">
+    <id column="GRYWMXBH" jdbcType="INTEGER" property="grywmxbh" />
+    <result column="GRBH" jdbcType="INTEGER" property="grbh" />
+    <result column="DWYWLSH" jdbcType="INTEGER" property="dwywlsh" />
+    <result column="YWFSRQ" jdbcType="VARCHAR" property="ywfsrq" />
+    <result column="GJYWLX" jdbcType="VARCHAR" property="gjywlx" />
+    <result column="FSE3" jdbcType="DECIMAL" property="fse3" />
+    <result column="FSEDNGJBF" jdbcType="DECIMAL" property="fsedngjbf" />
+    <result column="FSESNJZBF" jdbcType="DECIMAL" property="fsesnjzbf" />
+    <result column="FSLX" jdbcType="DECIMAL" property="fslx" />
+    <result column="TQYY" jdbcType="VARCHAR" property="tqyy" />
+    <result column="TQFS2" jdbcType="VARCHAR" property="tqfs2" />
+    <result column="CZBZ2" jdbcType="VARCHAR" property="czbz2" />
+    <result column="CZYWLSH2" jdbcType="VARCHAR" property="czywlsh2" />
+    <result column="SPZT2" jdbcType="VARCHAR" property="spzt2" />
+    <result column="JSZT" jdbcType="VARCHAR" property="jszt" />
+    <result column="PZLSH" jdbcType="VARCHAR" property="pzlsh" />
+    <result column="WDBH3" jdbcType="DECIMAL" property="wdbh3" />
+    <result column="DWYWLSH3" jdbcType="VARCHAR" property="dwywlsh3" />
+    <result column="JSFS" jdbcType="VARCHAR" property="jsfs" />
+    <result column="DWJE" jdbcType="DECIMAL" property="dwje" />
+    <result column="GRJE" jdbcType="DECIMAL" property="grje" />
+    <result column="BNJC2" jdbcType="DECIMAL" property="bnjc2" />
+    <result column="BNTQ3" jdbcType="DECIMAL" property="bntq3" />
+    <result column="JCYE" jdbcType="DECIMAL" property="jcye" />
+    <result column="DQJS3" jdbcType="DECIMAL" property="dqjs3" />
+    <result column="HQJS3" jdbcType="DECIMAL" property="hqjs3" />
+    <result column="CJR3" jdbcType="VARCHAR" property="cjr3" />
+    <result column="CJSJ3" jdbcType="DATE" property="cjsj3" />
+    <result column="BEIZ2" jdbcType="VARCHAR" property="beiz2" />
+    <result column="GRJCJS3" jdbcType="DECIMAL" property="grjcjs3" />
+    <result column="JZRQ3" jdbcType="DATE" property="jzrq3" />
+    <result column="YHJSLSH" jdbcType="VARCHAR" property="yhjslsh" />
+    <result column="ZDKKBZ" jdbcType="VARCHAR" property="zdkkbz" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    GRYWMXBH, GRBH, DWYWLSH, YWFSRQ, GJYWLX, FSE3, FSEDNGJBF, FSESNJZBF, FSLX, TQYY, 
+    TQFS2, CZBZ2, CZYWLSH2, SPZT2, JSZT, PZLSH, WDBH3, DWYWLSH3, JSFS, DWJE, GRJE, BNJC2, 
+    BNTQ3, JCYE, DQJS3, HQJS3, CJR3, CJSJ3, BEIZ2, GRJCJS3, JZRQ3, YHJSLSH, ZDKKBZ
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from grywmxxx
+    where GRYWMXBH = #{grywmxbh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from grywmxxx
+    where GRYWMXBH = #{grywmxbh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Grywmxxx">
+    insert into grywmxxx (GRYWMXBH, GRBH, DWYWLSH, 
+      YWFSRQ, GJYWLX, FSE3, 
+      FSEDNGJBF, FSESNJZBF, FSLX, 
+      TQYY, TQFS2, CZBZ2, 
+      CZYWLSH2, SPZT2, JSZT, 
+      PZLSH, WDBH3, DWYWLSH3, 
+      JSFS, DWJE, GRJE, BNJC2, 
+      BNTQ3, JCYE, DQJS3, 
+      HQJS3, CJR3, CJSJ3, BEIZ2, 
+      GRJCJS3, JZRQ3, YHJSLSH, 
+      ZDKKBZ)
+    values (#{grywmxbh,jdbcType=INTEGER}, #{grbh,jdbcType=INTEGER}, #{dwywlsh,jdbcType=INTEGER}, 
+      #{ywfsrq,jdbcType=VARCHAR}, #{gjywlx,jdbcType=VARCHAR}, #{fse3,jdbcType=DECIMAL}, 
+      #{fsedngjbf,jdbcType=DECIMAL}, #{fsesnjzbf,jdbcType=DECIMAL}, #{fslx,jdbcType=DECIMAL}, 
+      #{tqyy,jdbcType=VARCHAR}, #{tqfs2,jdbcType=VARCHAR}, #{czbz2,jdbcType=VARCHAR}, 
+      #{czywlsh2,jdbcType=VARCHAR}, #{spzt2,jdbcType=VARCHAR}, #{jszt,jdbcType=VARCHAR}, 
+      #{pzlsh,jdbcType=VARCHAR}, #{wdbh3,jdbcType=DECIMAL}, #{dwywlsh3,jdbcType=VARCHAR}, 
+      #{jsfs,jdbcType=VARCHAR}, #{dwje,jdbcType=DECIMAL}, #{grje,jdbcType=DECIMAL}, #{bnjc2,jdbcType=DECIMAL}, 
+      #{bntq3,jdbcType=DECIMAL}, #{jcye,jdbcType=DECIMAL}, #{dqjs3,jdbcType=DECIMAL}, 
+      #{hqjs3,jdbcType=DECIMAL}, #{cjr3,jdbcType=VARCHAR}, #{cjsj3,jdbcType=DATE}, #{beiz2,jdbcType=VARCHAR}, 
+      #{grjcjs3,jdbcType=DECIMAL}, #{jzrq3,jdbcType=DATE}, #{yhjslsh,jdbcType=VARCHAR}, 
+      #{zdkkbz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Grywmxxx">
+    insert into grywmxxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="grywmxbh != null">
+        GRYWMXBH,
+      </if>
+      <if test="grbh != null">
+        GRBH,
+      </if>
+      <if test="dwywlsh != null">
+        DWYWLSH,
+      </if>
+      <if test="ywfsrq != null">
+        YWFSRQ,
+      </if>
+      <if test="gjywlx != null">
+        GJYWLX,
+      </if>
+      <if test="fse3 != null">
+        FSE3,
+      </if>
+      <if test="fsedngjbf != null">
+        FSEDNGJBF,
+      </if>
+      <if test="fsesnjzbf != null">
+        FSESNJZBF,
+      </if>
+      <if test="fslx != null">
+        FSLX,
+      </if>
+      <if test="tqyy != null">
+        TQYY,
+      </if>
+      <if test="tqfs2 != null">
+        TQFS2,
+      </if>
+      <if test="czbz2 != null">
+        CZBZ2,
+      </if>
+      <if test="czywlsh2 != null">
+        CZYWLSH2,
+      </if>
+      <if test="spzt2 != null">
+        SPZT2,
+      </if>
+      <if test="jszt != null">
+        JSZT,
+      </if>
+      <if test="pzlsh != null">
+        PZLSH,
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3,
+      </if>
+      <if test="dwywlsh3 != null">
+        DWYWLSH3,
+      </if>
+      <if test="jsfs != null">
+        JSFS,
+      </if>
+      <if test="dwje != null">
+        DWJE,
+      </if>
+      <if test="grje != null">
+        GRJE,
+      </if>
+      <if test="bnjc2 != null">
+        BNJC2,
+      </if>
+      <if test="bntq3 != null">
+        BNTQ3,
+      </if>
+      <if test="jcye != null">
+        JCYE,
+      </if>
+      <if test="dqjs3 != null">
+        DQJS3,
+      </if>
+      <if test="hqjs3 != null">
+        HQJS3,
+      </if>
+      <if test="cjr3 != null">
+        CJR3,
+      </if>
+      <if test="cjsj3 != null">
+        CJSJ3,
+      </if>
+      <if test="beiz2 != null">
+        BEIZ2,
+      </if>
+      <if test="grjcjs3 != null">
+        GRJCJS3,
+      </if>
+      <if test="jzrq3 != null">
+        JZRQ3,
+      </if>
+      <if test="yhjslsh != null">
+        YHJSLSH,
+      </if>
+      <if test="zdkkbz != null">
+        ZDKKBZ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="grywmxbh != null">
+        #{grywmxbh,jdbcType=INTEGER},
+      </if>
+      <if test="grbh != null">
+        #{grbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwywlsh != null">
+        #{dwywlsh,jdbcType=INTEGER},
+      </if>
+      <if test="ywfsrq != null">
+        #{ywfsrq,jdbcType=VARCHAR},
+      </if>
+      <if test="gjywlx != null">
+        #{gjywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fse3 != null">
+        #{fse3,jdbcType=DECIMAL},
+      </if>
+      <if test="fsedngjbf != null">
+        #{fsedngjbf,jdbcType=DECIMAL},
+      </if>
+      <if test="fsesnjzbf != null">
+        #{fsesnjzbf,jdbcType=DECIMAL},
+      </if>
+      <if test="fslx != null">
+        #{fslx,jdbcType=DECIMAL},
+      </if>
+      <if test="tqyy != null">
+        #{tqyy,jdbcType=VARCHAR},
+      </if>
+      <if test="tqfs2 != null">
+        #{tqfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="czbz2 != null">
+        #{czbz2,jdbcType=VARCHAR},
+      </if>
+      <if test="czywlsh2 != null">
+        #{czywlsh2,jdbcType=VARCHAR},
+      </if>
+      <if test="spzt2 != null">
+        #{spzt2,jdbcType=VARCHAR},
+      </if>
+      <if test="jszt != null">
+        #{jszt,jdbcType=VARCHAR},
+      </if>
+      <if test="pzlsh != null">
+        #{pzlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="dwywlsh3 != null">
+        #{dwywlsh3,jdbcType=VARCHAR},
+      </if>
+      <if test="jsfs != null">
+        #{jsfs,jdbcType=VARCHAR},
+      </if>
+      <if test="dwje != null">
+        #{dwje,jdbcType=DECIMAL},
+      </if>
+      <if test="grje != null">
+        #{grje,jdbcType=DECIMAL},
+      </if>
+      <if test="bnjc2 != null">
+        #{bnjc2,jdbcType=DECIMAL},
+      </if>
+      <if test="bntq3 != null">
+        #{bntq3,jdbcType=DECIMAL},
+      </if>
+      <if test="jcye != null">
+        #{jcye,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjs3 != null">
+        #{dqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="hqjs3 != null">
+        #{hqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="cjr3 != null">
+        #{cjr3,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj3 != null">
+        #{cjsj3,jdbcType=DATE},
+      </if>
+      <if test="beiz2 != null">
+        #{beiz2,jdbcType=VARCHAR},
+      </if>
+      <if test="grjcjs3 != null">
+        #{grjcjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="jzrq3 != null">
+        #{jzrq3,jdbcType=DATE},
+      </if>
+      <if test="yhjslsh != null">
+        #{yhjslsh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdkkbz != null">
+        #{zdkkbz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Grywmxxx">
+    update grywmxxx
+    <set>
+      <if test="grbh != null">
+        GRBH = #{grbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwywlsh != null">
+        DWYWLSH = #{dwywlsh,jdbcType=INTEGER},
+      </if>
+      <if test="ywfsrq != null">
+        YWFSRQ = #{ywfsrq,jdbcType=VARCHAR},
+      </if>
+      <if test="gjywlx != null">
+        GJYWLX = #{gjywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="fse3 != null">
+        FSE3 = #{fse3,jdbcType=DECIMAL},
+      </if>
+      <if test="fsedngjbf != null">
+        FSEDNGJBF = #{fsedngjbf,jdbcType=DECIMAL},
+      </if>
+      <if test="fsesnjzbf != null">
+        FSESNJZBF = #{fsesnjzbf,jdbcType=DECIMAL},
+      </if>
+      <if test="fslx != null">
+        FSLX = #{fslx,jdbcType=DECIMAL},
+      </if>
+      <if test="tqyy != null">
+        TQYY = #{tqyy,jdbcType=VARCHAR},
+      </if>
+      <if test="tqfs2 != null">
+        TQFS2 = #{tqfs2,jdbcType=VARCHAR},
+      </if>
+      <if test="czbz2 != null">
+        CZBZ2 = #{czbz2,jdbcType=VARCHAR},
+      </if>
+      <if test="czywlsh2 != null">
+        CZYWLSH2 = #{czywlsh2,jdbcType=VARCHAR},
+      </if>
+      <if test="spzt2 != null">
+        SPZT2 = #{spzt2,jdbcType=VARCHAR},
+      </if>
+      <if test="jszt != null">
+        JSZT = #{jszt,jdbcType=VARCHAR},
+      </if>
+      <if test="pzlsh != null">
+        PZLSH = #{pzlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="dwywlsh3 != null">
+        DWYWLSH3 = #{dwywlsh3,jdbcType=VARCHAR},
+      </if>
+      <if test="jsfs != null">
+        JSFS = #{jsfs,jdbcType=VARCHAR},
+      </if>
+      <if test="dwje != null">
+        DWJE = #{dwje,jdbcType=DECIMAL},
+      </if>
+      <if test="grje != null">
+        GRJE = #{grje,jdbcType=DECIMAL},
+      </if>
+      <if test="bnjc2 != null">
+        BNJC2 = #{bnjc2,jdbcType=DECIMAL},
+      </if>
+      <if test="bntq3 != null">
+        BNTQ3 = #{bntq3,jdbcType=DECIMAL},
+      </if>
+      <if test="jcye != null">
+        JCYE = #{jcye,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjs3 != null">
+        DQJS3 = #{dqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="hqjs3 != null">
+        HQJS3 = #{hqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="cjr3 != null">
+        CJR3 = #{cjr3,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj3 != null">
+        CJSJ3 = #{cjsj3,jdbcType=DATE},
+      </if>
+      <if test="beiz2 != null">
+        BEIZ2 = #{beiz2,jdbcType=VARCHAR},
+      </if>
+      <if test="grjcjs3 != null">
+        GRJCJS3 = #{grjcjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="jzrq3 != null">
+        JZRQ3 = #{jzrq3,jdbcType=DATE},
+      </if>
+      <if test="yhjslsh != null">
+        YHJSLSH = #{yhjslsh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdkkbz != null">
+        ZDKKBZ = #{zdkkbz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GRYWMXBH = #{grywmxbh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Grywmxxx">
+    update grywmxxx
+    set GRBH = #{grbh,jdbcType=INTEGER},
+      DWYWLSH = #{dwywlsh,jdbcType=INTEGER},
+      YWFSRQ = #{ywfsrq,jdbcType=VARCHAR},
+      GJYWLX = #{gjywlx,jdbcType=VARCHAR},
+      FSE3 = #{fse3,jdbcType=DECIMAL},
+      FSEDNGJBF = #{fsedngjbf,jdbcType=DECIMAL},
+      FSESNJZBF = #{fsesnjzbf,jdbcType=DECIMAL},
+      FSLX = #{fslx,jdbcType=DECIMAL},
+      TQYY = #{tqyy,jdbcType=VARCHAR},
+      TQFS2 = #{tqfs2,jdbcType=VARCHAR},
+      CZBZ2 = #{czbz2,jdbcType=VARCHAR},
+      CZYWLSH2 = #{czywlsh2,jdbcType=VARCHAR},
+      SPZT2 = #{spzt2,jdbcType=VARCHAR},
+      JSZT = #{jszt,jdbcType=VARCHAR},
+      PZLSH = #{pzlsh,jdbcType=VARCHAR},
+      WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      DWYWLSH3 = #{dwywlsh3,jdbcType=VARCHAR},
+      JSFS = #{jsfs,jdbcType=VARCHAR},
+      DWJE = #{dwje,jdbcType=DECIMAL},
+      GRJE = #{grje,jdbcType=DECIMAL},
+      BNJC2 = #{bnjc2,jdbcType=DECIMAL},
+      BNTQ3 = #{bntq3,jdbcType=DECIMAL},
+      JCYE = #{jcye,jdbcType=DECIMAL},
+      DQJS3 = #{dqjs3,jdbcType=DECIMAL},
+      HQJS3 = #{hqjs3,jdbcType=DECIMAL},
+      CJR3 = #{cjr3,jdbcType=VARCHAR},
+      CJSJ3 = #{cjsj3,jdbcType=DATE},
+      BEIZ2 = #{beiz2,jdbcType=VARCHAR},
+      GRJCJS3 = #{grjcjs3,jdbcType=DECIMAL},
+      JZRQ3 = #{jzrq3,jdbcType=DATE},
+      YHJSLSH = #{yhjslsh,jdbcType=VARCHAR},
+      ZDKKBZ = #{zdkkbz,jdbcType=VARCHAR}
+    where GRYWMXBH = #{grywmxbh,jdbcType=INTEGER}
+  </update>
+</mapper>

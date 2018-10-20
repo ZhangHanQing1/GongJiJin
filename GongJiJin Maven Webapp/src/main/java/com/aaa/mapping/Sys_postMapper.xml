@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sys_postMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sys_post">
+    <id column="post_id" jdbcType="INTEGER" property="postId" />
+    <result column="post_code" jdbcType="VARCHAR" property="postCode" />
+    <result column="post_name" jdbcType="VARCHAR" property="postName" />
+    <result column="post_sort" jdbcType="INTEGER" property="postSort" />
+    <result column="status5" jdbcType="INTEGER" property="status5" />
+    <result column="pemark" jdbcType="VARCHAR" property="pemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    post_id, post_code, post_name, post_sort, status5, pemark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_post
+    where post_id = #{postId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_post
+    where post_id = #{postId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sys_post">
+    insert into sys_post (post_id, post_code, post_name, 
+      post_sort, status5, pemark
+      )
+    values (#{postId,jdbcType=INTEGER}, #{postCode,jdbcType=VARCHAR}, #{postName,jdbcType=VARCHAR}, 
+      #{postSort,jdbcType=INTEGER}, #{status5,jdbcType=INTEGER}, #{pemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sys_post">
+    insert into sys_post
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="postCode != null">
+        post_code,
+      </if>
+      <if test="postName != null">
+        post_name,
+      </if>
+      <if test="postSort != null">
+        post_sort,
+      </if>
+      <if test="status5 != null">
+        status5,
+      </if>
+      <if test="pemark != null">
+        pemark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        #{postId,jdbcType=INTEGER},
+      </if>
+      <if test="postCode != null">
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null">
+        #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="postSort != null">
+        #{postSort,jdbcType=INTEGER},
+      </if>
+      <if test="status5 != null">
+        #{status5,jdbcType=INTEGER},
+      </if>
+      <if test="pemark != null">
+        #{pemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sys_post">
+    update sys_post
+    <set>
+      <if test="postCode != null">
+        post_code = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null">
+        post_name = #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="postSort != null">
+        post_sort = #{postSort,jdbcType=INTEGER},
+      </if>
+      <if test="status5 != null">
+        status5 = #{status5,jdbcType=INTEGER},
+      </if>
+      <if test="pemark != null">
+        pemark = #{pemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sys_post">
+    update sys_post
+    set post_code = #{postCode,jdbcType=VARCHAR},
+      post_name = #{postName,jdbcType=VARCHAR},
+      post_sort = #{postSort,jdbcType=INTEGER},
+      status5 = #{status5,jdbcType=INTEGER},
+      pemark = #{pemark,jdbcType=VARCHAR}
+    where post_id = #{postId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sy_dk_bzxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_bzxx">
+    <id column="BZXXZJ" jdbcType="INTEGER" property="bzxxzj" />
+    <result column="XXBH" jdbcType="VARCHAR" property="xxbh" />
+    <result column="BZHTBH" jdbcType="VARCHAR" property="bzhtbh" />
+    <result column="BZJGMC" jdbcType="VARCHAR" property="bzjgmc" />
+    <result column="DKBZJ" jdbcType="VARCHAR" property="dkbzj" />
+    <result column="FHBZJRQ" jdbcType="DATE" property="fhbzjrq" />
+    <result column="BEIZ" jdbcType="VARCHAR" property="beiz" />
+    <result column="ZTZ" jdbcType="VARCHAR" property="ztz" />
+    <result column="TZZD1" jdbcType="VARCHAR" property="tzzd1" />
+    <result column="TZZD2" jdbcType="VARCHAR" property="tzzd2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BZXXZJ, XXBH, BZHTBH, BZJGMC, DKBZJ, FHBZJRQ, BEIZ, ZTZ, TZZD1, TZZD2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sy_dk_bzxx
+    where BZXXZJ = #{bzxxzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sy_dk_bzxx
+    where BZXXZJ = #{bzxxzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_bzxx">
+    insert into sy_dk_bzxx (BZXXZJ, XXBH, BZHTBH, 
+      BZJGMC, DKBZJ, FHBZJRQ, 
+      BEIZ, ZTZ, TZZD1, TZZD2
+      )
+    values (#{bzxxzj,jdbcType=INTEGER}, #{xxbh,jdbcType=VARCHAR}, #{bzhtbh,jdbcType=VARCHAR}, 
+      #{bzjgmc,jdbcType=VARCHAR}, #{dkbzj,jdbcType=VARCHAR}, #{fhbzjrq,jdbcType=DATE}, 
+      #{beiz,jdbcType=VARCHAR}, #{ztz,jdbcType=VARCHAR}, #{tzzd1,jdbcType=VARCHAR}, #{tzzd2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_bzxx">
+    insert into sy_dk_bzxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bzxxzj != null">
+        BZXXZJ,
+      </if>
+      <if test="xxbh != null">
+        XXBH,
+      </if>
+      <if test="bzhtbh != null">
+        BZHTBH,
+      </if>
+      <if test="bzjgmc != null">
+        BZJGMC,
+      </if>
+      <if test="dkbzj != null">
+        DKBZJ,
+      </if>
+      <if test="fhbzjrq != null">
+        FHBZJRQ,
+      </if>
+      <if test="beiz != null">
+        BEIZ,
+      </if>
+      <if test="ztz != null">
+        ZTZ,
+      </if>
+      <if test="tzzd1 != null">
+        TZZD1,
+      </if>
+      <if test="tzzd2 != null">
+        TZZD2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bzxxzj != null">
+        #{bzxxzj,jdbcType=INTEGER},
+      </if>
+      <if test="xxbh != null">
+        #{xxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="bzhtbh != null">
+        #{bzhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="bzjgmc != null">
+        #{bzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="dkbzj != null">
+        #{dkbzj,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbzjrq != null">
+        #{fhbzjrq,jdbcType=DATE},
+      </if>
+      <if test="beiz != null">
+        #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="ztz != null">
+        #{ztz,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd1 != null">
+        #{tzzd1,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd2 != null">
+        #{tzzd2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_dk_bzxx">
+    update sy_dk_bzxx
+    <set>
+      <if test="xxbh != null">
+        XXBH = #{xxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="bzhtbh != null">
+        BZHTBH = #{bzhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="bzjgmc != null">
+        BZJGMC = #{bzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="dkbzj != null">
+        DKBZJ = #{dkbzj,jdbcType=VARCHAR},
+      </if>
+      <if test="fhbzjrq != null">
+        FHBZJRQ = #{fhbzjrq,jdbcType=DATE},
+      </if>
+      <if test="beiz != null">
+        BEIZ = #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="ztz != null">
+        ZTZ = #{ztz,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd1 != null">
+        TZZD1 = #{tzzd1,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd2 != null">
+        TZZD2 = #{tzzd2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BZXXZJ = #{bzxxzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_dk_bzxx">
+    update sy_dk_bzxx
+    set XXBH = #{xxbh,jdbcType=VARCHAR},
+      BZHTBH = #{bzhtbh,jdbcType=VARCHAR},
+      BZJGMC = #{bzjgmc,jdbcType=VARCHAR},
+      DKBZJ = #{dkbzj,jdbcType=VARCHAR},
+      FHBZJRQ = #{fhbzjrq,jdbcType=DATE},
+      BEIZ = #{beiz,jdbcType=VARCHAR},
+      ZTZ = #{ztz,jdbcType=VARCHAR},
+      TZZD1 = #{tzzd1,jdbcType=VARCHAR},
+      TZZD2 = #{tzzd2,jdbcType=VARCHAR}
+    where BZXXZJ = #{bzxxzj,jdbcType=INTEGER}
+  </update>
+</mapper>

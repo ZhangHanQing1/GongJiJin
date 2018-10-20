@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.GrzhbgjlMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Grzhbgjl">
+    <id column="BGZH" jdbcType="INTEGER" property="bgzh" />
+    <result column="GRBH" jdbcType="INTEGER" property="grbh" />
+    <result column="XGQGZJS" jdbcType="DECIMAL" property="xgqgzjs" />
+    <result column="XGHGZJS" jdbcType="DECIMAL" property="xghgzjs" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BGZH, GRBH, XGQGZJS, XGHGZJS
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from grzhbgjl
+    where BGZH = #{bgzh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from grzhbgjl
+    where BGZH = #{bgzh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Grzhbgjl">
+    insert into grzhbgjl (BGZH, GRBH, XGQGZJS, 
+      XGHGZJS)
+    values (#{bgzh,jdbcType=INTEGER}, #{grbh,jdbcType=INTEGER}, #{xgqgzjs,jdbcType=DECIMAL}, 
+      #{xghgzjs,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Grzhbgjl">
+    insert into grzhbgjl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bgzh != null">
+        BGZH,
+      </if>
+      <if test="grbh != null">
+        GRBH,
+      </if>
+      <if test="xgqgzjs != null">
+        XGQGZJS,
+      </if>
+      <if test="xghgzjs != null">
+        XGHGZJS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bgzh != null">
+        #{bgzh,jdbcType=INTEGER},
+      </if>
+      <if test="grbh != null">
+        #{grbh,jdbcType=INTEGER},
+      </if>
+      <if test="xgqgzjs != null">
+        #{xgqgzjs,jdbcType=DECIMAL},
+      </if>
+      <if test="xghgzjs != null">
+        #{xghgzjs,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Grzhbgjl">
+    update grzhbgjl
+    <set>
+      <if test="grbh != null">
+        GRBH = #{grbh,jdbcType=INTEGER},
+      </if>
+      <if test="xgqgzjs != null">
+        XGQGZJS = #{xgqgzjs,jdbcType=DECIMAL},
+      </if>
+      <if test="xghgzjs != null">
+        XGHGZJS = #{xghgzjs,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where BGZH = #{bgzh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Grzhbgjl">
+    update grzhbgjl
+    set GRBH = #{grbh,jdbcType=INTEGER},
+      XGQGZJS = #{xgqgzjs,jdbcType=DECIMAL},
+      XGHGZJS = #{xghgzjs,jdbcType=DECIMAL}
+    where BGZH = #{bgzh,jdbcType=INTEGER}
+  </update>
+</mapper>

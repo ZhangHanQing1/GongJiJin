@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.GrzhxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Grzhxx">
+    <id column="GRBH" jdbcType="INTEGER" property="grbh" />
+    <result column="DWBH" jdbcType="INTEGER" property="dwbh" />
+    <result column="ZJLXBH" jdbcType="INTEGER" property="zjlxbh" />
+    <result column="DWZHZTBH" jdbcType="INTEGER" property="dwzhztbh" />
+    <result column="GRZH" jdbcType="VARCHAR" property="grzh" />
+    <result column="XINGMING" jdbcType="VARCHAR" property="xingming" />
+    <result column="XMQP" jdbcType="VARCHAR" property="xmqp" />
+    <result column="XINGBIE" jdbcType="VARCHAR" property="xingbie" />
+    <result column="GDDHHM2" jdbcType="VARCHAR" property="gddhhm2" />
+    <result column="SJHM2" jdbcType="VARCHAR" property="sjhm2" />
+    <result column="CSNY" jdbcType="VARCHAR" property="csny" />
+    <result column="HYZK" jdbcType="VARCHAR" property="hyzk" />
+    <result column="ZHIYE" jdbcType="VARCHAR" property="zhiye" />
+    <result column="ZHICHENG" jdbcType="VARCHAR" property="zhicheng" />
+    <result column="ZHIWU" jdbcType="VARCHAR" property="zhiwu" />
+    <result column="XUELI" jdbcType="VARCHAR" property="xueli" />
+    <result column="DZXX" jdbcType="VARCHAR" property="dzxx" />
+    <result column="YZBM" jdbcType="VARCHAR" property="yzbm" />
+    <result column="JTZZ" jdbcType="VARCHAR" property="jtzz" />
+    <result column="SBZH" jdbcType="VARCHAR" property="sbzh" />
+    <result column="JTYSR" jdbcType="INTEGER" property="jtysr" />
+    <result column="DWZH3" jdbcType="VARCHAR" property="dwzh3" />
+    <result column="SHENFEN" jdbcType="VARCHAR" property="shenfen" />
+    <result column="WDBH3" jdbcType="DECIMAL" property="wdbh3" />
+    <result column="SJHMDR2" jdbcType="VARCHAR" property="sjhmdr2" />
+    <result column="XMSZM2" jdbcType="VARCHAR" property="xmszm2" />
+    <result column="XYZT" jdbcType="VARCHAR" property="xyzt" />
+    <result column="XYSM" jdbcType="VARCHAR" property="xysm" />
+    <result column="WTYHMM" jdbcType="VARCHAR" property="wtyhmm" />
+    <result column="JYFWCS" jdbcType="VARCHAR" property="jyfwcs" />
+    <result column="GRJCJS3" jdbcType="DECIMAL" property="grjcjs3" />
+    <result column="GRZHZT" jdbcType="VARCHAR" property="grzhzt" />
+    <result column="KHRQ" jdbcType="VARCHAR" property="khrq" />
+    <result column="GRZHYE" jdbcType="DECIMAL" property="grzhye" />
+    <result column="GRZHSNJZYE" jdbcType="DECIMAL" property="grzhsnjzye" />
+    <result column="GRZHDNGJYE" jdbcType="DECIMAL" property="grzhdngjye" />
+    <result column="GRYJCE" jdbcType="DECIMAL" property="gryjce" />
+    <result column="DWYJCE" jdbcType="DECIMAL" property="dwyjce" />
+    <result column="XHRQ" jdbcType="VARCHAR" property="xhrq" />
+    <result column="XHYY" jdbcType="VARCHAR" property="xhyy" />
+    <result column="YHCXZH" jdbcType="VARCHAR" property="yhcxzh" />
+    <result column="CXZHKHYHMC2" jdbcType="VARCHAR" property="cxzhkhyhmc2" />
+    <result column="CXZHKHYHDM2" jdbcType="VARCHAR" property="cxzhkhyhdm2" />
+    <result column="DJLX" jdbcType="VARCHAR" property="djlx" />
+    <result column="DQJS3" jdbcType="DECIMAL" property="dqjs3" />
+    <result column="HQJS3" jdbcType="DECIMAL" property="hqjs3" />
+    <result column="SNDQJS" jdbcType="DECIMAL" property="sndqjs" />
+    <result column="SNHQJS" jdbcType="DECIMAL" property="snhqjs" />
+    <result column="SNDQLX" jdbcType="DECIMAL" property="sndqlx" />
+    <result column="SNHQLX" jdbcType="DECIMAL" property="snhqlx" />
+    <result column="SNDQLXH" jdbcType="DECIMAL" property="sndqlxh" />
+    <result column="SNHQLXH" jdbcType="DECIMAL" property="snhqlxh" />
+    <result column="BNTQ3" jdbcType="DECIMAL" property="bntq3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    GRBH, DWBH, ZJLXBH, DWZHZTBH, GRZH, XINGMING, XMQP, XINGBIE, GDDHHM2, SJHM2, CSNY, 
+    HYZK, ZHIYE, ZHICHENG, ZHIWU, XUELI, DZXX, YZBM, JTZZ, SBZH, JTYSR, DWZH3, SHENFEN, 
+    WDBH3, SJHMDR2, XMSZM2, XYZT, XYSM, WTYHMM, JYFWCS, GRJCJS3, GRZHZT, KHRQ, GRZHYE, 
+    GRZHSNJZYE, GRZHDNGJYE, GRYJCE, DWYJCE, XHRQ, XHYY, YHCXZH, CXZHKHYHMC2, CXZHKHYHDM2, 
+    DJLX, DQJS3, HQJS3, SNDQJS, SNHQJS, SNDQLX, SNHQLX, SNDQLXH, SNHQLXH, BNTQ3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from grzhxx
+    where GRBH = #{grbh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from grzhxx
+    where GRBH = #{grbh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Grzhxx">
+    insert into grzhxx (GRBH, DWBH, ZJLXBH, 
+      DWZHZTBH, GRZH, XINGMING, 
+      XMQP, XINGBIE, GDDHHM2, 
+      SJHM2, CSNY, HYZK, 
+      ZHIYE, ZHICHENG, ZHIWU, 
+      XUELI, DZXX, YZBM, 
+      JTZZ, SBZH, JTYSR, 
+      DWZH3, SHENFEN, WDBH3, 
+      SJHMDR2, XMSZM2, XYZT, 
+      XYSM, WTYHMM, JYFWCS, 
+      GRJCJS3, GRZHZT, KHRQ, 
+      GRZHYE, GRZHSNJZYE, GRZHDNGJYE, 
+      GRYJCE, DWYJCE, XHRQ, 
+      XHYY, YHCXZH, CXZHKHYHMC2, 
+      CXZHKHYHDM2, DJLX, DQJS3, 
+      HQJS3, SNDQJS, SNHQJS, 
+      SNDQLX, SNHQLX, SNDQLXH, 
+      SNHQLXH, BNTQ3)
+    values (#{grbh,jdbcType=INTEGER}, #{dwbh,jdbcType=INTEGER}, #{zjlxbh,jdbcType=INTEGER}, 
+      #{dwzhztbh,jdbcType=INTEGER}, #{grzh,jdbcType=VARCHAR}, #{xingming,jdbcType=VARCHAR}, 
+      #{xmqp,jdbcType=VARCHAR}, #{xingbie,jdbcType=VARCHAR}, #{gddhhm2,jdbcType=VARCHAR}, 
+      #{sjhm2,jdbcType=VARCHAR}, #{csny,jdbcType=VARCHAR}, #{hyzk,jdbcType=VARCHAR}, 
+      #{zhiye,jdbcType=VARCHAR}, #{zhicheng,jdbcType=VARCHAR}, #{zhiwu,jdbcType=VARCHAR}, 
+      #{xueli,jdbcType=VARCHAR}, #{dzxx,jdbcType=VARCHAR}, #{yzbm,jdbcType=VARCHAR}, 
+      #{jtzz,jdbcType=VARCHAR}, #{sbzh,jdbcType=VARCHAR}, #{jtysr,jdbcType=INTEGER}, 
+      #{dwzh3,jdbcType=VARCHAR}, #{shenfen,jdbcType=VARCHAR}, #{wdbh3,jdbcType=DECIMAL}, 
+      #{sjhmdr2,jdbcType=VARCHAR}, #{xmszm2,jdbcType=VARCHAR}, #{xyzt,jdbcType=VARCHAR}, 
+      #{xysm,jdbcType=VARCHAR}, #{wtyhmm,jdbcType=VARCHAR}, #{jyfwcs,jdbcType=VARCHAR}, 
+      #{grjcjs3,jdbcType=DECIMAL}, #{grzhzt,jdbcType=VARCHAR}, #{khrq,jdbcType=VARCHAR}, 
+      #{grzhye,jdbcType=DECIMAL}, #{grzhsnjzye,jdbcType=DECIMAL}, #{grzhdngjye,jdbcType=DECIMAL}, 
+      #{gryjce,jdbcType=DECIMAL}, #{dwyjce,jdbcType=DECIMAL}, #{xhrq,jdbcType=VARCHAR}, 
+      #{xhyy,jdbcType=VARCHAR}, #{yhcxzh,jdbcType=VARCHAR}, #{cxzhkhyhmc2,jdbcType=VARCHAR}, 
+      #{cxzhkhyhdm2,jdbcType=VARCHAR}, #{djlx,jdbcType=VARCHAR}, #{dqjs3,jdbcType=DECIMAL}, 
+      #{hqjs3,jdbcType=DECIMAL}, #{sndqjs,jdbcType=DECIMAL}, #{snhqjs,jdbcType=DECIMAL}, 
+      #{sndqlx,jdbcType=DECIMAL}, #{snhqlx,jdbcType=DECIMAL}, #{sndqlxh,jdbcType=DECIMAL}, 
+      #{snhqlxh,jdbcType=DECIMAL}, #{bntq3,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Grzhxx">
+    insert into grzhxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="grbh != null">
+        GRBH,
+      </if>
+      <if test="dwbh != null">
+        DWBH,
+      </if>
+      <if test="zjlxbh != null">
+        ZJLXBH,
+      </if>
+      <if test="dwzhztbh != null">
+        DWZHZTBH,
+      </if>
+      <if test="grzh != null">
+        GRZH,
+      </if>
+      <if test="xingming != null">
+        XINGMING,
+      </if>
+      <if test="xmqp != null">
+        XMQP,
+      </if>
+      <if test="xingbie != null">
+        XINGBIE,
+      </if>
+      <if test="gddhhm2 != null">
+        GDDHHM2,
+      </if>
+      <if test="sjhm2 != null">
+        SJHM2,
+      </if>
+      <if test="csny != null">
+        CSNY,
+      </if>
+      <if test="hyzk != null">
+        HYZK,
+      </if>
+      <if test="zhiye != null">
+        ZHIYE,
+      </if>
+      <if test="zhicheng != null">
+        ZHICHENG,
+      </if>
+      <if test="zhiwu != null">
+        ZHIWU,
+      </if>
+      <if test="xueli != null">
+        XUELI,
+      </if>
+      <if test="dzxx != null">
+        DZXX,
+      </if>
+      <if test="yzbm != null">
+        YZBM,
+      </if>
+      <if test="jtzz != null">
+        JTZZ,
+      </if>
+      <if test="sbzh != null">
+        SBZH,
+      </if>
+      <if test="jtysr != null">
+        JTYSR,
+      </if>
+      <if test="dwzh3 != null">
+        DWZH3,
+      </if>
+      <if test="shenfen != null">
+        SHENFEN,
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3,
+      </if>
+      <if test="sjhmdr2 != null">
+        SJHMDR2,
+      </if>
+      <if test="xmszm2 != null">
+        XMSZM2,
+      </if>
+      <if test="xyzt != null">
+        XYZT,
+      </if>
+      <if test="xysm != null">
+        XYSM,
+      </if>
+      <if test="wtyhmm != null">
+        WTYHMM,
+      </if>
+      <if test="jyfwcs != null">
+        JYFWCS,
+      </if>
+      <if test="grjcjs3 != null">
+        GRJCJS3,
+      </if>
+      <if test="grzhzt != null">
+        GRZHZT,
+      </if>
+      <if test="khrq != null">
+        KHRQ,
+      </if>
+      <if test="grzhye != null">
+        GRZHYE,
+      </if>
+      <if test="grzhsnjzye != null">
+        GRZHSNJZYE,
+      </if>
+      <if test="grzhdngjye != null">
+        GRZHDNGJYE,
+      </if>
+      <if test="gryjce != null">
+        GRYJCE,
+      </if>
+      <if test="dwyjce != null">
+        DWYJCE,
+      </if>
+      <if test="xhrq != null">
+        XHRQ,
+      </if>
+      <if test="xhyy != null">
+        XHYY,
+      </if>
+      <if test="yhcxzh != null">
+        YHCXZH,
+      </if>
+      <if test="cxzhkhyhmc2 != null">
+        CXZHKHYHMC2,
+      </if>
+      <if test="cxzhkhyhdm2 != null">
+        CXZHKHYHDM2,
+      </if>
+      <if test="djlx != null">
+        DJLX,
+      </if>
+      <if test="dqjs3 != null">
+        DQJS3,
+      </if>
+      <if test="hqjs3 != null">
+        HQJS3,
+      </if>
+      <if test="sndqjs != null">
+        SNDQJS,
+      </if>
+      <if test="snhqjs != null">
+        SNHQJS,
+      </if>
+      <if test="sndqlx != null">
+        SNDQLX,
+      </if>
+      <if test="snhqlx != null">
+        SNHQLX,
+      </if>
+      <if test="sndqlxh != null">
+        SNDQLXH,
+      </if>
+      <if test="snhqlxh != null">
+        SNHQLXH,
+      </if>
+      <if test="bntq3 != null">
+        BNTQ3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="grbh != null">
+        #{grbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwbh != null">
+        #{dwbh,jdbcType=INTEGER},
+      </if>
+      <if test="zjlxbh != null">
+        #{zjlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwzhztbh != null">
+        #{dwzhztbh,jdbcType=INTEGER},
+      </if>
+      <if test="grzh != null">
+        #{grzh,jdbcType=VARCHAR},
+      </if>
+      <if test="xingming != null">
+        #{xingming,jdbcType=VARCHAR},
+      </if>
+      <if test="xmqp != null">
+        #{xmqp,jdbcType=VARCHAR},
+      </if>
+      <if test="xingbie != null">
+        #{xingbie,jdbcType=VARCHAR},
+      </if>
+      <if test="gddhhm2 != null">
+        #{gddhhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm2 != null">
+        #{sjhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="csny != null">
+        #{csny,jdbcType=VARCHAR},
+      </if>
+      <if test="hyzk != null">
+        #{hyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiye != null">
+        #{zhiye,jdbcType=VARCHAR},
+      </if>
+      <if test="zhicheng != null">
+        #{zhicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiwu != null">
+        #{zhiwu,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null">
+        #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="dzxx != null">
+        #{dzxx,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null">
+        #{yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="jtzz != null">
+        #{jtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="sbzh != null">
+        #{sbzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jtysr != null">
+        #{jtysr,jdbcType=INTEGER},
+      </if>
+      <if test="dwzh3 != null">
+        #{dwzh3,jdbcType=VARCHAR},
+      </if>
+      <if test="shenfen != null">
+        #{shenfen,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="sjhmdr2 != null">
+        #{sjhmdr2,jdbcType=VARCHAR},
+      </if>
+      <if test="xmszm2 != null">
+        #{xmszm2,jdbcType=VARCHAR},
+      </if>
+      <if test="xyzt != null">
+        #{xyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="xysm != null">
+        #{xysm,jdbcType=VARCHAR},
+      </if>
+      <if test="wtyhmm != null">
+        #{wtyhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="jyfwcs != null">
+        #{jyfwcs,jdbcType=VARCHAR},
+      </if>
+      <if test="grjcjs3 != null">
+        #{grjcjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="grzhzt != null">
+        #{grzhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="khrq != null">
+        #{khrq,jdbcType=VARCHAR},
+      </if>
+      <if test="grzhye != null">
+        #{grzhye,jdbcType=DECIMAL},
+      </if>
+      <if test="grzhsnjzye != null">
+        #{grzhsnjzye,jdbcType=DECIMAL},
+      </if>
+      <if test="grzhdngjye != null">
+        #{grzhdngjye,jdbcType=DECIMAL},
+      </if>
+      <if test="gryjce != null">
+        #{gryjce,jdbcType=DECIMAL},
+      </if>
+      <if test="dwyjce != null">
+        #{dwyjce,jdbcType=DECIMAL},
+      </if>
+      <if test="xhrq != null">
+        #{xhrq,jdbcType=VARCHAR},
+      </if>
+      <if test="xhyy != null">
+        #{xhyy,jdbcType=VARCHAR},
+      </if>
+      <if test="yhcxzh != null">
+        #{yhcxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="cxzhkhyhmc2 != null">
+        #{cxzhkhyhmc2,jdbcType=VARCHAR},
+      </if>
+      <if test="cxzhkhyhdm2 != null">
+        #{cxzhkhyhdm2,jdbcType=VARCHAR},
+      </if>
+      <if test="djlx != null">
+        #{djlx,jdbcType=VARCHAR},
+      </if>
+      <if test="dqjs3 != null">
+        #{dqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="hqjs3 != null">
+        #{hqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="sndqjs != null">
+        #{sndqjs,jdbcType=DECIMAL},
+      </if>
+      <if test="snhqjs != null">
+        #{snhqjs,jdbcType=DECIMAL},
+      </if>
+      <if test="sndqlx != null">
+        #{sndqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="snhqlx != null">
+        #{snhqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="sndqlxh != null">
+        #{sndqlxh,jdbcType=DECIMAL},
+      </if>
+      <if test="snhqlxh != null">
+        #{snhqlxh,jdbcType=DECIMAL},
+      </if>
+      <if test="bntq3 != null">
+        #{bntq3,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Grzhxx">
+    update grzhxx
+    <set>
+      <if test="dwbh != null">
+        DWBH = #{dwbh,jdbcType=INTEGER},
+      </if>
+      <if test="zjlxbh != null">
+        ZJLXBH = #{zjlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwzhztbh != null">
+        DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER},
+      </if>
+      <if test="grzh != null">
+        GRZH = #{grzh,jdbcType=VARCHAR},
+      </if>
+      <if test="xingming != null">
+        XINGMING = #{xingming,jdbcType=VARCHAR},
+      </if>
+      <if test="xmqp != null">
+        XMQP = #{xmqp,jdbcType=VARCHAR},
+      </if>
+      <if test="xingbie != null">
+        XINGBIE = #{xingbie,jdbcType=VARCHAR},
+      </if>
+      <if test="gddhhm2 != null">
+        GDDHHM2 = #{gddhhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm2 != null">
+        SJHM2 = #{sjhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="csny != null">
+        CSNY = #{csny,jdbcType=VARCHAR},
+      </if>
+      <if test="hyzk != null">
+        HYZK = #{hyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiye != null">
+        ZHIYE = #{zhiye,jdbcType=VARCHAR},
+      </if>
+      <if test="zhicheng != null">
+        ZHICHENG = #{zhicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiwu != null">
+        ZHIWU = #{zhiwu,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null">
+        XUELI = #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="dzxx != null">
+        DZXX = #{dzxx,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null">
+        YZBM = #{yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="jtzz != null">
+        JTZZ = #{jtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="sbzh != null">
+        SBZH = #{sbzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jtysr != null">
+        JTYSR = #{jtysr,jdbcType=INTEGER},
+      </if>
+      <if test="dwzh3 != null">
+        DWZH3 = #{dwzh3,jdbcType=VARCHAR},
+      </if>
+      <if test="shenfen != null">
+        SHENFEN = #{shenfen,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="sjhmdr2 != null">
+        SJHMDR2 = #{sjhmdr2,jdbcType=VARCHAR},
+      </if>
+      <if test="xmszm2 != null">
+        XMSZM2 = #{xmszm2,jdbcType=VARCHAR},
+      </if>
+      <if test="xyzt != null">
+        XYZT = #{xyzt,jdbcType=VARCHAR},
+      </if>
+      <if test="xysm != null">
+        XYSM = #{xysm,jdbcType=VARCHAR},
+      </if>
+      <if test="wtyhmm != null">
+        WTYHMM = #{wtyhmm,jdbcType=VARCHAR},
+      </if>
+      <if test="jyfwcs != null">
+        JYFWCS = #{jyfwcs,jdbcType=VARCHAR},
+      </if>
+      <if test="grjcjs3 != null">
+        GRJCJS3 = #{grjcjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="grzhzt != null">
+        GRZHZT = #{grzhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="khrq != null">
+        KHRQ = #{khrq,jdbcType=VARCHAR},
+      </if>
+      <if test="grzhye != null">
+        GRZHYE = #{grzhye,jdbcType=DECIMAL},
+      </if>
+      <if test="grzhsnjzye != null">
+        GRZHSNJZYE = #{grzhsnjzye,jdbcType=DECIMAL},
+      </if>
+      <if test="grzhdngjye != null">
+        GRZHDNGJYE = #{grzhdngjye,jdbcType=DECIMAL},
+      </if>
+      <if test="gryjce != null">
+        GRYJCE = #{gryjce,jdbcType=DECIMAL},
+      </if>
+      <if test="dwyjce != null">
+        DWYJCE = #{dwyjce,jdbcType=DECIMAL},
+      </if>
+      <if test="xhrq != null">
+        XHRQ = #{xhrq,jdbcType=VARCHAR},
+      </if>
+      <if test="xhyy != null">
+        XHYY = #{xhyy,jdbcType=VARCHAR},
+      </if>
+      <if test="yhcxzh != null">
+        YHCXZH = #{yhcxzh,jdbcType=VARCHAR},
+      </if>
+      <if test="cxzhkhyhmc2 != null">
+        CXZHKHYHMC2 = #{cxzhkhyhmc2,jdbcType=VARCHAR},
+      </if>
+      <if test="cxzhkhyhdm2 != null">
+        CXZHKHYHDM2 = #{cxzhkhyhdm2,jdbcType=VARCHAR},
+      </if>
+      <if test="djlx != null">
+        DJLX = #{djlx,jdbcType=VARCHAR},
+      </if>
+      <if test="dqjs3 != null">
+        DQJS3 = #{dqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="hqjs3 != null">
+        HQJS3 = #{hqjs3,jdbcType=DECIMAL},
+      </if>
+      <if test="sndqjs != null">
+        SNDQJS = #{sndqjs,jdbcType=DECIMAL},
+      </if>
+      <if test="snhqjs != null">
+        SNHQJS = #{snhqjs,jdbcType=DECIMAL},
+      </if>
+      <if test="sndqlx != null">
+        SNDQLX = #{sndqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="snhqlx != null">
+        SNHQLX = #{snhqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="sndqlxh != null">
+        SNDQLXH = #{sndqlxh,jdbcType=DECIMAL},
+      </if>
+      <if test="snhqlxh != null">
+        SNHQLXH = #{snhqlxh,jdbcType=DECIMAL},
+      </if>
+      <if test="bntq3 != null">
+        BNTQ3 = #{bntq3,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where GRBH = #{grbh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Grzhxx">
+    update grzhxx
+    set DWBH = #{dwbh,jdbcType=INTEGER},
+      ZJLXBH = #{zjlxbh,jdbcType=INTEGER},
+      DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER},
+      GRZH = #{grzh,jdbcType=VARCHAR},
+      XINGMING = #{xingming,jdbcType=VARCHAR},
+      XMQP = #{xmqp,jdbcType=VARCHAR},
+      XINGBIE = #{xingbie,jdbcType=VARCHAR},
+      GDDHHM2 = #{gddhhm2,jdbcType=VARCHAR},
+      SJHM2 = #{sjhm2,jdbcType=VARCHAR},
+      CSNY = #{csny,jdbcType=VARCHAR},
+      HYZK = #{hyzk,jdbcType=VARCHAR},
+      ZHIYE = #{zhiye,jdbcType=VARCHAR},
+      ZHICHENG = #{zhicheng,jdbcType=VARCHAR},
+      ZHIWU = #{zhiwu,jdbcType=VARCHAR},
+      XUELI = #{xueli,jdbcType=VARCHAR},
+      DZXX = #{dzxx,jdbcType=VARCHAR},
+      YZBM = #{yzbm,jdbcType=VARCHAR},
+      JTZZ = #{jtzz,jdbcType=VARCHAR},
+      SBZH = #{sbzh,jdbcType=VARCHAR},
+      JTYSR = #{jtysr,jdbcType=INTEGER},
+      DWZH3 = #{dwzh3,jdbcType=VARCHAR},
+      SHENFEN = #{shenfen,jdbcType=VARCHAR},
+      WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      SJHMDR2 = #{sjhmdr2,jdbcType=VARCHAR},
+      XMSZM2 = #{xmszm2,jdbcType=VARCHAR},
+      XYZT = #{xyzt,jdbcType=VARCHAR},
+      XYSM = #{xysm,jdbcType=VARCHAR},
+      WTYHMM = #{wtyhmm,jdbcType=VARCHAR},
+      JYFWCS = #{jyfwcs,jdbcType=VARCHAR},
+      GRJCJS3 = #{grjcjs3,jdbcType=DECIMAL},
+      GRZHZT = #{grzhzt,jdbcType=VARCHAR},
+      KHRQ = #{khrq,jdbcType=VARCHAR},
+      GRZHYE = #{grzhye,jdbcType=DECIMAL},
+      GRZHSNJZYE = #{grzhsnjzye,jdbcType=DECIMAL},
+      GRZHDNGJYE = #{grzhdngjye,jdbcType=DECIMAL},
+      GRYJCE = #{gryjce,jdbcType=DECIMAL},
+      DWYJCE = #{dwyjce,jdbcType=DECIMAL},
+      XHRQ = #{xhrq,jdbcType=VARCHAR},
+      XHYY = #{xhyy,jdbcType=VARCHAR},
+      YHCXZH = #{yhcxzh,jdbcType=VARCHAR},
+      CXZHKHYHMC2 = #{cxzhkhyhmc2,jdbcType=VARCHAR},
+      CXZHKHYHDM2 = #{cxzhkhyhdm2,jdbcType=VARCHAR},
+      DJLX = #{djlx,jdbcType=VARCHAR},
+      DQJS3 = #{dqjs3,jdbcType=DECIMAL},
+      HQJS3 = #{hqjs3,jdbcType=DECIMAL},
+      SNDQJS = #{sndqjs,jdbcType=DECIMAL},
+      SNHQJS = #{snhqjs,jdbcType=DECIMAL},
+      SNDQLX = #{sndqlx,jdbcType=DECIMAL},
+      SNHQLX = #{snhqlx,jdbcType=DECIMAL},
+      SNDQLXH = #{sndqlxh,jdbcType=DECIMAL},
+      SNHQLXH = #{snhqlxh,jdbcType=DECIMAL},
+      BNTQ3 = #{bntq3,jdbcType=DECIMAL}
+    where GRBH = #{grbh,jdbcType=INTEGER}
+  </update>
+</mapper>
