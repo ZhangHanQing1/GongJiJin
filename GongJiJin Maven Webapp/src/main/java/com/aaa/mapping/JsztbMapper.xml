@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.JsztbMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Jsztb">
+    <id column="JSZTBH" jdbcType="INTEGER" property="jsztbh" />
+    <result column="ZTMC" jdbcType="VARCHAR" property="ztmc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    JSZTBH, ZTMC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jsztb
+    where JSZTBH = #{jsztbh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jsztb
+    where JSZTBH = #{jsztbh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Jsztb">
+    insert into jsztb (JSZTBH, ZTMC)
+    values (#{jsztbh,jdbcType=INTEGER}, #{ztmc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Jsztb">
+    insert into jsztb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jsztbh != null">
+        JSZTBH,
+      </if>
+      <if test="ztmc != null">
+        ZTMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jsztbh != null">
+        #{jsztbh,jdbcType=INTEGER},
+      </if>
+      <if test="ztmc != null">
+        #{ztmc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Jsztb">
+    update jsztb
+    <set>
+      <if test="ztmc != null">
+        ZTMC = #{ztmc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where JSZTBH = #{jsztbh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Jsztb">
+    update jsztb
+    set ZTMC = #{ztmc,jdbcType=VARCHAR}
+    where JSZTBH = #{jsztbh,jdbcType=INTEGER}
+  </update>
+</mapper>

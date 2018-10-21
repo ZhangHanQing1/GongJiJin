@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.DkkdlpxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Dkkdlpxx">
+    <id column="LPZJ" jdbcType="INTEGER" property="lpzj" />
+    <result column="KFSZJ" jdbcType="INTEGER" property="kfszj" />
+    <result column="KFSBH" jdbcType="VARCHAR" property="kfsbh" />
+    <result column="LPBH" jdbcType="VARCHAR" property="lpbh" />
+    <result column="LPMC" jdbcType="VARCHAR" property="lpmc" />
+    <result column="LPWZ" jdbcType="VARCHAR" property="lpwz" />
+    <result column="JZJG" jdbcType="VARCHAR" property="jzjg" />
+    <result column="TZZD4" jdbcType="VARCHAR" property="tzzd4" />
+    <result column="TZZD5" jdbcType="VARCHAR" property="tzzd5" />
+    <result column="TZZD6" jdbcType="VARCHAR" property="tzzd6" />
+    <result column="CJR3" jdbcType="VARCHAR" property="cjr3" />
+    <result column="CJSJ3" jdbcType="DATE" property="cjsj3" />
+    <result column="LPBAH" jdbcType="VARCHAR" property="lpbah" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LPZJ, KFSZJ, KFSBH, LPBH, LPMC, LPWZ, JZJG, TZZD4, TZZD5, TZZD6, CJR3, CJSJ3, LPBAH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dkkdlpxx
+    where LPZJ = #{lpzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dkkdlpxx
+    where LPZJ = #{lpzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Dkkdlpxx">
+    insert into dkkdlpxx (LPZJ, KFSZJ, KFSBH, 
+      LPBH, LPMC, LPWZ, JZJG, 
+      TZZD4, TZZD5, TZZD6, 
+      CJR3, CJSJ3, LPBAH)
+    values (#{lpzj,jdbcType=INTEGER}, #{kfszj,jdbcType=INTEGER}, #{kfsbh,jdbcType=VARCHAR}, 
+      #{lpbh,jdbcType=VARCHAR}, #{lpmc,jdbcType=VARCHAR}, #{lpwz,jdbcType=VARCHAR}, #{jzjg,jdbcType=VARCHAR}, 
+      #{tzzd4,jdbcType=VARCHAR}, #{tzzd5,jdbcType=VARCHAR}, #{tzzd6,jdbcType=VARCHAR}, 
+      #{cjr3,jdbcType=VARCHAR}, #{cjsj3,jdbcType=DATE}, #{lpbah,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Dkkdlpxx">
+    insert into dkkdlpxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lpzj != null">
+        LPZJ,
+      </if>
+      <if test="kfszj != null">
+        KFSZJ,
+      </if>
+      <if test="kfsbh != null">
+        KFSBH,
+      </if>
+      <if test="lpbh != null">
+        LPBH,
+      </if>
+      <if test="lpmc != null">
+        LPMC,
+      </if>
+      <if test="lpwz != null">
+        LPWZ,
+      </if>
+      <if test="jzjg != null">
+        JZJG,
+      </if>
+      <if test="tzzd4 != null">
+        TZZD4,
+      </if>
+      <if test="tzzd5 != null">
+        TZZD5,
+      </if>
+      <if test="tzzd6 != null">
+        TZZD6,
+      </if>
+      <if test="cjr3 != null">
+        CJR3,
+      </if>
+      <if test="cjsj3 != null">
+        CJSJ3,
+      </if>
+      <if test="lpbah != null">
+        LPBAH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lpzj != null">
+        #{lpzj,jdbcType=INTEGER},
+      </if>
+      <if test="kfszj != null">
+        #{kfszj,jdbcType=INTEGER},
+      </if>
+      <if test="kfsbh != null">
+        #{kfsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lpbh != null">
+        #{lpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lpmc != null">
+        #{lpmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lpwz != null">
+        #{lpwz,jdbcType=VARCHAR},
+      </if>
+      <if test="jzjg != null">
+        #{jzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd4 != null">
+        #{tzzd4,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd5 != null">
+        #{tzzd5,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd6 != null">
+        #{tzzd6,jdbcType=VARCHAR},
+      </if>
+      <if test="cjr3 != null">
+        #{cjr3,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj3 != null">
+        #{cjsj3,jdbcType=DATE},
+      </if>
+      <if test="lpbah != null">
+        #{lpbah,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Dkkdlpxx">
+    update dkkdlpxx
+    <set>
+      <if test="kfszj != null">
+        KFSZJ = #{kfszj,jdbcType=INTEGER},
+      </if>
+      <if test="kfsbh != null">
+        KFSBH = #{kfsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lpbh != null">
+        LPBH = #{lpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lpmc != null">
+        LPMC = #{lpmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lpwz != null">
+        LPWZ = #{lpwz,jdbcType=VARCHAR},
+      </if>
+      <if test="jzjg != null">
+        JZJG = #{jzjg,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd4 != null">
+        TZZD4 = #{tzzd4,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd5 != null">
+        TZZD5 = #{tzzd5,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd6 != null">
+        TZZD6 = #{tzzd6,jdbcType=VARCHAR},
+      </if>
+      <if test="cjr3 != null">
+        CJR3 = #{cjr3,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj3 != null">
+        CJSJ3 = #{cjsj3,jdbcType=DATE},
+      </if>
+      <if test="lpbah != null">
+        LPBAH = #{lpbah,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LPZJ = #{lpzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Dkkdlpxx">
+    update dkkdlpxx
+    set KFSZJ = #{kfszj,jdbcType=INTEGER},
+      KFSBH = #{kfsbh,jdbcType=VARCHAR},
+      LPBH = #{lpbh,jdbcType=VARCHAR},
+      LPMC = #{lpmc,jdbcType=VARCHAR},
+      LPWZ = #{lpwz,jdbcType=VARCHAR},
+      JZJG = #{jzjg,jdbcType=VARCHAR},
+      TZZD4 = #{tzzd4,jdbcType=VARCHAR},
+      TZZD5 = #{tzzd5,jdbcType=VARCHAR},
+      TZZD6 = #{tzzd6,jdbcType=VARCHAR},
+      CJR3 = #{cjr3,jdbcType=VARCHAR},
+      CJSJ3 = #{cjsj3,jdbcType=DATE},
+      LPBAH = #{lpbah,jdbcType=VARCHAR}
+    where LPZJ = #{lpzj,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sy_dk_dyxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_dyxx">
+    <id column="DYXXZJ" jdbcType="INTEGER" property="dyxxzj" />
+    <result column="DYHTBH" jdbcType="VARCHAR" property="dyhtbh" />
+    <result column="XXBH" jdbcType="VARCHAR" property="xxbh" />
+    <result column="DYLX" jdbcType="VARCHAR" property="dylx" />
+    <result column="DYRXM" jdbcType="VARCHAR" property="dyrxm" />
+    <result column="DYRNL" jdbcType="DECIMAL" property="dyrnl" />
+    <result column="DYRXB" jdbcType="VARCHAR" property="dyrxb" />
+    <result column="DYRSFZH" jdbcType="VARCHAR" property="dyrsfzh" />
+    <result column="DYRSJHM" jdbcType="VARCHAR" property="dyrsjhm" />
+    <result column="DYRGJJZH" jdbcType="VARCHAR" property="dyrgjjzh" />
+    <result column="DYRSF" jdbcType="VARCHAR" property="dyrsf" />
+    <result column="DYRDWZH" jdbcType="VARCHAR" property="dyrdwzh" />
+    <result column="DYRDWMC" jdbcType="VARCHAR" property="dyrdwmc" />
+    <result column="DYRDWDZ" jdbcType="VARCHAR" property="dyrdwdz" />
+    <result column="DYRDWDH" jdbcType="VARCHAR" property="dyrdwdh" />
+    <result column="DYRJTZZ" jdbcType="VARCHAR" property="dyrjtzz" />
+    <result column="DYSYQR" jdbcType="VARCHAR" property="dysyqr" />
+    <result column="DYSYQRQDH" jdbcType="VARCHAR" property="dysyqrqdh" />
+    <result column="DYSYQSFZH" jdbcType="VARCHAR" property="dysyqsfzh" />
+    <result column="DYGYR" jdbcType="VARCHAR" property="dygyr" />
+    <result column="DYWTXQZH" jdbcType="VARCHAR" property="dywtxqzh" />
+    <result column="DYWSYQZH" jdbcType="VARCHAR" property="dywsyqzh" />
+    <result column="DYWYGDJZ" jdbcType="VARCHAR" property="dywygdjz" />
+    <result column="DYWDZ" jdbcType="VARCHAR" property="dywdz" />
+    <result column="DBGS" jdbcType="VARCHAR" property="dbgs" />
+    <result column="FWYGDJZ" jdbcType="VARCHAR" property="fwygdjz" />
+    <result column="BDCDJZM" jdbcType="VARCHAR" property="bdcdjzm" />
+    <result column="DYJE" jdbcType="DECIMAL" property="dyje" />
+    <result column="PGZ" jdbcType="DECIMAL" property="pgz" />
+    <result column="DYWXZ" jdbcType="VARCHAR" property="dywxz" />
+    <result column="DYWLX" jdbcType="VARCHAR" property="dywlx" />
+    <result column="DYWMJ" jdbcType="DECIMAL" property="dywmj" />
+    <result column="TDZH" jdbcType="VARCHAR" property="tdzh" />
+    <result column="BEIZ" jdbcType="VARCHAR" property="beiz" />
+    <result column="DBZT" jdbcType="VARCHAR" property="dbzt" />
+    <result column="XMSZM" jdbcType="VARCHAR" property="xmszm" />
+    <result column="DYWBDCQZ" jdbcType="VARCHAR" property="dywbdcqz" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DYXXZJ, DYHTBH, XXBH, DYLX, DYRXM, DYRNL, DYRXB, DYRSFZH, DYRSJHM, DYRGJJZH, DYRSF, 
+    DYRDWZH, DYRDWMC, DYRDWDZ, DYRDWDH, DYRJTZZ, DYSYQR, DYSYQRQDH, DYSYQSFZH, DYGYR, 
+    DYWTXQZH, DYWSYQZH, DYWYGDJZ, DYWDZ, DBGS, FWYGDJZ, BDCDJZM, DYJE, PGZ, DYWXZ, DYWLX, 
+    DYWMJ, TDZH, BEIZ, DBZT, XMSZM, DYWBDCQZ
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sy_dk_dyxx
+    where DYXXZJ = #{dyxxzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sy_dk_dyxx
+    where DYXXZJ = #{dyxxzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_dyxx">
+    insert into sy_dk_dyxx (DYXXZJ, DYHTBH, XXBH, 
+      DYLX, DYRXM, DYRNL, 
+      DYRXB, DYRSFZH, DYRSJHM, 
+      DYRGJJZH, DYRSF, DYRDWZH, 
+      DYRDWMC, DYRDWDZ, DYRDWDH, 
+      DYRJTZZ, DYSYQR, DYSYQRQDH, 
+      DYSYQSFZH, DYGYR, DYWTXQZH, 
+      DYWSYQZH, DYWYGDJZ, DYWDZ, 
+      DBGS, FWYGDJZ, BDCDJZM, 
+      DYJE, PGZ, DYWXZ, DYWLX, 
+      DYWMJ, TDZH, BEIZ, 
+      DBZT, XMSZM, DYWBDCQZ
+      )
+    values (#{dyxxzj,jdbcType=INTEGER}, #{dyhtbh,jdbcType=VARCHAR}, #{xxbh,jdbcType=VARCHAR}, 
+      #{dylx,jdbcType=VARCHAR}, #{dyrxm,jdbcType=VARCHAR}, #{dyrnl,jdbcType=DECIMAL}, 
+      #{dyrxb,jdbcType=VARCHAR}, #{dyrsfzh,jdbcType=VARCHAR}, #{dyrsjhm,jdbcType=VARCHAR}, 
+      #{dyrgjjzh,jdbcType=VARCHAR}, #{dyrsf,jdbcType=VARCHAR}, #{dyrdwzh,jdbcType=VARCHAR}, 
+      #{dyrdwmc,jdbcType=VARCHAR}, #{dyrdwdz,jdbcType=VARCHAR}, #{dyrdwdh,jdbcType=VARCHAR}, 
+      #{dyrjtzz,jdbcType=VARCHAR}, #{dysyqr,jdbcType=VARCHAR}, #{dysyqrqdh,jdbcType=VARCHAR}, 
+      #{dysyqsfzh,jdbcType=VARCHAR}, #{dygyr,jdbcType=VARCHAR}, #{dywtxqzh,jdbcType=VARCHAR}, 
+      #{dywsyqzh,jdbcType=VARCHAR}, #{dywygdjz,jdbcType=VARCHAR}, #{dywdz,jdbcType=VARCHAR}, 
+      #{dbgs,jdbcType=VARCHAR}, #{fwygdjz,jdbcType=VARCHAR}, #{bdcdjzm,jdbcType=VARCHAR}, 
+      #{dyje,jdbcType=DECIMAL}, #{pgz,jdbcType=DECIMAL}, #{dywxz,jdbcType=VARCHAR}, #{dywlx,jdbcType=VARCHAR}, 
+      #{dywmj,jdbcType=DECIMAL}, #{tdzh,jdbcType=VARCHAR}, #{beiz,jdbcType=VARCHAR}, 
+      #{dbzt,jdbcType=VARCHAR}, #{xmszm,jdbcType=VARCHAR}, #{dywbdcqz,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_dyxx">
+    insert into sy_dk_dyxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dyxxzj != null">
+        DYXXZJ,
+      </if>
+      <if test="dyhtbh != null">
+        DYHTBH,
+      </if>
+      <if test="xxbh != null">
+        XXBH,
+      </if>
+      <if test="dylx != null">
+        DYLX,
+      </if>
+      <if test="dyrxm != null">
+        DYRXM,
+      </if>
+      <if test="dyrnl != null">
+        DYRNL,
+      </if>
+      <if test="dyrxb != null">
+        DYRXB,
+      </if>
+      <if test="dyrsfzh != null">
+        DYRSFZH,
+      </if>
+      <if test="dyrsjhm != null">
+        DYRSJHM,
+      </if>
+      <if test="dyrgjjzh != null">
+        DYRGJJZH,
+      </if>
+      <if test="dyrsf != null">
+        DYRSF,
+      </if>
+      <if test="dyrdwzh != null">
+        DYRDWZH,
+      </if>
+      <if test="dyrdwmc != null">
+        DYRDWMC,
+      </if>
+      <if test="dyrdwdz != null">
+        DYRDWDZ,
+      </if>
+      <if test="dyrdwdh != null">
+        DYRDWDH,
+      </if>
+      <if test="dyrjtzz != null">
+        DYRJTZZ,
+      </if>
+      <if test="dysyqr != null">
+        DYSYQR,
+      </if>
+      <if test="dysyqrqdh != null">
+        DYSYQRQDH,
+      </if>
+      <if test="dysyqsfzh != null">
+        DYSYQSFZH,
+      </if>
+      <if test="dygyr != null">
+        DYGYR,
+      </if>
+      <if test="dywtxqzh != null">
+        DYWTXQZH,
+      </if>
+      <if test="dywsyqzh != null">
+        DYWSYQZH,
+      </if>
+      <if test="dywygdjz != null">
+        DYWYGDJZ,
+      </if>
+      <if test="dywdz != null">
+        DYWDZ,
+      </if>
+      <if test="dbgs != null">
+        DBGS,
+      </if>
+      <if test="fwygdjz != null">
+        FWYGDJZ,
+      </if>
+      <if test="bdcdjzm != null">
+        BDCDJZM,
+      </if>
+      <if test="dyje != null">
+        DYJE,
+      </if>
+      <if test="pgz != null">
+        PGZ,
+      </if>
+      <if test="dywxz != null">
+        DYWXZ,
+      </if>
+      <if test="dywlx != null">
+        DYWLX,
+      </if>
+      <if test="dywmj != null">
+        DYWMJ,
+      </if>
+      <if test="tdzh != null">
+        TDZH,
+      </if>
+      <if test="beiz != null">
+        BEIZ,
+      </if>
+      <if test="dbzt != null">
+        DBZT,
+      </if>
+      <if test="xmszm != null">
+        XMSZM,
+      </if>
+      <if test="dywbdcqz != null">
+        DYWBDCQZ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dyxxzj != null">
+        #{dyxxzj,jdbcType=INTEGER},
+      </if>
+      <if test="dyhtbh != null">
+        #{dyhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xxbh != null">
+        #{xxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dylx != null">
+        #{dylx,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrxm != null">
+        #{dyrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrnl != null">
+        #{dyrnl,jdbcType=DECIMAL},
+      </if>
+      <if test="dyrxb != null">
+        #{dyrxb,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrsfzh != null">
+        #{dyrsfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrsjhm != null">
+        #{dyrsjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrgjjzh != null">
+        #{dyrgjjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrsf != null">
+        #{dyrsf,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwzh != null">
+        #{dyrdwzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwmc != null">
+        #{dyrdwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwdz != null">
+        #{dyrdwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwdh != null">
+        #{dyrdwdh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrjtzz != null">
+        #{dyrjtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="dysyqr != null">
+        #{dysyqr,jdbcType=VARCHAR},
+      </if>
+      <if test="dysyqrqdh != null">
+        #{dysyqrqdh,jdbcType=VARCHAR},
+      </if>
+      <if test="dysyqsfzh != null">
+        #{dysyqsfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dygyr != null">
+        #{dygyr,jdbcType=VARCHAR},
+      </if>
+      <if test="dywtxqzh != null">
+        #{dywtxqzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dywsyqzh != null">
+        #{dywsyqzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dywygdjz != null">
+        #{dywygdjz,jdbcType=VARCHAR},
+      </if>
+      <if test="dywdz != null">
+        #{dywdz,jdbcType=VARCHAR},
+      </if>
+      <if test="dbgs != null">
+        #{dbgs,jdbcType=VARCHAR},
+      </if>
+      <if test="fwygdjz != null">
+        #{fwygdjz,jdbcType=VARCHAR},
+      </if>
+      <if test="bdcdjzm != null">
+        #{bdcdjzm,jdbcType=VARCHAR},
+      </if>
+      <if test="dyje != null">
+        #{dyje,jdbcType=DECIMAL},
+      </if>
+      <if test="pgz != null">
+        #{pgz,jdbcType=DECIMAL},
+      </if>
+      <if test="dywxz != null">
+        #{dywxz,jdbcType=VARCHAR},
+      </if>
+      <if test="dywlx != null">
+        #{dywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="dywmj != null">
+        #{dywmj,jdbcType=DECIMAL},
+      </if>
+      <if test="tdzh != null">
+        #{tdzh,jdbcType=VARCHAR},
+      </if>
+      <if test="beiz != null">
+        #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="dbzt != null">
+        #{dbzt,jdbcType=VARCHAR},
+      </if>
+      <if test="xmszm != null">
+        #{xmszm,jdbcType=VARCHAR},
+      </if>
+      <if test="dywbdcqz != null">
+        #{dywbdcqz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_dk_dyxx">
+    update sy_dk_dyxx
+    <set>
+      <if test="dyhtbh != null">
+        DYHTBH = #{dyhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xxbh != null">
+        XXBH = #{xxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dylx != null">
+        DYLX = #{dylx,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrxm != null">
+        DYRXM = #{dyrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrnl != null">
+        DYRNL = #{dyrnl,jdbcType=DECIMAL},
+      </if>
+      <if test="dyrxb != null">
+        DYRXB = #{dyrxb,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrsfzh != null">
+        DYRSFZH = #{dyrsfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrsjhm != null">
+        DYRSJHM = #{dyrsjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrgjjzh != null">
+        DYRGJJZH = #{dyrgjjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrsf != null">
+        DYRSF = #{dyrsf,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwzh != null">
+        DYRDWZH = #{dyrdwzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwmc != null">
+        DYRDWMC = #{dyrdwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwdz != null">
+        DYRDWDZ = #{dyrdwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrdwdh != null">
+        DYRDWDH = #{dyrdwdh,jdbcType=VARCHAR},
+      </if>
+      <if test="dyrjtzz != null">
+        DYRJTZZ = #{dyrjtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="dysyqr != null">
+        DYSYQR = #{dysyqr,jdbcType=VARCHAR},
+      </if>
+      <if test="dysyqrqdh != null">
+        DYSYQRQDH = #{dysyqrqdh,jdbcType=VARCHAR},
+      </if>
+      <if test="dysyqsfzh != null">
+        DYSYQSFZH = #{dysyqsfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dygyr != null">
+        DYGYR = #{dygyr,jdbcType=VARCHAR},
+      </if>
+      <if test="dywtxqzh != null">
+        DYWTXQZH = #{dywtxqzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dywsyqzh != null">
+        DYWSYQZH = #{dywsyqzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dywygdjz != null">
+        DYWYGDJZ = #{dywygdjz,jdbcType=VARCHAR},
+      </if>
+      <if test="dywdz != null">
+        DYWDZ = #{dywdz,jdbcType=VARCHAR},
+      </if>
+      <if test="dbgs != null">
+        DBGS = #{dbgs,jdbcType=VARCHAR},
+      </if>
+      <if test="fwygdjz != null">
+        FWYGDJZ = #{fwygdjz,jdbcType=VARCHAR},
+      </if>
+      <if test="bdcdjzm != null">
+        BDCDJZM = #{bdcdjzm,jdbcType=VARCHAR},
+      </if>
+      <if test="dyje != null">
+        DYJE = #{dyje,jdbcType=DECIMAL},
+      </if>
+      <if test="pgz != null">
+        PGZ = #{pgz,jdbcType=DECIMAL},
+      </if>
+      <if test="dywxz != null">
+        DYWXZ = #{dywxz,jdbcType=VARCHAR},
+      </if>
+      <if test="dywlx != null">
+        DYWLX = #{dywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="dywmj != null">
+        DYWMJ = #{dywmj,jdbcType=DECIMAL},
+      </if>
+      <if test="tdzh != null">
+        TDZH = #{tdzh,jdbcType=VARCHAR},
+      </if>
+      <if test="beiz != null">
+        BEIZ = #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="dbzt != null">
+        DBZT = #{dbzt,jdbcType=VARCHAR},
+      </if>
+      <if test="xmszm != null">
+        XMSZM = #{xmszm,jdbcType=VARCHAR},
+      </if>
+      <if test="dywbdcqz != null">
+        DYWBDCQZ = #{dywbdcqz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DYXXZJ = #{dyxxzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_dk_dyxx">
+    update sy_dk_dyxx
+    set DYHTBH = #{dyhtbh,jdbcType=VARCHAR},
+      XXBH = #{xxbh,jdbcType=VARCHAR},
+      DYLX = #{dylx,jdbcType=VARCHAR},
+      DYRXM = #{dyrxm,jdbcType=VARCHAR},
+      DYRNL = #{dyrnl,jdbcType=DECIMAL},
+      DYRXB = #{dyrxb,jdbcType=VARCHAR},
+      DYRSFZH = #{dyrsfzh,jdbcType=VARCHAR},
+      DYRSJHM = #{dyrsjhm,jdbcType=VARCHAR},
+      DYRGJJZH = #{dyrgjjzh,jdbcType=VARCHAR},
+      DYRSF = #{dyrsf,jdbcType=VARCHAR},
+      DYRDWZH = #{dyrdwzh,jdbcType=VARCHAR},
+      DYRDWMC = #{dyrdwmc,jdbcType=VARCHAR},
+      DYRDWDZ = #{dyrdwdz,jdbcType=VARCHAR},
+      DYRDWDH = #{dyrdwdh,jdbcType=VARCHAR},
+      DYRJTZZ = #{dyrjtzz,jdbcType=VARCHAR},
+      DYSYQR = #{dysyqr,jdbcType=VARCHAR},
+      DYSYQRQDH = #{dysyqrqdh,jdbcType=VARCHAR},
+      DYSYQSFZH = #{dysyqsfzh,jdbcType=VARCHAR},
+      DYGYR = #{dygyr,jdbcType=VARCHAR},
+      DYWTXQZH = #{dywtxqzh,jdbcType=VARCHAR},
+      DYWSYQZH = #{dywsyqzh,jdbcType=VARCHAR},
+      DYWYGDJZ = #{dywygdjz,jdbcType=VARCHAR},
+      DYWDZ = #{dywdz,jdbcType=VARCHAR},
+      DBGS = #{dbgs,jdbcType=VARCHAR},
+      FWYGDJZ = #{fwygdjz,jdbcType=VARCHAR},
+      BDCDJZM = #{bdcdjzm,jdbcType=VARCHAR},
+      DYJE = #{dyje,jdbcType=DECIMAL},
+      PGZ = #{pgz,jdbcType=DECIMAL},
+      DYWXZ = #{dywxz,jdbcType=VARCHAR},
+      DYWLX = #{dywlx,jdbcType=VARCHAR},
+      DYWMJ = #{dywmj,jdbcType=DECIMAL},
+      TDZH = #{tdzh,jdbcType=VARCHAR},
+      BEIZ = #{beiz,jdbcType=VARCHAR},
+      DBZT = #{dbzt,jdbcType=VARCHAR},
+      XMSZM = #{xmszm,jdbcType=VARCHAR},
+      DYWBDCQZ = #{dywbdcqz,jdbcType=VARCHAR}
+    where DYXXZJ = #{dyxxzj,jdbcType=INTEGER}
+  </update>
+</mapper>

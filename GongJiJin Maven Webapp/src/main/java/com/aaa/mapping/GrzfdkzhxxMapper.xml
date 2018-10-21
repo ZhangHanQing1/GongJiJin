@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.GrzfdkzhxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Grzfdkzhxx">
+    <id column="DKZJ" jdbcType="INTEGER" property="dkzj" />
+    <result column="DKZH" jdbcType="VARCHAR" property="dkzh" />
+    <result column="JKHTBH" jdbcType="VARCHAR" property="jkhtbh" />
+    <result column="DKFXDJ" jdbcType="VARCHAR" property="dkfxdj" />
+    <result column="DKFFE" jdbcType="DECIMAL" property="dkffe" />
+    <result column="DKFFRQ" jdbcType="DATE" property="dkffrq" />
+    <result column="DKYE" jdbcType="DECIMAL" property="dkye" />
+    <result column="ZXLL" jdbcType="DECIMAL" property="zxll" />
+    <result column="LLFDBL" jdbcType="DECIMAL" property="llfdbl" />
+    <result column="DKQS" jdbcType="DECIMAL" property="dkqs" />
+    <result column="DQJHHKJE" jdbcType="DECIMAL" property="dqjhhkje" />
+    <result column="DQJHGHBJ" jdbcType="DECIMAL" property="dqjhghbj" />
+    <result column="DQJHGHLX" jdbcType="DECIMAL" property="dqjhghlx" />
+    <result column="DQYHZE" jdbcType="DECIMAL" property="dqyhze" />
+    <result column="DQYHBJ" jdbcType="DECIMAL" property="dqyhbj" />
+    <result column="DQYHLX" jdbcType="DECIMAL" property="dqyhlx" />
+    <result column="DQYHFX" jdbcType="DECIMAL" property="dqyhfx" />
+    <result column="DKJQRQ" jdbcType="DATE" property="dkjqrq" />
+    <result column="HSBJZE" jdbcType="DECIMAL" property="hsbjze" />
+    <result column="HSLXZE" jdbcType="DECIMAL" property="hslxze" />
+    <result column="FXZE" jdbcType="DECIMAL" property="fxze" />
+    <result column="TQGHBJZE" jdbcType="DECIMAL" property="tqghbjze" />
+    <result column="YQBJ" jdbcType="DECIMAL" property="yqbj" />
+    <result column="YQLX" jdbcType="DECIMAL" property="yqlx" />
+    <result column="LJYQQS" jdbcType="DECIMAL" property="ljyqqs" />
+    <result column="SHZT" jdbcType="VARCHAR" property="shzt" />
+    <result column="SFZX" jdbcType="VARCHAR" property="sfzx" />
+    <result column="KJHSKMBH" jdbcType="VARCHAR" property="kjhskmbh" />
+    <result column="WDBH3" jdbcType="DECIMAL" property="wdbh3" />
+    <result column="DKLRLX" jdbcType="VARCHAR" property="dklrlx" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DKZJ, DKZH, JKHTBH, DKFXDJ, DKFFE, DKFFRQ, DKYE, ZXLL, LLFDBL, DKQS, DQJHHKJE, DQJHGHBJ, 
+    DQJHGHLX, DQYHZE, DQYHBJ, DQYHLX, DQYHFX, DKJQRQ, HSBJZE, HSLXZE, FXZE, TQGHBJZE, 
+    YQBJ, YQLX, LJYQQS, SHZT, SFZX, KJHSKMBH, WDBH3, DKLRLX
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from grzfdkzhxx
+    where DKZJ = #{dkzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from grzfdkzhxx
+    where DKZJ = #{dkzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Grzfdkzhxx">
+    insert into grzfdkzhxx (DKZJ, DKZH, JKHTBH, 
+      DKFXDJ, DKFFE, DKFFRQ, 
+      DKYE, ZXLL, LLFDBL, 
+      DKQS, DQJHHKJE, DQJHGHBJ, 
+      DQJHGHLX, DQYHZE, DQYHBJ, 
+      DQYHLX, DQYHFX, DKJQRQ, 
+      HSBJZE, HSLXZE, FXZE, 
+      TQGHBJZE, YQBJ, YQLX, 
+      LJYQQS, SHZT, SFZX, 
+      KJHSKMBH, WDBH3, DKLRLX
+      )
+    values (#{dkzj,jdbcType=INTEGER}, #{dkzh,jdbcType=VARCHAR}, #{jkhtbh,jdbcType=VARCHAR}, 
+      #{dkfxdj,jdbcType=VARCHAR}, #{dkffe,jdbcType=DECIMAL}, #{dkffrq,jdbcType=DATE}, 
+      #{dkye,jdbcType=DECIMAL}, #{zxll,jdbcType=DECIMAL}, #{llfdbl,jdbcType=DECIMAL}, 
+      #{dkqs,jdbcType=DECIMAL}, #{dqjhhkje,jdbcType=DECIMAL}, #{dqjhghbj,jdbcType=DECIMAL}, 
+      #{dqjhghlx,jdbcType=DECIMAL}, #{dqyhze,jdbcType=DECIMAL}, #{dqyhbj,jdbcType=DECIMAL}, 
+      #{dqyhlx,jdbcType=DECIMAL}, #{dqyhfx,jdbcType=DECIMAL}, #{dkjqrq,jdbcType=DATE}, 
+      #{hsbjze,jdbcType=DECIMAL}, #{hslxze,jdbcType=DECIMAL}, #{fxze,jdbcType=DECIMAL}, 
+      #{tqghbjze,jdbcType=DECIMAL}, #{yqbj,jdbcType=DECIMAL}, #{yqlx,jdbcType=DECIMAL}, 
+      #{ljyqqs,jdbcType=DECIMAL}, #{shzt,jdbcType=VARCHAR}, #{sfzx,jdbcType=VARCHAR}, 
+      #{kjhskmbh,jdbcType=VARCHAR}, #{wdbh3,jdbcType=DECIMAL}, #{dklrlx,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Grzfdkzhxx">
+    insert into grzfdkzhxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dkzj != null">
+        DKZJ,
+      </if>
+      <if test="dkzh != null">
+        DKZH,
+      </if>
+      <if test="jkhtbh != null">
+        JKHTBH,
+      </if>
+      <if test="dkfxdj != null">
+        DKFXDJ,
+      </if>
+      <if test="dkffe != null">
+        DKFFE,
+      </if>
+      <if test="dkffrq != null">
+        DKFFRQ,
+      </if>
+      <if test="dkye != null">
+        DKYE,
+      </if>
+      <if test="zxll != null">
+        ZXLL,
+      </if>
+      <if test="llfdbl != null">
+        LLFDBL,
+      </if>
+      <if test="dkqs != null">
+        DKQS,
+      </if>
+      <if test="dqjhhkje != null">
+        DQJHHKJE,
+      </if>
+      <if test="dqjhghbj != null">
+        DQJHGHBJ,
+      </if>
+      <if test="dqjhghlx != null">
+        DQJHGHLX,
+      </if>
+      <if test="dqyhze != null">
+        DQYHZE,
+      </if>
+      <if test="dqyhbj != null">
+        DQYHBJ,
+      </if>
+      <if test="dqyhlx != null">
+        DQYHLX,
+      </if>
+      <if test="dqyhfx != null">
+        DQYHFX,
+      </if>
+      <if test="dkjqrq != null">
+        DKJQRQ,
+      </if>
+      <if test="hsbjze != null">
+        HSBJZE,
+      </if>
+      <if test="hslxze != null">
+        HSLXZE,
+      </if>
+      <if test="fxze != null">
+        FXZE,
+      </if>
+      <if test="tqghbjze != null">
+        TQGHBJZE,
+      </if>
+      <if test="yqbj != null">
+        YQBJ,
+      </if>
+      <if test="yqlx != null">
+        YQLX,
+      </if>
+      <if test="ljyqqs != null">
+        LJYQQS,
+      </if>
+      <if test="shzt != null">
+        SHZT,
+      </if>
+      <if test="sfzx != null">
+        SFZX,
+      </if>
+      <if test="kjhskmbh != null">
+        KJHSKMBH,
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3,
+      </if>
+      <if test="dklrlx != null">
+        DKLRLX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dkzj != null">
+        #{dkzj,jdbcType=INTEGER},
+      </if>
+      <if test="dkzh != null">
+        #{dkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jkhtbh != null">
+        #{jkhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dkfxdj != null">
+        #{dkfxdj,jdbcType=VARCHAR},
+      </if>
+      <if test="dkffe != null">
+        #{dkffe,jdbcType=DECIMAL},
+      </if>
+      <if test="dkffrq != null">
+        #{dkffrq,jdbcType=DATE},
+      </if>
+      <if test="dkye != null">
+        #{dkye,jdbcType=DECIMAL},
+      </if>
+      <if test="zxll != null">
+        #{zxll,jdbcType=DECIMAL},
+      </if>
+      <if test="llfdbl != null">
+        #{llfdbl,jdbcType=DECIMAL},
+      </if>
+      <if test="dkqs != null">
+        #{dkqs,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjhhkje != null">
+        #{dqjhhkje,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjhghbj != null">
+        #{dqjhghbj,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjhghlx != null">
+        #{dqjhghlx,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhze != null">
+        #{dqyhze,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhbj != null">
+        #{dqyhbj,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhlx != null">
+        #{dqyhlx,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhfx != null">
+        #{dqyhfx,jdbcType=DECIMAL},
+      </if>
+      <if test="dkjqrq != null">
+        #{dkjqrq,jdbcType=DATE},
+      </if>
+      <if test="hsbjze != null">
+        #{hsbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="hslxze != null">
+        #{hslxze,jdbcType=DECIMAL},
+      </if>
+      <if test="fxze != null">
+        #{fxze,jdbcType=DECIMAL},
+      </if>
+      <if test="tqghbjze != null">
+        #{tqghbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="yqbj != null">
+        #{yqbj,jdbcType=DECIMAL},
+      </if>
+      <if test="yqlx != null">
+        #{yqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="ljyqqs != null">
+        #{ljyqqs,jdbcType=DECIMAL},
+      </if>
+      <if test="shzt != null">
+        #{shzt,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzx != null">
+        #{sfzx,jdbcType=VARCHAR},
+      </if>
+      <if test="kjhskmbh != null">
+        #{kjhskmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="dklrlx != null">
+        #{dklrlx,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Grzfdkzhxx">
+    update grzfdkzhxx
+    <set>
+      <if test="dkzh != null">
+        DKZH = #{dkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="jkhtbh != null">
+        JKHTBH = #{jkhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dkfxdj != null">
+        DKFXDJ = #{dkfxdj,jdbcType=VARCHAR},
+      </if>
+      <if test="dkffe != null">
+        DKFFE = #{dkffe,jdbcType=DECIMAL},
+      </if>
+      <if test="dkffrq != null">
+        DKFFRQ = #{dkffrq,jdbcType=DATE},
+      </if>
+      <if test="dkye != null">
+        DKYE = #{dkye,jdbcType=DECIMAL},
+      </if>
+      <if test="zxll != null">
+        ZXLL = #{zxll,jdbcType=DECIMAL},
+      </if>
+      <if test="llfdbl != null">
+        LLFDBL = #{llfdbl,jdbcType=DECIMAL},
+      </if>
+      <if test="dkqs != null">
+        DKQS = #{dkqs,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjhhkje != null">
+        DQJHHKJE = #{dqjhhkje,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjhghbj != null">
+        DQJHGHBJ = #{dqjhghbj,jdbcType=DECIMAL},
+      </if>
+      <if test="dqjhghlx != null">
+        DQJHGHLX = #{dqjhghlx,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhze != null">
+        DQYHZE = #{dqyhze,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhbj != null">
+        DQYHBJ = #{dqyhbj,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhlx != null">
+        DQYHLX = #{dqyhlx,jdbcType=DECIMAL},
+      </if>
+      <if test="dqyhfx != null">
+        DQYHFX = #{dqyhfx,jdbcType=DECIMAL},
+      </if>
+      <if test="dkjqrq != null">
+        DKJQRQ = #{dkjqrq,jdbcType=DATE},
+      </if>
+      <if test="hsbjze != null">
+        HSBJZE = #{hsbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="hslxze != null">
+        HSLXZE = #{hslxze,jdbcType=DECIMAL},
+      </if>
+      <if test="fxze != null">
+        FXZE = #{fxze,jdbcType=DECIMAL},
+      </if>
+      <if test="tqghbjze != null">
+        TQGHBJZE = #{tqghbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="yqbj != null">
+        YQBJ = #{yqbj,jdbcType=DECIMAL},
+      </if>
+      <if test="yqlx != null">
+        YQLX = #{yqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="ljyqqs != null">
+        LJYQQS = #{ljyqqs,jdbcType=DECIMAL},
+      </if>
+      <if test="shzt != null">
+        SHZT = #{shzt,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzx != null">
+        SFZX = #{sfzx,jdbcType=VARCHAR},
+      </if>
+      <if test="kjhskmbh != null">
+        KJHSKMBH = #{kjhskmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="dklrlx != null">
+        DKLRLX = #{dklrlx,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DKZJ = #{dkzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Grzfdkzhxx">
+    update grzfdkzhxx
+    set DKZH = #{dkzh,jdbcType=VARCHAR},
+      JKHTBH = #{jkhtbh,jdbcType=VARCHAR},
+      DKFXDJ = #{dkfxdj,jdbcType=VARCHAR},
+      DKFFE = #{dkffe,jdbcType=DECIMAL},
+      DKFFRQ = #{dkffrq,jdbcType=DATE},
+      DKYE = #{dkye,jdbcType=DECIMAL},
+      ZXLL = #{zxll,jdbcType=DECIMAL},
+      LLFDBL = #{llfdbl,jdbcType=DECIMAL},
+      DKQS = #{dkqs,jdbcType=DECIMAL},
+      DQJHHKJE = #{dqjhhkje,jdbcType=DECIMAL},
+      DQJHGHBJ = #{dqjhghbj,jdbcType=DECIMAL},
+      DQJHGHLX = #{dqjhghlx,jdbcType=DECIMAL},
+      DQYHZE = #{dqyhze,jdbcType=DECIMAL},
+      DQYHBJ = #{dqyhbj,jdbcType=DECIMAL},
+      DQYHLX = #{dqyhlx,jdbcType=DECIMAL},
+      DQYHFX = #{dqyhfx,jdbcType=DECIMAL},
+      DKJQRQ = #{dkjqrq,jdbcType=DATE},
+      HSBJZE = #{hsbjze,jdbcType=DECIMAL},
+      HSLXZE = #{hslxze,jdbcType=DECIMAL},
+      FXZE = #{fxze,jdbcType=DECIMAL},
+      TQGHBJZE = #{tqghbjze,jdbcType=DECIMAL},
+      YQBJ = #{yqbj,jdbcType=DECIMAL},
+      YQLX = #{yqlx,jdbcType=DECIMAL},
+      LJYQQS = #{ljyqqs,jdbcType=DECIMAL},
+      SHZT = #{shzt,jdbcType=VARCHAR},
+      SFZX = #{sfzx,jdbcType=VARCHAR},
+      KJHSKMBH = #{kjhskmbh,jdbcType=VARCHAR},
+      WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      DKLRLX = #{dklrlx,jdbcType=VARCHAR}
+    where DKZJ = #{dkzj,jdbcType=INTEGER}
+  </update>
+</mapper>

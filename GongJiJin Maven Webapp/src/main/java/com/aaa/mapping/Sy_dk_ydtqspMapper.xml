@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sy_dk_ydtqspMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_ydtqsp">
+    <id column="YDTQSPZJ" jdbcType="INTEGER" property="ydtqspzj" />
+    <result column="HTZJ" jdbcType="INTEGER" property="htzj" />
+    <result column="DKZHBH" jdbcType="INTEGER" property="dkzhbh" />
+    <result column="DKZJ" jdbcType="INTEGER" property="dkzj" />
+    <result column="HKRZJ" jdbcType="INTEGER" property="hkrzj" />
+    <result column="GRBH" jdbcType="INTEGER" property="grbh" />
+    <result column="TQBH" jdbcType="INTEGER" property="tqbh" />
+    <result column="GRZH" jdbcType="VARCHAR" property="grzh" />
+    <result column="SQR" jdbcType="VARCHAR" property="sqr" />
+    <result column="TXDZ" jdbcType="VARCHAR" property="txdz" />
+    <result column="SJHM2" jdbcType="VARCHAR" property="sjhm2" />
+    <result column="ZJLX" jdbcType="VARCHAR" property="zjlx" />
+    <result column="ZJHM" jdbcType="VARCHAR" property="zjhm" />
+    <result column="YDTQYT" jdbcType="VARCHAR" property="ydtqyt" />
+    <result column="FWDZ" jdbcType="VARCHAR" property="fwdz" />
+    <result column="ZFDKLX" jdbcType="VARCHAR" property="zfdklx" />
+    <result column="QSRQ" jdbcType="DATE" property="qsrq" />
+    <result column="JZRQ3" jdbcType="DATE" property="jzrq3" />
+    <result column="SQSJ" jdbcType="DATE" property="sqsj" />
+    <result column="YDTQRQ" jdbcType="DATE" property="ydtqrq" />
+    <result column="SPZT2" jdbcType="VARCHAR" property="spzt2" />
+    <result column="SPSJ" jdbcType="DATE" property="spsj" />
+    <result column="TZZD4" jdbcType="VARCHAR" property="tzzd4" />
+    <result column="TZZD5" jdbcType="VARCHAR" property="tzzd5" />
+    <result column="TZZD6" jdbcType="VARCHAR" property="tzzd6" />
+    <result column="JKHTBH" jdbcType="VARCHAR" property="jkhtbh" />
+    <result column="DKFFE" jdbcType="DECIMAL" property="dkffe" />
+    <result column="DKQS" jdbcType="DECIMAL" property="dkqs" />
+    <result column="DKZH" jdbcType="VARCHAR" property="dkzh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YDTQSPZJ, HTZJ, DKZHBH, DKZJ, HKRZJ, GRBH, TQBH, GRZH, SQR, TXDZ, SJHM2, ZJLX, ZJHM, 
+    YDTQYT, FWDZ, ZFDKLX, QSRQ, JZRQ3, SQSJ, YDTQRQ, SPZT2, SPSJ, TZZD4, TZZD5, TZZD6, 
+    JKHTBH, DKFFE, DKQS, DKZH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sy_dk_ydtqsp
+    where YDTQSPZJ = #{ydtqspzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sy_dk_ydtqsp
+    where YDTQSPZJ = #{ydtqspzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_ydtqsp">
+    insert into sy_dk_ydtqsp (YDTQSPZJ, HTZJ, DKZHBH, 
+      DKZJ, HKRZJ, GRBH, 
+      TQBH, GRZH, SQR, TXDZ, 
+      SJHM2, ZJLX, ZJHM, 
+      YDTQYT, FWDZ, ZFDKLX, 
+      QSRQ, JZRQ3, SQSJ, YDTQRQ, 
+      SPZT2, SPSJ, TZZD4, TZZD5, 
+      TZZD6, JKHTBH, DKFFE, 
+      DKQS, DKZH)
+    values (#{ydtqspzj,jdbcType=INTEGER}, #{htzj,jdbcType=INTEGER}, #{dkzhbh,jdbcType=INTEGER}, 
+      #{dkzj,jdbcType=INTEGER}, #{hkrzj,jdbcType=INTEGER}, #{grbh,jdbcType=INTEGER}, 
+      #{tqbh,jdbcType=INTEGER}, #{grzh,jdbcType=VARCHAR}, #{sqr,jdbcType=VARCHAR}, #{txdz,jdbcType=VARCHAR}, 
+      #{sjhm2,jdbcType=VARCHAR}, #{zjlx,jdbcType=VARCHAR}, #{zjhm,jdbcType=VARCHAR}, 
+      #{ydtqyt,jdbcType=VARCHAR}, #{fwdz,jdbcType=VARCHAR}, #{zfdklx,jdbcType=VARCHAR}, 
+      #{qsrq,jdbcType=DATE}, #{jzrq3,jdbcType=DATE}, #{sqsj,jdbcType=DATE}, #{ydtqrq,jdbcType=DATE}, 
+      #{spzt2,jdbcType=VARCHAR}, #{spsj,jdbcType=DATE}, #{tzzd4,jdbcType=VARCHAR}, #{tzzd5,jdbcType=VARCHAR}, 
+      #{tzzd6,jdbcType=VARCHAR}, #{jkhtbh,jdbcType=VARCHAR}, #{dkffe,jdbcType=DECIMAL}, 
+      #{dkqs,jdbcType=DECIMAL}, #{dkzh,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_ydtqsp">
+    insert into sy_dk_ydtqsp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ydtqspzj != null">
+        YDTQSPZJ,
+      </if>
+      <if test="htzj != null">
+        HTZJ,
+      </if>
+      <if test="dkzhbh != null">
+        DKZHBH,
+      </if>
+      <if test="dkzj != null">
+        DKZJ,
+      </if>
+      <if test="hkrzj != null">
+        HKRZJ,
+      </if>
+      <if test="grbh != null">
+        GRBH,
+      </if>
+      <if test="tqbh != null">
+        TQBH,
+      </if>
+      <if test="grzh != null">
+        GRZH,
+      </if>
+      <if test="sqr != null">
+        SQR,
+      </if>
+      <if test="txdz != null">
+        TXDZ,
+      </if>
+      <if test="sjhm2 != null">
+        SJHM2,
+      </if>
+      <if test="zjlx != null">
+        ZJLX,
+      </if>
+      <if test="zjhm != null">
+        ZJHM,
+      </if>
+      <if test="ydtqyt != null">
+        YDTQYT,
+      </if>
+      <if test="fwdz != null">
+        FWDZ,
+      </if>
+      <if test="zfdklx != null">
+        ZFDKLX,
+      </if>
+      <if test="qsrq != null">
+        QSRQ,
+      </if>
+      <if test="jzrq3 != null">
+        JZRQ3,
+      </if>
+      <if test="sqsj != null">
+        SQSJ,
+      </if>
+      <if test="ydtqrq != null">
+        YDTQRQ,
+      </if>
+      <if test="spzt2 != null">
+        SPZT2,
+      </if>
+      <if test="spsj != null">
+        SPSJ,
+      </if>
+      <if test="tzzd4 != null">
+        TZZD4,
+      </if>
+      <if test="tzzd5 != null">
+        TZZD5,
+      </if>
+      <if test="tzzd6 != null">
+        TZZD6,
+      </if>
+      <if test="jkhtbh != null">
+        JKHTBH,
+      </if>
+      <if test="dkffe != null">
+        DKFFE,
+      </if>
+      <if test="dkqs != null">
+        DKQS,
+      </if>
+      <if test="dkzh != null">
+        DKZH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ydtqspzj != null">
+        #{ydtqspzj,jdbcType=INTEGER},
+      </if>
+      <if test="htzj != null">
+        #{htzj,jdbcType=INTEGER},
+      </if>
+      <if test="dkzhbh != null">
+        #{dkzhbh,jdbcType=INTEGER},
+      </if>
+      <if test="dkzj != null">
+        #{dkzj,jdbcType=INTEGER},
+      </if>
+      <if test="hkrzj != null">
+        #{hkrzj,jdbcType=INTEGER},
+      </if>
+      <if test="grbh != null">
+        #{grbh,jdbcType=INTEGER},
+      </if>
+      <if test="tqbh != null">
+        #{tqbh,jdbcType=INTEGER},
+      </if>
+      <if test="grzh != null">
+        #{grzh,jdbcType=VARCHAR},
+      </if>
+      <if test="sqr != null">
+        #{sqr,jdbcType=VARCHAR},
+      </if>
+      <if test="txdz != null">
+        #{txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm2 != null">
+        #{sjhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="zjlx != null">
+        #{zjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null">
+        #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ydtqyt != null">
+        #{ydtqyt,jdbcType=VARCHAR},
+      </if>
+      <if test="fwdz != null">
+        #{fwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zfdklx != null">
+        #{zfdklx,jdbcType=VARCHAR},
+      </if>
+      <if test="qsrq != null">
+        #{qsrq,jdbcType=DATE},
+      </if>
+      <if test="jzrq3 != null">
+        #{jzrq3,jdbcType=DATE},
+      </if>
+      <if test="sqsj != null">
+        #{sqsj,jdbcType=DATE},
+      </if>
+      <if test="ydtqrq != null">
+        #{ydtqrq,jdbcType=DATE},
+      </if>
+      <if test="spzt2 != null">
+        #{spzt2,jdbcType=VARCHAR},
+      </if>
+      <if test="spsj != null">
+        #{spsj,jdbcType=DATE},
+      </if>
+      <if test="tzzd4 != null">
+        #{tzzd4,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd5 != null">
+        #{tzzd5,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd6 != null">
+        #{tzzd6,jdbcType=VARCHAR},
+      </if>
+      <if test="jkhtbh != null">
+        #{jkhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dkffe != null">
+        #{dkffe,jdbcType=DECIMAL},
+      </if>
+      <if test="dkqs != null">
+        #{dkqs,jdbcType=DECIMAL},
+      </if>
+      <if test="dkzh != null">
+        #{dkzh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_dk_ydtqsp">
+    update sy_dk_ydtqsp
+    <set>
+      <if test="htzj != null">
+        HTZJ = #{htzj,jdbcType=INTEGER},
+      </if>
+      <if test="dkzhbh != null">
+        DKZHBH = #{dkzhbh,jdbcType=INTEGER},
+      </if>
+      <if test="dkzj != null">
+        DKZJ = #{dkzj,jdbcType=INTEGER},
+      </if>
+      <if test="hkrzj != null">
+        HKRZJ = #{hkrzj,jdbcType=INTEGER},
+      </if>
+      <if test="grbh != null">
+        GRBH = #{grbh,jdbcType=INTEGER},
+      </if>
+      <if test="tqbh != null">
+        TQBH = #{tqbh,jdbcType=INTEGER},
+      </if>
+      <if test="grzh != null">
+        GRZH = #{grzh,jdbcType=VARCHAR},
+      </if>
+      <if test="sqr != null">
+        SQR = #{sqr,jdbcType=VARCHAR},
+      </if>
+      <if test="txdz != null">
+        TXDZ = #{txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="sjhm2 != null">
+        SJHM2 = #{sjhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="zjlx != null">
+        ZJLX = #{zjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null">
+        ZJHM = #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="ydtqyt != null">
+        YDTQYT = #{ydtqyt,jdbcType=VARCHAR},
+      </if>
+      <if test="fwdz != null">
+        FWDZ = #{fwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zfdklx != null">
+        ZFDKLX = #{zfdklx,jdbcType=VARCHAR},
+      </if>
+      <if test="qsrq != null">
+        QSRQ = #{qsrq,jdbcType=DATE},
+      </if>
+      <if test="jzrq3 != null">
+        JZRQ3 = #{jzrq3,jdbcType=DATE},
+      </if>
+      <if test="sqsj != null">
+        SQSJ = #{sqsj,jdbcType=DATE},
+      </if>
+      <if test="ydtqrq != null">
+        YDTQRQ = #{ydtqrq,jdbcType=DATE},
+      </if>
+      <if test="spzt2 != null">
+        SPZT2 = #{spzt2,jdbcType=VARCHAR},
+      </if>
+      <if test="spsj != null">
+        SPSJ = #{spsj,jdbcType=DATE},
+      </if>
+      <if test="tzzd4 != null">
+        TZZD4 = #{tzzd4,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd5 != null">
+        TZZD5 = #{tzzd5,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd6 != null">
+        TZZD6 = #{tzzd6,jdbcType=VARCHAR},
+      </if>
+      <if test="jkhtbh != null">
+        JKHTBH = #{jkhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="dkffe != null">
+        DKFFE = #{dkffe,jdbcType=DECIMAL},
+      </if>
+      <if test="dkqs != null">
+        DKQS = #{dkqs,jdbcType=DECIMAL},
+      </if>
+      <if test="dkzh != null">
+        DKZH = #{dkzh,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YDTQSPZJ = #{ydtqspzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_dk_ydtqsp">
+    update sy_dk_ydtqsp
+    set HTZJ = #{htzj,jdbcType=INTEGER},
+      DKZHBH = #{dkzhbh,jdbcType=INTEGER},
+      DKZJ = #{dkzj,jdbcType=INTEGER},
+      HKRZJ = #{hkrzj,jdbcType=INTEGER},
+      GRBH = #{grbh,jdbcType=INTEGER},
+      TQBH = #{tqbh,jdbcType=INTEGER},
+      GRZH = #{grzh,jdbcType=VARCHAR},
+      SQR = #{sqr,jdbcType=VARCHAR},
+      TXDZ = #{txdz,jdbcType=VARCHAR},
+      SJHM2 = #{sjhm2,jdbcType=VARCHAR},
+      ZJLX = #{zjlx,jdbcType=VARCHAR},
+      ZJHM = #{zjhm,jdbcType=VARCHAR},
+      YDTQYT = #{ydtqyt,jdbcType=VARCHAR},
+      FWDZ = #{fwdz,jdbcType=VARCHAR},
+      ZFDKLX = #{zfdklx,jdbcType=VARCHAR},
+      QSRQ = #{qsrq,jdbcType=DATE},
+      JZRQ3 = #{jzrq3,jdbcType=DATE},
+      SQSJ = #{sqsj,jdbcType=DATE},
+      YDTQRQ = #{ydtqrq,jdbcType=DATE},
+      SPZT2 = #{spzt2,jdbcType=VARCHAR},
+      SPSJ = #{spsj,jdbcType=DATE},
+      TZZD4 = #{tzzd4,jdbcType=VARCHAR},
+      TZZD5 = #{tzzd5,jdbcType=VARCHAR},
+      TZZD6 = #{tzzd6,jdbcType=VARCHAR},
+      JKHTBH = #{jkhtbh,jdbcType=VARCHAR},
+      DKFFE = #{dkffe,jdbcType=DECIMAL},
+      DKQS = #{dkqs,jdbcType=DECIMAL},
+      DKZH = #{dkzh,jdbcType=VARCHAR}
+    where YDTQSPZJ = #{ydtqspzj,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sy_dk_zyxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_zyxx">
+    <id column="ZYXXZJ" jdbcType="INTEGER" property="zyxxzj" />
+    <result column="XXBH" jdbcType="VARCHAR" property="xxbh" />
+    <result column="ZYHTBH" jdbcType="VARCHAR" property="zyhtbh" />
+    <result column="ZYLX" jdbcType="VARCHAR" property="zylx" />
+    <result column="ZYRXM" jdbcType="VARCHAR" property="zyrxm" />
+    <result column="ZYRXB" jdbcType="VARCHAR" property="zyrxb" />
+    <result column="ZYRSFZH" jdbcType="VARCHAR" property="zyrsfzh" />
+    <result column="ZYRZW" jdbcType="VARCHAR" property="zyrzw" />
+    <result column="ZYRXL" jdbcType="VARCHAR" property="zyrxl" />
+    <result column="ZYRSJHM" jdbcType="VARCHAR" property="zyrsjhm" />
+    <result column="ZYRDWLSGX" jdbcType="VARCHAR" property="zyrdwlsgx" />
+    <result column="ZYRDWXZ" jdbcType="VARCHAR" property="zyrdwxz" />
+    <result column="ZYRGJJZH" jdbcType="VARCHAR" property="zyrgjjzh" />
+    <result column="ZYRGZLY" jdbcType="VARCHAR" property="zyrgzly" />
+    <result column="ZYRGZFFFS" jdbcType="VARCHAR" property="zyrgzfffs" />
+    <result column="ZYRSFGZ" jdbcType="DECIMAL" property="zyrsfgz" />
+    <result column="ZYRSF" jdbcType="VARCHAR" property="zyrsf" />
+    <result column="ZYRDWMC" jdbcType="VARCHAR" property="zyrdwmc" />
+    <result column="ZYRDWDH" jdbcType="VARCHAR" property="zyrdwdh" />
+    <result column="ZYRDWDZ" jdbcType="VARCHAR" property="zyrdwdz" />
+    <result column="ZYRJTZZ" jdbcType="VARCHAR" property="zyrjtzz" />
+    <result column="YHDM" jdbcType="VARCHAR" property="yhdm" />
+    <result column="YHMC" jdbcType="VARCHAR" property="yhmc" />
+    <result column="YHZH" jdbcType="VARCHAR" property="yhzh" />
+    <result column="YHCKLX" jdbcType="VARCHAR" property="yhcklx" />
+    <result column="ZYWMC" jdbcType="VARCHAR" property="zywmc" />
+    <result column="ZYJE" jdbcType="DECIMAL" property="zyje" />
+    <result column="ZYKSRQ" jdbcType="DATE" property="zyksrq" />
+    <result column="ZYJSRQ" jdbcType="DATE" property="zyjsrq" />
+    <result column="ZTZ" jdbcType="VARCHAR" property="ztz" />
+    <result column="BEIZ" jdbcType="VARCHAR" property="beiz" />
+    <result column="XMSZM" jdbcType="VARCHAR" property="xmszm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ZYXXZJ, XXBH, ZYHTBH, ZYLX, ZYRXM, ZYRXB, ZYRSFZH, ZYRZW, ZYRXL, ZYRSJHM, ZYRDWLSGX, 
+    ZYRDWXZ, ZYRGJJZH, ZYRGZLY, ZYRGZFFFS, ZYRSFGZ, ZYRSF, ZYRDWMC, ZYRDWDH, ZYRDWDZ, 
+    ZYRJTZZ, YHDM, YHMC, YHZH, YHCKLX, ZYWMC, ZYJE, ZYKSRQ, ZYJSRQ, ZTZ, BEIZ, XMSZM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sy_dk_zyxx
+    where ZYXXZJ = #{zyxxzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sy_dk_zyxx
+    where ZYXXZJ = #{zyxxzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_zyxx">
+    insert into sy_dk_zyxx (ZYXXZJ, XXBH, ZYHTBH, 
+      ZYLX, ZYRXM, ZYRXB, 
+      ZYRSFZH, ZYRZW, ZYRXL, 
+      ZYRSJHM, ZYRDWLSGX, ZYRDWXZ, 
+      ZYRGJJZH, ZYRGZLY, ZYRGZFFFS, 
+      ZYRSFGZ, ZYRSF, ZYRDWMC, 
+      ZYRDWDH, ZYRDWDZ, ZYRJTZZ, 
+      YHDM, YHMC, YHZH, YHCKLX, 
+      ZYWMC, ZYJE, ZYKSRQ, ZYJSRQ, 
+      ZTZ, BEIZ, XMSZM)
+    values (#{zyxxzj,jdbcType=INTEGER}, #{xxbh,jdbcType=VARCHAR}, #{zyhtbh,jdbcType=VARCHAR}, 
+      #{zylx,jdbcType=VARCHAR}, #{zyrxm,jdbcType=VARCHAR}, #{zyrxb,jdbcType=VARCHAR}, 
+      #{zyrsfzh,jdbcType=VARCHAR}, #{zyrzw,jdbcType=VARCHAR}, #{zyrxl,jdbcType=VARCHAR}, 
+      #{zyrsjhm,jdbcType=VARCHAR}, #{zyrdwlsgx,jdbcType=VARCHAR}, #{zyrdwxz,jdbcType=VARCHAR}, 
+      #{zyrgjjzh,jdbcType=VARCHAR}, #{zyrgzly,jdbcType=VARCHAR}, #{zyrgzfffs,jdbcType=VARCHAR}, 
+      #{zyrsfgz,jdbcType=DECIMAL}, #{zyrsf,jdbcType=VARCHAR}, #{zyrdwmc,jdbcType=VARCHAR}, 
+      #{zyrdwdh,jdbcType=VARCHAR}, #{zyrdwdz,jdbcType=VARCHAR}, #{zyrjtzz,jdbcType=VARCHAR}, 
+      #{yhdm,jdbcType=VARCHAR}, #{yhmc,jdbcType=VARCHAR}, #{yhzh,jdbcType=VARCHAR}, #{yhcklx,jdbcType=VARCHAR}, 
+      #{zywmc,jdbcType=VARCHAR}, #{zyje,jdbcType=DECIMAL}, #{zyksrq,jdbcType=DATE}, #{zyjsrq,jdbcType=DATE}, 
+      #{ztz,jdbcType=VARCHAR}, #{beiz,jdbcType=VARCHAR}, #{xmszm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_zyxx">
+    insert into sy_dk_zyxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zyxxzj != null">
+        ZYXXZJ,
+      </if>
+      <if test="xxbh != null">
+        XXBH,
+      </if>
+      <if test="zyhtbh != null">
+        ZYHTBH,
+      </if>
+      <if test="zylx != null">
+        ZYLX,
+      </if>
+      <if test="zyrxm != null">
+        ZYRXM,
+      </if>
+      <if test="zyrxb != null">
+        ZYRXB,
+      </if>
+      <if test="zyrsfzh != null">
+        ZYRSFZH,
+      </if>
+      <if test="zyrzw != null">
+        ZYRZW,
+      </if>
+      <if test="zyrxl != null">
+        ZYRXL,
+      </if>
+      <if test="zyrsjhm != null">
+        ZYRSJHM,
+      </if>
+      <if test="zyrdwlsgx != null">
+        ZYRDWLSGX,
+      </if>
+      <if test="zyrdwxz != null">
+        ZYRDWXZ,
+      </if>
+      <if test="zyrgjjzh != null">
+        ZYRGJJZH,
+      </if>
+      <if test="zyrgzly != null">
+        ZYRGZLY,
+      </if>
+      <if test="zyrgzfffs != null">
+        ZYRGZFFFS,
+      </if>
+      <if test="zyrsfgz != null">
+        ZYRSFGZ,
+      </if>
+      <if test="zyrsf != null">
+        ZYRSF,
+      </if>
+      <if test="zyrdwmc != null">
+        ZYRDWMC,
+      </if>
+      <if test="zyrdwdh != null">
+        ZYRDWDH,
+      </if>
+      <if test="zyrdwdz != null">
+        ZYRDWDZ,
+      </if>
+      <if test="zyrjtzz != null">
+        ZYRJTZZ,
+      </if>
+      <if test="yhdm != null">
+        YHDM,
+      </if>
+      <if test="yhmc != null">
+        YHMC,
+      </if>
+      <if test="yhzh != null">
+        YHZH,
+      </if>
+      <if test="yhcklx != null">
+        YHCKLX,
+      </if>
+      <if test="zywmc != null">
+        ZYWMC,
+      </if>
+      <if test="zyje != null">
+        ZYJE,
+      </if>
+      <if test="zyksrq != null">
+        ZYKSRQ,
+      </if>
+      <if test="zyjsrq != null">
+        ZYJSRQ,
+      </if>
+      <if test="ztz != null">
+        ZTZ,
+      </if>
+      <if test="beiz != null">
+        BEIZ,
+      </if>
+      <if test="xmszm != null">
+        XMSZM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zyxxzj != null">
+        #{zyxxzj,jdbcType=INTEGER},
+      </if>
+      <if test="xxbh != null">
+        #{xxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyhtbh != null">
+        #{zyhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zylx != null">
+        #{zylx,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrxm != null">
+        #{zyrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrxb != null">
+        #{zyrxb,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrsfzh != null">
+        #{zyrsfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrzw != null">
+        #{zyrzw,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrxl != null">
+        #{zyrxl,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrsjhm != null">
+        #{zyrsjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwlsgx != null">
+        #{zyrdwlsgx,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwxz != null">
+        #{zyrdwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrgjjzh != null">
+        #{zyrgjjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrgzly != null">
+        #{zyrgzly,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrgzfffs != null">
+        #{zyrgzfffs,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrsfgz != null">
+        #{zyrsfgz,jdbcType=DECIMAL},
+      </if>
+      <if test="zyrsf != null">
+        #{zyrsf,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwmc != null">
+        #{zyrdwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwdh != null">
+        #{zyrdwdh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwdz != null">
+        #{zyrdwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrjtzz != null">
+        #{zyrjtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="yhdm != null">
+        #{yhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmc != null">
+        #{yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhzh != null">
+        #{yhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="yhcklx != null">
+        #{yhcklx,jdbcType=VARCHAR},
+      </if>
+      <if test="zywmc != null">
+        #{zywmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zyje != null">
+        #{zyje,jdbcType=DECIMAL},
+      </if>
+      <if test="zyksrq != null">
+        #{zyksrq,jdbcType=DATE},
+      </if>
+      <if test="zyjsrq != null">
+        #{zyjsrq,jdbcType=DATE},
+      </if>
+      <if test="ztz != null">
+        #{ztz,jdbcType=VARCHAR},
+      </if>
+      <if test="beiz != null">
+        #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="xmszm != null">
+        #{xmszm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_dk_zyxx">
+    update sy_dk_zyxx
+    <set>
+      <if test="xxbh != null">
+        XXBH = #{xxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyhtbh != null">
+        ZYHTBH = #{zyhtbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zylx != null">
+        ZYLX = #{zylx,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrxm != null">
+        ZYRXM = #{zyrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrxb != null">
+        ZYRXB = #{zyrxb,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrsfzh != null">
+        ZYRSFZH = #{zyrsfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrzw != null">
+        ZYRZW = #{zyrzw,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrxl != null">
+        ZYRXL = #{zyrxl,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrsjhm != null">
+        ZYRSJHM = #{zyrsjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwlsgx != null">
+        ZYRDWLSGX = #{zyrdwlsgx,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwxz != null">
+        ZYRDWXZ = #{zyrdwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrgjjzh != null">
+        ZYRGJJZH = #{zyrgjjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrgzly != null">
+        ZYRGZLY = #{zyrgzly,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrgzfffs != null">
+        ZYRGZFFFS = #{zyrgzfffs,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrsfgz != null">
+        ZYRSFGZ = #{zyrsfgz,jdbcType=DECIMAL},
+      </if>
+      <if test="zyrsf != null">
+        ZYRSF = #{zyrsf,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwmc != null">
+        ZYRDWMC = #{zyrdwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwdh != null">
+        ZYRDWDH = #{zyrdwdh,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrdwdz != null">
+        ZYRDWDZ = #{zyrdwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="zyrjtzz != null">
+        ZYRJTZZ = #{zyrjtzz,jdbcType=VARCHAR},
+      </if>
+      <if test="yhdm != null">
+        YHDM = #{yhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmc != null">
+        YHMC = #{yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhzh != null">
+        YHZH = #{yhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="yhcklx != null">
+        YHCKLX = #{yhcklx,jdbcType=VARCHAR},
+      </if>
+      <if test="zywmc != null">
+        ZYWMC = #{zywmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zyje != null">
+        ZYJE = #{zyje,jdbcType=DECIMAL},
+      </if>
+      <if test="zyksrq != null">
+        ZYKSRQ = #{zyksrq,jdbcType=DATE},
+      </if>
+      <if test="zyjsrq != null">
+        ZYJSRQ = #{zyjsrq,jdbcType=DATE},
+      </if>
+      <if test="ztz != null">
+        ZTZ = #{ztz,jdbcType=VARCHAR},
+      </if>
+      <if test="beiz != null">
+        BEIZ = #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="xmszm != null">
+        XMSZM = #{xmszm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ZYXXZJ = #{zyxxzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_dk_zyxx">
+    update sy_dk_zyxx
+    set XXBH = #{xxbh,jdbcType=VARCHAR},
+      ZYHTBH = #{zyhtbh,jdbcType=VARCHAR},
+      ZYLX = #{zylx,jdbcType=VARCHAR},
+      ZYRXM = #{zyrxm,jdbcType=VARCHAR},
+      ZYRXB = #{zyrxb,jdbcType=VARCHAR},
+      ZYRSFZH = #{zyrsfzh,jdbcType=VARCHAR},
+      ZYRZW = #{zyrzw,jdbcType=VARCHAR},
+      ZYRXL = #{zyrxl,jdbcType=VARCHAR},
+      ZYRSJHM = #{zyrsjhm,jdbcType=VARCHAR},
+      ZYRDWLSGX = #{zyrdwlsgx,jdbcType=VARCHAR},
+      ZYRDWXZ = #{zyrdwxz,jdbcType=VARCHAR},
+      ZYRGJJZH = #{zyrgjjzh,jdbcType=VARCHAR},
+      ZYRGZLY = #{zyrgzly,jdbcType=VARCHAR},
+      ZYRGZFFFS = #{zyrgzfffs,jdbcType=VARCHAR},
+      ZYRSFGZ = #{zyrsfgz,jdbcType=DECIMAL},
+      ZYRSF = #{zyrsf,jdbcType=VARCHAR},
+      ZYRDWMC = #{zyrdwmc,jdbcType=VARCHAR},
+      ZYRDWDH = #{zyrdwdh,jdbcType=VARCHAR},
+      ZYRDWDZ = #{zyrdwdz,jdbcType=VARCHAR},
+      ZYRJTZZ = #{zyrjtzz,jdbcType=VARCHAR},
+      YHDM = #{yhdm,jdbcType=VARCHAR},
+      YHMC = #{yhmc,jdbcType=VARCHAR},
+      YHZH = #{yhzh,jdbcType=VARCHAR},
+      YHCKLX = #{yhcklx,jdbcType=VARCHAR},
+      ZYWMC = #{zywmc,jdbcType=VARCHAR},
+      ZYJE = #{zyje,jdbcType=DECIMAL},
+      ZYKSRQ = #{zyksrq,jdbcType=DATE},
+      ZYJSRQ = #{zyjsrq,jdbcType=DATE},
+      ZTZ = #{ztz,jdbcType=VARCHAR},
+      BEIZ = #{beiz,jdbcType=VARCHAR},
+      XMSZM = #{xmszm,jdbcType=VARCHAR}
+    where ZYXXZJ = #{zyxxzj,jdbcType=INTEGER}
+  </update>
+</mapper>
