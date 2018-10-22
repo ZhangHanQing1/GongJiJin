@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sy_dk_ghdkrMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_ghdkr">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SyDkGhdkr">
     <id column="GHDKRZJ" jdbcType="INTEGER" property="ghdkrzj" />
     <result column="DHGLZJ" jdbcType="INTEGER" property="dhglzj" />
     <result column="JLBH2" jdbcType="VARCHAR" property="jlbh2" />
@@ -26,7 +26,7 @@
     delete from sy_dk_ghdkr
     where GHDKRZJ = #{ghdkrzj,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_ghdkr">
+  <insert id="insert" parameterType="com.aaa.entity.SyDkGhdkr">
     insert into sy_dk_ghdkr (GHDKRZJ, DHGLZJ, JLBH2, 
       BGQDKZH, BGHDKZH, CJR3, 
       CJSJ3, TZZD4, TZZD5, TZZD6
@@ -36,7 +36,7 @@
       #{cjsj3,jdbcType=DATE}, #{tzzd4,jdbcType=VARCHAR}, #{tzzd5,jdbcType=VARCHAR}, #{tzzd6,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_ghdkr">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SyDkGhdkr">
     insert into sy_dk_ghdkr
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ghdkrzj != null">
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_dk_ghdkr">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SyDkGhdkr">
     update sy_dk_ghdkr
     <set>
       <if test="dhglzj != null">
@@ -136,7 +136,7 @@
     </set>
     where GHDKRZJ = #{ghdkrzj,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_dk_ghdkr">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SyDkGhdkr">
     update sy_dk_ghdkr
     set DHGLZJ = #{dhglzj,jdbcType=INTEGER},
       JLBH2 = #{jlbh2,jdbcType=VARCHAR},

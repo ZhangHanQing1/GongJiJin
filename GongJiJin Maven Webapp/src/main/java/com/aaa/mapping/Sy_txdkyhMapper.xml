@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sy_txdkyhMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_txdkyh">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SyTxdkyh">
     <id column="TXYHZJ" jdbcType="INTEGER" property="txyhzj" />
     <result column="TXYHBH" jdbcType="VARCHAR" property="txyhbh" />
     <result column="SKFKHYHDM" jdbcType="VARCHAR" property="skfkhyhdm" />
@@ -30,7 +30,7 @@
     delete from sy_txdkyh
     where TXYHZJ = #{txyhzj,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.Sy_txdkyh">
+  <insert id="insert" parameterType="com.aaa.entity.SyTxdkyh">
     insert into sy_txdkyh (TXYHZJ, TXYHBH, SKFKHYHDM, 
       SKFKHYHMC, JCYHDM, SKFZH, 
       SKFHM, ZTZ, CJR, SJSJ, 
@@ -42,7 +42,7 @@
       #{tzzd1,jdbcType=VARCHAR}, #{tzzd2,jdbcType=VARCHAR}, #{tzzd3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_txdkyh">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SyTxdkyh">
     insert into sy_txdkyh
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="txyhzj != null">
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_txdkyh">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SyTxdkyh">
     update sy_txdkyh
     <set>
       <if test="txyhbh != null">
@@ -169,7 +169,7 @@
     </set>
     where TXYHZJ = #{txyhzj,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_txdkyh">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SyTxdkyh">
     update sy_txdkyh
     set TXYHBH = #{txyhbh,jdbcType=VARCHAR},
       SKFKHYHDM = #{skfkhyhdm,jdbcType=VARCHAR},

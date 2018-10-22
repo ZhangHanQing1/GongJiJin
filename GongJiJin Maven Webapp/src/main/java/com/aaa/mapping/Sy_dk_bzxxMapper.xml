@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sy_dk_bzxxMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_bzxx">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SyDkBzxx">
     <id column="BZXXZJ" jdbcType="INTEGER" property="bzxxzj" />
     <result column="XXBH" jdbcType="VARCHAR" property="xxbh" />
     <result column="BZHTBH" jdbcType="VARCHAR" property="bzhtbh" />
@@ -26,7 +26,7 @@
     delete from sy_dk_bzxx
     where BZXXZJ = #{bzxxzj,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_bzxx">
+  <insert id="insert" parameterType="com.aaa.entity.SyDkBzxx">
     insert into sy_dk_bzxx (BZXXZJ, XXBH, BZHTBH, 
       BZJGMC, DKBZJ, FHBZJRQ, 
       BEIZ, ZTZ, TZZD1, TZZD2
@@ -36,7 +36,7 @@
       #{beiz,jdbcType=VARCHAR}, #{ztz,jdbcType=VARCHAR}, #{tzzd1,jdbcType=VARCHAR}, #{tzzd2,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_bzxx">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SyDkBzxx">
     insert into sy_dk_bzxx
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="bzxxzj != null">
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_dk_bzxx">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SyDkBzxx">
     update sy_dk_bzxx
     <set>
       <if test="xxbh != null">
@@ -136,7 +136,7 @@
     </set>
     where BZXXZJ = #{bzxxzj,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_dk_bzxx">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SyDkBzxx">
     update sy_dk_bzxx
     set XXBH = #{xxbh,jdbcType=VARCHAR},
       BZHTBH = #{bzhtbh,jdbcType=VARCHAR},

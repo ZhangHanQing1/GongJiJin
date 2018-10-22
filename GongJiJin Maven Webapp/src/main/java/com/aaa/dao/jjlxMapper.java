@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.jjlx;
+import com.aaa.entity.Jjlx;
 
 public interface jjlxMapper {
     int deleteByPrimaryKey(Integer jjlxbh);
 
-    int insert(jjlx record);
+    int insert(Jjlx record);
 
-    int insertSelective(jjlx record);
+    int insertSelective(Jjlx record);
 
-    jjlx selectByPrimaryKey(Integer jjlxbh);
+    Jjlx selectByPrimaryKey(Integer jjlxbh);
 
-    int updateByPrimaryKeySelective(jjlx record);
+    int updateByPrimaryKeySelective(Jjlx record);
 
-    int updateByPrimaryKey(jjlx record);
+    int updateByPrimaryKey(Jjlx record);
 }

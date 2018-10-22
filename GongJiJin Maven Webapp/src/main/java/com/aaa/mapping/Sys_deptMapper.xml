@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sys_deptMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.Sys_dept">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SysDept">
     <id column="dept_id" jdbcType="INTEGER" property="deptId" />
     <result column="paren_id" jdbcType="INTEGER" property="parenId" />
     <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
@@ -24,7 +24,7 @@
     delete from sys_dept
     where dept_id = #{deptId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.Sys_dept">
+  <insert id="insert" parameterType="com.aaa.entity.SysDept">
     insert into sys_dept (dept_id, paren_id, dept_name, 
       order_num, lerder, phone, 
       email, status)
@@ -32,7 +32,7 @@
       #{orderNum,jdbcType=INTEGER}, #{lerder,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Sys_dept">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SysDept">
     insert into sys_dept
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="deptId != null">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sys_dept">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SysDept">
     update sys_dept
     <set>
       <if test="parenId != null">
@@ -114,7 +114,7 @@
     </set>
     where dept_id = #{deptId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sys_dept">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SysDept">
     update sys_dept
     set paren_id = #{parenId,jdbcType=INTEGER},
       dept_name = #{deptName,jdbcType=VARCHAR},

@@ -1,9 +1,9 @@
 package com.aaa.dao;
 
-import com.aaa.entity.Sy_dk_kfslpxx;
+import com.aaa.entity.SyDkKfslpxx;
 
 public interface Sy_dk_kfslpxxMapper {
-    int insert(Sy_dk_kfslpxx record);
+    int insert(SyDkKfslpxx record);
 
-    int insertSelective(Sy_dk_kfslpxx record);
+    int insertSelective(SyDkKfslpxx record);
 }

@@ -1,9 +1,9 @@
 package com.aaa.dao;
 
-import com.aaa.entity.sy_dk_kfszh;
+import com.aaa.entity.SyDkKfszh;
 
 public interface sy_dk_kfszhMapper {
-    int insert(sy_dk_kfszh record);
+    int insert(SyDkKfszh record);
 
-    int insertSelective(sy_dk_kfszh record);
+    int insertSelective(SyDkKfszh record);
 }

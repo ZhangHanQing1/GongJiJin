@@ -1,19 +1,20 @@
 package com.aaa.wz.service;
 
-import com.aaa.entity.Sy_llgl;
+import com.aaa.entity.SyLlgl;
+
 
 public interface Sy_llglService {
 	
 	    int deleteByPrimaryKey(Integer llzj);
 
-	    int insert(Sy_llgl record);
+	    int insert(SyLlgl record);
 
-	    int insertSelective(Sy_llgl record);
+	    int insertSelective(SyLlgl record);
 
-	    Sy_llgl selectByPrimaryKey(Integer llzj);
+	    SyLlgl selectByPrimaryKey(Integer llzj);
 
-	    int updateByPrimaryKeySelective(Sy_llgl record);
+	    int updateByPrimaryKeySelective(SyLlgl record);
 
-	    int updateByPrimaryKey(Sy_llgl record);
+	    int updateByPrimaryKey(SyLlgl record);
 
 }

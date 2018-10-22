@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sy_gj_tqspbMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_gj_tqspb">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SyGjTqspb">
     <id column="TQBH" jdbcType="INTEGER" property="tqbh" />
     <result column="YDTQSPZJ" jdbcType="INTEGER" property="ydtqspzj" />
     <result column="GRBH" jdbcType="INTEGER" property="grbh" />
@@ -107,7 +107,7 @@
     delete from sy_gj_tqspb
     where TQBH = #{tqbh,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.Sy_gj_tqspb">
+  <insert id="insert" parameterType="com.aaa.entity.SyGjTqspb">
     insert into sy_gj_tqspb (TQBH, YDTQSPZJ, GRBH, 
       GRZH, SQSJ, ZGXM, ZJLX, 
       ZJHM, DWZH3, DWMC2, 
@@ -163,7 +163,7 @@
       #{czywlsh2,jdbcType=VARCHAR}, #{plbz,jdbcType=VARCHAR}, #{cjbh,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_gj_tqspb">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SyGjTqspb">
     insert into sy_gj_tqspb
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="tqbh != null">
@@ -674,7 +674,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_gj_tqspb">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SyGjTqspb">
     update sy_gj_tqspb
     <set>
       <if test="ydtqspzj != null">
@@ -929,7 +929,7 @@
     </set>
     where TQBH = #{tqbh,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_gj_tqspb">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SyGjTqspb">
     update sy_gj_tqspb
     set YDTQSPZJ = #{ydtqspzj,jdbcType=INTEGER},
       GRBH = #{grbh,jdbcType=INTEGER},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.sys_userMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.sys_user">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SysUser">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="dept_id" jdbcType="INTEGER" property="deptId" />
     <result column="login_name" jdbcType="VARCHAR" property="loginName" />
@@ -30,7 +30,7 @@
     delete from sys_user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.sys_user">
+  <insert id="insert" parameterType="com.aaa.entity.SysUser">
     insert into sys_user (user_id, dept_id, login_name, 
       user_name, user_type, email, 
       phonenum, sex, passwords, 
@@ -42,7 +42,7 @@
       #{status,jdbcType=INTEGER}, #{delFlag,jdbcType=VARCHAR}, #{loginDate,jdbcType=DATE}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.sys_user">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SysUser">
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.sys_user">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SysUser">
     update sys_user
     <set>
       <if test="deptId != null">
@@ -169,7 +169,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.sys_user">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SysUser">
     update sys_user
     set dept_id = #{deptId,jdbcType=INTEGER},
       login_name = #{loginName,jdbcType=VARCHAR},

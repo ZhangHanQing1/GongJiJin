@@ -1,23 +1,66 @@
 package com.aaa.entity;
 
-public class Dwzhzt {
-    private Integer dwzhztbh;
+import java.util.HashSet;
+import java.util.Set;
 
-    private String dwzhztmc;
+/**
+ * Dwzhzt entity. @author MyEclipse Persistence Tools
+ */
 
-    public Integer getDwzhztbh() {
-        return dwzhztbh;
-    }
+public class Dwzhzt implements java.io.Serializable {
 
-    public void setDwzhztbh(Integer dwzhztbh) {
-        this.dwzhztbh = dwzhztbh;
-    }
+	// Fields
 
-    public String getDwzhztmc() {
-        return dwzhztmc;
-    }
+	private Integer dwzhztbh;
+	private String dwzhztmc;
+	private Set grzhxxes = new HashSet(0);
+	private Set dwzhs = new HashSet(0);
 
-    public void setDwzhztmc(String dwzhztmc) {
-        this.dwzhztmc = dwzhztmc == null ? null : dwzhztmc.trim();
-    }
+	// Constructors
+
+	/** default constructor */
+	public Dwzhzt() {
+	}
+
+	/** full constructor */
+	public Dwzhzt(String dwzhztmc, Set grzhxxes, Set dwzhs) {
+		this.dwzhztmc = dwzhztmc;
+		this.grzhxxes = grzhxxes;
+		this.dwzhs = dwzhs;
+	}
+
+	// Property accessors
+
+	public Integer getDwzhztbh() {
+		return this.dwzhztbh;
+	}
+
+	public void setDwzhztbh(Integer dwzhztbh) {
+		this.dwzhztbh = dwzhztbh;
+	}
+
+	public String getDwzhztmc() {
+		return this.dwzhztmc;
+	}
+
+	public void setDwzhztmc(String dwzhztmc) {
+		this.dwzhztmc = dwzhztmc;
+	}
+
+	public Set getGrzhxxes() {
+		return this.grzhxxes;
+	}
+
+	public void setGrzhxxes(Set grzhxxes) {
+		this.grzhxxes = grzhxxes;
+	}
+
+	public Set getDwzhs() {
+		return this.dwzhs;
+	}
+
+	public void setDwzhs(Set dwzhs) {
+		this.dwzhs = dwzhs;
+	}
+
 }

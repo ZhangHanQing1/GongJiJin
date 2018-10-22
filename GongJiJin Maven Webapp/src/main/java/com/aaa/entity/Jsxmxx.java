@@ -1,155 +1,189 @@
 package com.aaa.entity;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Jsxmxx {
-    private Integer jsxmzj;
+/**
+ * Jsxmxx entity. @author MyEclipse Persistence Tools
+ */
 
-    private BigDecimal xmbh;
+public class Jsxmxx implements java.io.Serializable {
 
-    private String xmlx;
+	// Fields
 
-    private String xmmc;
+	private Integer jsxmzj;
+	private BigDecimal xmbh;
+	private String xmlx;
+	private String xmmc;
+	private BigDecimal sscsdm;
+	private BigDecimal tzgm;
+	private BigDecimal dked;
+	private BigDecimal jsgm;
+	private String xmfljb;
+	private String xmpc;
+	private String lxpfwjbh;
+	private String jsydghxkzbh;
+	private String gytdsyzbh;
+	private String jsgcghxkzbh;
+	private String jzgcsgxkzbh;
+	private Set jsxmdkdywxxes = new HashSet(0);
 
-    private BigDecimal sscsdm;
+	// Constructors
 
-    private BigDecimal tzgm;
+	/** default constructor */
+	public Jsxmxx() {
+	}
 
-    private BigDecimal dked;
+	/** full constructor */
+	public Jsxmxx(BigDecimal xmbh, String xmlx, String xmmc, BigDecimal sscsdm, BigDecimal tzgm, BigDecimal dked,
+			BigDecimal jsgm, String xmfljb, String xmpc, String lxpfwjbh, String jsydghxkzbh, String gytdsyzbh,
+			String jsgcghxkzbh, String jzgcsgxkzbh, Set jsxmdkdywxxes) {
+		this.xmbh = xmbh;
+		this.xmlx = xmlx;
+		this.xmmc = xmmc;
+		this.sscsdm = sscsdm;
+		this.tzgm = tzgm;
+		this.dked = dked;
+		this.jsgm = jsgm;
+		this.xmfljb = xmfljb;
+		this.xmpc = xmpc;
+		this.lxpfwjbh = lxpfwjbh;
+		this.jsydghxkzbh = jsydghxkzbh;
+		this.gytdsyzbh = gytdsyzbh;
+		this.jsgcghxkzbh = jsgcghxkzbh;
+		this.jzgcsgxkzbh = jzgcsgxkzbh;
+		this.jsxmdkdywxxes = jsxmdkdywxxes;
+	}
 
-    private BigDecimal jsgm;
+	// Property accessors
 
-    private String xmfljb;
+	public Integer getJsxmzj() {
+		return this.jsxmzj;
+	}
 
-    private String xmpc;
+	public void setJsxmzj(Integer jsxmzj) {
+		this.jsxmzj = jsxmzj;
+	}
 
-    private String lxpfwjbh;
+	public BigDecimal getXmbh() {
+		return this.xmbh;
+	}
 
-    private String jsydghxkzbh;
+	public void setXmbh(BigDecimal xmbh) {
+		this.xmbh = xmbh;
+	}
 
-    private String gytdsyzbh;
+	public String getXmlx() {
+		return this.xmlx;
+	}
 
-    private String jsgcghxkzbh;
+	public void setXmlx(String xmlx) {
+		this.xmlx = xmlx;
+	}
 
-    private String jzgcsgxkzbh;
+	public String getXmmc() {
+		return this.xmmc;
+	}
 
-    public Integer getJsxmzj() {
-        return jsxmzj;
-    }
+	public void setXmmc(String xmmc) {
+		this.xmmc = xmmc;
+	}
 
-    public void setJsxmzj(Integer jsxmzj) {
-        this.jsxmzj = jsxmzj;
-    }
+	public BigDecimal getSscsdm() {
+		return this.sscsdm;
+	}
 
-    public BigDecimal getXmbh() {
-        return xmbh;
-    }
+	public void setSscsdm(BigDecimal sscsdm) {
+		this.sscsdm = sscsdm;
+	}
 
-    public void setXmbh(BigDecimal xmbh) {
-        this.xmbh = xmbh;
-    }
+	public BigDecimal getTzgm() {
+		return this.tzgm;
+	}
 
-    public String getXmlx() {
-        return xmlx;
-    }
+	public void setTzgm(BigDecimal tzgm) {
+		this.tzgm = tzgm;
+	}
 
-    public void setXmlx(String xmlx) {
-        this.xmlx = xmlx == null ? null : xmlx.trim();
-    }
+	public BigDecimal getDked() {
+		return this.dked;
+	}
 
-    public String getXmmc() {
-        return xmmc;
-    }
+	public void setDked(BigDecimal dked) {
+		this.dked = dked;
+	}
 
-    public void setXmmc(String xmmc) {
-        this.xmmc = xmmc == null ? null : xmmc.trim();
-    }
+	public BigDecimal getJsgm() {
+		return this.jsgm;
+	}
 
-    public BigDecimal getSscsdm() {
-        return sscsdm;
-    }
+	public void setJsgm(BigDecimal jsgm) {
+		this.jsgm = jsgm;
+	}
 
-    public void setSscsdm(BigDecimal sscsdm) {
-        this.sscsdm = sscsdm;
-    }
+	public String getXmfljb() {
+		return this.xmfljb;
+	}
 
-    public BigDecimal getTzgm() {
-        return tzgm;
-    }
+	public void setXmfljb(String xmfljb) {
+		this.xmfljb = xmfljb;
+	}
 
-    public void setTzgm(BigDecimal tzgm) {
-        this.tzgm = tzgm;
-    }
+	public String getXmpc() {
+		return this.xmpc;
+	}
 
-    public BigDecimal getDked() {
-        return dked;
-    }
+	public void setXmpc(String xmpc) {
+		this.xmpc = xmpc;
+	}
 
-    public void setDked(BigDecimal dked) {
-        this.dked = dked;
-    }
+	public String getLxpfwjbh() {
+		return this.lxpfwjbh;
+	}
 
-    public BigDecimal getJsgm() {
-        return jsgm;
-    }
+	public void setLxpfwjbh(String lxpfwjbh) {
+		this.lxpfwjbh = lxpfwjbh;
+	}
 
-    public void setJsgm(BigDecimal jsgm) {
-        this.jsgm = jsgm;
-    }
+	public String getJsydghxkzbh() {
+		return this.jsydghxkzbh;
+	}
 
-    public String getXmfljb() {
-        return xmfljb;
-    }
+	public void setJsydghxkzbh(String jsydghxkzbh) {
+		this.jsydghxkzbh = jsydghxkzbh;
+	}
 
-    public void setXmfljb(String xmfljb) {
-        this.xmfljb = xmfljb == null ? null : xmfljb.trim();
-    }
+	public String getGytdsyzbh() {
+		return this.gytdsyzbh;
+	}
 
-    public String getXmpc() {
-        return xmpc;
-    }
+	public void setGytdsyzbh(String gytdsyzbh) {
+		this.gytdsyzbh = gytdsyzbh;
+	}
 
-    public void setXmpc(String xmpc) {
-        this.xmpc = xmpc == null ? null : xmpc.trim();
-    }
+	public String getJsgcghxkzbh() {
+		return this.jsgcghxkzbh;
+	}
 
-    public String getLxpfwjbh() {
-        return lxpfwjbh;
-    }
+	public void setJsgcghxkzbh(String jsgcghxkzbh) {
+		this.jsgcghxkzbh = jsgcghxkzbh;
+	}
 
-    public void setLxpfwjbh(String lxpfwjbh) {
-        this.lxpfwjbh = lxpfwjbh == null ? null : lxpfwjbh.trim();
-    }
+	public String getJzgcsgxkzbh() {
+		return this.jzgcsgxkzbh;
+	}
 
-    public String getJsydghxkzbh() {
-        return jsydghxkzbh;
-    }
+	public void setJzgcsgxkzbh(String jzgcsgxkzbh) {
+		this.jzgcsgxkzbh = jzgcsgxkzbh;
+	}
 
-    public void setJsydghxkzbh(String jsydghxkzbh) {
-        this.jsydghxkzbh = jsydghxkzbh == null ? null : jsydghxkzbh.trim();
-    }
+	public Set getJsxmdkdywxxes() {
+		return this.jsxmdkdywxxes;
+	}
 
-    public String getGytdsyzbh() {
-        return gytdsyzbh;
-    }
+	public void setJsxmdkdywxxes(Set jsxmdkdywxxes) {
+		this.jsxmdkdywxxes = jsxmdkdywxxes;
+	}
 
-    public void setGytdsyzbh(String gytdsyzbh) {
-        this.gytdsyzbh = gytdsyzbh == null ? null : gytdsyzbh.trim();
-    }
-
-    public String getJsgcghxkzbh() {
-        return jsgcghxkzbh;
-    }
-
-    public void setJsgcghxkzbh(String jsgcghxkzbh) {
-        this.jsgcghxkzbh = jsgcghxkzbh == null ? null : jsgcghxkzbh.trim();
-    }
-
-    public String getJzgcsgxkzbh() {
-        return jzgcsgxkzbh;
-    }
-
-    public void setJzgcsgxkzbh(String jzgcsgxkzbh) {
-        this.jzgcsgxkzbh = jzgcsgxkzbh == null ? null : jzgcsgxkzbh.trim();
-    }
 }

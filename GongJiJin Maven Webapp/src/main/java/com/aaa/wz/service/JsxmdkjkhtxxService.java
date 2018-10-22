@@ -1,6 +1,6 @@
 package com.aaa.wz.service;
 
-import com.aaa.wz.entity.Jsxmdkjkhtxx;
+import com.aaa.entity.Jsxmdkjkhtxx;
 
 public interface JsxmdkjkhtxxService {
 

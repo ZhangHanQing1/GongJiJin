@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.Sys_role;
+import com.aaa.entity.SysRole;
 
 public interface Sys_roleMapper {
     int deleteByPrimaryKey(Integer roleId);
 
-    int insert(Sys_role record);
+    int insert(SysRole record);
 
-    int insertSelective(Sys_role record);
+    int insertSelective(SysRole record);
 
-    Sys_role selectByPrimaryKey(Integer roleId);
+    SysRole selectByPrimaryKey(Integer roleId);
 
-    int updateByPrimaryKeySelective(Sys_role record);
+    int updateByPrimaryKeySelective(SysRole record);
 
-    int updateByPrimaryKey(Sys_role record);
+    int updateByPrimaryKey(SysRole record);
 }

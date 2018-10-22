@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.Sys_dept;
+import com.aaa.entity.SysDept;
 
 public interface Sys_deptMapper {
     int deleteByPrimaryKey(Integer deptId);
 
-    int insert(Sys_dept record);
+    int insert(SysDept record);
 
-    int insertSelective(Sys_dept record);
+    int insertSelective(SysDept record);
 
-    Sys_dept selectByPrimaryKey(Integer deptId);
+    SysDept selectByPrimaryKey(Integer deptId);
 
-    int updateByPrimaryKeySelective(Sys_dept record);
+    int updateByPrimaryKeySelective(SysDept record);
 
-    int updateByPrimaryKey(Sys_dept record);
+    int updateByPrimaryKey(SysDept record);
 }

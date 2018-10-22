@@ -1,23 +1,56 @@
 package com.aaa.entity;
 
-public class Jsztb {
-    private Integer jsztbh;
+import java.util.HashSet;
+import java.util.Set;
 
-    private String ztmc;
+/**
+ * Jsztb entity. @author MyEclipse Persistence Tools
+ */
 
-    public Integer getJsztbh() {
-        return jsztbh;
-    }
+public class Jsztb implements java.io.Serializable {
 
-    public void setJsztbh(Integer jsztbh) {
-        this.jsztbh = jsztbh;
-    }
+	// Fields
 
-    public String getZtmc() {
-        return ztmc;
-    }
+	private Integer jsztbh;
+	private String ztmc;
+	private Set dwywmxbs = new HashSet(0);
 
-    public void setZtmc(String ztmc) {
-        this.ztmc = ztmc == null ? null : ztmc.trim();
-    }
+	// Constructors
+
+	/** default constructor */
+	public Jsztb() {
+	}
+
+	/** full constructor */
+	public Jsztb(String ztmc, Set dwywmxbs) {
+		this.ztmc = ztmc;
+		this.dwywmxbs = dwywmxbs;
+	}
+
+	// Property accessors
+
+	public Integer getJsztbh() {
+		return this.jsztbh;
+	}
+
+	public void setJsztbh(Integer jsztbh) {
+		this.jsztbh = jsztbh;
+	}
+
+	public String getZtmc() {
+		return this.ztmc;
+	}
+
+	public void setZtmc(String ztmc) {
+		this.ztmc = ztmc;
+	}
+
+	public Set getDwywmxbs() {
+		return this.dwywmxbs;
+	}
+
+	public void setDwywmxbs(Set dwywmxbs) {
+		this.dwywmxbs = dwywmxbs;
+	}
+
 }

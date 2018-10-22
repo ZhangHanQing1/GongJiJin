@@ -10,6 +10,18 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
 		id="propertyPlaceholderConfigurer">
 		<property name="location" value="classpath:DRUID.properties"></property>
+	</bean>	
+	<!-- 配置SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property><!--  注入数据源 -->
+		<property name="mapperLocations" value="classpath:com/aaa/mapping/*.xml"></property> <!--  自动扫描mapper映射文件 -->
+		<property name="typeAliasesPackage" value="com.aaa.entity"></property> 
+		<!-- <property name="configLocation" value="classpath:mybatis-config.xml"></property> -->
+	</bean>
+	<!-- 配置扫描dao接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.aaa.dao"></property> <!-- 指定dao接口所在的包 -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 	<!-- 阿里 druid数据库连接池 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">  
@@ -43,5 +55,4 @@
          <!-- 关闭abanded连接时输出错误日志    -->
          <property name="logAbandoned" value="${logAbandoned}" />
 	</bean>
-	
 </beans>
