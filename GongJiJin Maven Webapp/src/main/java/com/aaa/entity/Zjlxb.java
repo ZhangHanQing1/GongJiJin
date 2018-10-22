@@ -1,23 +1,66 @@
 package com.aaa.entity;
 
-public class Zjlxb {
-    private Integer zjlxbh;
+import java.util.HashSet;
+import java.util.Set;
 
-    private String zjmc;
+/**
+ * Zjlxb entity. @author MyEclipse Persistence Tools
+ */
 
-    public Integer getZjlxbh() {
-        return zjlxbh;
-    }
+public class Zjlxb implements java.io.Serializable {
 
-    public void setZjlxbh(Integer zjlxbh) {
-        this.zjlxbh = zjlxbh;
-    }
+	// Fields
 
-    public String getZjmc() {
-        return zjmc;
-    }
+	private Integer zjlxbh;
+	private String zjmc;
+	private Set grzhxxes = new HashSet(0);
+	private Set dwzhs = new HashSet(0);
 
-    public void setZjmc(String zjmc) {
-        this.zjmc = zjmc == null ? null : zjmc.trim();
-    }
+	// Constructors
+
+	/** default constructor */
+	public Zjlxb() {
+	}
+
+	/** full constructor */
+	public Zjlxb(String zjmc, Set grzhxxes, Set dwzhs) {
+		this.zjmc = zjmc;
+		this.grzhxxes = grzhxxes;
+		this.dwzhs = dwzhs;
+	}
+
+	// Property accessors
+
+	public Integer getZjlxbh() {
+		return this.zjlxbh;
+	}
+
+	public void setZjlxbh(Integer zjlxbh) {
+		this.zjlxbh = zjlxbh;
+	}
+
+	public String getZjmc() {
+		return this.zjmc;
+	}
+
+	public void setZjmc(String zjmc) {
+		this.zjmc = zjmc;
+	}
+
+	public Set getGrzhxxes() {
+		return this.grzhxxes;
+	}
+
+	public void setGrzhxxes(Set grzhxxes) {
+		this.grzhxxes = grzhxxes;
+	}
+
+	public Set getDwzhs() {
+		return this.dwzhs;
+	}
+
+	public void setDwzhs(Set dwzhs) {
+		this.dwzhs = dwzhs;
+	}
+
 }

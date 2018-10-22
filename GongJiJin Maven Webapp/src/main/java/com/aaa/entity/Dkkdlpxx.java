@@ -2,134 +2,155 @@ package com.aaa.entity;
 
 import java.util.Date;
 
-public class Dkkdlpxx {
-    private Integer lpzj;
+/**
+ * Dkkdlpxx entity. @author MyEclipse Persistence Tools
+ */
 
-    private Integer kfszj;
+public class Dkkdlpxx implements java.io.Serializable {
 
-    private String kfsbh;
+	// Fields
 
-    private String lpbh;
+	private Integer lpzj;
+	private Kfxxx kfxxx;
+	private String kfsbh;
+	private String lpbh;
+	private String lpmc;
+	private String lpwz;
+	private String jzjg;
+	private String tzzd4;
+	private String tzzd5;
+	private String tzzd6;
+	private String cjr3;
+	private Date cjsj3;
+	private String lpbah;
 
-    private String lpmc;
+	// Constructors
 
-    private String lpwz;
+	/** default constructor */
+	public Dkkdlpxx() {
+	}
 
-    private String jzjg;
+	/** full constructor */
+	public Dkkdlpxx(Kfxxx kfxxx, String kfsbh, String lpbh, String lpmc, String lpwz, String jzjg, String tzzd4,
+			String tzzd5, String tzzd6, String cjr3, Date cjsj3, String lpbah) {
+		this.kfxxx = kfxxx;
+		this.kfsbh = kfsbh;
+		this.lpbh = lpbh;
+		this.lpmc = lpmc;
+		this.lpwz = lpwz;
+		this.jzjg = jzjg;
+		this.tzzd4 = tzzd4;
+		this.tzzd5 = tzzd5;
+		this.tzzd6 = tzzd6;
+		this.cjr3 = cjr3;
+		this.cjsj3 = cjsj3;
+		this.lpbah = lpbah;
+	}
 
-    private String tzzd4;
+	// Property accessors
 
-    private String tzzd5;
+	public Integer getLpzj() {
+		return this.lpzj;
+	}
 
-    private String tzzd6;
+	public void setLpzj(Integer lpzj) {
+		this.lpzj = lpzj;
+	}
 
-    private String cjr3;
+	public Kfxxx getKfxxx() {
+		return this.kfxxx;
+	}
 
-    private Date cjsj3;
+	public void setKfxxx(Kfxxx kfxxx) {
+		this.kfxxx = kfxxx;
+	}
 
-    private String lpbah;
+	public String getKfsbh() {
+		return this.kfsbh;
+	}
 
-    public Integer getLpzj() {
-        return lpzj;
-    }
+	public void setKfsbh(String kfsbh) {
+		this.kfsbh = kfsbh;
+	}
 
-    public void setLpzj(Integer lpzj) {
-        this.lpzj = lpzj;
-    }
+	public String getLpbh() {
+		return this.lpbh;
+	}
 
-    public Integer getKfszj() {
-        return kfszj;
-    }
+	public void setLpbh(String lpbh) {
+		this.lpbh = lpbh;
+	}
 
-    public void setKfszj(Integer kfszj) {
-        this.kfszj = kfszj;
-    }
+	public String getLpmc() {
+		return this.lpmc;
+	}
 
-    public String getKfsbh() {
-        return kfsbh;
-    }
+	public void setLpmc(String lpmc) {
+		this.lpmc = lpmc;
+	}
 
-    public void setKfsbh(String kfsbh) {
-        this.kfsbh = kfsbh == null ? null : kfsbh.trim();
-    }
+	public String getLpwz() {
+		return this.lpwz;
+	}
 
-    public String getLpbh() {
-        return lpbh;
-    }
+	public void setLpwz(String lpwz) {
+		this.lpwz = lpwz;
+	}
 
-    public void setLpbh(String lpbh) {
-        this.lpbh = lpbh == null ? null : lpbh.trim();
-    }
+	public String getJzjg() {
+		return this.jzjg;
+	}
 
-    public String getLpmc() {
-        return lpmc;
-    }
+	public void setJzjg(String jzjg) {
+		this.jzjg = jzjg;
+	}
 
-    public void setLpmc(String lpmc) {
-        this.lpmc = lpmc == null ? null : lpmc.trim();
-    }
+	public String getTzzd4() {
+		return this.tzzd4;
+	}
 
-    public String getLpwz() {
-        return lpwz;
-    }
+	public void setTzzd4(String tzzd4) {
+		this.tzzd4 = tzzd4;
+	}
 
-    public void setLpwz(String lpwz) {
-        this.lpwz = lpwz == null ? null : lpwz.trim();
-    }
+	public String getTzzd5() {
+		return this.tzzd5;
+	}
 
-    public String getJzjg() {
-        return jzjg;
-    }
+	public void setTzzd5(String tzzd5) {
+		this.tzzd5 = tzzd5;
+	}
 
-    public void setJzjg(String jzjg) {
-        this.jzjg = jzjg == null ? null : jzjg.trim();
-    }
+	public String getTzzd6() {
+		return this.tzzd6;
+	}
 
-    public String getTzzd4() {
-        return tzzd4;
-    }
+	public void setTzzd6(String tzzd6) {
+		this.tzzd6 = tzzd6;
+	}
 
-    public void setTzzd4(String tzzd4) {
-        this.tzzd4 = tzzd4 == null ? null : tzzd4.trim();
-    }
+	public String getCjr3() {
+		return this.cjr3;
+	}
 
-    public String getTzzd5() {
-        return tzzd5;
-    }
+	public void setCjr3(String cjr3) {
+		this.cjr3 = cjr3;
+	}
 
-    public void setTzzd5(String tzzd5) {
-        this.tzzd5 = tzzd5 == null ? null : tzzd5.trim();
-    }
+	public Date getCjsj3() {
+		return this.cjsj3;
+	}
 
-    public String getTzzd6() {
-        return tzzd6;
-    }
+	public void setCjsj3(Date cjsj3) {
+		this.cjsj3 = cjsj3;
+	}
 
-    public void setTzzd6(String tzzd6) {
-        this.tzzd6 = tzzd6 == null ? null : tzzd6.trim();
-    }
+	public String getLpbah() {
+		return this.lpbah;
+	}
 
-    public String getCjr3() {
-        return cjr3;
-    }
+	public void setLpbah(String lpbah) {
+		this.lpbah = lpbah;
+	}
 
-    public void setCjr3(String cjr3) {
-        this.cjr3 = cjr3 == null ? null : cjr3.trim();
-    }
-
-    public Date getCjsj3() {
-        return cjsj3;
-    }
-
-    public void setCjsj3(Date cjsj3) {
-        this.cjsj3 = cjsj3;
-    }
-
-    public String getLpbah() {
-        return lpbah;
-    }
-
-    public void setLpbah(String lpbah) {
-        this.lpbah = lpbah == null ? null : lpbah.trim();
-    }
 }

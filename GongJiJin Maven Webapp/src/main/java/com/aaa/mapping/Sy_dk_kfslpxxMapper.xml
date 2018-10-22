@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sy_dk_kfslpxxMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_kfslpxx">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SyDkKfslpxx">
     <result column="KFSBH" jdbcType="VARCHAR" property="kfsbh" />
     <result column="LPBH" jdbcType="VARCHAR" property="lpbh" />
     <result column="LPMC" jdbcType="VARCHAR" property="lpmc" />
@@ -14,7 +14,7 @@
     <result column="CJSJ" jdbcType="DATE" property="cjsj" />
     <result column="LPBAH" jdbcType="VARCHAR" property="lpbah" />
   </resultMap>
-  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_kfslpxx">
+  <insert id="insert" parameterType="com.aaa.entity.SyDkKfslpxx">
     insert into sy_dk_kfslpxx (KFSBH, LPBH, LPMC, 
       LPWZ, JZJG, TZZD1, 
       TZZD2, TZZD3, CJR, 
@@ -24,7 +24,7 @@
       #{tzzd2,jdbcType=VARCHAR}, #{tzzd3,jdbcType=VARCHAR}, #{cjr,jdbcType=VARCHAR}, 
       #{cjsj,jdbcType=DATE}, #{lpbah,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_kfslpxx">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SyDkKfslpxx">
     insert into sy_dk_kfslpxx
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="kfsbh != null">

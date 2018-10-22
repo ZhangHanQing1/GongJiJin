@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.sys_role_menuMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.sys_role_menu">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SysRoleMenu">
     <id column="srm_id" jdbcType="INTEGER" property="srmId" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
@@ -19,13 +19,13 @@
     delete from sys_role_menu
     where srm_id = #{srmId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.sys_role_menu">
+  <insert id="insert" parameterType="com.aaa.entity.SysRoleMenu">
     insert into sys_role_menu (srm_id, role_id, menu_id
       )
     values (#{srmId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.sys_role_menu">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SysRoleMenu">
     insert into sys_role_menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="srmId != null">
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.sys_role_menu">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SysRoleMenu">
     update sys_role_menu
     <set>
       <if test="roleId != null">
@@ -62,7 +62,7 @@
     </set>
     where srm_id = #{srmId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.sys_role_menu">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SysRoleMenu">
     update sys_role_menu
     set role_id = #{roleId,jdbcType=INTEGER},
       menu_id = #{menuId,jdbcType=INTEGER}

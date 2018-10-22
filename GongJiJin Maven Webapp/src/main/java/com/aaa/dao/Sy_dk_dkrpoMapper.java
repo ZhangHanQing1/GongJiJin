@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.Sy_dk_dkrpo;
+import com.aaa.entity.SyDkDkrpo;
 
 public interface Sy_dk_dkrpoMapper {
     int deleteByPrimaryKey(Integer pobh);
 
-    int insert(Sy_dk_dkrpo record);
+    int insert(SyDkDkrpo record);
 
-    int insertSelective(Sy_dk_dkrpo record);
+    int insertSelective(SyDkDkrpo record);
 
-    Sy_dk_dkrpo selectByPrimaryKey(Integer pobh);
+    SyDkDkrpo selectByPrimaryKey(Integer pobh);
 
-    int updateByPrimaryKeySelective(Sy_dk_dkrpo record);
+    int updateByPrimaryKeySelective(SyDkDkrpo record);
 
-    int updateByPrimaryKey(Sy_dk_dkrpo record);
+    int updateByPrimaryKey(SyDkDkrpo record);
 }

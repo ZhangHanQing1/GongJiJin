@@ -3,104 +3,125 @@ package com.aaa.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Jsxmdkyqdjxx {
-    private Integer xmzj;
+/**
+ * Jsxmdkyqdjxx entity. @author MyEclipse Persistence Tools
+ */
 
-    private Integer dhglzj;
+public class Jsxmdkyqdjxx implements java.io.Serializable {
 
-    private BigDecimal xmbh;
+	// Fields
 
-    private BigDecimal yqbj;
+	private Integer xmzj;
+	private SyDkDhgl syDkDhgl;
+	private BigDecimal xmbh;
+	private BigDecimal yqbj;
+	private BigDecimal yqlx;
+	private BigDecimal yqfx;
+	private Date ssrq;
+	private BigDecimal ssyqbj;
+	private BigDecimal ssyqlx;
+	private BigDecimal ssyqfx;
 
-    private BigDecimal yqlx;
+	// Constructors
 
-    private BigDecimal yqfx;
+	/** default constructor */
+	public Jsxmdkyqdjxx() {
+	}
 
-    private Date ssrq;
+	/** full constructor */
+	public Jsxmdkyqdjxx(SyDkDhgl syDkDhgl, BigDecimal xmbh, BigDecimal yqbj, BigDecimal yqlx, BigDecimal yqfx,
+			Date ssrq, BigDecimal ssyqbj, BigDecimal ssyqlx, BigDecimal ssyqfx) {
+		this.syDkDhgl = syDkDhgl;
+		this.xmbh = xmbh;
+		this.yqbj = yqbj;
+		this.yqlx = yqlx;
+		this.yqfx = yqfx;
+		this.ssrq = ssrq;
+		this.ssyqbj = ssyqbj;
+		this.ssyqlx = ssyqlx;
+		this.ssyqfx = ssyqfx;
+	}
 
-    private BigDecimal ssyqbj;
+	// Property accessors
 
-    private BigDecimal ssyqlx;
+	public Integer getXmzj() {
+		return this.xmzj;
+	}
 
-    private BigDecimal ssyqfx;
+	public void setXmzj(Integer xmzj) {
+		this.xmzj = xmzj;
+	}
 
-    public Integer getXmzj() {
-        return xmzj;
-    }
+	public SyDkDhgl getSyDkDhgl() {
+		return this.syDkDhgl;
+	}
 
-    public void setXmzj(Integer xmzj) {
-        this.xmzj = xmzj;
-    }
+	public void setSyDkDhgl(SyDkDhgl syDkDhgl) {
+		this.syDkDhgl = syDkDhgl;
+	}
 
-    public Integer getDhglzj() {
-        return dhglzj;
-    }
+	public BigDecimal getXmbh() {
+		return this.xmbh;
+	}
 
-    public void setDhglzj(Integer dhglzj) {
-        this.dhglzj = dhglzj;
-    }
+	public void setXmbh(BigDecimal xmbh) {
+		this.xmbh = xmbh;
+	}
 
-    public BigDecimal getXmbh() {
-        return xmbh;
-    }
+	public BigDecimal getYqbj() {
+		return this.yqbj;
+	}
 
-    public void setXmbh(BigDecimal xmbh) {
-        this.xmbh = xmbh;
-    }
+	public void setYqbj(BigDecimal yqbj) {
+		this.yqbj = yqbj;
+	}
 
-    public BigDecimal getYqbj() {
-        return yqbj;
-    }
+	public BigDecimal getYqlx() {
+		return this.yqlx;
+	}
 
-    public void setYqbj(BigDecimal yqbj) {
-        this.yqbj = yqbj;
-    }
+	public void setYqlx(BigDecimal yqlx) {
+		this.yqlx = yqlx;
+	}
 
-    public BigDecimal getYqlx() {
-        return yqlx;
-    }
+	public BigDecimal getYqfx() {
+		return this.yqfx;
+	}
 
-    public void setYqlx(BigDecimal yqlx) {
-        this.yqlx = yqlx;
-    }
+	public void setYqfx(BigDecimal yqfx) {
+		this.yqfx = yqfx;
+	}
 
-    public BigDecimal getYqfx() {
-        return yqfx;
-    }
+	public Date getSsrq() {
+		return this.ssrq;
+	}
 
-    public void setYqfx(BigDecimal yqfx) {
-        this.yqfx = yqfx;
-    }
+	public void setSsrq(Date ssrq) {
+		this.ssrq = ssrq;
+	}
 
-    public Date getSsrq() {
-        return ssrq;
-    }
+	public BigDecimal getSsyqbj() {
+		return this.ssyqbj;
+	}
 
-    public void setSsrq(Date ssrq) {
-        this.ssrq = ssrq;
-    }
+	public void setSsyqbj(BigDecimal ssyqbj) {
+		this.ssyqbj = ssyqbj;
+	}
 
-    public BigDecimal getSsyqbj() {
-        return ssyqbj;
-    }
+	public BigDecimal getSsyqlx() {
+		return this.ssyqlx;
+	}
 
-    public void setSsyqbj(BigDecimal ssyqbj) {
-        this.ssyqbj = ssyqbj;
-    }
+	public void setSsyqlx(BigDecimal ssyqlx) {
+		this.ssyqlx = ssyqlx;
+	}
 
-    public BigDecimal getSsyqlx() {
-        return ssyqlx;
-    }
+	public BigDecimal getSsyqfx() {
+		return this.ssyqfx;
+	}
 
-    public void setSsyqlx(BigDecimal ssyqlx) {
-        this.ssyqlx = ssyqlx;
-    }
+	public void setSsyqfx(BigDecimal ssyqfx) {
+		this.ssyqfx = ssyqfx;
+	}
 
-    public BigDecimal getSsyqfx() {
-        return ssyqfx;
-    }
-
-    public void setSsyqfx(BigDecimal ssyqfx) {
-        this.ssyqfx = ssyqfx;
-    }
 }

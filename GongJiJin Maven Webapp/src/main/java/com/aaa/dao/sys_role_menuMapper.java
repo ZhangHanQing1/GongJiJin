@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.sys_role_menu;
+import com.aaa.entity.SysRoleMenu;
 
 public interface sys_role_menuMapper {
     int deleteByPrimaryKey(Integer srmId);
 
-    int insert(sys_role_menu record);
+    int insert(SysRoleMenu record);
 
-    int insertSelective(sys_role_menu record);
+    int insertSelective(SysRoleMenu record);
 
-    sys_role_menu selectByPrimaryKey(Integer srmId);
+    SysRoleMenu selectByPrimaryKey(Integer srmId);
 
-    int updateByPrimaryKeySelective(sys_role_menu record);
+    int updateByPrimaryKeySelective(SysRoleMenu record);
 
-    int updateByPrimaryKey(sys_role_menu record);
+    int updateByPrimaryKey(SysRoleMenu record);
 }

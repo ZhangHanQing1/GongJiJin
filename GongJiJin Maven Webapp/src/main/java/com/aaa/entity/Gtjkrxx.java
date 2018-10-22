@@ -1,155 +1,189 @@
 package com.aaa.entity;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Gtjkrxx {
-    private Integer gtjkrzj;
+/**
+ * Gtjkrxx entity. @author MyEclipse Persistence Tools
+ */
 
-    private String gtjkrbh;
+public class Gtjkrxx implements java.io.Serializable {
 
-    private String gtjkrgjjzh;
+	// Fields
 
-    private String gtjkrxm;
+	private Integer gtjkrzj;
+	private String gtjkrbh;
+	private String gtjkrgjjzh;
+	private String gtjkrxm;
+	private String gtjkrzjlx;
+	private String gtjkrzjhm;
+	private BigDecimal ysr;
+	private String cdgx;
+	private String gddhhm2;
+	private String sjhm2;
+	private String jkhtbh;
+	private String gtjkrdwzh;
+	private String gtjkrdwmc;
+	private String gtjkrsjhm;
+	private String gtjkrdwdz;
+	private Set grzfdkjkhtxxes = new HashSet(0);
 
-    private String gtjkrzjlx;
+	// Constructors
 
-    private String gtjkrzjhm;
+	/** default constructor */
+	public Gtjkrxx() {
+	}
 
-    private BigDecimal ysr;
+	/** full constructor */
+	public Gtjkrxx(String gtjkrbh, String gtjkrgjjzh, String gtjkrxm, String gtjkrzjlx, String gtjkrzjhm,
+			BigDecimal ysr, String cdgx, String gddhhm2, String sjhm2, String jkhtbh, String gtjkrdwzh,
+			String gtjkrdwmc, String gtjkrsjhm, String gtjkrdwdz, Set grzfdkjkhtxxes) {
+		this.gtjkrbh = gtjkrbh;
+		this.gtjkrgjjzh = gtjkrgjjzh;
+		this.gtjkrxm = gtjkrxm;
+		this.gtjkrzjlx = gtjkrzjlx;
+		this.gtjkrzjhm = gtjkrzjhm;
+		this.ysr = ysr;
+		this.cdgx = cdgx;
+		this.gddhhm2 = gddhhm2;
+		this.sjhm2 = sjhm2;
+		this.jkhtbh = jkhtbh;
+		this.gtjkrdwzh = gtjkrdwzh;
+		this.gtjkrdwmc = gtjkrdwmc;
+		this.gtjkrsjhm = gtjkrsjhm;
+		this.gtjkrdwdz = gtjkrdwdz;
+		this.grzfdkjkhtxxes = grzfdkjkhtxxes;
+	}
 
-    private String cdgx;
+	// Property accessors
 
-    private String gddhhm2;
+	public Integer getGtjkrzj() {
+		return this.gtjkrzj;
+	}
 
-    private String sjhm2;
+	public void setGtjkrzj(Integer gtjkrzj) {
+		this.gtjkrzj = gtjkrzj;
+	}
 
-    private String jkhtbh;
+	public String getGtjkrbh() {
+		return this.gtjkrbh;
+	}
 
-    private String gtjkrdwzh;
+	public void setGtjkrbh(String gtjkrbh) {
+		this.gtjkrbh = gtjkrbh;
+	}
 
-    private String gtjkrdwmc;
+	public String getGtjkrgjjzh() {
+		return this.gtjkrgjjzh;
+	}
 
-    private String gtjkrsjhm;
+	public void setGtjkrgjjzh(String gtjkrgjjzh) {
+		this.gtjkrgjjzh = gtjkrgjjzh;
+	}
 
-    private String gtjkrdwdz;
+	public String getGtjkrxm() {
+		return this.gtjkrxm;
+	}
 
-    public Integer getGtjkrzj() {
-        return gtjkrzj;
-    }
+	public void setGtjkrxm(String gtjkrxm) {
+		this.gtjkrxm = gtjkrxm;
+	}
 
-    public void setGtjkrzj(Integer gtjkrzj) {
-        this.gtjkrzj = gtjkrzj;
-    }
+	public String getGtjkrzjlx() {
+		return this.gtjkrzjlx;
+	}
 
-    public String getGtjkrbh() {
-        return gtjkrbh;
-    }
+	public void setGtjkrzjlx(String gtjkrzjlx) {
+		this.gtjkrzjlx = gtjkrzjlx;
+	}
 
-    public void setGtjkrbh(String gtjkrbh) {
-        this.gtjkrbh = gtjkrbh == null ? null : gtjkrbh.trim();
-    }
+	public String getGtjkrzjhm() {
+		return this.gtjkrzjhm;
+	}
 
-    public String getGtjkrgjjzh() {
-        return gtjkrgjjzh;
-    }
+	public void setGtjkrzjhm(String gtjkrzjhm) {
+		this.gtjkrzjhm = gtjkrzjhm;
+	}
 
-    public void setGtjkrgjjzh(String gtjkrgjjzh) {
-        this.gtjkrgjjzh = gtjkrgjjzh == null ? null : gtjkrgjjzh.trim();
-    }
+	public BigDecimal getYsr() {
+		return this.ysr;
+	}
 
-    public String getGtjkrxm() {
-        return gtjkrxm;
-    }
+	public void setYsr(BigDecimal ysr) {
+		this.ysr = ysr;
+	}
 
-    public void setGtjkrxm(String gtjkrxm) {
-        this.gtjkrxm = gtjkrxm == null ? null : gtjkrxm.trim();
-    }
+	public String getCdgx() {
+		return this.cdgx;
+	}
 
-    public String getGtjkrzjlx() {
-        return gtjkrzjlx;
-    }
+	public void setCdgx(String cdgx) {
+		this.cdgx = cdgx;
+	}
 
-    public void setGtjkrzjlx(String gtjkrzjlx) {
-        this.gtjkrzjlx = gtjkrzjlx == null ? null : gtjkrzjlx.trim();
-    }
+	public String getGddhhm2() {
+		return this.gddhhm2;
+	}
 
-    public String getGtjkrzjhm() {
-        return gtjkrzjhm;
-    }
+	public void setGddhhm2(String gddhhm2) {
+		this.gddhhm2 = gddhhm2;
+	}
 
-    public void setGtjkrzjhm(String gtjkrzjhm) {
-        this.gtjkrzjhm = gtjkrzjhm == null ? null : gtjkrzjhm.trim();
-    }
+	public String getSjhm2() {
+		return this.sjhm2;
+	}
 
-    public BigDecimal getYsr() {
-        return ysr;
-    }
+	public void setSjhm2(String sjhm2) {
+		this.sjhm2 = sjhm2;
+	}
 
-    public void setYsr(BigDecimal ysr) {
-        this.ysr = ysr;
-    }
+	public String getJkhtbh() {
+		return this.jkhtbh;
+	}
 
-    public String getCdgx() {
-        return cdgx;
-    }
+	public void setJkhtbh(String jkhtbh) {
+		this.jkhtbh = jkhtbh;
+	}
 
-    public void setCdgx(String cdgx) {
-        this.cdgx = cdgx == null ? null : cdgx.trim();
-    }
+	public String getGtjkrdwzh() {
+		return this.gtjkrdwzh;
+	}
 
-    public String getGddhhm2() {
-        return gddhhm2;
-    }
+	public void setGtjkrdwzh(String gtjkrdwzh) {
+		this.gtjkrdwzh = gtjkrdwzh;
+	}
 
-    public void setGddhhm2(String gddhhm2) {
-        this.gddhhm2 = gddhhm2 == null ? null : gddhhm2.trim();
-    }
+	public String getGtjkrdwmc() {
+		return this.gtjkrdwmc;
+	}
 
-    public String getSjhm2() {
-        return sjhm2;
-    }
+	public void setGtjkrdwmc(String gtjkrdwmc) {
+		this.gtjkrdwmc = gtjkrdwmc;
+	}
 
-    public void setSjhm2(String sjhm2) {
-        this.sjhm2 = sjhm2 == null ? null : sjhm2.trim();
-    }
+	public String getGtjkrsjhm() {
+		return this.gtjkrsjhm;
+	}
 
-    public String getJkhtbh() {
-        return jkhtbh;
-    }
+	public void setGtjkrsjhm(String gtjkrsjhm) {
+		this.gtjkrsjhm = gtjkrsjhm;
+	}
 
-    public void setJkhtbh(String jkhtbh) {
-        this.jkhtbh = jkhtbh == null ? null : jkhtbh.trim();
-    }
+	public String getGtjkrdwdz() {
+		return this.gtjkrdwdz;
+	}
 
-    public String getGtjkrdwzh() {
-        return gtjkrdwzh;
-    }
+	public void setGtjkrdwdz(String gtjkrdwdz) {
+		this.gtjkrdwdz = gtjkrdwdz;
+	}
 
-    public void setGtjkrdwzh(String gtjkrdwzh) {
-        this.gtjkrdwzh = gtjkrdwzh == null ? null : gtjkrdwzh.trim();
-    }
+	public Set getGrzfdkjkhtxxes() {
+		return this.grzfdkjkhtxxes;
+	}
 
-    public String getGtjkrdwmc() {
-        return gtjkrdwmc;
-    }
+	public void setGrzfdkjkhtxxes(Set grzfdkjkhtxxes) {
+		this.grzfdkjkhtxxes = grzfdkjkhtxxes;
+	}
 
-    public void setGtjkrdwmc(String gtjkrdwmc) {
-        this.gtjkrdwmc = gtjkrdwmc == null ? null : gtjkrdwmc.trim();
-    }
-
-    public String getGtjkrsjhm() {
-        return gtjkrsjhm;
-    }
-
-    public void setGtjkrsjhm(String gtjkrsjhm) {
-        this.gtjkrsjhm = gtjkrsjhm == null ? null : gtjkrsjhm.trim();
-    }
-
-    public String getGtjkrdwdz() {
-        return gtjkrdwdz;
-    }
-
-    public void setGtjkrdwdz(String gtjkrdwdz) {
-        this.gtjkrdwdz = gtjkrdwdz == null ? null : gtjkrdwdz.trim();
-    }
 }

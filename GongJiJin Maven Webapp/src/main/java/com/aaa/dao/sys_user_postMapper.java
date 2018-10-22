@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.sys_user_post;
+import com.aaa.entity.SysUserPost;
 
 public interface sys_user_postMapper {
     int deleteByPrimaryKey(Integer supId);
 
-    int insert(sys_user_post record);
+    int insert(SysUserPost record);
 
-    int insertSelective(sys_user_post record);
+    int insertSelective(SysUserPost record);
 
-    sys_user_post selectByPrimaryKey(Integer supId);
+    SysUserPost selectByPrimaryKey(Integer supId);
 
-    int updateByPrimaryKeySelective(sys_user_post record);
+    int updateByPrimaryKeySelective(SysUserPost record);
 
-    int updateByPrimaryKey(sys_user_post record);
+    int updateByPrimaryKey(SysUserPost record);
 }

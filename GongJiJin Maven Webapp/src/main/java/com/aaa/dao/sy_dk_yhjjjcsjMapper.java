@@ -1,9 +1,9 @@
 package com.aaa.dao;
 
-import com.aaa.entity.sy_dk_yhjjjcsj;
+import com.aaa.entity.SyDkYhjjjcsj;
 
 public interface sy_dk_yhjjjcsjMapper {
-    int insert(sy_dk_yhjjjcsj record);
+    int insert(SyDkYhjjjcsj record);
 
-    int insertSelective(sy_dk_yhjjjcsj record);
+    int insertSelective(SyDkYhjjjcsj record);
 }

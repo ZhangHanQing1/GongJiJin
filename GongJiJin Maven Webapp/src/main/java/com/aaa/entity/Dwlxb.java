@@ -1,23 +1,56 @@
 package com.aaa.entity;
 
-public class Dwlxb {
-    private Integer dwlxbh;
+import java.util.HashSet;
+import java.util.Set;
 
-    private String dwlxmc;
+/**
+ * Dwlxb entity. @author MyEclipse Persistence Tools
+ */
 
-    public Integer getDwlxbh() {
-        return dwlxbh;
-    }
+public class Dwlxb implements java.io.Serializable {
 
-    public void setDwlxbh(Integer dwlxbh) {
-        this.dwlxbh = dwlxbh;
-    }
+	// Fields
 
-    public String getDwlxmc() {
-        return dwlxmc;
-    }
+	private Integer dwlxbh;
+	private String dwlxmc;
+	private Set dwzhs = new HashSet(0);
 
-    public void setDwlxmc(String dwlxmc) {
-        this.dwlxmc = dwlxmc == null ? null : dwlxmc.trim();
-    }
+	// Constructors
+
+	/** default constructor */
+	public Dwlxb() {
+	}
+
+	/** full constructor */
+	public Dwlxb(String dwlxmc, Set dwzhs) {
+		this.dwlxmc = dwlxmc;
+		this.dwzhs = dwzhs;
+	}
+
+	// Property accessors
+
+	public Integer getDwlxbh() {
+		return this.dwlxbh;
+	}
+
+	public void setDwlxbh(Integer dwlxbh) {
+		this.dwlxbh = dwlxbh;
+	}
+
+	public String getDwlxmc() {
+		return this.dwlxmc;
+	}
+
+	public void setDwlxmc(String dwlxmc) {
+		this.dwlxmc = dwlxmc;
+	}
+
+	public Set getDwzhs() {
+		return this.dwzhs;
+	}
+
+	public void setDwzhs(Set dwzhs) {
+		this.dwzhs = dwzhs;
+	}
+
 }

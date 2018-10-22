@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.Sy_dk_qtfz;
+import com.aaa.entity.SyDkQtfz;
 
 public interface Sy_dk_qtfzMapper {
     int deleteByPrimaryKey(Integer fzbh);
 
-    int insert(Sy_dk_qtfz record);
+    int insert(SyDkQtfz record);
 
-    int insertSelective(Sy_dk_qtfz record);
+    int insertSelective(SyDkQtfz record);
 
-    Sy_dk_qtfz selectByPrimaryKey(Integer fzbh);
+    SyDkQtfz selectByPrimaryKey(Integer fzbh);
 
-    int updateByPrimaryKeySelective(Sy_dk_qtfz record);
+    int updateByPrimaryKeySelective(SyDkQtfz record);
 
-    int updateByPrimaryKey(Sy_dk_qtfz record);
+    int updateByPrimaryKey(SyDkQtfz record);
 }

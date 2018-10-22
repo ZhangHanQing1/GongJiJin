@@ -1,23 +1,56 @@
 package com.aaa.entity;
 
-public class Sshyb {
-    private Integer hybh;
+import java.util.HashSet;
+import java.util.Set;
 
-    private String hymc;
+/**
+ * Sshyb entity. @author MyEclipse Persistence Tools
+ */
 
-    public Integer getHybh() {
-        return hybh;
-    }
+public class Sshyb implements java.io.Serializable {
 
-    public void setHybh(Integer hybh) {
-        this.hybh = hybh;
-    }
+	// Fields
 
-    public String getHymc() {
-        return hymc;
-    }
+	private Integer hybh;
+	private String hymc;
+	private Set dwzhs = new HashSet(0);
 
-    public void setHymc(String hymc) {
-        this.hymc = hymc == null ? null : hymc.trim();
-    }
+	// Constructors
+
+	/** default constructor */
+	public Sshyb() {
+	}
+
+	/** full constructor */
+	public Sshyb(String hymc, Set dwzhs) {
+		this.hymc = hymc;
+		this.dwzhs = dwzhs;
+	}
+
+	// Property accessors
+
+	public Integer getHybh() {
+		return this.hybh;
+	}
+
+	public void setHybh(Integer hybh) {
+		this.hybh = hybh;
+	}
+
+	public String getHymc() {
+		return this.hymc;
+	}
+
+	public void setHymc(String hymc) {
+		this.hymc = hymc;
+	}
+
+	public Set getDwzhs() {
+		return this.dwzhs;
+	}
+
+	public void setDwzhs(Set dwzhs) {
+		this.dwzhs = dwzhs;
+	}
+
 }

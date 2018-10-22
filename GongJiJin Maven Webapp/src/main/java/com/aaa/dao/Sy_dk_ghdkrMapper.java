@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.Sy_dk_ghdkr;
+import com.aaa.entity.SyDkGhdkr;
 
 public interface Sy_dk_ghdkrMapper {
     int deleteByPrimaryKey(Integer ghdkrzj);
 
-    int insert(Sy_dk_ghdkr record);
+    int insert(SyDkGhdkr record);
 
-    int insertSelective(Sy_dk_ghdkr record);
+    int insertSelective(SyDkGhdkr record);
 
-    Sy_dk_ghdkr selectByPrimaryKey(Integer ghdkrzj);
+    SyDkGhdkr selectByPrimaryKey(Integer ghdkrzj);
 
-    int updateByPrimaryKeySelective(Sy_dk_ghdkr record);
+    int updateByPrimaryKeySelective(SyDkGhdkr record);
 
-    int updateByPrimaryKey(Sy_dk_ghdkr record);
+    int updateByPrimaryKey(SyDkGhdkr record);
 }

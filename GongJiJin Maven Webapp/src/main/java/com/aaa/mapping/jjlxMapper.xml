@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.jjlxMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.jjlx">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Jjlx">
     <id column="JJLXBH" jdbcType="INTEGER" property="jjlxbh" />
     <result column="JJLXMC" jdbcType="VARCHAR" property="jjlxmc" />
   </resultMap>
@@ -18,11 +18,11 @@
     delete from jjlx
     where JJLXBH = #{jjlxbh,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.jjlx">
+  <insert id="insert" parameterType="com.aaa.entity.Jjlx">
     insert into jjlx (JJLXBH, JJLXMC)
     values (#{jjlxbh,jdbcType=INTEGER}, #{jjlxmc,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.jjlx">
+  <insert id="insertSelective" parameterType="com.aaa.entity.Jjlx">
     insert into jjlx
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="jjlxbh != null">
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.jjlx">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Jjlx">
     update jjlx
     <set>
       <if test="jjlxmc != null">
@@ -50,7 +50,7 @@
     </set>
     where JJLXBH = #{jjlxbh,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.jjlx">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Jjlx">
     update jjlx
     set JJLXMC = #{jjlxmc,jdbcType=VARCHAR}
     where JJLXBH = #{jjlxbh,jdbcType=INTEGER}

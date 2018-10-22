@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.sys_user_postMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.sys_user_post">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.SysUserPost">
     <id column="sup_id" jdbcType="INTEGER" property="supId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="post_id" jdbcType="INTEGER" property="postId" />
@@ -19,13 +19,13 @@
     delete from sys_user_post
     where sup_id = #{supId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.sys_user_post">
+  <insert id="insert" parameterType="com.aaa.entity.SysUserPost">
     insert into sys_user_post (sup_id, user_id, post_id
       )
     values (#{supId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{postId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.sys_user_post">
+  <insert id="insertSelective" parameterType="com.aaa.entity.SysUserPost">
     insert into sys_user_post
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="supId != null">
@@ -50,7 +50,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.sys_user_post">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SysUserPost">
     update sys_user_post
     <set>
       <if test="userId != null">
@@ -62,7 +62,7 @@
     </set>
     where sup_id = #{supId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.sys_user_post">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SysUserPost">
     update sys_user_post
     set user_id = #{userId,jdbcType=INTEGER},
       post_id = #{postId,jdbcType=INTEGER}

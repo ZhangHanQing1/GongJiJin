@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.Sy_dk_zyxx;
+import com.aaa.entity.SyDkZyxx;
 
 public interface Sy_dk_zyxxMapper {
     int deleteByPrimaryKey(Integer zyxxzj);
 
-    int insert(Sy_dk_zyxx record);
+    int insert(SyDkZyxx record);
 
-    int insertSelective(Sy_dk_zyxx record);
+    int insertSelective(SyDkZyxx record);
 
-    Sy_dk_zyxx selectByPrimaryKey(Integer zyxxzj);
+    SyDkZyxx selectByPrimaryKey(Integer zyxxzj);
 
-    int updateByPrimaryKeySelective(Sy_dk_zyxx record);
+    int updateByPrimaryKeySelective(SyDkZyxx record);
 
-    int updateByPrimaryKey(Sy_dk_zyxx record);
+    int updateByPrimaryKey(SyDkZyxx record);
 }

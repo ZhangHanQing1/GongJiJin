@@ -14,7 +14,7 @@
 	<!-- 配置SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property><!--  注入数据源 -->
-		<property name="mapperLocations" value="classpath:com/aaa/dao/*.xml"></property> <!--  自动扫描mapper映射文件 -->
+		<property name="mapperLocations" value="classpath:com/aaa/mapping/*.xml"></property> <!--  自动扫描mapper映射文件 -->
 		<property name="typeAliasesPackage" value="com.aaa.entity"></property> 
 		<!-- <property name="configLocation" value="classpath:mybatis-config.xml"></property> -->
 	</bean>

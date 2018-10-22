@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.sys_user;
+import com.aaa.entity.SysUser;
 
 public interface sys_userMapper {
     int deleteByPrimaryKey(Integer userId);
 
-    int insert(sys_user record);
+    int insert(SysUser record);
 
-    int insertSelective(sys_user record);
+    int insertSelective(SysUser record);
 
-    sys_user selectByPrimaryKey(Integer userId);
+    SysUser selectByPrimaryKey(Integer userId);
 
-    int updateByPrimaryKeySelective(sys_user record);
+    int updateByPrimaryKeySelective(SysUser record);
 
-    int updateByPrimaryKey(sys_user record);
+    int updateByPrimaryKey(SysUser record);
 }
