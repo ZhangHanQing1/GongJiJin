@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.SshybMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sshyb">
+    <id column="HYBH" jdbcType="INTEGER" property="hybh" />
+    <result column="HYMC" jdbcType="VARCHAR" property="hymc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HYBH, HYMC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sshyb
+    where HYBH = #{hybh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sshyb
+    where HYBH = #{hybh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sshyb">
+    insert into sshyb (HYBH, HYMC)
+    values (#{hybh,jdbcType=INTEGER}, #{hymc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sshyb">
+    insert into sshyb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hybh != null">
+        HYBH,
+      </if>
+      <if test="hymc != null">
+        HYMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hybh != null">
+        #{hybh,jdbcType=INTEGER},
+      </if>
+      <if test="hymc != null">
+        #{hymc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sshyb">
+    update sshyb
+    <set>
+      <if test="hymc != null">
+        HYMC = #{hymc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HYBH = #{hybh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sshyb">
+    update sshyb
+    set HYMC = #{hymc,jdbcType=VARCHAR}
+    where HYBH = #{hybh,jdbcType=INTEGER}
+  </update>
+</mapper>

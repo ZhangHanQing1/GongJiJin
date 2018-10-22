@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.DwzhztMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Dwzhzt">
+    <id column="DWZHZTBH" jdbcType="INTEGER" property="dwzhztbh" />
+    <result column="DWZHZTMC" jdbcType="VARCHAR" property="dwzhztmc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DWZHZTBH, DWZHZTMC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dwzhzt
+    where DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dwzhzt
+    where DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Dwzhzt">
+    insert into dwzhzt (DWZHZTBH, DWZHZTMC)
+    values (#{dwzhztbh,jdbcType=INTEGER}, #{dwzhztmc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Dwzhzt">
+    insert into dwzhzt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dwzhztbh != null">
+        DWZHZTBH,
+      </if>
+      <if test="dwzhztmc != null">
+        DWZHZTMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dwzhztbh != null">
+        #{dwzhztbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwzhztmc != null">
+        #{dwzhztmc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Dwzhzt">
+    update dwzhzt
+    <set>
+      <if test="dwzhztmc != null">
+        DWZHZTMC = #{dwzhztmc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Dwzhzt">
+    update dwzhzt
+    set DWZHZTMC = #{dwzhztmc,jdbcType=VARCHAR}
+    where DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER}
+  </update>
+</mapper>

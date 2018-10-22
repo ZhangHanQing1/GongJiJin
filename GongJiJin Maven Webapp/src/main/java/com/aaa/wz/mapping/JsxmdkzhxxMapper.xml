@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.JsxmdkzhxxMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Jsxmdkzhxx">
+    <id column="DKZHBH" jdbcType="INTEGER" property="dkzhbh" />
+    <result column="DKZH" jdbcType="VARCHAR" property="dkzh" />
+    <result column="DKYE" jdbcType="DECIMAL" property="dkye" />
+    <result column="ZXLL" jdbcType="DECIMAL" property="zxll" />
+    <result column="YQFXZXLL" jdbcType="DECIMAL" property="yqfxzxll" />
+    <result column="NYFXZXLL" jdbcType="DECIMAL" property="nyfxzxll" />
+    <result column="DKFXDJ" jdbcType="VARCHAR" property="dkfxdj" />
+    <result column="DKJQRQ" jdbcType="DATE" property="dkjqrq" />
+    <result column="HSBJZE" jdbcType="DECIMAL" property="hsbjze" />
+    <result column="HSLXZE" jdbcType="DECIMAL" property="hslxze" />
+    <result column="FXZE" jdbcType="DECIMAL" property="fxze" />
+    <result column="TQHKBJZE" jdbcType="DECIMAL" property="tqhkbjze" />
+    <result column="YQBJ" jdbcType="DECIMAL" property="yqbj" />
+    <result column="YQLX" jdbcType="DECIMAL" property="yqlx" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DKZHBH, DKZH, DKYE, ZXLL, YQFXZXLL, NYFXZXLL, DKFXDJ, DKJQRQ, HSBJZE, HSLXZE, FXZE, 
+    TQHKBJZE, YQBJ, YQLX
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jsxmdkzhxx
+    where DKZHBH = #{dkzhbh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jsxmdkzhxx
+    where DKZHBH = #{dkzhbh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Jsxmdkzhxx">
+    insert into jsxmdkzhxx (DKZHBH, DKZH, DKYE, 
+      ZXLL, YQFXZXLL, NYFXZXLL, 
+      DKFXDJ, DKJQRQ, HSBJZE, 
+      HSLXZE, FXZE, TQHKBJZE, 
+      YQBJ, YQLX)
+    values (#{dkzhbh,jdbcType=INTEGER}, #{dkzh,jdbcType=VARCHAR}, #{dkye,jdbcType=DECIMAL}, 
+      #{zxll,jdbcType=DECIMAL}, #{yqfxzxll,jdbcType=DECIMAL}, #{nyfxzxll,jdbcType=DECIMAL}, 
+      #{dkfxdj,jdbcType=VARCHAR}, #{dkjqrq,jdbcType=DATE}, #{hsbjze,jdbcType=DECIMAL}, 
+      #{hslxze,jdbcType=DECIMAL}, #{fxze,jdbcType=DECIMAL}, #{tqhkbjze,jdbcType=DECIMAL}, 
+      #{yqbj,jdbcType=DECIMAL}, #{yqlx,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Jsxmdkzhxx">
+    insert into jsxmdkzhxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dkzhbh != null">
+        DKZHBH,
+      </if>
+      <if test="dkzh != null">
+        DKZH,
+      </if>
+      <if test="dkye != null">
+        DKYE,
+      </if>
+      <if test="zxll != null">
+        ZXLL,
+      </if>
+      <if test="yqfxzxll != null">
+        YQFXZXLL,
+      </if>
+      <if test="nyfxzxll != null">
+        NYFXZXLL,
+      </if>
+      <if test="dkfxdj != null">
+        DKFXDJ,
+      </if>
+      <if test="dkjqrq != null">
+        DKJQRQ,
+      </if>
+      <if test="hsbjze != null">
+        HSBJZE,
+      </if>
+      <if test="hslxze != null">
+        HSLXZE,
+      </if>
+      <if test="fxze != null">
+        FXZE,
+      </if>
+      <if test="tqhkbjze != null">
+        TQHKBJZE,
+      </if>
+      <if test="yqbj != null">
+        YQBJ,
+      </if>
+      <if test="yqlx != null">
+        YQLX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dkzhbh != null">
+        #{dkzhbh,jdbcType=INTEGER},
+      </if>
+      <if test="dkzh != null">
+        #{dkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dkye != null">
+        #{dkye,jdbcType=DECIMAL},
+      </if>
+      <if test="zxll != null">
+        #{zxll,jdbcType=DECIMAL},
+      </if>
+      <if test="yqfxzxll != null">
+        #{yqfxzxll,jdbcType=DECIMAL},
+      </if>
+      <if test="nyfxzxll != null">
+        #{nyfxzxll,jdbcType=DECIMAL},
+      </if>
+      <if test="dkfxdj != null">
+        #{dkfxdj,jdbcType=VARCHAR},
+      </if>
+      <if test="dkjqrq != null">
+        #{dkjqrq,jdbcType=DATE},
+      </if>
+      <if test="hsbjze != null">
+        #{hsbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="hslxze != null">
+        #{hslxze,jdbcType=DECIMAL},
+      </if>
+      <if test="fxze != null">
+        #{fxze,jdbcType=DECIMAL},
+      </if>
+      <if test="tqhkbjze != null">
+        #{tqhkbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="yqbj != null">
+        #{yqbj,jdbcType=DECIMAL},
+      </if>
+      <if test="yqlx != null">
+        #{yqlx,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Jsxmdkzhxx">
+    update jsxmdkzhxx
+    <set>
+      <if test="dkzh != null">
+        DKZH = #{dkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dkye != null">
+        DKYE = #{dkye,jdbcType=DECIMAL},
+      </if>
+      <if test="zxll != null">
+        ZXLL = #{zxll,jdbcType=DECIMAL},
+      </if>
+      <if test="yqfxzxll != null">
+        YQFXZXLL = #{yqfxzxll,jdbcType=DECIMAL},
+      </if>
+      <if test="nyfxzxll != null">
+        NYFXZXLL = #{nyfxzxll,jdbcType=DECIMAL},
+      </if>
+      <if test="dkfxdj != null">
+        DKFXDJ = #{dkfxdj,jdbcType=VARCHAR},
+      </if>
+      <if test="dkjqrq != null">
+        DKJQRQ = #{dkjqrq,jdbcType=DATE},
+      </if>
+      <if test="hsbjze != null">
+        HSBJZE = #{hsbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="hslxze != null">
+        HSLXZE = #{hslxze,jdbcType=DECIMAL},
+      </if>
+      <if test="fxze != null">
+        FXZE = #{fxze,jdbcType=DECIMAL},
+      </if>
+      <if test="tqhkbjze != null">
+        TQHKBJZE = #{tqhkbjze,jdbcType=DECIMAL},
+      </if>
+      <if test="yqbj != null">
+        YQBJ = #{yqbj,jdbcType=DECIMAL},
+      </if>
+      <if test="yqlx != null">
+        YQLX = #{yqlx,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where DKZHBH = #{dkzhbh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Jsxmdkzhxx">
+    update jsxmdkzhxx
+    set DKZH = #{dkzh,jdbcType=VARCHAR},
+      DKYE = #{dkye,jdbcType=DECIMAL},
+      ZXLL = #{zxll,jdbcType=DECIMAL},
+      YQFXZXLL = #{yqfxzxll,jdbcType=DECIMAL},
+      NYFXZXLL = #{nyfxzxll,jdbcType=DECIMAL},
+      DKFXDJ = #{dkfxdj,jdbcType=VARCHAR},
+      DKJQRQ = #{dkjqrq,jdbcType=DATE},
+      HSBJZE = #{hsbjze,jdbcType=DECIMAL},
+      HSLXZE = #{hslxze,jdbcType=DECIMAL},
+      FXZE = #{fxze,jdbcType=DECIMAL},
+      TQHKBJZE = #{tqhkbjze,jdbcType=DECIMAL},
+      YQBJ = #{yqbj,jdbcType=DECIMAL},
+      YQLX = #{yqlx,jdbcType=DECIMAL}
+    where DKZHBH = #{dkzhbh,jdbcType=INTEGER}
+  </update>
+</mapper>

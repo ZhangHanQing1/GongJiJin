@@ -19,6 +19,7 @@ public class Dbxx implements java.io.Serializable {
 	private SyDkBzxx syDkBzxx;
 	private SyDkZyxx syDkZyxx;
 	private Jsxmdkjkhtxx jsxmdkjkhtxx;
+	
 	private String dbhtbh;
 	private String jkhtbh;
 	private String dkdblx;
