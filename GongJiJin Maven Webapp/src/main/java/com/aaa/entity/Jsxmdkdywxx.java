@@ -2,174 +2,135 @@ package com.aaa.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-/**
- * Jsxmdkdywxx entity. @author MyEclipse Persistence Tools
- */
+public class Jsxmdkdywxx {
+    private Integer dywzj;
 
-public class Jsxmdkdywxx implements java.io.Serializable {
+    private Integer jsxmzj;
 
-	// Fields
+    private BigDecimal dyhtbh;
 
-	private Integer dywzj;
-	private Jsxmxx jsxmxx;
-	private BigDecimal dyhtbh;
-	private BigDecimal xmbh;
-	private String dywlx;
-	private String dywmc;
-	private String dywqszmbh;
-	private String dywcs;
-	private Date dyqjlrq;
-	private Date dyqjcrq;
-	private BigDecimal dywpgjz;
-	private BigDecimal ydyjz;
-	private BigDecimal dyl;
-	private Set dbxxes = new HashSet(0);
+    private BigDecimal xmbh;
 
-	// Constructors
+    private String dywlx;
 
-	/** default constructor */
-	public Jsxmdkdywxx() {
-	}
+    private String dywmc;
 
-	/** minimal constructor */
-	public Jsxmdkdywxx(BigDecimal dyhtbh) {
-		this.dyhtbh = dyhtbh;
-	}
+    private String dywqszmbh;
 
-	/** full constructor */
-	public Jsxmdkdywxx(Jsxmxx jsxmxx, BigDecimal dyhtbh, BigDecimal xmbh, String dywlx, String dywmc, String dywqszmbh,
-			String dywcs, Date dyqjlrq, Date dyqjcrq, BigDecimal dywpgjz, BigDecimal ydyjz, BigDecimal dyl,
-			Set dbxxes) {
-		this.jsxmxx = jsxmxx;
-		this.dyhtbh = dyhtbh;
-		this.xmbh = xmbh;
-		this.dywlx = dywlx;
-		this.dywmc = dywmc;
-		this.dywqszmbh = dywqszmbh;
-		this.dywcs = dywcs;
-		this.dyqjlrq = dyqjlrq;
-		this.dyqjcrq = dyqjcrq;
-		this.dywpgjz = dywpgjz;
-		this.ydyjz = ydyjz;
-		this.dyl = dyl;
-		this.dbxxes = dbxxes;
-	}
+    private String dywcs;
 
-	// Property accessors
+    private Date dyqjlrq;
 
-	public Integer getDywzj() {
-		return this.dywzj;
-	}
+    private Date dyqjcrq;
 
-	public void setDywzj(Integer dywzj) {
-		this.dywzj = dywzj;
-	}
+    private BigDecimal dywpgjz;
 
-	public Jsxmxx getJsxmxx() {
-		return this.jsxmxx;
-	}
+    private BigDecimal ydyjz;
 
-	public void setJsxmxx(Jsxmxx jsxmxx) {
-		this.jsxmxx = jsxmxx;
-	}
+    private BigDecimal dyl;
 
-	public BigDecimal getDyhtbh() {
-		return this.dyhtbh;
-	}
+    public Integer getDywzj() {
+        return dywzj;
+    }
 
-	public void setDyhtbh(BigDecimal dyhtbh) {
-		this.dyhtbh = dyhtbh;
-	}
+    public void setDywzj(Integer dywzj) {
+        this.dywzj = dywzj;
+    }
 
-	public BigDecimal getXmbh() {
-		return this.xmbh;
-	}
+    public Integer getJsxmzj() {
+        return jsxmzj;
+    }
 
-	public void setXmbh(BigDecimal xmbh) {
-		this.xmbh = xmbh;
-	}
+    public void setJsxmzj(Integer jsxmzj) {
+        this.jsxmzj = jsxmzj;
+    }
 
-	public String getDywlx() {
-		return this.dywlx;
-	}
+    public BigDecimal getDyhtbh() {
+        return dyhtbh;
+    }
 
-	public void setDywlx(String dywlx) {
-		this.dywlx = dywlx;
-	}
+    public void setDyhtbh(BigDecimal dyhtbh) {
+        this.dyhtbh = dyhtbh;
+    }
 
-	public String getDywmc() {
-		return this.dywmc;
-	}
+    public BigDecimal getXmbh() {
+        return xmbh;
+    }
 
-	public void setDywmc(String dywmc) {
-		this.dywmc = dywmc;
-	}
+    public void setXmbh(BigDecimal xmbh) {
+        this.xmbh = xmbh;
+    }
 
-	public String getDywqszmbh() {
-		return this.dywqszmbh;
-	}
+    public String getDywlx() {
+        return dywlx;
+    }
 
-	public void setDywqszmbh(String dywqszmbh) {
-		this.dywqszmbh = dywqszmbh;
-	}
+    public void setDywlx(String dywlx) {
+        this.dywlx = dywlx == null ? null : dywlx.trim();
+    }
 
-	public String getDywcs() {
-		return this.dywcs;
-	}
+    public String getDywmc() {
+        return dywmc;
+    }
 
-	public void setDywcs(String dywcs) {
-		this.dywcs = dywcs;
-	}
+    public void setDywmc(String dywmc) {
+        this.dywmc = dywmc == null ? null : dywmc.trim();
+    }
 
-	public Date getDyqjlrq() {
-		return this.dyqjlrq;
-	}
+    public String getDywqszmbh() {
+        return dywqszmbh;
+    }
 
-	public void setDyqjlrq(Date dyqjlrq) {
-		this.dyqjlrq = dyqjlrq;
-	}
+    public void setDywqszmbh(String dywqszmbh) {
+        this.dywqszmbh = dywqszmbh == null ? null : dywqszmbh.trim();
+    }
 
-	public Date getDyqjcrq() {
-		return this.dyqjcrq;
-	}
+    public String getDywcs() {
+        return dywcs;
+    }
 
-	public void setDyqjcrq(Date dyqjcrq) {
-		this.dyqjcrq = dyqjcrq;
-	}
+    public void setDywcs(String dywcs) {
+        this.dywcs = dywcs == null ? null : dywcs.trim();
+    }
 
-	public BigDecimal getDywpgjz() {
-		return this.dywpgjz;
-	}
+    public Date getDyqjlrq() {
+        return dyqjlrq;
+    }
 
-	public void setDywpgjz(BigDecimal dywpgjz) {
-		this.dywpgjz = dywpgjz;
-	}
+    public void setDyqjlrq(Date dyqjlrq) {
+        this.dyqjlrq = dyqjlrq;
+    }
 
-	public BigDecimal getYdyjz() {
-		return this.ydyjz;
-	}
+    public Date getDyqjcrq() {
+        return dyqjcrq;
+    }
 
-	public void setYdyjz(BigDecimal ydyjz) {
-		this.ydyjz = ydyjz;
-	}
+    public void setDyqjcrq(Date dyqjcrq) {
+        this.dyqjcrq = dyqjcrq;
+    }
 
-	public BigDecimal getDyl() {
-		return this.dyl;
-	}
+    public BigDecimal getDywpgjz() {
+        return dywpgjz;
+    }
 
-	public void setDyl(BigDecimal dyl) {
-		this.dyl = dyl;
-	}
+    public void setDywpgjz(BigDecimal dywpgjz) {
+        this.dywpgjz = dywpgjz;
+    }
 
-	public Set getDbxxes() {
-		return this.dbxxes;
-	}
+    public BigDecimal getYdyjz() {
+        return ydyjz;
+    }
 
-	public void setDbxxes(Set dbxxes) {
-		this.dbxxes = dbxxes;
-	}
+    public void setYdyjz(BigDecimal ydyjz) {
+        this.ydyjz = ydyjz;
+    }
 
+    public BigDecimal getDyl() {
+        return dyl;
+    }
+
+    public void setDyl(BigDecimal dyl) {
+        this.dyl = dyl;
+    }
 }

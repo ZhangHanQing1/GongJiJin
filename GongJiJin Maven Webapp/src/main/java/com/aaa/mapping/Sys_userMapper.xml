@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sys_userMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sys_user">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="dept_id" jdbcType="INTEGER" property="deptId" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phonenum" jdbcType="VARCHAR" property="phonenum" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="passwords" jdbcType="VARCHAR" property="passwords" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="login_date" jdbcType="DATE" property="loginDate" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, dept_id, login_name, user_name, user_type, email, phonenum, sex, passwords, 
+    status, del_flag, login_date, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sys_user">
+    insert into sys_user (user_id, dept_id, login_name, 
+      user_name, user_type, email, 
+      phonenum, sex, passwords, 
+      status, del_flag, login_date, 
+      remark)
+    values (#{userId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{phonenum,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{passwords,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{delFlag,jdbcType=VARCHAR}, #{loginDate,jdbcType=DATE}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sys_user">
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phonenum != null">
+        phonenum,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="passwords != null">
+        passwords,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="loginDate != null">
+        login_date,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null">
+        #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="passwords != null">
+        #{passwords,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        #{loginDate,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sys_user">
+    update sys_user
+    <set>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null">
+        phonenum = #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="passwords != null">
+        passwords = #{passwords,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        login_date = #{loginDate,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sys_user">
+    update sys_user
+    set dept_id = #{deptId,jdbcType=INTEGER},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phonenum = #{phonenum,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      passwords = #{passwords,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      login_date = #{loginDate,jdbcType=DATE},
+      remark = #{remark,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

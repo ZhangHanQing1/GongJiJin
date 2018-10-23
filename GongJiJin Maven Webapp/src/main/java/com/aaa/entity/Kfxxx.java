@@ -2,209 +2,165 @@ package com.aaa.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-/**
- * Kfxxx entity. @author MyEclipse Persistence Tools
- */
+public class Kfxxx {
+    private Integer kfszj;
 
-public class Kfxxx implements java.io.Serializable {
+    private String kfsbh;
 
-	// Fields
+    private String kfsdz;
 
-	private Integer kfszj;
-	private String kfsbh;
-	private String kfsdz;
-	private String kfsmc;
-	private String dwfrdbxm;
-	private String dwfrzjlx;
-	private String dwfrzjhm;
-	private String dwyb;
-	private String gddhhm2;
-	private String tzzd4;
-	private String tzzd5;
-	private String tzzd6;
-	private String cjr3;
-	private Date cjsj3;
-	private String dwdzxx;
-	private BigDecimal wdbh3;
-	private Set grzfdkjkhtxxes = new HashSet(0);
-	private Set dkkdlpxxes = new HashSet(0);
+    private String kfsmc;
 
-	// Constructors
+    private String dwfrdbxm;
 
-	/** default constructor */
-	public Kfxxx() {
-	}
+    private String dwfrzjlx;
 
-	/** full constructor */
-	public Kfxxx(String kfsbh, String kfsdz, String kfsmc, String dwfrdbxm, String dwfrzjlx, String dwfrzjhm,
-			String dwyb, String gddhhm2, String tzzd4, String tzzd5, String tzzd6, String cjr3, Date cjsj3,
-			String dwdzxx, BigDecimal wdbh3, Set grzfdkjkhtxxes, Set dkkdlpxxes) {
-		this.kfsbh = kfsbh;
-		this.kfsdz = kfsdz;
-		this.kfsmc = kfsmc;
-		this.dwfrdbxm = dwfrdbxm;
-		this.dwfrzjlx = dwfrzjlx;
-		this.dwfrzjhm = dwfrzjhm;
-		this.dwyb = dwyb;
-		this.gddhhm2 = gddhhm2;
-		this.tzzd4 = tzzd4;
-		this.tzzd5 = tzzd5;
-		this.tzzd6 = tzzd6;
-		this.cjr3 = cjr3;
-		this.cjsj3 = cjsj3;
-		this.dwdzxx = dwdzxx;
-		this.wdbh3 = wdbh3;
-		this.grzfdkjkhtxxes = grzfdkjkhtxxes;
-		this.dkkdlpxxes = dkkdlpxxes;
-	}
+    private String dwfrzjhm;
 
-	// Property accessors
+    private String dwyb;
 
-	public Integer getKfszj() {
-		return this.kfszj;
-	}
+    private String gddhhm2;
 
-	public void setKfszj(Integer kfszj) {
-		this.kfszj = kfszj;
-	}
+    private String tzzd4;
 
-	public String getKfsbh() {
-		return this.kfsbh;
-	}
+    private String tzzd5;
 
-	public void setKfsbh(String kfsbh) {
-		this.kfsbh = kfsbh;
-	}
+    private String tzzd6;
 
-	public String getKfsdz() {
-		return this.kfsdz;
-	}
+    private String cjr3;
 
-	public void setKfsdz(String kfsdz) {
-		this.kfsdz = kfsdz;
-	}
+    private Date cjsj3;
 
-	public String getKfsmc() {
-		return this.kfsmc;
-	}
+    private String dwdzxx;
 
-	public void setKfsmc(String kfsmc) {
-		this.kfsmc = kfsmc;
-	}
+    private BigDecimal wdbh3;
 
-	public String getDwfrdbxm() {
-		return this.dwfrdbxm;
-	}
+    public Integer getKfszj() {
+        return kfszj;
+    }
 
-	public void setDwfrdbxm(String dwfrdbxm) {
-		this.dwfrdbxm = dwfrdbxm;
-	}
+    public void setKfszj(Integer kfszj) {
+        this.kfszj = kfszj;
+    }
 
-	public String getDwfrzjlx() {
-		return this.dwfrzjlx;
-	}
+    public String getKfsbh() {
+        return kfsbh;
+    }
 
-	public void setDwfrzjlx(String dwfrzjlx) {
-		this.dwfrzjlx = dwfrzjlx;
-	}
+    public void setKfsbh(String kfsbh) {
+        this.kfsbh = kfsbh == null ? null : kfsbh.trim();
+    }
 
-	public String getDwfrzjhm() {
-		return this.dwfrzjhm;
-	}
+    public String getKfsdz() {
+        return kfsdz;
+    }
 
-	public void setDwfrzjhm(String dwfrzjhm) {
-		this.dwfrzjhm = dwfrzjhm;
-	}
+    public void setKfsdz(String kfsdz) {
+        this.kfsdz = kfsdz == null ? null : kfsdz.trim();
+    }
 
-	public String getDwyb() {
-		return this.dwyb;
-	}
+    public String getKfsmc() {
+        return kfsmc;
+    }
 
-	public void setDwyb(String dwyb) {
-		this.dwyb = dwyb;
-	}
+    public void setKfsmc(String kfsmc) {
+        this.kfsmc = kfsmc == null ? null : kfsmc.trim();
+    }
 
-	public String getGddhhm2() {
-		return this.gddhhm2;
-	}
+    public String getDwfrdbxm() {
+        return dwfrdbxm;
+    }
 
-	public void setGddhhm2(String gddhhm2) {
-		this.gddhhm2 = gddhhm2;
-	}
+    public void setDwfrdbxm(String dwfrdbxm) {
+        this.dwfrdbxm = dwfrdbxm == null ? null : dwfrdbxm.trim();
+    }
 
-	public String getTzzd4() {
-		return this.tzzd4;
-	}
+    public String getDwfrzjlx() {
+        return dwfrzjlx;
+    }
 
-	public void setTzzd4(String tzzd4) {
-		this.tzzd4 = tzzd4;
-	}
+    public void setDwfrzjlx(String dwfrzjlx) {
+        this.dwfrzjlx = dwfrzjlx == null ? null : dwfrzjlx.trim();
+    }
 
-	public String getTzzd5() {
-		return this.tzzd5;
-	}
+    public String getDwfrzjhm() {
+        return dwfrzjhm;
+    }
 
-	public void setTzzd5(String tzzd5) {
-		this.tzzd5 = tzzd5;
-	}
+    public void setDwfrzjhm(String dwfrzjhm) {
+        this.dwfrzjhm = dwfrzjhm == null ? null : dwfrzjhm.trim();
+    }
 
-	public String getTzzd6() {
-		return this.tzzd6;
-	}
+    public String getDwyb() {
+        return dwyb;
+    }
 
-	public void setTzzd6(String tzzd6) {
-		this.tzzd6 = tzzd6;
-	}
+    public void setDwyb(String dwyb) {
+        this.dwyb = dwyb == null ? null : dwyb.trim();
+    }
 
-	public String getCjr3() {
-		return this.cjr3;
-	}
+    public String getGddhhm2() {
+        return gddhhm2;
+    }
 
-	public void setCjr3(String cjr3) {
-		this.cjr3 = cjr3;
-	}
+    public void setGddhhm2(String gddhhm2) {
+        this.gddhhm2 = gddhhm2 == null ? null : gddhhm2.trim();
+    }
 
-	public Date getCjsj3() {
-		return this.cjsj3;
-	}
+    public String getTzzd4() {
+        return tzzd4;
+    }
 
-	public void setCjsj3(Date cjsj3) {
-		this.cjsj3 = cjsj3;
-	}
+    public void setTzzd4(String tzzd4) {
+        this.tzzd4 = tzzd4 == null ? null : tzzd4.trim();
+    }
 
-	public String getDwdzxx() {
-		return this.dwdzxx;
-	}
+    public String getTzzd5() {
+        return tzzd5;
+    }
 
-	public void setDwdzxx(String dwdzxx) {
-		this.dwdzxx = dwdzxx;
-	}
+    public void setTzzd5(String tzzd5) {
+        this.tzzd5 = tzzd5 == null ? null : tzzd5.trim();
+    }
 
-	public BigDecimal getWdbh3() {
-		return this.wdbh3;
-	}
+    public String getTzzd6() {
+        return tzzd6;
+    }
 
-	public void setWdbh3(BigDecimal wdbh3) {
-		this.wdbh3 = wdbh3;
-	}
+    public void setTzzd6(String tzzd6) {
+        this.tzzd6 = tzzd6 == null ? null : tzzd6.trim();
+    }
 
-	public Set getGrzfdkjkhtxxes() {
-		return this.grzfdkjkhtxxes;
-	}
+    public String getCjr3() {
+        return cjr3;
+    }
 
-	public void setGrzfdkjkhtxxes(Set grzfdkjkhtxxes) {
-		this.grzfdkjkhtxxes = grzfdkjkhtxxes;
-	}
+    public void setCjr3(String cjr3) {
+        this.cjr3 = cjr3 == null ? null : cjr3.trim();
+    }
 
-	public Set getDkkdlpxxes() {
-		return this.dkkdlpxxes;
-	}
+    public Date getCjsj3() {
+        return cjsj3;
+    }
 
-	public void setDkkdlpxxes(Set dkkdlpxxes) {
-		this.dkkdlpxxes = dkkdlpxxes;
-	}
+    public void setCjsj3(Date cjsj3) {
+        this.cjsj3 = cjsj3;
+    }
 
+    public String getDwdzxx() {
+        return dwdzxx;
+    }
+
+    public void setDwdzxx(String dwdzxx) {
+        this.dwdzxx = dwdzxx == null ? null : dwdzxx.trim();
+    }
+
+    public BigDecimal getWdbh3() {
+        return wdbh3;
+    }
+
+    public void setWdbh3(BigDecimal wdbh3) {
+        this.wdbh3 = wdbh3;
+    }
 }

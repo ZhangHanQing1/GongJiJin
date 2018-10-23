@@ -2,178 +2,145 @@ package com.aaa.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-/**
- * Dwywmxb entity. @author MyEclipse Persistence Tools
- */
+public class Dwywmxb {
+    private Integer dwywlsh;
 
-public class Dwywmxb implements java.io.Serializable {
+    private Integer dwbh;
 
-	// Fields
+    private Integer jjbh;
 
-	private Integer dwywlsh;
-	private Hjfs hjfs;
-	private Dwzh dwzh;
-	private Jsztb jsztb;
-	private String ywblrq;
-	private BigDecimal fse3;
-	private Integer fsrs;
-	private String hbcjny;
-	private BigDecimal zckfse;
-	private Date jzrq3;
-	private String cjr3;
-	private Date cjsj3;
-	private String bz;
-	private String sfgxjjny;
-	private Set grywmxxxes = new HashSet(0);
+    private Integer jsztbh;
 
-	// Constructors
+    private String ywblrq;
 
-	/** default constructor */
-	public Dwywmxb() {
-	}
+    private BigDecimal fse3;
 
-	/** full constructor */
-	public Dwywmxb(Hjfs hjfs, Dwzh dwzh, Jsztb jsztb, String ywblrq, BigDecimal fse3, Integer fsrs, String hbcjny,
-			BigDecimal zckfse, Date jzrq3, String cjr3, Date cjsj3, String bz, String sfgxjjny, Set grywmxxxes) {
-		this.hjfs = hjfs;
-		this.dwzh = dwzh;
-		this.jsztb = jsztb;
-		this.ywblrq = ywblrq;
-		this.fse3 = fse3;
-		this.fsrs = fsrs;
-		this.hbcjny = hbcjny;
-		this.zckfse = zckfse;
-		this.jzrq3 = jzrq3;
-		this.cjr3 = cjr3;
-		this.cjsj3 = cjsj3;
-		this.bz = bz;
-		this.sfgxjjny = sfgxjjny;
-		this.grywmxxxes = grywmxxxes;
-	}
+    private Integer fsrs;
 
-	// Property accessors
+    private String hbcjny;
 
-	public Integer getDwywlsh() {
-		return this.dwywlsh;
-	}
+    private BigDecimal zckfse;
 
-	public void setDwywlsh(Integer dwywlsh) {
-		this.dwywlsh = dwywlsh;
-	}
+    private Date jzrq3;
 
-	public Hjfs getHjfs() {
-		return this.hjfs;
-	}
+    private String cjr3;
 
-	public void setHjfs(Hjfs hjfs) {
-		this.hjfs = hjfs;
-	}
+    private Date cjsj3;
 
-	public Dwzh getDwzh() {
-		return this.dwzh;
-	}
+    private String bz;
 
-	public void setDwzh(Dwzh dwzh) {
-		this.dwzh = dwzh;
-	}
+    private String sfgxjjny;
 
-	public Jsztb getJsztb() {
-		return this.jsztb;
-	}
+    public Integer getDwywlsh() {
+        return dwywlsh;
+    }
 
-	public void setJsztb(Jsztb jsztb) {
-		this.jsztb = jsztb;
-	}
+    public void setDwywlsh(Integer dwywlsh) {
+        this.dwywlsh = dwywlsh;
+    }
 
-	public String getYwblrq() {
-		return this.ywblrq;
-	}
+    public Integer getDwbh() {
+        return dwbh;
+    }
 
-	public void setYwblrq(String ywblrq) {
-		this.ywblrq = ywblrq;
-	}
+    public void setDwbh(Integer dwbh) {
+        this.dwbh = dwbh;
+    }
 
-	public BigDecimal getFse3() {
-		return this.fse3;
-	}
+    public Integer getJjbh() {
+        return jjbh;
+    }
 
-	public void setFse3(BigDecimal fse3) {
-		this.fse3 = fse3;
-	}
+    public void setJjbh(Integer jjbh) {
+        this.jjbh = jjbh;
+    }
 
-	public Integer getFsrs() {
-		return this.fsrs;
-	}
+    public Integer getJsztbh() {
+        return jsztbh;
+    }
 
-	public void setFsrs(Integer fsrs) {
-		this.fsrs = fsrs;
-	}
+    public void setJsztbh(Integer jsztbh) {
+        this.jsztbh = jsztbh;
+    }
 
-	public String getHbcjny() {
-		return this.hbcjny;
-	}
+    public String getYwblrq() {
+        return ywblrq;
+    }
 
-	public void setHbcjny(String hbcjny) {
-		this.hbcjny = hbcjny;
-	}
+    public void setYwblrq(String ywblrq) {
+        this.ywblrq = ywblrq == null ? null : ywblrq.trim();
+    }
 
-	public BigDecimal getZckfse() {
-		return this.zckfse;
-	}
+    public BigDecimal getFse3() {
+        return fse3;
+    }
 
-	public void setZckfse(BigDecimal zckfse) {
-		this.zckfse = zckfse;
-	}
+    public void setFse3(BigDecimal fse3) {
+        this.fse3 = fse3;
+    }
 
-	public Date getJzrq3() {
-		return this.jzrq3;
-	}
+    public Integer getFsrs() {
+        return fsrs;
+    }
 
-	public void setJzrq3(Date jzrq3) {
-		this.jzrq3 = jzrq3;
-	}
+    public void setFsrs(Integer fsrs) {
+        this.fsrs = fsrs;
+    }
 
-	public String getCjr3() {
-		return this.cjr3;
-	}
+    public String getHbcjny() {
+        return hbcjny;
+    }
 
-	public void setCjr3(String cjr3) {
-		this.cjr3 = cjr3;
-	}
+    public void setHbcjny(String hbcjny) {
+        this.hbcjny = hbcjny == null ? null : hbcjny.trim();
+    }
 
-	public Date getCjsj3() {
-		return this.cjsj3;
-	}
+    public BigDecimal getZckfse() {
+        return zckfse;
+    }
 
-	public void setCjsj3(Date cjsj3) {
-		this.cjsj3 = cjsj3;
-	}
+    public void setZckfse(BigDecimal zckfse) {
+        this.zckfse = zckfse;
+    }
 
-	public String getBz() {
-		return this.bz;
-	}
+    public Date getJzrq3() {
+        return jzrq3;
+    }
 
-	public void setBz(String bz) {
-		this.bz = bz;
-	}
+    public void setJzrq3(Date jzrq3) {
+        this.jzrq3 = jzrq3;
+    }
 
-	public String getSfgxjjny() {
-		return this.sfgxjjny;
-	}
+    public String getCjr3() {
+        return cjr3;
+    }
 
-	public void setSfgxjjny(String sfgxjjny) {
-		this.sfgxjjny = sfgxjjny;
-	}
+    public void setCjr3(String cjr3) {
+        this.cjr3 = cjr3 == null ? null : cjr3.trim();
+    }
 
-	public Set getGrywmxxxes() {
-		return this.grywmxxxes;
-	}
+    public Date getCjsj3() {
+        return cjsj3;
+    }
 
-	public void setGrywmxxxes(Set grywmxxxes) {
-		this.grywmxxxes = grywmxxxes;
-	}
+    public void setCjsj3(Date cjsj3) {
+        this.cjsj3 = cjsj3;
+    }
 
+    public String getBz() {
+        return bz;
+    }
+
+    public void setBz(String bz) {
+        this.bz = bz == null ? null : bz.trim();
+    }
+
+    public String getSfgxjjny() {
+        return sfgxjjny;
+    }
+
+    public void setSfgxjjny(String sfgxjjny) {
+        this.sfgxjjny = sfgxjjny == null ? null : sfgxjjny.trim();
+    }
 }

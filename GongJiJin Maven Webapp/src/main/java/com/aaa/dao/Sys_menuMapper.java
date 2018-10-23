@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.SysMenu;
+import com.aaa.entity.Sys_menu;
 
 public interface Sys_menuMapper {
     int deleteByPrimaryKey(Integer menuId);
 
-    int insert(SysMenu record);
+    int insert(Sys_menu record);
 
-    int insertSelective(SysMenu record);
+    int insertSelective(Sys_menu record);
 
-    SysMenu selectByPrimaryKey(Integer menuId);
+    Sys_menu selectByPrimaryKey(Integer menuId);
 
-    int updateByPrimaryKeySelective(SysMenu record);
+    int updateByPrimaryKeySelective(Sys_menu record);
 
-    int updateByPrimaryKey(SysMenu record);
+    int updateByPrimaryKey(Sys_menu record);
 }

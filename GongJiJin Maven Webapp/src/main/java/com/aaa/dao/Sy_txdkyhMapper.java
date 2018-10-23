@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.SyTxdkyh;
+import com.aaa.entity.Sy_txdkyh;
 
 public interface Sy_txdkyhMapper {
     int deleteByPrimaryKey(Integer txyhzj);
 
-    int insert(SyTxdkyh record);
+    int insert(Sy_txdkyh record);
 
-    int insertSelective(SyTxdkyh record);
+    int insertSelective(Sy_txdkyh record);
 
-    SyTxdkyh selectByPrimaryKey(Integer txyhzj);
+    Sy_txdkyh selectByPrimaryKey(Integer txyhzj);
 
-    int updateByPrimaryKeySelective(SyTxdkyh record);
+    int updateByPrimaryKeySelective(Sy_txdkyh record);
 
-    int updateByPrimaryKey(SyTxdkyh record);
+    int updateByPrimaryKey(Sy_txdkyh record);
 }

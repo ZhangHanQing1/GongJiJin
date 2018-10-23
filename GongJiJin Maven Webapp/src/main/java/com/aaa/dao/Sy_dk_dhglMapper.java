@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.SyDkDhgl;
+import com.aaa.entity.Sy_dk_dhgl;
 
 public interface Sy_dk_dhglMapper {
     int deleteByPrimaryKey(Integer dhglzj);
 
-    int insert(SyDkDhgl record);
+    int insert(Sy_dk_dhgl record);
 
-    int insertSelective(SyDkDhgl record);
+    int insertSelective(Sy_dk_dhgl record);
 
-    SyDkDhgl selectByPrimaryKey(Integer dhglzj);
+    Sy_dk_dhgl selectByPrimaryKey(Integer dhglzj);
 
-    int updateByPrimaryKeySelective(SyDkDhgl record);
+    int updateByPrimaryKeySelective(Sy_dk_dhgl record);
 
-    int updateByPrimaryKey(SyDkDhgl record);
+    int updateByPrimaryKey(Sy_dk_dhgl record);
 }

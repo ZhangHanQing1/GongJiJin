@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sy_styhMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.SyStyh">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_styh">
     <id column="STYHZJ" jdbcType="INTEGER" property="styhzj" />
     <result column="STYHDM" jdbcType="VARCHAR" property="styhdm" />
     <result column="STYHMC" jdbcType="VARCHAR" property="styhmc" />
@@ -30,7 +30,7 @@
     delete from sy_styh
     where STYHZJ = #{styhzj,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.SyStyh">
+  <insert id="insert" parameterType="com.aaa.entity.Sy_styh">
     insert into sy_styh (STYHZJ, STYHDM, STYHMC, 
       JCYHDM, CBYW, ZTZ, 
       CJR3, CJSJ3, TZZD4, TZZD5, 
@@ -42,7 +42,7 @@
       #{tzzd6,jdbcType=VARCHAR}, #{yhjdh,jdbcType=VARCHAR}, #{wdbh3,jdbcType=DECIMAL}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.SyStyh">
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_styh">
     insert into sy_styh
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="styhzj != null">
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SyStyh">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_styh">
     update sy_styh
     <set>
       <if test="styhdm != null">
@@ -169,7 +169,7 @@
     </set>
     where STYHZJ = #{styhzj,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SyStyh">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_styh">
     update sy_styh
     set STYHDM = #{styhdm,jdbcType=VARCHAR},
       STYHMC = #{styhmc,jdbcType=VARCHAR},

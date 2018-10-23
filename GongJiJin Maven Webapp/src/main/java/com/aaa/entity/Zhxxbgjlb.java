@@ -1,83 +1,63 @@
 package com.aaa.entity;
 
-/**
- * Zhxxbgjlb entity. @author MyEclipse Persistence Tools
- */
+public class Zhxxbgjlb {
+    private Integer bgjlbh;
 
-public class Zhxxbgjlb implements java.io.Serializable {
+    private Integer dwbh;
 
-	// Fields
+    private Integer xgqdwbl;
 
-	private Integer bgjlbh;
-	private Dwzh dwzh;
-	private Integer xgqdwbl;
-	private Integer xgqgrbl;
-	private Integer xghgrbl;
-	private Integer xghgebl;
+    private Integer xgqgrbl;
 
-	// Constructors
+    private Integer xghgrbl;
 
-	/** default constructor */
-	public Zhxxbgjlb() {
-	}
+    private Integer xghgebl;
 
-	/** full constructor */
-	public Zhxxbgjlb(Dwzh dwzh, Integer xgqdwbl, Integer xgqgrbl, Integer xghgrbl, Integer xghgebl) {
-		this.dwzh = dwzh;
-		this.xgqdwbl = xgqdwbl;
-		this.xgqgrbl = xgqgrbl;
-		this.xghgrbl = xghgrbl;
-		this.xghgebl = xghgebl;
-	}
+    public Integer getBgjlbh() {
+        return bgjlbh;
+    }
 
-	// Property accessors
+    public void setBgjlbh(Integer bgjlbh) {
+        this.bgjlbh = bgjlbh;
+    }
 
-	public Integer getBgjlbh() {
-		return this.bgjlbh;
-	}
+    public Integer getDwbh() {
+        return dwbh;
+    }
 
-	public void setBgjlbh(Integer bgjlbh) {
-		this.bgjlbh = bgjlbh;
-	}
+    public void setDwbh(Integer dwbh) {
+        this.dwbh = dwbh;
+    }
 
-	public Dwzh getDwzh() {
-		return this.dwzh;
-	}
+    public Integer getXgqdwbl() {
+        return xgqdwbl;
+    }
 
-	public void setDwzh(Dwzh dwzh) {
-		this.dwzh = dwzh;
-	}
+    public void setXgqdwbl(Integer xgqdwbl) {
+        this.xgqdwbl = xgqdwbl;
+    }
 
-	public Integer getXgqdwbl() {
-		return this.xgqdwbl;
-	}
+    public Integer getXgqgrbl() {
+        return xgqgrbl;
+    }
 
-	public void setXgqdwbl(Integer xgqdwbl) {
-		this.xgqdwbl = xgqdwbl;
-	}
+    public void setXgqgrbl(Integer xgqgrbl) {
+        this.xgqgrbl = xgqgrbl;
+    }
 
-	public Integer getXgqgrbl() {
-		return this.xgqgrbl;
-	}
+    public Integer getXghgrbl() {
+        return xghgrbl;
+    }
 
-	public void setXgqgrbl(Integer xgqgrbl) {
-		this.xgqgrbl = xgqgrbl;
-	}
+    public void setXghgrbl(Integer xghgrbl) {
+        this.xghgrbl = xghgrbl;
+    }
 
-	public Integer getXghgrbl() {
-		return this.xghgrbl;
-	}
+    public Integer getXghgebl() {
+        return xghgebl;
+    }
 
-	public void setXghgrbl(Integer xghgrbl) {
-		this.xghgrbl = xghgrbl;
-	}
-
-	public Integer getXghgebl() {
-		return this.xghgebl;
-	}
-
-	public void setXghgebl(Integer xghgebl) {
-		this.xghgebl = xghgebl;
-	}
-
+    public void setXghgebl(Integer xghgebl) {
+        this.xghgebl = xghgebl;
+    }
 }
