@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.DwzhMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Dwzh">
+    <id column="DWBH" jdbcType="INTEGER" property="dwbh" />
+    <result column="DWZHZTBH" jdbcType="INTEGER" property="dwzhztbh" />
+    <result column="DWLXBH" jdbcType="INTEGER" property="dwlxbh" />
+    <result column="JJLXBH" jdbcType="INTEGER" property="jjlxbh" />
+    <result column="HYBH" jdbcType="INTEGER" property="hybh" />
+    <result column="ZJLXBH" jdbcType="INTEGER" property="zjlxbh" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="STYHZJ" jdbcType="INTEGER" property="styhzj" />
+    <result column="DWZH3" jdbcType="VARCHAR" property="dwzh3" />
+    <result column="DWJCBL" jdbcType="INTEGER" property="dwjcbl" />
+    <result column="GRJCBL" jdbcType="INTEGER" property="grjcbl" />
+    <result column="DWJCRS" jdbcType="INTEGER" property="dwjcrs" />
+    <result column="DWZHYE" jdbcType="DECIMAL" property="dwzhye" />
+    <result column="DWXHRQ" jdbcType="VARCHAR" property="dwxhrq" />
+    <result column="DWXHYY" jdbcType="VARCHAR" property="dwxhyy" />
+    <result column="JZNYR" jdbcType="VARCHAR" property="jznyr" />
+    <result column="QJJE" jdbcType="DECIMAL" property="qjje" />
+    <result column="QJYS" jdbcType="VARCHAR" property="qjys" />
+    <result column="ZCKYE" jdbcType="DECIMAL" property="zckye" />
+    <result column="DWMC2" jdbcType="VARCHAR" property="dwmc2" />
+    <result column="DWDZ" jdbcType="VARCHAR" property="dwdz" />
+    <result column="FRXM" jdbcType="VARCHAR" property="frxm" />
+    <result column="FXR" jdbcType="VARCHAR" property="fxr" />
+    <result column="JBRXM" jdbcType="VARCHAR" property="jbrxm" />
+    <result column="JBRDH" jdbcType="INTEGER" property="jbrdh" />
+    <result column="GSCLRQ" jdbcType="VARCHAR" property="gsclrq" />
+    <result column="JGDM" jdbcType="VARCHAR" property="jgdm" />
+    <result column="DWKHRQ" jdbcType="VARCHAR" property="dwkhrq" />
+    <result column="DWXZ" jdbcType="VARCHAR" property="dwxz" />
+    <result column="DWDH" jdbcType="INTEGER" property="dwdh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DWBH, DWZHZTBH, DWLXBH, JJLXBH, HYBH, ZJLXBH, user_id, STYHZJ, DWZH3, DWJCBL, GRJCBL, 
+    DWJCRS, DWZHYE, DWXHRQ, DWXHYY, JZNYR, QJJE, QJYS, ZCKYE, DWMC2, DWDZ, FRXM, FXR, 
+    JBRXM, JBRDH, GSCLRQ, JGDM, DWKHRQ, DWXZ, DWDH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dwzh
+    where DWBH = #{dwbh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dwzh
+    where DWBH = #{dwbh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Dwzh">
+    insert into dwzh (DWBH, DWZHZTBH, DWLXBH, 
+      JJLXBH, HYBH, ZJLXBH, 
+      user_id, STYHZJ, DWZH3, 
+      DWJCBL, GRJCBL, DWJCRS, 
+      DWZHYE, DWXHRQ, DWXHYY, 
+      JZNYR, QJJE, QJYS, 
+      ZCKYE, DWMC2, DWDZ, 
+      FRXM, FXR, JBRXM, JBRDH, 
+      GSCLRQ, JGDM, DWKHRQ, 
+      DWXZ, DWDH)
+    values (#{dwbh,jdbcType=INTEGER}, #{dwzhztbh,jdbcType=INTEGER}, #{dwlxbh,jdbcType=INTEGER}, 
+      #{jjlxbh,jdbcType=INTEGER}, #{hybh,jdbcType=INTEGER}, #{zjlxbh,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{styhzj,jdbcType=INTEGER}, #{dwzh3,jdbcType=VARCHAR}, 
+      #{dwjcbl,jdbcType=INTEGER}, #{grjcbl,jdbcType=INTEGER}, #{dwjcrs,jdbcType=INTEGER}, 
+      #{dwzhye,jdbcType=DECIMAL}, #{dwxhrq,jdbcType=VARCHAR}, #{dwxhyy,jdbcType=VARCHAR}, 
+      #{jznyr,jdbcType=VARCHAR}, #{qjje,jdbcType=DECIMAL}, #{qjys,jdbcType=VARCHAR}, 
+      #{zckye,jdbcType=DECIMAL}, #{dwmc2,jdbcType=VARCHAR}, #{dwdz,jdbcType=VARCHAR}, 
+      #{frxm,jdbcType=VARCHAR}, #{fxr,jdbcType=VARCHAR}, #{jbrxm,jdbcType=VARCHAR}, #{jbrdh,jdbcType=INTEGER}, 
+      #{gsclrq,jdbcType=VARCHAR}, #{jgdm,jdbcType=VARCHAR}, #{dwkhrq,jdbcType=VARCHAR}, 
+      #{dwxz,jdbcType=VARCHAR}, #{dwdh,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Dwzh">
+    insert into dwzh
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dwbh != null">
+        DWBH,
+      </if>
+      <if test="dwzhztbh != null">
+        DWZHZTBH,
+      </if>
+      <if test="dwlxbh != null">
+        DWLXBH,
+      </if>
+      <if test="jjlxbh != null">
+        JJLXBH,
+      </if>
+      <if test="hybh != null">
+        HYBH,
+      </if>
+      <if test="zjlxbh != null">
+        ZJLXBH,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="styhzj != null">
+        STYHZJ,
+      </if>
+      <if test="dwzh3 != null">
+        DWZH3,
+      </if>
+      <if test="dwjcbl != null">
+        DWJCBL,
+      </if>
+      <if test="grjcbl != null">
+        GRJCBL,
+      </if>
+      <if test="dwjcrs != null">
+        DWJCRS,
+      </if>
+      <if test="dwzhye != null">
+        DWZHYE,
+      </if>
+      <if test="dwxhrq != null">
+        DWXHRQ,
+      </if>
+      <if test="dwxhyy != null">
+        DWXHYY,
+      </if>
+      <if test="jznyr != null">
+        JZNYR,
+      </if>
+      <if test="qjje != null">
+        QJJE,
+      </if>
+      <if test="qjys != null">
+        QJYS,
+      </if>
+      <if test="zckye != null">
+        ZCKYE,
+      </if>
+      <if test="dwmc2 != null">
+        DWMC2,
+      </if>
+      <if test="dwdz != null">
+        DWDZ,
+      </if>
+      <if test="frxm != null">
+        FRXM,
+      </if>
+      <if test="fxr != null">
+        FXR,
+      </if>
+      <if test="jbrxm != null">
+        JBRXM,
+      </if>
+      <if test="jbrdh != null">
+        JBRDH,
+      </if>
+      <if test="gsclrq != null">
+        GSCLRQ,
+      </if>
+      <if test="jgdm != null">
+        JGDM,
+      </if>
+      <if test="dwkhrq != null">
+        DWKHRQ,
+      </if>
+      <if test="dwxz != null">
+        DWXZ,
+      </if>
+      <if test="dwdh != null">
+        DWDH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dwbh != null">
+        #{dwbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwzhztbh != null">
+        #{dwzhztbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwlxbh != null">
+        #{dwlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="jjlxbh != null">
+        #{jjlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="hybh != null">
+        #{hybh,jdbcType=INTEGER},
+      </if>
+      <if test="zjlxbh != null">
+        #{zjlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="styhzj != null">
+        #{styhzj,jdbcType=INTEGER},
+      </if>
+      <if test="dwzh3 != null">
+        #{dwzh3,jdbcType=VARCHAR},
+      </if>
+      <if test="dwjcbl != null">
+        #{dwjcbl,jdbcType=INTEGER},
+      </if>
+      <if test="grjcbl != null">
+        #{grjcbl,jdbcType=INTEGER},
+      </if>
+      <if test="dwjcrs != null">
+        #{dwjcrs,jdbcType=INTEGER},
+      </if>
+      <if test="dwzhye != null">
+        #{dwzhye,jdbcType=DECIMAL},
+      </if>
+      <if test="dwxhrq != null">
+        #{dwxhrq,jdbcType=VARCHAR},
+      </if>
+      <if test="dwxhyy != null">
+        #{dwxhyy,jdbcType=VARCHAR},
+      </if>
+      <if test="jznyr != null">
+        #{jznyr,jdbcType=VARCHAR},
+      </if>
+      <if test="qjje != null">
+        #{qjje,jdbcType=DECIMAL},
+      </if>
+      <if test="qjys != null">
+        #{qjys,jdbcType=VARCHAR},
+      </if>
+      <if test="zckye != null">
+        #{zckye,jdbcType=DECIMAL},
+      </if>
+      <if test="dwmc2 != null">
+        #{dwmc2,jdbcType=VARCHAR},
+      </if>
+      <if test="dwdz != null">
+        #{dwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="frxm != null">
+        #{frxm,jdbcType=VARCHAR},
+      </if>
+      <if test="fxr != null">
+        #{fxr,jdbcType=VARCHAR},
+      </if>
+      <if test="jbrxm != null">
+        #{jbrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="jbrdh != null">
+        #{jbrdh,jdbcType=INTEGER},
+      </if>
+      <if test="gsclrq != null">
+        #{gsclrq,jdbcType=VARCHAR},
+      </if>
+      <if test="jgdm != null">
+        #{jgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="dwkhrq != null">
+        #{dwkhrq,jdbcType=VARCHAR},
+      </if>
+      <if test="dwxz != null">
+        #{dwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="dwdh != null">
+        #{dwdh,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Dwzh">
+    update dwzh
+    <set>
+      <if test="dwzhztbh != null">
+        DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER},
+      </if>
+      <if test="dwlxbh != null">
+        DWLXBH = #{dwlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="jjlxbh != null">
+        JJLXBH = #{jjlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="hybh != null">
+        HYBH = #{hybh,jdbcType=INTEGER},
+      </if>
+      <if test="zjlxbh != null">
+        ZJLXBH = #{zjlxbh,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="styhzj != null">
+        STYHZJ = #{styhzj,jdbcType=INTEGER},
+      </if>
+      <if test="dwzh3 != null">
+        DWZH3 = #{dwzh3,jdbcType=VARCHAR},
+      </if>
+      <if test="dwjcbl != null">
+        DWJCBL = #{dwjcbl,jdbcType=INTEGER},
+      </if>
+      <if test="grjcbl != null">
+        GRJCBL = #{grjcbl,jdbcType=INTEGER},
+      </if>
+      <if test="dwjcrs != null">
+        DWJCRS = #{dwjcrs,jdbcType=INTEGER},
+      </if>
+      <if test="dwzhye != null">
+        DWZHYE = #{dwzhye,jdbcType=DECIMAL},
+      </if>
+      <if test="dwxhrq != null">
+        DWXHRQ = #{dwxhrq,jdbcType=VARCHAR},
+      </if>
+      <if test="dwxhyy != null">
+        DWXHYY = #{dwxhyy,jdbcType=VARCHAR},
+      </if>
+      <if test="jznyr != null">
+        JZNYR = #{jznyr,jdbcType=VARCHAR},
+      </if>
+      <if test="qjje != null">
+        QJJE = #{qjje,jdbcType=DECIMAL},
+      </if>
+      <if test="qjys != null">
+        QJYS = #{qjys,jdbcType=VARCHAR},
+      </if>
+      <if test="zckye != null">
+        ZCKYE = #{zckye,jdbcType=DECIMAL},
+      </if>
+      <if test="dwmc2 != null">
+        DWMC2 = #{dwmc2,jdbcType=VARCHAR},
+      </if>
+      <if test="dwdz != null">
+        DWDZ = #{dwdz,jdbcType=VARCHAR},
+      </if>
+      <if test="frxm != null">
+        FRXM = #{frxm,jdbcType=VARCHAR},
+      </if>
+      <if test="fxr != null">
+        FXR = #{fxr,jdbcType=VARCHAR},
+      </if>
+      <if test="jbrxm != null">
+        JBRXM = #{jbrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="jbrdh != null">
+        JBRDH = #{jbrdh,jdbcType=INTEGER},
+      </if>
+      <if test="gsclrq != null">
+        GSCLRQ = #{gsclrq,jdbcType=VARCHAR},
+      </if>
+      <if test="jgdm != null">
+        JGDM = #{jgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="dwkhrq != null">
+        DWKHRQ = #{dwkhrq,jdbcType=VARCHAR},
+      </if>
+      <if test="dwxz != null">
+        DWXZ = #{dwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="dwdh != null">
+        DWDH = #{dwdh,jdbcType=INTEGER},
+      </if>
+    </set>
+    where DWBH = #{dwbh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Dwzh">
+    update dwzh
+    set DWZHZTBH = #{dwzhztbh,jdbcType=INTEGER},
+      DWLXBH = #{dwlxbh,jdbcType=INTEGER},
+      JJLXBH = #{jjlxbh,jdbcType=INTEGER},
+      HYBH = #{hybh,jdbcType=INTEGER},
+      ZJLXBH = #{zjlxbh,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      STYHZJ = #{styhzj,jdbcType=INTEGER},
+      DWZH3 = #{dwzh3,jdbcType=VARCHAR},
+      DWJCBL = #{dwjcbl,jdbcType=INTEGER},
+      GRJCBL = #{grjcbl,jdbcType=INTEGER},
+      DWJCRS = #{dwjcrs,jdbcType=INTEGER},
+      DWZHYE = #{dwzhye,jdbcType=DECIMAL},
+      DWXHRQ = #{dwxhrq,jdbcType=VARCHAR},
+      DWXHYY = #{dwxhyy,jdbcType=VARCHAR},
+      JZNYR = #{jznyr,jdbcType=VARCHAR},
+      QJJE = #{qjje,jdbcType=DECIMAL},
+      QJYS = #{qjys,jdbcType=VARCHAR},
+      ZCKYE = #{zckye,jdbcType=DECIMAL},
+      DWMC2 = #{dwmc2,jdbcType=VARCHAR},
+      DWDZ = #{dwdz,jdbcType=VARCHAR},
+      FRXM = #{frxm,jdbcType=VARCHAR},
+      FXR = #{fxr,jdbcType=VARCHAR},
+      JBRXM = #{jbrxm,jdbcType=VARCHAR},
+      JBRDH = #{jbrdh,jdbcType=INTEGER},
+      GSCLRQ = #{gsclrq,jdbcType=VARCHAR},
+      JGDM = #{jgdm,jdbcType=VARCHAR},
+      DWKHRQ = #{dwkhrq,jdbcType=VARCHAR},
+      DWXZ = #{dwxz,jdbcType=VARCHAR},
+      DWDH = #{dwdh,jdbcType=INTEGER}
+    where DWBH = #{dwbh,jdbcType=INTEGER}
+  </update>
+</mapper>

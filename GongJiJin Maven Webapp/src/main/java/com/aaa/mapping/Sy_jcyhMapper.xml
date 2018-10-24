@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sy_jcyhMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_jcyh">
+    <id column="JCYHZJ" jdbcType="INTEGER" property="jcyhzj" />
+    <result column="SYYHZJ" jdbcType="INTEGER" property="syyhzj" />
+    <result column="TXYHZJ" jdbcType="INTEGER" property="txyhzj" />
+    <result column="STYHZJ" jdbcType="INTEGER" property="styhzj" />
+    <result column="YHDM" jdbcType="VARCHAR" property="yhdm" />
+    <result column="YHMC" jdbcType="VARCHAR" property="yhmc" />
+    <result column="YHLHH" jdbcType="VARCHAR" property="yhlhh" />
+    <result column="SJYHDM" jdbcType="VARCHAR" property="sjyhdm" />
+    <result column="TZZD1" jdbcType="VARCHAR" property="tzzd1" />
+    <result column="TZZD2" jdbcType="VARCHAR" property="tzzd2" />
+    <result column="WDBH" jdbcType="DECIMAL" property="wdbh" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    JCYHZJ, SYYHZJ, TXYHZJ, STYHZJ, YHDM, YHMC, YHLHH, SJYHDM, TZZD1, TZZD2, WDBH
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sy_jcyh
+    where JCYHZJ = #{jcyhzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sy_jcyh
+    where JCYHZJ = #{jcyhzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sy_jcyh">
+    insert into sy_jcyh (JCYHZJ, SYYHZJ, TXYHZJ, 
+      STYHZJ, YHDM, YHMC, 
+      YHLHH, SJYHDM, TZZD1, 
+      TZZD2, WDBH)
+    values (#{jcyhzj,jdbcType=INTEGER}, #{syyhzj,jdbcType=INTEGER}, #{txyhzj,jdbcType=INTEGER}, 
+      #{styhzj,jdbcType=INTEGER}, #{yhdm,jdbcType=VARCHAR}, #{yhmc,jdbcType=VARCHAR}, 
+      #{yhlhh,jdbcType=VARCHAR}, #{sjyhdm,jdbcType=VARCHAR}, #{tzzd1,jdbcType=VARCHAR}, 
+      #{tzzd2,jdbcType=VARCHAR}, #{wdbh,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_jcyh">
+    insert into sy_jcyh
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jcyhzj != null">
+        JCYHZJ,
+      </if>
+      <if test="syyhzj != null">
+        SYYHZJ,
+      </if>
+      <if test="txyhzj != null">
+        TXYHZJ,
+      </if>
+      <if test="styhzj != null">
+        STYHZJ,
+      </if>
+      <if test="yhdm != null">
+        YHDM,
+      </if>
+      <if test="yhmc != null">
+        YHMC,
+      </if>
+      <if test="yhlhh != null">
+        YHLHH,
+      </if>
+      <if test="sjyhdm != null">
+        SJYHDM,
+      </if>
+      <if test="tzzd1 != null">
+        TZZD1,
+      </if>
+      <if test="tzzd2 != null">
+        TZZD2,
+      </if>
+      <if test="wdbh != null">
+        WDBH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jcyhzj != null">
+        #{jcyhzj,jdbcType=INTEGER},
+      </if>
+      <if test="syyhzj != null">
+        #{syyhzj,jdbcType=INTEGER},
+      </if>
+      <if test="txyhzj != null">
+        #{txyhzj,jdbcType=INTEGER},
+      </if>
+      <if test="styhzj != null">
+        #{styhzj,jdbcType=INTEGER},
+      </if>
+      <if test="yhdm != null">
+        #{yhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmc != null">
+        #{yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhlhh != null">
+        #{yhlhh,jdbcType=VARCHAR},
+      </if>
+      <if test="sjyhdm != null">
+        #{sjyhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd1 != null">
+        #{tzzd1,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd2 != null">
+        #{tzzd2,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh != null">
+        #{wdbh,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_jcyh">
+    update sy_jcyh
+    <set>
+      <if test="syyhzj != null">
+        SYYHZJ = #{syyhzj,jdbcType=INTEGER},
+      </if>
+      <if test="txyhzj != null">
+        TXYHZJ = #{txyhzj,jdbcType=INTEGER},
+      </if>
+      <if test="styhzj != null">
+        STYHZJ = #{styhzj,jdbcType=INTEGER},
+      </if>
+      <if test="yhdm != null">
+        YHDM = #{yhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmc != null">
+        YHMC = #{yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="yhlhh != null">
+        YHLHH = #{yhlhh,jdbcType=VARCHAR},
+      </if>
+      <if test="sjyhdm != null">
+        SJYHDM = #{sjyhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd1 != null">
+        TZZD1 = #{tzzd1,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd2 != null">
+        TZZD2 = #{tzzd2,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh != null">
+        WDBH = #{wdbh,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where JCYHZJ = #{jcyhzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_jcyh">
+    update sy_jcyh
+    set SYYHZJ = #{syyhzj,jdbcType=INTEGER},
+      TXYHZJ = #{txyhzj,jdbcType=INTEGER},
+      STYHZJ = #{styhzj,jdbcType=INTEGER},
+      YHDM = #{yhdm,jdbcType=VARCHAR},
+      YHMC = #{yhmc,jdbcType=VARCHAR},
+      YHLHH = #{yhlhh,jdbcType=VARCHAR},
+      SJYHDM = #{sjyhdm,jdbcType=VARCHAR},
+      TZZD1 = #{tzzd1,jdbcType=VARCHAR},
+      TZZD2 = #{tzzd2,jdbcType=VARCHAR},
+      WDBH = #{wdbh,jdbcType=DECIMAL}
+    where JCYHZJ = #{jcyhzj,jdbcType=INTEGER}
+  </update>
+</mapper>

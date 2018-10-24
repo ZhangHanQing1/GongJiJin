@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sy_dk_kksjMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_dk_kksj">
+    <id column="KKSJZJ" jdbcType="INTEGER" property="kksjzj" />
+    <result column="ZDHKZJ" jdbcType="INTEGER" property="zdhkzj" />
+    <result column="JLBH2" jdbcType="VARCHAR" property="jlbh2" />
+    <result column="KKRQ" jdbcType="DATE" property="kkrq" />
+    <result column="KKPC" jdbcType="DECIMAL" property="kkpc" />
+    <result column="KKYHDM" jdbcType="VARCHAR" property="kkyhdm" />
+    <result column="KKYHKM" jdbcType="VARCHAR" property="kkyhkm" />
+    <result column="DKZH" jdbcType="VARCHAR" property="dkzh" />
+    <result column="BCKKSXH" jdbcType="DECIMAL" property="bckksxh" />
+    <result column="HKRXM" jdbcType="VARCHAR" property="hkrxm" />
+    <result column="WDBH3" jdbcType="DECIMAL" property="wdbh3" />
+    <result column="KKZH" jdbcType="VARCHAR" property="kkzh" />
+    <result column="SFZH" jdbcType="VARCHAR" property="sfzh" />
+    <result column="KKBJ" jdbcType="DECIMAL" property="kkbj" />
+    <result column="KKLX" jdbcType="DECIMAL" property="kklx" />
+    <result column="KKYQLX" jdbcType="DECIMAL" property="kkyqlx" />
+    <result column="KKZT" jdbcType="VARCHAR" property="kkzt" />
+    <result column="CJR3" jdbcType="VARCHAR" property="cjr3" />
+    <result column="CJSJ3" jdbcType="DATE" property="cjsj3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    KKSJZJ, ZDHKZJ, JLBH2, KKRQ, KKPC, KKYHDM, KKYHKM, DKZH, BCKKSXH, HKRXM, WDBH3, KKZH, 
+    SFZH, KKBJ, KKLX, KKYQLX, KKZT, CJR3, CJSJ3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sy_dk_kksj
+    where KKSJZJ = #{kksjzj,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sy_dk_kksj
+    where KKSJZJ = #{kksjzj,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sy_dk_kksj">
+    insert into sy_dk_kksj (KKSJZJ, ZDHKZJ, JLBH2, 
+      KKRQ, KKPC, KKYHDM, KKYHKM, 
+      DKZH, BCKKSXH, HKRXM, 
+      WDBH3, KKZH, SFZH, 
+      KKBJ, KKLX, KKYQLX, 
+      KKZT, CJR3, CJSJ3)
+    values (#{kksjzj,jdbcType=INTEGER}, #{zdhkzj,jdbcType=INTEGER}, #{jlbh2,jdbcType=VARCHAR}, 
+      #{kkrq,jdbcType=DATE}, #{kkpc,jdbcType=DECIMAL}, #{kkyhdm,jdbcType=VARCHAR}, #{kkyhkm,jdbcType=VARCHAR}, 
+      #{dkzh,jdbcType=VARCHAR}, #{bckksxh,jdbcType=DECIMAL}, #{hkrxm,jdbcType=VARCHAR}, 
+      #{wdbh3,jdbcType=DECIMAL}, #{kkzh,jdbcType=VARCHAR}, #{sfzh,jdbcType=VARCHAR}, 
+      #{kkbj,jdbcType=DECIMAL}, #{kklx,jdbcType=DECIMAL}, #{kkyqlx,jdbcType=DECIMAL}, 
+      #{kkzt,jdbcType=VARCHAR}, #{cjr3,jdbcType=VARCHAR}, #{cjsj3,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_kksj">
+    insert into sy_dk_kksj
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kksjzj != null">
+        KKSJZJ,
+      </if>
+      <if test="zdhkzj != null">
+        ZDHKZJ,
+      </if>
+      <if test="jlbh2 != null">
+        JLBH2,
+      </if>
+      <if test="kkrq != null">
+        KKRQ,
+      </if>
+      <if test="kkpc != null">
+        KKPC,
+      </if>
+      <if test="kkyhdm != null">
+        KKYHDM,
+      </if>
+      <if test="kkyhkm != null">
+        KKYHKM,
+      </if>
+      <if test="dkzh != null">
+        DKZH,
+      </if>
+      <if test="bckksxh != null">
+        BCKKSXH,
+      </if>
+      <if test="hkrxm != null">
+        HKRXM,
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3,
+      </if>
+      <if test="kkzh != null">
+        KKZH,
+      </if>
+      <if test="sfzh != null">
+        SFZH,
+      </if>
+      <if test="kkbj != null">
+        KKBJ,
+      </if>
+      <if test="kklx != null">
+        KKLX,
+      </if>
+      <if test="kkyqlx != null">
+        KKYQLX,
+      </if>
+      <if test="kkzt != null">
+        KKZT,
+      </if>
+      <if test="cjr3 != null">
+        CJR3,
+      </if>
+      <if test="cjsj3 != null">
+        CJSJ3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kksjzj != null">
+        #{kksjzj,jdbcType=INTEGER},
+      </if>
+      <if test="zdhkzj != null">
+        #{zdhkzj,jdbcType=INTEGER},
+      </if>
+      <if test="jlbh2 != null">
+        #{jlbh2,jdbcType=VARCHAR},
+      </if>
+      <if test="kkrq != null">
+        #{kkrq,jdbcType=DATE},
+      </if>
+      <if test="kkpc != null">
+        #{kkpc,jdbcType=DECIMAL},
+      </if>
+      <if test="kkyhdm != null">
+        #{kkyhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="kkyhkm != null">
+        #{kkyhkm,jdbcType=VARCHAR},
+      </if>
+      <if test="dkzh != null">
+        #{dkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="bckksxh != null">
+        #{bckksxh,jdbcType=DECIMAL},
+      </if>
+      <if test="hkrxm != null">
+        #{hkrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="kkzh != null">
+        #{kkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null">
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="kkbj != null">
+        #{kkbj,jdbcType=DECIMAL},
+      </if>
+      <if test="kklx != null">
+        #{kklx,jdbcType=DECIMAL},
+      </if>
+      <if test="kkyqlx != null">
+        #{kkyqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="kkzt != null">
+        #{kkzt,jdbcType=VARCHAR},
+      </if>
+      <if test="cjr3 != null">
+        #{cjr3,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj3 != null">
+        #{cjsj3,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_dk_kksj">
+    update sy_dk_kksj
+    <set>
+      <if test="zdhkzj != null">
+        ZDHKZJ = #{zdhkzj,jdbcType=INTEGER},
+      </if>
+      <if test="jlbh2 != null">
+        JLBH2 = #{jlbh2,jdbcType=VARCHAR},
+      </if>
+      <if test="kkrq != null">
+        KKRQ = #{kkrq,jdbcType=DATE},
+      </if>
+      <if test="kkpc != null">
+        KKPC = #{kkpc,jdbcType=DECIMAL},
+      </if>
+      <if test="kkyhdm != null">
+        KKYHDM = #{kkyhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="kkyhkm != null">
+        KKYHKM = #{kkyhkm,jdbcType=VARCHAR},
+      </if>
+      <if test="dkzh != null">
+        DKZH = #{dkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="bckksxh != null">
+        BCKKSXH = #{bckksxh,jdbcType=DECIMAL},
+      </if>
+      <if test="hkrxm != null">
+        HKRXM = #{hkrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="wdbh3 != null">
+        WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      </if>
+      <if test="kkzh != null">
+        KKZH = #{kkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null">
+        SFZH = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="kkbj != null">
+        KKBJ = #{kkbj,jdbcType=DECIMAL},
+      </if>
+      <if test="kklx != null">
+        KKLX = #{kklx,jdbcType=DECIMAL},
+      </if>
+      <if test="kkyqlx != null">
+        KKYQLX = #{kkyqlx,jdbcType=DECIMAL},
+      </if>
+      <if test="kkzt != null">
+        KKZT = #{kkzt,jdbcType=VARCHAR},
+      </if>
+      <if test="cjr3 != null">
+        CJR3 = #{cjr3,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj3 != null">
+        CJSJ3 = #{cjsj3,jdbcType=DATE},
+      </if>
+    </set>
+    where KKSJZJ = #{kksjzj,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_dk_kksj">
+    update sy_dk_kksj
+    set ZDHKZJ = #{zdhkzj,jdbcType=INTEGER},
+      JLBH2 = #{jlbh2,jdbcType=VARCHAR},
+      KKRQ = #{kkrq,jdbcType=DATE},
+      KKPC = #{kkpc,jdbcType=DECIMAL},
+      KKYHDM = #{kkyhdm,jdbcType=VARCHAR},
+      KKYHKM = #{kkyhkm,jdbcType=VARCHAR},
+      DKZH = #{dkzh,jdbcType=VARCHAR},
+      BCKKSXH = #{bckksxh,jdbcType=DECIMAL},
+      HKRXM = #{hkrxm,jdbcType=VARCHAR},
+      WDBH3 = #{wdbh3,jdbcType=DECIMAL},
+      KKZH = #{kkzh,jdbcType=VARCHAR},
+      SFZH = #{sfzh,jdbcType=VARCHAR},
+      KKBJ = #{kkbj,jdbcType=DECIMAL},
+      KKLX = #{kklx,jdbcType=DECIMAL},
+      KKYQLX = #{kkyqlx,jdbcType=DECIMAL},
+      KKZT = #{kkzt,jdbcType=VARCHAR},
+      CJR3 = #{cjr3,jdbcType=VARCHAR},
+      CJSJ3 = #{cjsj3,jdbcType=DATE}
+    where KKSJZJ = #{kksjzj,jdbcType=INTEGER}
+  </update>
+</mapper>
