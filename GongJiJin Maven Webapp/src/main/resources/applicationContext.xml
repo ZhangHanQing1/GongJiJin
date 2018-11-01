@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+	
 	<context:component-scan base-package="com.aaa"></context:component-scan>
+
+	
 	<!-- 加载属性文件 -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
@@ -17,6 +23,18 @@
 		<property name="mapperLocations" value="classpath:com/aaa/mapping/*.xml"></property> <!--  自动扫描mapper映射文件 -->
 		<property name="typeAliasesPackage" value="com.aaa.entity"></property> 
 		<!-- <property name="configLocation" value="classpath:mybatis-config.xml"></property> -->
+		<!--分页插件  -->
+		<property name="plugins">
+		    <array>
+		       <bean class="com.github.pagehelper.PageInterceptor">
+		           <property name="properties">
+		              <value>
+		                 helperDialect=mysql
+		              </value>
+		           </property>
+		       </bean>
+		    </array>
+		</property>
 	</bean>
 	<!-- 配置扫描dao接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -55,4 +73,9 @@
          <!-- 关闭abanded连接时输出错误日志    -->
          <property name="logAbandoned" value="${logAbandoned}" />
 	</bean>
+	<!-- 配置事务管理器 -->
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+	<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

@@ -103,4 +103,13 @@
       XGHGEBL = #{xghgebl,jdbcType=INTEGER}
     where BGJLBH = #{bgjlbh,jdbcType=INTEGER}
   </update>
+  <!--   添加比例信息  -->
+  <insert id="BiLiAdd" parameterType="TongYong">
+    insert into zhxxbgjlb (DWBH, XGQDWBL,XGQGRBL)
+     values(#{dwbh,jdbcType=INTEGER}, #{xgqdwbl,jdbcType=INTEGER},#{xgqgrbl,jdbcType=INTEGER})
+  </insert>
+  <!--比例变更记录查询  -->
+  <select id="select" resultType="Map">
+    select bgjlbh,dwmc2,dwjcbl,grjcbl,xgqdwbl,xgqgrbl from zhxxbgjlb join dwzh on zhxxbgjlb.dwbh=dwzh.dwbh
+  </select>
 </mapper>
