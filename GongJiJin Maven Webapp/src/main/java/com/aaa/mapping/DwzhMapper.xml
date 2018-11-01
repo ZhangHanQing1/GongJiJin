@@ -391,7 +391,7 @@
   </select>
   <!--根据单位名称单位账户查询  -->
   <select id="selectId"  resultType="Map" parameterType="String">
-    select dwbh,dwmc2,dwjcbl,grjcbl from dwzh where   DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%')
+     select dwbh,dwmc2,dwzh3,dwjcbl,grjcbl,dwzhye,dwzhztmc,dwjcrs,jznyr,dwkhrq from dwzh join dwzhzt on dwzh.DWZHZTBH=dwzhzt.DWZHZTBH where   DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%')
   </select>
  <!-- 修改比例 -->
    <update id="BiLiUp" parameterType="TongYong">

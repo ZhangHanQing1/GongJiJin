@@ -14,9 +14,9 @@ public class DWYWServiceImpl implements DWYWService {
 @Autowired
 private DwzhMapper dao;
 	@Override
-	public List<Map> select() {
+	public List<Map> select(String dwmc2) {
 		// TODO Auto-generated method stub
-		return dao.select();
+		return dao.selectId(dwmc2);
 	}
 
 }

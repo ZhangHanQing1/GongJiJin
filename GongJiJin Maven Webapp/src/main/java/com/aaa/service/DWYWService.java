@@ -7,5 +7,5 @@ import com.aaa.entity.Dwzh;
 
 public interface DWYWService {
   //查询单位账户信息
-	public List<Map> select();
+	public List<Map> select(String dwmc2);
 }

@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aaa.entity.Dwzh;
@@ -34,12 +35,19 @@ public class DWYWController {
  @Autowired
  private DWYWService service;
 	
-	@RequestMapping("select")
-    public PageInfo<Map> select(@RequestParam int grzh,@RequestParam(required = false, defaultValue = "1") Integer startPage,
-            @RequestParam(required = false, defaultValue = "2") Integer PageSize){
+ //查询单位账户信息
+ 
+	@RequestMapping("/select")
+	@ResponseBody
+    public PageInfo<Map> select(@RequestParam("dwmc2") String dwmc2,@RequestParam(required = false, defaultValue = "1") Integer startPage,
+            @RequestParam(required = false, defaultValue = "6") Integer PageSize){
     	PageHelper.startPage(startPage,PageSize);
-    	List<Map> list=service.select();
+    	List<Map> list=service.select(dwmc2);
     	PageInfo<Map> pi=new PageInfo<Map>(list);
+    	System.out.println(list.size());
+    	System.out.println(dwmc2);
     	return pi;
     }
+	
+//查询出单位和个人账户的信息	
 }
