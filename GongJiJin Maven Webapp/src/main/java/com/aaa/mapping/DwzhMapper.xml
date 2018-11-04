@@ -71,6 +71,11 @@
       #{dwxz,jdbcType=VARCHAR}, #{dwdh,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.aaa.entity.Dwzh">
+  <!--添加数据的同时把主键返回  -->
+  <selectKey keyProperty="dwbh" order="AFTER" resultType="Integer">
+      SELECT LAST_INSERT_ID()
+      <!--select uuid 主键不自增的情况下用  -->
+  </selectKey>
     insert into dwzh
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="dwbh != null">

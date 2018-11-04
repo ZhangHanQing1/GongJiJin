@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="button" value="点击" id="dian"/>
 
 <table class="table table-bordered text-center" style="position: absolute; top:10%;" id="tabl">
-	<caption><input type="text" id="jiansuo" class="btn btn-default btn-lg" /></caption>
+	<caption><input type="text" id="jiansuo" class="btn btn-default btn-lg" placeholder="单位名称检索"/></caption>
 	<thead>
 		<tr>
 			<th>单位编号</th>
@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tbody>
 	<tfoot id="tf"></tfoot>
 </table>
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="save" style="display:none;">
 	开始演示模态框
 </button>
 <!-- 模态框（Modal） -->
@@ -70,19 +70,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</h4>
 			</div>
 			<div class="modal-body">
-			   			<table class="table table-bordered">
+			   			<table class="table table-bordered text-center" id="table">
 						          <tbody>
     <tr>
-      <td>Tanmay</td>
-      <td>Bangalore</td>
-      <td>560001</td>
+      <td colspan="3">单位编号</td>
+      <td colspan="3">单位名称</td>
+      <td colspan="3">缴至年月日</td>
+    </tr>
+    <tr id="trr">
+      
+      <td colspan="3"><input type="text" name="dwbh"/></td> 
+      <td colspan="3"><input type="text" name="dwmc2"/></td>
+      <td colspan="3"><input type="text" name="jznyr"/></td>
     </tr>
     <tr>
-      <td>Sachin</td>
-      <td>Mumbai</td>
-      <td>400003</td>
+      <td>汇缴月数</td>
+      <td><select name="fsys"><option name="1">一个月</option>
+       <option name="2">二个月</option>
+       <option name="3">三个月</option>
+       <option name="4">四个月</option>
+       <option name="5">五个月</option>
+       <option name="6">六个月</option>
+       <option name="7">七个月</option>
+       <option name="8">八个月</option>
+       <option name="9">九个月</option>
+       <option name="10">十个月</option>
+       <option name="11">十一个月</option>
+       <option name="12">十二个月</option>
+      </select></td>
+      <td>汇缴年月</td>
+       <td colspan="2"><input type="text" name="ywblrq" id="date"></td>
+      <td>缴交类型</td>
+      <td><select name="jjbh" style="width:180px;">
+         <option value="1">汇缴</option>
+         <option value="2">补缴</option>
+         <option value="3">冲缴</option>         
+      </select></td>
     </tr>
     <tr>
+      <td>Uma</td>
+      <td>Pune</td>
+      <td>411027</td>
       <td>Uma</td>
       <td>Pune</td>
       <td>411027</td>
@@ -91,18 +119,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <td>Tanmay</td>
       <td>Bangalore</td>
       <td>560001</td>
+      <td>Uma</td>
+      <td>Pune</td>
+      <td>411027</td>
     </tr>
     <tr>
       <td>Sachin</td>
       <td>Mumbai</td>
       <td>400003</td>
+      <td>Uma</td>
+      <td>Pune</td>
+      <td>411027</td>
     </tr>
     <tr>
       <td>Uma</td>
       <td>Pune</td>
       <td>411027</td>
+      <td>Uma</td>
+      <td>Pune</td>
+      <td>411027</td>
     </tr>
-    
+       <tr>
+      <td>Tanmay</td>
+      <td>Bangalore</td>
+      <td>560001</td>
+      <td>Uma</td>
+      <td>Pune</td>
+      <td>411027</td>
+    </tr>
+    <tr>
+      <td>Sachin</td>
+      <td>Mumbai</td>
+      <td>400003</td>
+      <td>Uma</td>
+      <td>Pune</td>
+      <td>411027</td>
+    </tr>
+  
  </tbody>
 							</table>
 			</div>
@@ -170,12 +223,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    var idd;
    $(function(){
    $("#tbody").on('click','.all',function(){
+     $("#save").click();
+     for(var i=0;i<3;i++){
+       $("#trr").children().eq(i).children().val($(this).parent().parent().children().eq(i).html())
+      }
+      
        idd=this;
-      alert( idd.id);
+      /* alert( idd.id); */
       $.ajax({
         
       })
-   
+     
    })
    })
+   /*获取系统时间  */
+$(function(){
+  var date=new Date();
+  var dat=date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+   var da=dat.toLocaleString();
+  $("#date").val(da);
+});
 </script>

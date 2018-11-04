@@ -93,12 +93,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <td>操作人员：</td>
       <td><select name="userId" class="form-control"><option value="1">小波</option><option value="2">小谭</option></select></td>
     </tr>
- 
+   <tr style="display:none;">
+     <td>单位账户余额：</td>
+     <td><input type="text" class="form-control" name="dwzhye"  value="0"/></td>
+     <td>单位缴存人数：</td>
+     <td><input type="text" class="form-control" name="dwjcrs"  value="0"/></td>
+     <td>缴至年月日：</td>
+     <td><input type="text" class="form-control" name="jznyr"  value="暂时未缴"/></td>  
+       </tr>
     </tbody>
 </table>
   </form>
 
-      <button  class="btn btn-default" style="width:250px;font-size:20px;" id="dianji">登录</button>
+      <button  class="btn btn-default" style="width:250px;font-size:20px;" id="dianji">开户</button>
 
  
 

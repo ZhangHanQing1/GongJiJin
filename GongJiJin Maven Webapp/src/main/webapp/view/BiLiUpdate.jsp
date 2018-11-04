@@ -75,7 +75,7 @@ $(function(){
                  tr+="</tr>";
                  $("#ttbody").append(tr);
               };
-               /*点击给input赋值  */
+               /*点击给input赋值  筛选器 */
          $("#ttbody tr").click(function() {
 					$("#guan").click();
 					for (var i = 0; i < $(this).children().length; i++) {
@@ -140,7 +140,7 @@ $(function(){
 
 
 <!-- 按钮触发模态框 -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="display:none;"value="添加" id="save"/>
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="save" style="display:none;"value="添加" />
 	开始演示模态框
 </button>
 <!-- 模态框（Modal） -->

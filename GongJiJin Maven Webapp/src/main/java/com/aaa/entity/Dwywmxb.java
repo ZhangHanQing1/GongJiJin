@@ -31,8 +31,18 @@ public class Dwywmxb {
     private String bz;
 
     private String sfgxjjny;
+    private Integer userId;
+    
 
-    public Integer getDwywlsh() {
+    public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Integer getDwywlsh() {
         return dwywlsh;
     }
 

@@ -22,6 +22,7 @@ private DwzhMapper dao;
 private ZhxxbgjlbMapper daoo;
 	public void add(Dwzh dwzh) {
 		dao.insertSelective(dwzh);
+	System.out.println(	dwzh.getDwbh());
 	}
 	@Override
 	public List<Map> select() {
