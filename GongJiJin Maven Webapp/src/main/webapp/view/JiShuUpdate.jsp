@@ -97,7 +97,7 @@ $(function(){
         	data :$("#form1").serialize(),
         dataType:'text',
         success:function(data){
-            
+            window.location.href="view/JiShuCha.jsp"; 
         }
       })
   }

@@ -124,6 +124,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       dataType:"text",
 	       success:function(data){
 	          alert(data);
+	         
+	          window.location.href="view/ZhangHuCha.jsp"; 
+	        
 	       }
 	       
 	       })

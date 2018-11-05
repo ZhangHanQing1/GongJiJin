@@ -49,5 +49,12 @@ public class DWYWController {
     	return pi;
     }
 	
-//查询出单位和个人账户的信息	
+//根据单位编号查询个人账户的信息	
+	@RequestMapping("/selectGR")
+	@ResponseBody
+	 public List<Map> selectGR(@RequestParam("dwbh") Integer dwbh){
+		List<Map> list=service.selectGR(dwbh);
+		System.out.println(list.size()+"asdasdas"+dwbh);
+		return list;
+		}
 }
