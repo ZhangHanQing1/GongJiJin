@@ -9,8 +9,8 @@ public interface DwywmxbMapper {
     int deleteByPrimaryKey(Integer dwywlsh);
 
     int insert(Dwywmxb record);
-
-    int insertSelective(Dwywmxb record);
+    //汇缴保存
+    int insertSelective(Map map);
 
     Dwywmxb selectByPrimaryKey(Integer dwywlsh);
 
@@ -20,4 +20,12 @@ public interface DwywmxbMapper {
     
   //根据单位编号查询个人信息
   	public List<Map> selectGR(Integer dwbh);
+    
+  //根据单位编号查询个人信息
+  	public List<Map> selectG(Map map);
+  //汇缴保存
+  	public void add(Map map);
+  	//修改个人账户额
+  	public void uptateGR(Map map);
+  	
 }

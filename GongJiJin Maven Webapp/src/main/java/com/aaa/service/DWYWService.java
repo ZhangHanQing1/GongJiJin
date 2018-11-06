@@ -10,4 +10,6 @@ public interface DWYWService {
 	public List<Map> select(String dwmc2);
 	//根据单位编号查询个人信息
 	public List<Map> selectGR(Integer dwbh);
+	//汇缴保存
+	public void add(Map map);
 }

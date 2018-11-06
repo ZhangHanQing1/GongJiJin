@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</h4>
 			</div>
 			<div class="modal-body">
-			<form >
+			<form id="form1">
 			   			<table class="table table-bordered text-center" id="table">
 						          <tbody>
     <tr>
@@ -81,12 +81,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tr id="trr">
       
       <td colspan="3"  ><input type="text" name="dwbh"/></td> 
-      <td colspan="2"><input type="text" name="dwmc2"/></td>
-      <td colspan="3"><input type="text" name="jznyr"/></td>
+      <td colspan="2"><input type="text" /></td>
+      <td colspan="3"><input type="text" /></td>
     </tr>
     <tr>
       <td>汇缴月数</td>
-      <td><select name="fsys"  id="gai"><option value="1">一个月</option>
+      <td><select name="fsys" onchange="change()" id="gai"><option value="1">一个月</option>
        <option value="2">二个月</option>
        <option value="3">三个月</option>
        <option value="4">四个月</option>
@@ -238,19 +238,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	})
 	/* select 改变 */
 	
-	function change(){
-	 var zhi=$(".zong").val();
-	  alert($("#gai").val());
-	 
-	 alert(zhi*$("#gai").val());
+  function change(){
+  var zhi=$(".zong").val();
+	var d=$("#dwzong").val();
+	var g=$("#grzong").val();
 	 $(".zong").val(zhi*$("#gai").val());
+	 $("#dwzong").val(d*$("#gai").val());
+	 $("#grzong").val(g*$("#gai").val());
 	 //调用函数
 	           changeMoneyToChinese(zhi*$("#gai").val());
 	}
-//点击保存
-function dian(){
-  alert("汇缴成功");
-}
+//点击保存汇缴
+	function dian(){
+			alert(JSON.stringify($("#form1").serializeObject()));
+	     $.ajax({
+	     url:"DWYW/add",
+	       type:"post",
+	       async : true,
+        	contentType: "application/json; charset=utf-8",//需要制定
+        	data : JSON.stringify($("#form1").serializeObject()),//将json对象转换成json格式的字符串
+	       dataType:"text",
+	       success:function(data){
+	          
+	         
+	          window.location.href="view/ZhangHuCha.jsp"; 
+	        
+	       }
+	       
+	       })
+};
+		$.fn.serializeObject = function() {
+      var o = {};
+      var a = this.serializeArray();
+      $.each(a, function() {
+          if (o[this.name] !== undefined) {
+              if (!o[this.name].push) {
+                  o[this.name] = [o[this.name]];
+              }
+              o[this.name].push(this.value || '');
+          } else {
+              o[this.name] = this.value || '';
+          }
+      });
+      return o;
+    };
    /*获取系统时间  */
 $(function(){
   var date=new Date();

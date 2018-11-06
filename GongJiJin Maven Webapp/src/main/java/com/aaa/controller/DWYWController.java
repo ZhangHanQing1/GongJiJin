@@ -14,6 +14,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -57,4 +58,11 @@ public class DWYWController {
 		System.out.println(list.size()+"asdasdas"+dwbh);
 		return list;
 		}
+	//保存汇缴 先保存到单位业务表
+	@RequestMapping("/add")
+	@ResponseBody
+	  public void add(@RequestBody Map map){
+		   service.add(map);
+		System.out.println(map.get("dwbh"));
+	}
 }
