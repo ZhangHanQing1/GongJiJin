@@ -226,4 +226,8 @@
   <update id="uptateGR" parameterType="Map">
    update grzhxx  set grzhye=gryjce+dwyjce+grzhye  where grzhxx.dwbh=#{dwbh}
   </update>
+    <!-- 修单位账户金额和缴至年月日 -->
+  <update id="updateDW" parameterType="Map">
+   update dwzh  set JZNYR=#{hbcjny},DWZHYE=#{fse3}+DWZHYE  where dwbh=#{dwbh}
+  </update>
 </mapper>

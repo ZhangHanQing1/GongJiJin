@@ -27,5 +27,7 @@ public interface DwywmxbMapper {
   	public void add(Map map);
   	//修改个人账户额
   	public void uptateGR(Map map);
+  	//修改单位账户余额和缴交至日期
+  	public void updateDW(Map map);
   	
 }
