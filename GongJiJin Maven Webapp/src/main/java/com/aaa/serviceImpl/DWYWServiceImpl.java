@@ -57,10 +57,23 @@ private GrywmxxxMapper daooo;
 		  	  gr.setFse3(fse);
 		  	  daooo.insertSelective(gr);	  
 		}
-		  
-		  
 		System.out.println(list);
 		
+	}
+	@Override
+	public Map selectSC(Integer dwbh) {
+		// TODO Auto-generated method stub
+		return daoo.selectSC(dwbh);
+	}
+	@Override
+	public List<Map> selectHui(String dwmc2) {
+		// TODO Auto-generated method stub
+		return daoo.selectHui(dwmc2);
+	}
+	@Override
+	public List<Map> selectGRM(Integer DWYWLSH) {
+		// TODO Auto-generated method stub
+		return daoo.selectGRM(DWYWLSH);
 	}
 
 }

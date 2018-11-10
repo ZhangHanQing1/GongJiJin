@@ -229,5 +229,20 @@
     <!-- 修单位账户金额和缴至年月日 -->
   <update id="updateDW" parameterType="Map">
    update dwzh  set JZNYR=#{hbcjny},DWZHYE=#{fse3}+DWZHYE  where dwbh=#{dwbh}
-  </update>
+  </update>	
+ <!--  //获取上次汇缴金额人数，查询最近一次的汇缴记录 -->
+ <select id="selectSC" parameterType="Integer" resultType="Map" >
+   select FSRS,FSE3,ABS(NOW() - HBCJNY)  AS diffTime FROM dwywmxb  where dwbh=#{dwbh} ORDER BY dwbh desc LIMIT 0,1 
+ </select>
+ 
+ <!-- //单位汇缴明细查询 -->
+	<select id="selectHui" resultType="Map" parameterType="String">
+	  select FSRS,FSE3,HBCJNY,DWMC2,DWYWLSH from dwywmxb join dwzh on dwywmxb.dwbh=dwzh.dwbh
+	   where  DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%') 
+	</select>
+	 <!-- //个人明细查询 -->
+	<select id="selectHui" resultType="Map" parameterType="String">
+	  select xingming,DWJE,GRJE,FSE3 from GRYWMXXX join GRZHXX on GRYWMXXX.GRBH=GRZHXX.GRBH
+	   where  DWYWLSH=#{DWYWLSH}
+	</select>  
 </mapper>

@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
 
 
-<table class="table table-bordered text-center" style="position: absolute; top:10%;" id="tabl">
+<table class="table table-bordered text-center table-hover" style="position: absolute; top:10%;" id="tabl">
 	<caption><input type="text" id="jiansuo" class="btn btn-default btn-lg" placeholder="单位名称检索"/></caption>
 	<thead>
 		<tr>
@@ -79,10 +79,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <td colspan="3">缴至年月日</td>
     </tr>
     <tr id="trr">
-      
       <td colspan="3"  ><input type="text" name="dwbh"/></td> 
       <td colspan="2"><input type="text" /></td>
       <td colspan="3"><input type="text" /></td>
+    </tr>
+      <tr>
+      <td colspan="2">上次汇缴</td>
+      <td colspan="2">本次增加</td>
+      <td colspan="2">本次减少</td>
+      <td colspan="2">本次汇缴  </td>
+    </tr>
+    <tr>
+      <td >人数</td>
+      <td >金额</td>
+      <td >人数</td>
+      <td >金额</td>
+      <td >人数</td>
+      <td >金额</td>
+      <td >人数</td>
+      <td >金额</td>
+    </tr>
+      <tr>
+      <td id="FSRS"></td>
+      <td id="FSE3"></td>
+      <td >0</td>
+      <td >0</td>
+      <td >0</td>
+      <td >0</td>
+      <td id="re">0</td>
+      <td id="jin">0</td>
     </tr>
     <tr>
       <td>汇缴月数</td>
@@ -200,15 +225,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    var idd;
    $(function(){
       $("#tbody").on('click','.all',function(){
+      idd=this;
+      alert( idd.id);
+      //获取上次汇缴金额和人数
+          $.ajax({
+	          url:'DWYW/selectSC',
+	          type:"post",
+	          data:{"dwbh":idd.id},
+	          dataType:"json",
+	          success:function(data){
+	              $("#FSRS").html( data.FSRS);
+	               $("#FSE3").html(data.FSE3);
+	          }
+	  })   
+      
 	     $("#save").click();
 	     
 	     //过滤器赋值
-	    
 	     for(var i=0;i<3;i++){
 	       $("#trr").children().eq(i).children().val($(this).parent().parent().children().eq(i).html())
 	      }
-	       idd=this;
-	      alert( idd.id);
+	       
+	      
 	      $.ajax({
 	          url:'DWYW/selectGR',
 	          type:"post",
@@ -228,6 +266,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	           $("#dwzong").val(dwzong);
 	           $("#zongjs").val(zongjs);
 	           $(".zong").val(zong);
+	           $("#jin").html(zong);
+	           $("#re").html(renshu);
 	           //调用函数
 	           changeMoneyToChinese(zong);
 	   
@@ -236,6 +276,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	     
 	   })
 	})
+	
+	
 	/* select 改变 */
 	
   function change(){
@@ -261,7 +303,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       success:function(data){
 	          
 	         
-	          window.location.href="view/ZhangHuCha.jsp"; 
+	          window.location.href="view/HuiJiaoCha.jsp"; 
 	        
 	       }
 	       

@@ -29,5 +29,12 @@ public interface DwywmxbMapper {
   	public void uptateGR(Map map);
   	//修改单位账户余额和缴交至日期
   	public void updateDW(Map map);
+  //获取上次汇缴金额人数，查询最近一次的汇缴记录
+  	public Map selectSC(Integer dwbh);
+  //单位汇缴明细查询
+  	public List<Map> selectHui(String dwmc2);
+
+	//个人明细查询
+	public List<Map> selectGRM(Integer DWYWLSH); 	
   	
 }

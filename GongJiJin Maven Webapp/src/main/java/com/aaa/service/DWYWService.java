@@ -12,4 +12,11 @@ public interface DWYWService {
 	public List<Map> selectGR(Integer dwbh);
 	//汇缴保存
 	public void add(Map map);
+	//获取上次汇缴金额人数，查询最近一次的汇缴记录
+	public Map selectSC(Integer dwbh);
+	//单位汇缴明细查询
+	public List<Map> selectHui(String dwmc2);
+	//个人明细查询
+	public List<Map> selectGRM(Integer DWYWLSH);
+	
 }

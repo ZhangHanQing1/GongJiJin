@@ -65,4 +65,32 @@ public class DWYWController {
 		   service.add(map);
 		System.out.println(map.get("dwbh"));
 	}
+//获取上次汇缴金额人数，查询最近一次的汇缴记录
+	@RequestMapping("/selectSC")
+	@ResponseBody
+	public Map selectSC(@RequestParam("dwbh") Integer dwbh){
+		Map map=service.selectSC(dwbh);
+		return map;
+	}
+//单位汇缴明细查询
+	@RequestMapping("/selectHui")
+	@ResponseBody
+	public PageInfo<Map> selectHui(@RequestParam("dwmc2") String dwmc2,@RequestParam(required = false, defaultValue = "1") Integer startPage,
+            @RequestParam(required = false, defaultValue = "5") Integer PageSize){
+		PageHelper.startPage(startPage,PageSize);
+		List<Map> list=service.selectHui(dwmc2);
+    	PageInfo<Map> pi=new PageInfo<Map>(list);
+    	System.out.println(list.size());
+    	System.out.println(dwmc2);
+    	return pi;
+		
+	}
+//个人明细查询
+	@RequestMapping("/selectGRM")
+	@ResponseBody
+	public List<Map> selectGRM(@RequestParam("DWYWLSH") Integer DWYWLSH){
+		List<Map> list=service.selectGRM(DWYWLSH);
+		 System.out.println(DWYWLSH);
+		return list;
+	}
 }

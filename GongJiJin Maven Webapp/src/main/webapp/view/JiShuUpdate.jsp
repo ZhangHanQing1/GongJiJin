@@ -97,6 +97,7 @@ $(function(){
         	data :$("#form1").serialize(),
         dataType:'text',
         success:function(data){
+        if(data=="修改成功")
             window.location.href="view/JiShuCha.jsp"; 
         }
       })

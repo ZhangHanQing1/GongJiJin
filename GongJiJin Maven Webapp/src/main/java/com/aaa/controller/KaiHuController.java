@@ -74,8 +74,18 @@ public class KaiHuController {
    }
    //单位比例修改并保存到记录表
    @RequestMapping("/BiLiUp")
-   public void BiLiUp(CeShiList Ceshi ){
-             service.BiLiUp(Ceshi);
+   public void BiLiUp(CeShiList Ceshi,HttpServletResponse response){
+	   response.setCharacterEncoding("utf-8");
+             PrintWriter out;
+			try {
+				out = response.getWriter();
+				service.BiLiUp(Ceshi);
+				out.print("修改成功");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+     	
    }
 //   个人基数修改前查询
    @RequestMapping("/selectGR")
@@ -87,10 +97,18 @@ public class KaiHuController {
    }
 //   个人基数修改并保存到记录表
    @RequestMapping("/JiShuUp")
-   public void JiShuUp(CeShiList Ceshi ){
+   public void JiShuUp(CeShiList Ceshi,HttpServletResponse response){
+	   response.setCharacterEncoding("utf-8");
+	   try {
+	   PrintWriter  out=response.getWriter();
 	   service.JiShuUp(Ceshi);
-             System.out.println(Ceshi.getList().get(0).getGrbh());
-   }
+	   out.print("修改成功");
+     } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+              System.out.println(Ceshi.getList().get(0).getGrbh());
+    }
    
    //个人基数记录查询
    @RequestMapping("/selectJiShu")

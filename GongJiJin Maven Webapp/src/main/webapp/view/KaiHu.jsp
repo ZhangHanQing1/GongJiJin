@@ -124,9 +124,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       dataType:"text",
 	       success:function(data){
 	          alert(data);
-	         
+	         if(data=="开户成功"){
 	          window.location.href="view/ZhangHuCha.jsp"; 
-	        
+	         }
 	       }
 	       
 	       })
