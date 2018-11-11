@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.fhx.dao.GrdkDao">
+	<select id="showGedk" resultType="double" parameterType="String">
+		select COALESCE(sum(htdkje),0) from grzfdkjkhtxx where ydfkrq between #{date1} and  #{date2}
+	</select>
+	<select id="showGedk1" resultType="int" parameterType="String">
+		select count(*) from grzfdkjkhtxx where ydfkrq between #{date1} and #{date2}
+	</select>
+</mapper>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.fhx.dao.DwzhDao">
+	<select id="showJiaoCun" resultType="map" parameterType="String">
+		select dw.dwywlsh,dw.jjbh,dw.jsztbh,dw.dwbh,fse3,dw.fsrs,dw.zckfse,cjsj3,d.dwmc2,j.ztmc,h.jjmc from dwywmxb dw join dwzh d on d.dwbh=dw.dwbh join jsztb j on j.jsztbh=dw.jsztbh join hjfs h on h.jjbh=dw.jjbh
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and cjsj3 between #{date1} and #{date2}
+			</if>
+			<if test="dwmc2!=null and dwmc2!=''">
+				and d.dwmc2 like "%"#{dwmc2}"%"
+			</if>
+		</where>
+	</select>
+	<select id="showJiaoCun1" resultType="double" parameterType="String">
+		select COALESCE(sum(fse3),0) from dwywmxb dw join dwzh d on d.dwbh=dw.dwbh join jsztb j on j.jsztbh=dw.jsztbh join hjfs h on h.jjbh=dw.jjbh
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and cjsj3 between #{date1} and #{date2}
+			</if>
+			<if test="dwmc2!=null and dwmc2!=''">
+				and d.dwmc2 like "%"#{dwmc2}"%"
+			</if>
+		</where>
+	</select>
+	<select id="showJiaoCun11" resultType="int" parameterType="String">
+		select COALESCE(sum(fsrs),0) from dwywmxb dw join dwzh d on d.dwbh=dw.dwbh join jsztb j on j.jsztbh=dw.jsztbh join hjfs h on h.jjbh=dw.jjbh
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and cjsj3 between #{date1} and #{date2}
+			</if>
+			<if test="dwmc2!=null and dwmc2!=''">
+				and d.dwmc2 like "%"#{dwmc2}"%"
+			</if>
+		</where>
+	</select>
+	
+	<select id="showDwzh" resultType="double" parameterType="String">
+		select COALESCE(sum(dwzhye),0) from Dwzh
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and jznyr between #{date1} and #{date2}
+			</if>
+		</where>
+	</select>
+	<select id="showDwzh1" resultType="int" parameterType="String">
+		select COALESCE(sum(dwjcrs),0) from Dwzh
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and jznyr between #{date1} and #{date2}
+			</if>
+		</where>
+	</select>
+	<select id="showGeTq" resultType="map" parameterType="String">
+		select tqbh,zgxm,dwmc2,tqlx,tqze,spsj,spzt2 from Sy_gj_tqspb
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and spsj between #{date1} and #{date2}
+			</if>
+			<if test="tqlx!=null and tqlx!=''">
+				and tqlx=#{tqlx}
+			</if>
+			<if test="spzt2!=null and spzt2!=''">
+				and spzt2=#{spzt2}
+			</if>
+		</where>
+	</select>
+	<select id="showGedk11" resultType="double" parameterType="String">
+		select COALESCE(sum(tqze),0) from Sy_gj_tqspb
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and spsj between #{date1} and #{date2}
+			</if>
+			<if test="tqlx!=null and tqlx!=''">
+				and tqlx=#{tqlx}
+			</if>
+			<if test="spzt2!=null and spzt2!=''">
+				and spzt2=#{spzt2}
+			</if>
+		</where>
+	</select>
+	<select id="showGedk111" resultType="int" parameterType="String">
+		select count(*) from Sy_gj_tqspb
+		<where>
+			<if test="date1!=null and date1!='' and date2!=null and date2!=''">
+				and spsj between #{date1} and #{date2}
+			</if>
+			<if test="tqlx!=null and tqlx!=''">
+				and tqlx=#{tqlx}
+			</if>
+			<if test="spzt2!=null and spzt2!=''">
+				and spzt2=#{spzt2}
+			</if>
+		</where>
+	</select>
+	<select id="showGedk" resultType="double" parameterType="String">
+		select COALESCE(sum(tqze),0) from Sy_gj_tqspb where spzt2='通过' and spsj between #{date1} and  #{date2}
+	</select>
+	<select id="showGedk1" resultType="int" parameterType="String">
+		select count(*) from Sy_gj_tqspb where spzt2='通过' and spsj between #{date1} and #{date2}
+	</select>
+</mapper>
