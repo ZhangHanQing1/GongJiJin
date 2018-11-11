@@ -241,7 +241,7 @@
 	   where  DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%') 
 	</select>
 	 <!-- //个人明细查询 -->
-	<select id="selectHui" resultType="Map" parameterType="String">
+	<select id="selectGRM" resultType="Map" parameterType="Integer">
 	  select xingming,DWJE,GRJE,FSE3 from GRYWMXXX join GRZHXX on GRYWMXXX.GRBH=GRZHXX.GRBH
 	   where  DWYWLSH=#{DWYWLSH}
 	</select>  

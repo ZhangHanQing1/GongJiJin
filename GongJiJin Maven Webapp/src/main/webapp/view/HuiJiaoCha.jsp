@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					&times;
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					汇缴办理
+				个人明细
 				</h4>
 			</div>
 			<div class="modal-body">
@@ -73,8 +73,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						          <tbody id="ttbody">
               <tr>
               <td>个人姓名</td>
+                <td>个人缴额</td>
                 <td>单位缴额</td>
-                  <td>个人缴额</td>
+                  
                     <td>发生额</td>
               </tr>
     
@@ -143,6 +144,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         var id;
         $(function(){
           $("#tbody").on("click",".all",function(){
+          $("#save").click();
             id=this.id;
             alert(this.id);
             $.ajax({
@@ -152,15 +154,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                dataType:"json",
                success:function(data){
                   $("#ttbody").html();
-	          $("#ttbody").empty();
+	          
     
                 for(var i=0;i<data.length;i++){
                                var tr="<tr>";
                  
-                 tr+="<td>"+list[i].xingming+"</td>";
-                 tr+="<td>"+list[i].GRJE+"</td>";
-                 tr+="<td>"+list[i].DWJE+"</td>";
-                 tr+="<td>"+list[i].FSE3+"</td>";
+                 tr+="<td>"+data[i].xingming+"</td>";
+                 tr+="<td>"+data[i].GRJE+"</td>";
+                 tr+="<td>"+data[i].DWJE+"</td>";
+                 tr+="<td>"+data[i].FSE3+"</td>";
                  tr+="</tr>";
                           $("#ttbody").append(tr);
                 

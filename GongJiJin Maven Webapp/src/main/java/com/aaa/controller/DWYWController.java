@@ -90,6 +90,7 @@ public class DWYWController {
 	@ResponseBody
 	public List<Map> selectGRM(@RequestParam("DWYWLSH") Integer DWYWLSH){
 		List<Map> list=service.selectGRM(DWYWLSH);
+		System.out.println(list.size()+"asdasd");
 		 System.out.println(DWYWLSH);
 		return list;
 	}
