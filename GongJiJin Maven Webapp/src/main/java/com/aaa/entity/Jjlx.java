@@ -1,56 +1,23 @@
 package com.aaa.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+public class Jjlx {
+    private Integer jjlxbh;
 
-/**
- * Jjlx entity. @author MyEclipse Persistence Tools
- */
+    private String jjlxmc;
 
-public class Jjlx implements java.io.Serializable {
+    public Integer getJjlxbh() {
+        return jjlxbh;
+    }
 
-	// Fields
+    public void setJjlxbh(Integer jjlxbh) {
+        this.jjlxbh = jjlxbh;
+    }
 
-	private Integer jjlxbh;
-	private String jjlxmc;
-	private Set dwzhs = new HashSet(0);
+    public String getJjlxmc() {
+        return jjlxmc;
+    }
 
-	// Constructors
-
-	/** default constructor */
-	public Jjlx() {
-	}
-
-	/** full constructor */
-	public Jjlx(String jjlxmc, Set dwzhs) {
-		this.jjlxmc = jjlxmc;
-		this.dwzhs = dwzhs;
-	}
-
-	// Property accessors
-
-	public Integer getJjlxbh() {
-		return this.jjlxbh;
-	}
-
-	public void setJjlxbh(Integer jjlxbh) {
-		this.jjlxbh = jjlxbh;
-	}
-
-	public String getJjlxmc() {
-		return this.jjlxmc;
-	}
-
-	public void setJjlxmc(String jjlxmc) {
-		this.jjlxmc = jjlxmc;
-	}
-
-	public Set getDwzhs() {
-		return this.dwzhs;
-	}
-
-	public void setDwzhs(Set dwzhs) {
-		this.dwzhs = dwzhs;
-	}
-
+    public void setJjlxmc(String jjlxmc) {
+        this.jjlxmc = jjlxmc == null ? null : jjlxmc.trim();
+    }
 }

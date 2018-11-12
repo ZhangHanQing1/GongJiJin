@@ -1,17 +1,22 @@
 package com.aaa.dao;
 
-import com.aaa.entity.SysRole;
+import java.util.List;
+import java.util.Map;
+
+import com.aaa.entity.Sys_role;
 
 public interface Sys_roleMapper {
     int deleteByPrimaryKey(Integer roleId);
 
-    int insert(SysRole record);
+    int insert(Sys_role record);
 
-    int insertSelective(SysRole record);
+    int insertSelective(Sys_role record);
 
-    SysRole selectByPrimaryKey(Integer roleId);
+    Sys_role selectByPrimaryKey(Integer roleId);
 
-    int updateByPrimaryKeySelective(SysRole record);
+    int updateByPrimaryKeySelective(Sys_role record);
 
-    int updateByPrimaryKey(SysRole record);
+    int updateByPrimaryKey(Sys_role record);
+	//查询权限表
+	public List<Map<String, Object>> showRole();
 }

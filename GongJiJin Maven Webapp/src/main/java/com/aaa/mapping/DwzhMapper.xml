@@ -44,6 +44,20 @@
     from dwzh
     where DWBH = #{dwbh,jdbcType=INTEGER}
   </select>
+  <select id="showDwzh" resultType="double" parameterType="String">
+		select COALESCE(sum(dwzhye),0) from Dwzh where jznyr between #{date1} and  #{date2}
+	</select>
+	<select id="showDwzh1" resultType="int" parameterType="String">
+		select COALESCE(sum(dwjcrs),0) from Dwzh where jznyr between #{date1} and #{date2}
+	</select>
+	<select id="showGedk" resultType="double" parameterType="String">
+		select COALESCE(sum(tqze),0) from Sy_gj_tqspb where spzt2='通过' and spsj between #{date1} and  #{date2}
+	</select>
+	<select id="showGedk1" resultType="int" parameterType="String">
+		select count(*) from Sy_gj_tqspb where spzt2='通过' and spsj between #{date1} and #{date2}
+	</select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from dwzh
     where DWBH = #{dwbh,jdbcType=INTEGER}

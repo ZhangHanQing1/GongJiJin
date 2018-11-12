@@ -3,216 +3,194 @@ package com.aaa.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- * Grzfdkyqdjxx entity. @author MyEclipse Persistence Tools
- */
+public class Grzfdkyqdjxx {
+    private Integer djxxzj;
 
-public class Grzfdkyqdjxx implements java.io.Serializable {
+    private Integer dhglzj;
 
-	// Fields
+    private String ywbh;
 
-	private Integer djxxzj;
-	private SyDkDhgl syDkDhgl;
-	private String ywbh;
-	private String dkzh;
-	private BigDecimal yqqc;
-	private BigDecimal yqbj;
-	private BigDecimal yqlx;
-	private BigDecimal yqfx;
-	private Date ssrq;
-	private BigDecimal hkqc;
-	private BigDecimal ssyqbjje;
-	private BigDecimal ssyqlxje;
-	private BigDecimal ssyqfxje;
-	private String ztz;
-	private String sfetf;
-	private BigDecimal dkqs;
-	private Date zxkkrq;
-	private BigDecimal wdbh3;
-	private Date djsj;
+    private String dkzh;
 
-	// Constructors
+    private BigDecimal yqqc;
 
-	/** default constructor */
-	public Grzfdkyqdjxx() {
-	}
+    private BigDecimal yqbj;
 
-	/** full constructor */
-	public Grzfdkyqdjxx(SyDkDhgl syDkDhgl, String ywbh, String dkzh, BigDecimal yqqc, BigDecimal yqbj, BigDecimal yqlx,
-			BigDecimal yqfx, Date ssrq, BigDecimal hkqc, BigDecimal ssyqbjje, BigDecimal ssyqlxje, BigDecimal ssyqfxje,
-			String ztz, String sfetf, BigDecimal dkqs, Date zxkkrq, BigDecimal wdbh3, Date djsj) {
-		this.syDkDhgl = syDkDhgl;
-		this.ywbh = ywbh;
-		this.dkzh = dkzh;
-		this.yqqc = yqqc;
-		this.yqbj = yqbj;
-		this.yqlx = yqlx;
-		this.yqfx = yqfx;
-		this.ssrq = ssrq;
-		this.hkqc = hkqc;
-		this.ssyqbjje = ssyqbjje;
-		this.ssyqlxje = ssyqlxje;
-		this.ssyqfxje = ssyqfxje;
-		this.ztz = ztz;
-		this.sfetf = sfetf;
-		this.dkqs = dkqs;
-		this.zxkkrq = zxkkrq;
-		this.wdbh3 = wdbh3;
-		this.djsj = djsj;
-	}
+    private BigDecimal yqlx;
 
-	// Property accessors
+    private BigDecimal yqfx;
 
-	public Integer getDjxxzj() {
-		return this.djxxzj;
-	}
+    private Date ssrq;
 
-	public void setDjxxzj(Integer djxxzj) {
-		this.djxxzj = djxxzj;
-	}
+    private BigDecimal hkqc;
 
-	public SyDkDhgl getSyDkDhgl() {
-		return this.syDkDhgl;
-	}
+    private BigDecimal ssyqbjje;
 
-	public void setSyDkDhgl(SyDkDhgl syDkDhgl) {
-		this.syDkDhgl = syDkDhgl;
-	}
+    private BigDecimal ssyqlxje;
 
-	public String getYwbh() {
-		return this.ywbh;
-	}
+    private BigDecimal ssyqfxje;
 
-	public void setYwbh(String ywbh) {
-		this.ywbh = ywbh;
-	}
+    private String ztz;
 
-	public String getDkzh() {
-		return this.dkzh;
-	}
+    private String sfetf;
 
-	public void setDkzh(String dkzh) {
-		this.dkzh = dkzh;
-	}
+    private BigDecimal dkqs;
 
-	public BigDecimal getYqqc() {
-		return this.yqqc;
-	}
+    private Date zxkkrq;
 
-	public void setYqqc(BigDecimal yqqc) {
-		this.yqqc = yqqc;
-	}
+    private BigDecimal wdbh3;
 
-	public BigDecimal getYqbj() {
-		return this.yqbj;
-	}
+    private Date djsj;
 
-	public void setYqbj(BigDecimal yqbj) {
-		this.yqbj = yqbj;
-	}
+    public Integer getDjxxzj() {
+        return djxxzj;
+    }
 
-	public BigDecimal getYqlx() {
-		return this.yqlx;
-	}
+    public void setDjxxzj(Integer djxxzj) {
+        this.djxxzj = djxxzj;
+    }
 
-	public void setYqlx(BigDecimal yqlx) {
-		this.yqlx = yqlx;
-	}
+    public Integer getDhglzj() {
+        return dhglzj;
+    }
 
-	public BigDecimal getYqfx() {
-		return this.yqfx;
-	}
+    public void setDhglzj(Integer dhglzj) {
+        this.dhglzj = dhglzj;
+    }
 
-	public void setYqfx(BigDecimal yqfx) {
-		this.yqfx = yqfx;
-	}
+    public String getYwbh() {
+        return ywbh;
+    }
 
-	public Date getSsrq() {
-		return this.ssrq;
-	}
+    public void setYwbh(String ywbh) {
+        this.ywbh = ywbh == null ? null : ywbh.trim();
+    }
 
-	public void setSsrq(Date ssrq) {
-		this.ssrq = ssrq;
-	}
+    public String getDkzh() {
+        return dkzh;
+    }
 
-	public BigDecimal getHkqc() {
-		return this.hkqc;
-	}
+    public void setDkzh(String dkzh) {
+        this.dkzh = dkzh == null ? null : dkzh.trim();
+    }
 
-	public void setHkqc(BigDecimal hkqc) {
-		this.hkqc = hkqc;
-	}
+    public BigDecimal getYqqc() {
+        return yqqc;
+    }
 
-	public BigDecimal getSsyqbjje() {
-		return this.ssyqbjje;
-	}
+    public void setYqqc(BigDecimal yqqc) {
+        this.yqqc = yqqc;
+    }
 
-	public void setSsyqbjje(BigDecimal ssyqbjje) {
-		this.ssyqbjje = ssyqbjje;
-	}
+    public BigDecimal getYqbj() {
+        return yqbj;
+    }
 
-	public BigDecimal getSsyqlxje() {
-		return this.ssyqlxje;
-	}
+    public void setYqbj(BigDecimal yqbj) {
+        this.yqbj = yqbj;
+    }
 
-	public void setSsyqlxje(BigDecimal ssyqlxje) {
-		this.ssyqlxje = ssyqlxje;
-	}
+    public BigDecimal getYqlx() {
+        return yqlx;
+    }
 
-	public BigDecimal getSsyqfxje() {
-		return this.ssyqfxje;
-	}
+    public void setYqlx(BigDecimal yqlx) {
+        this.yqlx = yqlx;
+    }
 
-	public void setSsyqfxje(BigDecimal ssyqfxje) {
-		this.ssyqfxje = ssyqfxje;
-	}
+    public BigDecimal getYqfx() {
+        return yqfx;
+    }
 
-	public String getZtz() {
-		return this.ztz;
-	}
+    public void setYqfx(BigDecimal yqfx) {
+        this.yqfx = yqfx;
+    }
 
-	public void setZtz(String ztz) {
-		this.ztz = ztz;
-	}
+    public Date getSsrq() {
+        return ssrq;
+    }
 
-	public String getSfetf() {
-		return this.sfetf;
-	}
+    public void setSsrq(Date ssrq) {
+        this.ssrq = ssrq;
+    }
 
-	public void setSfetf(String sfetf) {
-		this.sfetf = sfetf;
-	}
+    public BigDecimal getHkqc() {
+        return hkqc;
+    }
 
-	public BigDecimal getDkqs() {
-		return this.dkqs;
-	}
+    public void setHkqc(BigDecimal hkqc) {
+        this.hkqc = hkqc;
+    }
 
-	public void setDkqs(BigDecimal dkqs) {
-		this.dkqs = dkqs;
-	}
+    public BigDecimal getSsyqbjje() {
+        return ssyqbjje;
+    }
 
-	public Date getZxkkrq() {
-		return this.zxkkrq;
-	}
+    public void setSsyqbjje(BigDecimal ssyqbjje) {
+        this.ssyqbjje = ssyqbjje;
+    }
 
-	public void setZxkkrq(Date zxkkrq) {
-		this.zxkkrq = zxkkrq;
-	}
+    public BigDecimal getSsyqlxje() {
+        return ssyqlxje;
+    }
 
-	public BigDecimal getWdbh3() {
-		return this.wdbh3;
-	}
+    public void setSsyqlxje(BigDecimal ssyqlxje) {
+        this.ssyqlxje = ssyqlxje;
+    }
 
-	public void setWdbh3(BigDecimal wdbh3) {
-		this.wdbh3 = wdbh3;
-	}
+    public BigDecimal getSsyqfxje() {
+        return ssyqfxje;
+    }
 
-	public Date getDjsj() {
-		return this.djsj;
-	}
+    public void setSsyqfxje(BigDecimal ssyqfxje) {
+        this.ssyqfxje = ssyqfxje;
+    }
 
-	public void setDjsj(Date djsj) {
-		this.djsj = djsj;
-	}
+    public String getZtz() {
+        return ztz;
+    }
 
+    public void setZtz(String ztz) {
+        this.ztz = ztz == null ? null : ztz.trim();
+    }
+
+    public String getSfetf() {
+        return sfetf;
+    }
+
+    public void setSfetf(String sfetf) {
+        this.sfetf = sfetf == null ? null : sfetf.trim();
+    }
+
+    public BigDecimal getDkqs() {
+        return dkqs;
+    }
+
+    public void setDkqs(BigDecimal dkqs) {
+        this.dkqs = dkqs;
+    }
+
+    public Date getZxkkrq() {
+        return zxkkrq;
+    }
+
+    public void setZxkkrq(Date zxkkrq) {
+        this.zxkkrq = zxkkrq;
+    }
+
+    public BigDecimal getWdbh3() {
+        return wdbh3;
+    }
+
+    public void setWdbh3(BigDecimal wdbh3) {
+        this.wdbh3 = wdbh3;
+    }
+
+    public Date getDjsj() {
+        return djsj;
+    }
+
+    public void setDjsj(Date djsj) {
+        this.djsj = djsj;
+    }
 }

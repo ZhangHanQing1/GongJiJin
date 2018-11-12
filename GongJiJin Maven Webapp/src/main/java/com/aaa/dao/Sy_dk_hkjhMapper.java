@@ -1,17 +1,24 @@
 package com.aaa.dao;
 
-import com.aaa.entity.SyDkHkjh;
+import java.util.List;
+import java.util.Map;
+
+import com.aaa.entity.Sy_dk_hkjh;
 
 public interface Sy_dk_hkjhMapper {
     int deleteByPrimaryKey(Integer hkjhzj);
 
-    int insert(SyDkHkjh record);
+    int insert(Sy_dk_hkjh record);
 
-    int insertSelective(SyDkHkjh record);
+    int insertSelective(Sy_dk_hkjh record);
 
-    SyDkHkjh selectByPrimaryKey(Integer hkjhzj);
+    Sy_dk_hkjh selectByPrimaryKey(Integer hkjhzj);
 
-    int updateByPrimaryKeySelective(SyDkHkjh record);
+    int updateByPrimaryKeySelective(Sy_dk_hkjh record);
 
-    int updateByPrimaryKey(SyDkHkjh record);
+    int updateByPrimaryKey(Sy_dk_hkjh record);
+    
+    public  List<Map<String, Object>> hkjkAll();
+  //¸ù¾Ý ID²éÑ¯
+	  public  Map hkjhIdd(int ydtqspzj);
 }

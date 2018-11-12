@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 	<context:component-scan base-package="com.aaa"></context:component-scan>
 	<!-- 加载属性文件 -->
 	<bean
@@ -12,14 +15,28 @@
 		<property name="location" value="classpath:DRUID.properties"></property>
 	</bean>	
 	<!-- 配置SqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"></property><!--  注入数据源 -->
+	   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	   <property name="plugins">
+    <array>
+      <bean class="com.github.pagehelper.PageInterceptor">
+        <property name="properties">
+          <!--使用下面的方式配置参数，一行配置一个 -->
+          <value>
+           helperDialect=mysql
+          </value>
+        </property>
+      </bean>
+    </array>
+  </property>
+       
+		<property name="dataSource" ref="dataSource"></property><!--  注入数据源 -->	
 		<property name="mapperLocations" value="classpath:com/aaa/mapping/*.xml"></property> <!--  自动扫描mapper映射文件 -->
-		<property name="typeAliasesPackage" value="com.aaa.entity"></property> 
+		<property name="typeAliasesPackage" value="com.aaa.entity"></property> 		
 		<!-- <property name="configLocation" value="classpath:mybatis-config.xml"></property> -->
-	</bean>
+	    </bean>
+	    
 	<!-- 配置扫描dao接口 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">	   
 		<property name="basePackage" value="com.aaa.dao"></property> <!-- 指定dao接口所在的包 -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
@@ -54,5 +71,9 @@
          <property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}" />
          <!-- 关闭abanded连接时输出错误日志    -->
          <property name="logAbandoned" value="${logAbandoned}" />
-	</bean>
+	</bean>	
+      <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+       <property name="dataSource" ref="dataSource"/>
+      </bean>
+       <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>

@@ -1,56 +1,23 @@
 package com.aaa.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+public class Hjfs {
+    private Integer jjbh;
 
-/**
- * Hjfs entity. @author MyEclipse Persistence Tools
- */
+    private String jjmc;
 
-public class Hjfs implements java.io.Serializable {
+    public Integer getJjbh() {
+        return jjbh;
+    }
 
-	// Fields
+    public void setJjbh(Integer jjbh) {
+        this.jjbh = jjbh;
+    }
 
-	private Integer jjbh;
-	private String jjmc;
-	private Set dwywmxbs = new HashSet(0);
+    public String getJjmc() {
+        return jjmc;
+    }
 
-	// Constructors
-
-	/** default constructor */
-	public Hjfs() {
-	}
-
-	/** full constructor */
-	public Hjfs(String jjmc, Set dwywmxbs) {
-		this.jjmc = jjmc;
-		this.dwywmxbs = dwywmxbs;
-	}
-
-	// Property accessors
-
-	public Integer getJjbh() {
-		return this.jjbh;
-	}
-
-	public void setJjbh(Integer jjbh) {
-		this.jjbh = jjbh;
-	}
-
-	public String getJjmc() {
-		return this.jjmc;
-	}
-
-	public void setJjmc(String jjmc) {
-		this.jjmc = jjmc;
-	}
-
-	public Set getDwywmxbs() {
-		return this.dwywmxbs;
-	}
-
-	public void setDwywmxbs(Set dwywmxbs) {
-		this.dwywmxbs = dwywmxbs;
-	}
-
+    public void setJjmc(String jjmc) {
+        this.jjmc = jjmc == null ? null : jjmc.trim();
+    }
 }

@@ -1,17 +1,17 @@
 package com.aaa.dao;
 
-import com.aaa.entity.SyLlgl;
+import com.aaa.entity.Sy_llgl;
 
 public interface Sy_llglMapper {
     int deleteByPrimaryKey(Integer llzj);
 
-    int insert(SyLlgl record);
+    int insert(Sy_llgl record);
 
-    int insertSelective(SyLlgl record);
+    int insertSelective(Sy_llgl record);
 
-    SyLlgl selectByPrimaryKey(Integer llzj);
+    Sy_llgl selectByPrimaryKey(Integer llzj);
 
-    int updateByPrimaryKeySelective(SyLlgl record);
+    int updateByPrimaryKeySelective(Sy_llgl record);
 
-    int updateByPrimaryKey(SyLlgl record);
+    int updateByPrimaryKey(Sy_llgl record);
 }

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.Sys_userMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sys_user">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="dept_id" jdbcType="INTEGER" property="deptId" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phonenum" jdbcType="VARCHAR" property="phonenum" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="passwords" jdbcType="VARCHAR" property="passwords" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="login_date" jdbcType="DATE" property="loginDate" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, dept_id, login_name, user_name, user_type, email, phonenum, sex, passwords, 
+    status, del_flag, login_date, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <resultMap type="Sys_user" id="us" autoMapping="true">
+		<association property="sys_user_role" column="userId" javaType="Sys_user_role" autoMapping="true"></association>
+	</resultMap>
+	<select id="ussel" resultMap="us">
+		select * from sys_user su join sys_user_role sur on su.user_id=sur.user_id where su.login_name=#{loginName}
+	</select>
+	<resultMap type="Sys_menu" id="me" autoMapping="true">
+		<association property="sys_role_menu" column="menuId" javaType="Sys_role_menu" autoMapping="true"></association>
+	</resultMap>
+	<select id="mesel" resultMap="me">
+		select * from Sys_menu sm join Sys_role_menu srm on sm.menu_id=srm.menu_id where srm.role_id=#{roleId}
+	</select>
+	
+	<select id="showUser" resultType="map">
+		select * from sys_user u join sys_dept sd on u.dept_id=sd.dept_id join sys_user_post sup on u.user_id=sup.user_id join sys_post p on p.post_id=sup.post_id join sys_user_role sur on sur.user_id=u.user_id join sys_role sr on sr.role_id=sur.role_id
+	</select>
+	<!-- 查询部门表 -->
+	<select id="showDept" resultType="map">
+		select * from sys_dept
+	</select>
+	<!-- 查询岗位表 -->
+	<select id="showPost" resultType="map">
+		select * from sys_Post
+	</select>
+	<!-- 查询角色表 -->
+	<select id="showRole" resultType="map">
+		select * from sys_role
+	</select>
+	<!-- 添加用户表 -->
+	<insert id="addUser" parameterType="Sys_user">
+		insert into Sys_user(user_id,dept_id,login_name,user_name,user_type,phonenum,sex,passwords,status,del_flag) values(#{user_id},#{dept_id},#{login_name},#{user_name},#{user_type},#{phonenum},#{sex},#{passwords},#{status},#{del_flag})
+	</insert>
+	<!-- 添加用户岗位关联表 -->
+	<insert id="addSup" parameterType="Sys_user_post">
+		insert into Sys_user_post(user_id,post_id) values(#{user_id},#{post_id})
+	</insert>
+	<!-- 添加用户角色关联表 -->
+	<insert id="addSur" parameterType="Sys_user_role">
+		insert into Sys_user_role(user_id,role_id) values(#{user_id},#{role_id})
+	</insert>
+	<select id="selUser" resultType="Sys_user" parameterType="Sys_user">
+		select * from Sys_user where login_name=#{login_name}
+	</select>
+	<!-- 修改用户表 -->
+	<update id="updateUser" parameterType="Sys_user">
+		update Sys_user set status='1' where user_id=#{user_id}
+	</update>
+	<!-- 修改用户表 -->
+	<update id="updateUser1" parameterType="Sys_user">
+		update Sys_user set status='0' where user_id=#{user_id}
+	</update>
+	<!-- 修改用户表 -->
+	<update id="updateUser2" parameterType="Sys_user">
+		update Sys_user set del_flag='1' where user_id=#{user_id}
+	</update>
+	<!-- 查询权限表 -->
+	<select id="showMenu" resultType="map" parameterType="String">
+		select * from sys_menu 
+		<where>
+			 <if test="menu_name!=null and menu_name!=''">
+				and menu_name like "%"#{menu_name}"%" 
+			</if> 
+			<!-- <if test="url!=null and url!=''">
+				and url like "%"#{url}"%" 
+			</if> -->
+		</where>
+	</select>
+	<!-- 查询权限表 -->
+	<select id="showMenu2" resultType="map" parameterType="String">
+		select * from sys_menu 
+		<where>
+			<if test="url!=null and url!=''">
+				and url like "%"#{url}"%" 
+			</if>
+		</where>
+	</select>
+	<!-- 添加权限表 -->
+	<insert id="addMenu" parameterType="Sys_menu">
+		insert into Sys_menu(menu_id,menu_name,parent_id,url) values(#{menu_id},#{menu_name},#{parent_id},#{url})
+	</insert>
+	<!-- 通过id查询权限表 -->
+	<select id="showMenu1" resultType="Sys_menu">
+		select * from sys_menu where menu_id=#{menu_id}
+	</select>
+	<!-- 修改权限表 -->
+	<update id="updateMenu" parameterType="Sys_menu">
+		update Sys_menu set menu_name=#{menu_name},parent_id=#{parent_id},url=#{url} where menu_id=#{menu_id}
+	</update>
+	<!-- 删除权限表 -->
+	<delete id="deleteMenu" parameterType="Sys_menu">
+		delete from Sys_menu where menu_id=#{menu_id}
+	</delete>
+	<!-- 添加角色表 -->
+	<insert id="addRole" parameterType="Sys_Role">
+		insert into Sys_role(role_id,role_name,status) values(#{role_id},#{role_name},#{status})
+	</insert>
+	<!-- 停用角色 -->
+	<update id="updateRole" parameterType="Sys_Role">
+		update Sys_Role set status='1' where role_id=#{role_id}
+	</update>
+	<!-- 启用角色 -->
+	<update id="updateRole1" parameterType="Sys_Role">
+		update Sys_Role set status='0' where role_id=#{role_id}
+	</update>
+	<!-- 修改角色 -->
+	<update id="updateRole2" parameterType="Sys_Role">
+		update Sys_Role set role_name=#{role_name} where role_id=#{role_id}
+	</update>
+	<!-- 删除角色 -->
+	<delete id="deleteRole" parameterType="Sys_Role">
+		delete from Sys_Role where role_id=#{role_id}
+	</delete>
+	<!-- 通过id查询角色表 -->
+	<select id="shoeRoleId" resultType="Sys_role">
+		select * from Sys_role where role_id=#{role_id}
+	</select>
+	<select id="showMenuShu" resultType="map" parameterType="int">
+		select m.menu_id,parent_id,menu_name,order_num,
+     (case when role_id is not null then true else false end) as checked 
+     from sys_menu m left join (select * from sys_role_menu rm where rm.role_id=#{role_id}) 
+     as rm on m.menu_id=rm.menu_id
+	</select>
+	<select id="selectMeRo" resultType="map">
+		select * from sys_menu;
+	</select>
+	<delete id="deleteSRM" parameterType="int">
+		delete from Sys_role_menu where role_id=#{role_id}
+	</delete>
+	<insert id="addSRM" parameterType="Sys_role_menu">
+		insert into Sys_role_menu(role_id,menu_id) values(#{role_id},#{menu_id})
+	</insert>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Sys_user">
+    insert into sys_user (user_id, dept_id, login_name, 
+      user_name, user_type, email, 
+      phonenum, sex, passwords, 
+      status, del_flag, login_date, 
+      remark)
+    values (#{userId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{phonenum,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{passwords,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{delFlag,jdbcType=VARCHAR}, #{loginDate,jdbcType=DATE}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sys_user">
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phonenum != null">
+        phonenum,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="passwords != null">
+        passwords,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="loginDate != null">
+        login_date,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null">
+        #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="passwords != null">
+        #{passwords,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        #{loginDate,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sys_user">
+    update sys_user
+    <set>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenum != null">
+        phonenum = #{phonenum,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="passwords != null">
+        passwords = #{passwords,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        login_date = #{loginDate,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sys_user">
+    update sys_user
+    set dept_id = #{deptId,jdbcType=INTEGER},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phonenum = #{phonenum,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      passwords = #{passwords,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=VARCHAR},
+      login_date = #{loginDate,jdbcType=DATE},
+      remark = #{remark,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

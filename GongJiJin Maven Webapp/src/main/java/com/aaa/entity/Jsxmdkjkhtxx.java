@@ -2,265 +2,215 @@ package com.aaa.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-/**
- * Jsxmdkjkhtxx entity. @author MyEclipse Persistence Tools
- */
+public class Jsxmdkjkhtxx {
+    private Integer zj;
 
-public class Jsxmdkjkhtxx implements java.io.Serializable {
+    private Integer jcyhzj;
 
-	// Fields
+    private Integer jkhtbh;
 
-	private Integer zj;
-	private SyJcyh syJcyh;
-	private Integer jkhtbh;
-	private BigDecimal dkje;
-	private BigDecimal dkqx;
-	private BigDecimal jkhtll;
-	private BigDecimal yqfxll;
-	private BigDecimal nyfxll;
-	private String zjjgzhzh;
-	private String yhdm;
-	private String dkfffs;
-	private String dkhbfs;
-	private String wtr;
-	private String wtrqydb;
-	private Date wtrqysj;
-	private String dkr;
-	private String dkrqydb;
-	private Date dkrqysj;
-	private String jkr;
-	private String jkrqydb;
-	private Date jkrqysj;
-	private Set dbxxes = new HashSet(0);
-	private Set grzfdkjkhtxxes = new HashSet(0);
+    private BigDecimal dkje;
 
-	// Constructors
+    private BigDecimal dkqx;
 
-	/** default constructor */
-	public Jsxmdkjkhtxx() {
-	}
+    private BigDecimal jkhtll;
 
-	/** minimal constructor */
-	public Jsxmdkjkhtxx(Integer jkhtbh) {
-		this.jkhtbh = jkhtbh;
-	}
+    private BigDecimal yqfxll;
 
-	/** full constructor */
-	public Jsxmdkjkhtxx(SyJcyh syJcyh, Integer jkhtbh, BigDecimal dkje, BigDecimal dkqx, BigDecimal jkhtll,
-			BigDecimal yqfxll, BigDecimal nyfxll, String zjjgzhzh, String yhdm, String dkfffs, String dkhbfs,
-			String wtr, String wtrqydb, Date wtrqysj, String dkr, String dkrqydb, Date dkrqysj, String jkr,
-			String jkrqydb, Date jkrqysj, Set dbxxes, Set grzfdkjkhtxxes) {
-		this.syJcyh = syJcyh;
-		this.jkhtbh = jkhtbh;
-		this.dkje = dkje;
-		this.dkqx = dkqx;
-		this.jkhtll = jkhtll;
-		this.yqfxll = yqfxll;
-		this.nyfxll = nyfxll;
-		this.zjjgzhzh = zjjgzhzh;
-		this.yhdm = yhdm;
-		this.dkfffs = dkfffs;
-		this.dkhbfs = dkhbfs;
-		this.wtr = wtr;
-		this.wtrqydb = wtrqydb;
-		this.wtrqysj = wtrqysj;
-		this.dkr = dkr;
-		this.dkrqydb = dkrqydb;
-		this.dkrqysj = dkrqysj;
-		this.jkr = jkr;
-		this.jkrqydb = jkrqydb;
-		this.jkrqysj = jkrqysj;
-		this.dbxxes = dbxxes;
-		this.grzfdkjkhtxxes = grzfdkjkhtxxes;
-	}
+    private BigDecimal nyfxll;
 
-	// Property accessors
+    private String zjjgzhzh;
 
-	public Integer getZj() {
-		return this.zj;
-	}
+    private String yhdm;
 
-	public void setZj(Integer zj) {
-		this.zj = zj;
-	}
+    private String dkfffs;
 
-	public SyJcyh getSyJcyh() {
-		return this.syJcyh;
-	}
+    private String dkhbfs;
 
-	public void setSyJcyh(SyJcyh syJcyh) {
-		this.syJcyh = syJcyh;
-	}
+    private String wtr;
 
-	public Integer getJkhtbh() {
-		return this.jkhtbh;
-	}
+    private String wtrqydb;
 
-	public void setJkhtbh(Integer jkhtbh) {
-		this.jkhtbh = jkhtbh;
-	}
+    private Date wtrqysj;
 
-	public BigDecimal getDkje() {
-		return this.dkje;
-	}
+    private String dkr;
 
-	public void setDkje(BigDecimal dkje) {
-		this.dkje = dkje;
-	}
+    private String dkrqydb;
 
-	public BigDecimal getDkqx() {
-		return this.dkqx;
-	}
+    private Date dkrqysj;
 
-	public void setDkqx(BigDecimal dkqx) {
-		this.dkqx = dkqx;
-	}
+    private String jkr;
 
-	public BigDecimal getJkhtll() {
-		return this.jkhtll;
-	}
+    private String jkrqydb;
 
-	public void setJkhtll(BigDecimal jkhtll) {
-		this.jkhtll = jkhtll;
-	}
+    private Date jkrqysj;
 
-	public BigDecimal getYqfxll() {
-		return this.yqfxll;
-	}
+    public Integer getZj() {
+        return zj;
+    }
 
-	public void setYqfxll(BigDecimal yqfxll) {
-		this.yqfxll = yqfxll;
-	}
+    public void setZj(Integer zj) {
+        this.zj = zj;
+    }
 
-	public BigDecimal getNyfxll() {
-		return this.nyfxll;
-	}
+    public Integer getJcyhzj() {
+        return jcyhzj;
+    }
 
-	public void setNyfxll(BigDecimal nyfxll) {
-		this.nyfxll = nyfxll;
-	}
+    public void setJcyhzj(Integer jcyhzj) {
+        this.jcyhzj = jcyhzj;
+    }
 
-	public String getZjjgzhzh() {
-		return this.zjjgzhzh;
-	}
+    public Integer getJkhtbh() {
+        return jkhtbh;
+    }
 
-	public void setZjjgzhzh(String zjjgzhzh) {
-		this.zjjgzhzh = zjjgzhzh;
-	}
+    public void setJkhtbh(Integer jkhtbh) {
+        this.jkhtbh = jkhtbh;
+    }
 
-	public String getYhdm() {
-		return this.yhdm;
-	}
+    public BigDecimal getDkje() {
+        return dkje;
+    }
 
-	public void setYhdm(String yhdm) {
-		this.yhdm = yhdm;
-	}
+    public void setDkje(BigDecimal dkje) {
+        this.dkje = dkje;
+    }
 
-	public String getDkfffs() {
-		return this.dkfffs;
-	}
+    public BigDecimal getDkqx() {
+        return dkqx;
+    }
 
-	public void setDkfffs(String dkfffs) {
-		this.dkfffs = dkfffs;
-	}
+    public void setDkqx(BigDecimal dkqx) {
+        this.dkqx = dkqx;
+    }
 
-	public String getDkhbfs() {
-		return this.dkhbfs;
-	}
+    public BigDecimal getJkhtll() {
+        return jkhtll;
+    }
 
-	public void setDkhbfs(String dkhbfs) {
-		this.dkhbfs = dkhbfs;
-	}
+    public void setJkhtll(BigDecimal jkhtll) {
+        this.jkhtll = jkhtll;
+    }
 
-	public String getWtr() {
-		return this.wtr;
-	}
+    public BigDecimal getYqfxll() {
+        return yqfxll;
+    }
 
-	public void setWtr(String wtr) {
-		this.wtr = wtr;
-	}
+    public void setYqfxll(BigDecimal yqfxll) {
+        this.yqfxll = yqfxll;
+    }
 
-	public String getWtrqydb() {
-		return this.wtrqydb;
-	}
+    public BigDecimal getNyfxll() {
+        return nyfxll;
+    }
 
-	public void setWtrqydb(String wtrqydb) {
-		this.wtrqydb = wtrqydb;
-	}
+    public void setNyfxll(BigDecimal nyfxll) {
+        this.nyfxll = nyfxll;
+    }
 
-	public Date getWtrqysj() {
-		return this.wtrqysj;
-	}
+    public String getZjjgzhzh() {
+        return zjjgzhzh;
+    }
 
-	public void setWtrqysj(Date wtrqysj) {
-		this.wtrqysj = wtrqysj;
-	}
+    public void setZjjgzhzh(String zjjgzhzh) {
+        this.zjjgzhzh = zjjgzhzh == null ? null : zjjgzhzh.trim();
+    }
 
-	public String getDkr() {
-		return this.dkr;
-	}
+    public String getYhdm() {
+        return yhdm;
+    }
 
-	public void setDkr(String dkr) {
-		this.dkr = dkr;
-	}
+    public void setYhdm(String yhdm) {
+        this.yhdm = yhdm == null ? null : yhdm.trim();
+    }
 
-	public String getDkrqydb() {
-		return this.dkrqydb;
-	}
+    public String getDkfffs() {
+        return dkfffs;
+    }
 
-	public void setDkrqydb(String dkrqydb) {
-		this.dkrqydb = dkrqydb;
-	}
+    public void setDkfffs(String dkfffs) {
+        this.dkfffs = dkfffs == null ? null : dkfffs.trim();
+    }
 
-	public Date getDkrqysj() {
-		return this.dkrqysj;
-	}
+    public String getDkhbfs() {
+        return dkhbfs;
+    }
 
-	public void setDkrqysj(Date dkrqysj) {
-		this.dkrqysj = dkrqysj;
-	}
+    public void setDkhbfs(String dkhbfs) {
+        this.dkhbfs = dkhbfs == null ? null : dkhbfs.trim();
+    }
 
-	public String getJkr() {
-		return this.jkr;
-	}
+    public String getWtr() {
+        return wtr;
+    }
 
-	public void setJkr(String jkr) {
-		this.jkr = jkr;
-	}
+    public void setWtr(String wtr) {
+        this.wtr = wtr == null ? null : wtr.trim();
+    }
 
-	public String getJkrqydb() {
-		return this.jkrqydb;
-	}
+    public String getWtrqydb() {
+        return wtrqydb;
+    }
 
-	public void setJkrqydb(String jkrqydb) {
-		this.jkrqydb = jkrqydb;
-	}
+    public void setWtrqydb(String wtrqydb) {
+        this.wtrqydb = wtrqydb == null ? null : wtrqydb.trim();
+    }
 
-	public Date getJkrqysj() {
-		return this.jkrqysj;
-	}
+    public Date getWtrqysj() {
+        return wtrqysj;
+    }
 
-	public void setJkrqysj(Date jkrqysj) {
-		this.jkrqysj = jkrqysj;
-	}
+    public void setWtrqysj(Date wtrqysj) {
+        this.wtrqysj = wtrqysj;
+    }
 
-	public Set getDbxxes() {
-		return this.dbxxes;
-	}
+    public String getDkr() {
+        return dkr;
+    }
 
-	public void setDbxxes(Set dbxxes) {
-		this.dbxxes = dbxxes;
-	}
+    public void setDkr(String dkr) {
+        this.dkr = dkr == null ? null : dkr.trim();
+    }
 
-	public Set getGrzfdkjkhtxxes() {
-		return this.grzfdkjkhtxxes;
-	}
+    public String getDkrqydb() {
+        return dkrqydb;
+    }
 
-	public void setGrzfdkjkhtxxes(Set grzfdkjkhtxxes) {
-		this.grzfdkjkhtxxes = grzfdkjkhtxxes;
-	}
+    public void setDkrqydb(String dkrqydb) {
+        this.dkrqydb = dkrqydb == null ? null : dkrqydb.trim();
+    }
 
+    public Date getDkrqysj() {
+        return dkrqysj;
+    }
+
+    public void setDkrqysj(Date dkrqysj) {
+        this.dkrqysj = dkrqysj;
+    }
+
+    public String getJkr() {
+        return jkr;
+    }
+
+    public void setJkr(String jkr) {
+        this.jkr = jkr == null ? null : jkr.trim();
+    }
+
+    public String getJkrqydb() {
+        return jkrqydb;
+    }
+
+    public void setJkrqydb(String jkrqydb) {
+        this.jkrqydb = jkrqydb == null ? null : jkrqydb.trim();
+    }
+
+    public Date getJkrqysj() {
+        return jkrqysj;
+    }
+
+    public void setJkrqysj(Date jkrqysj) {
+        this.jkrqysj = jkrqysj;
+    }
 }

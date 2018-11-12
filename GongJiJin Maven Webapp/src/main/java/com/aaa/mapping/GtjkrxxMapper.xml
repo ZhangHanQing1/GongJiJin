@@ -47,6 +47,9 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.aaa.entity.Gtjkrxx">
+    <selectKey keyProperty="gtjkrzj" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+         </selectKey>
     insert into gtjkrxx
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="gtjkrzj != null">

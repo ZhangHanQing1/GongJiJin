@@ -2,64 +2,44 @@ package com.aaa.entity;
 
 import java.math.BigDecimal;
 
-/**
- * Grzhbgjl entity. @author MyEclipse Persistence Tools
- */
+public class Grzhbgjl {
+    private Integer bgzh;
 
-public class Grzhbgjl implements java.io.Serializable {
+    private Integer grbh;
 
-	// Fields
+    private BigDecimal xgqgzjs;
 
-	private Integer bgzh;
-	private Grzhxx grzhxx;
-	private BigDecimal xgqgzjs;
-	private BigDecimal xghgzjs;
+    private BigDecimal xghgzjs;
 
-	// Constructors
+    public Integer getBgzh() {
+        return bgzh;
+    }
 
-	/** default constructor */
-	public Grzhbgjl() {
-	}
+    public void setBgzh(Integer bgzh) {
+        this.bgzh = bgzh;
+    }
 
-	/** full constructor */
-	public Grzhbgjl(Grzhxx grzhxx, BigDecimal xgqgzjs, BigDecimal xghgzjs) {
-		this.grzhxx = grzhxx;
-		this.xgqgzjs = xgqgzjs;
-		this.xghgzjs = xghgzjs;
-	}
+    public Integer getGrbh() {
+        return grbh;
+    }
 
-	// Property accessors
+    public void setGrbh(Integer grbh) {
+        this.grbh = grbh;
+    }
 
-	public Integer getBgzh() {
-		return this.bgzh;
-	}
+    public BigDecimal getXgqgzjs() {
+        return xgqgzjs;
+    }
 
-	public void setBgzh(Integer bgzh) {
-		this.bgzh = bgzh;
-	}
+    public void setXgqgzjs(BigDecimal xgqgzjs) {
+        this.xgqgzjs = xgqgzjs;
+    }
 
-	public Grzhxx getGrzhxx() {
-		return this.grzhxx;
-	}
+    public BigDecimal getXghgzjs() {
+        return xghgzjs;
+    }
 
-	public void setGrzhxx(Grzhxx grzhxx) {
-		this.grzhxx = grzhxx;
-	}
-
-	public BigDecimal getXgqgzjs() {
-		return this.xgqgzjs;
-	}
-
-	public void setXgqgzjs(BigDecimal xgqgzjs) {
-		this.xgqgzjs = xgqgzjs;
-	}
-
-	public BigDecimal getXghgzjs() {
-		return this.xghgzjs;
-	}
-
-	public void setXghgzjs(BigDecimal xghgzjs) {
-		this.xghgzjs = xghgzjs;
-	}
-
+    public void setXghgzjs(BigDecimal xghgzjs) {
+        this.xghgzjs = xghgzjs;
+    }
 }

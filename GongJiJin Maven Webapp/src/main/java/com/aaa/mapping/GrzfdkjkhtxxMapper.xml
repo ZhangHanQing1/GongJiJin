@@ -142,7 +142,34 @@
       #{gfrxm,jdbcType=VARCHAR}, #{gfrsfzh,jdbcType=VARCHAR}, #{hkzhmc,jdbcType=VARCHAR}, 
       #{skzhlb,jdbcType=VARCHAR}, #{sfxz,jdbcType=VARCHAR})
   </insert>
+ <!--  <insert id="insertAndgetkey" parameterType="com.aaa.entity.Grzfdkjkhtxx">
+        selectKey  会将 SELECT LAST_INSERT_ID()的结果放入到传入的model的主键里面，
+            keyProperty 对应的model中的主键的属性名，这里是 user 中的id，因为它跟数据库的主键对应
+            order AFTER 表示 SELECT LAST_INSERT_ID() 在insert执行之后执行,多用与自增主键，
+                  BEFORE 表示 SELECT LAST_INSERT_ID() 在insert执行之前执行，这样的话就拿不到主键了，
+                        这种适合那种主键不是自增的类型
+            resultType 主键类型
+        <selectKey keyProperty="HTZJ" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into grzfdkjkhtxx ( GRBH,JKRYSR,JKRYHCK,SWTYHMC,HTDKJE,DKQS,DKLX,YDHKR,DKHKFS,JKRXM,) values(#{username},#{password},#{createDate})
+    </insert<select id="showGedk" resultType="double" parameterType="String">
+		select COALESCE(sum(htdkje),0) from grzfdkjkhtxx where ydfkrq between #{date1} and  #{date2}
+	</select>
+	<select id="showGedk1" resultType="int" parameterType="String">
+		select count(*) from grzfdkjkhtxx where ydfkrq between #{date1} and #{date2}
+	</select>> -->
+	<select id="showGedk" resultType="double" parameterType="String">
+		select COALESCE(sum(htdkje),0) from grzfdkjkhtxx where ydfkrq between #{date1} and  #{date2}
+	</select>
+	<select id="showGedk1" resultType="int" parameterType="String">
+		select count(*) from grzfdkjkhtxx where ydfkrq between #{date1} and #{date2}
+	</select>
+ 
   <insert id="insertSelective" parameterType="com.aaa.entity.Grzfdkjkhtxx">
+        <selectKey keyProperty="htzj" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     insert into grzfdkjkhtxx
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="htzj != null">

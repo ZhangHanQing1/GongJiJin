@@ -69,6 +69,8 @@
     from grzhxx
     where GRBH = #{grbh,jdbcType=INTEGER}
   </select>
+  <!-- 查询证件类型 -->
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from grzhxx
     where GRBH = #{grbh,jdbcType=INTEGER}

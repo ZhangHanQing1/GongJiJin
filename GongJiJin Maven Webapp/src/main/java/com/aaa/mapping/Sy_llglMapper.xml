@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.Sy_llglMapper">
-  <resultMap id="BaseResultMap" type="com.aaa.entity.SyLlgl">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Sy_llgl">
     <id column="LLZJ" jdbcType="INTEGER" property="llzj" />
     <result column="LLBH" jdbcType="VARCHAR" property="llbh" />
     <result column="LLLX" jdbcType="VARCHAR" property="lllx" />
@@ -24,7 +24,7 @@
     delete from sy_llgl
     where LLZJ = #{llzj,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aaa.entity.SyLlgl">
+  <insert id="insert" parameterType="com.aaa.entity.Sy_llgl">
     insert into sy_llgl (LLZJ, LLBH, LLLX, 
       ZXLL, QSRQ, JZRQ3, CJR3, 
       CJSJ3)
@@ -32,7 +32,7 @@
       #{zxll,jdbcType=DECIMAL}, #{qsrq,jdbcType=DATE}, #{jzrq3,jdbcType=DATE}, #{cjr3,jdbcType=VARCHAR}, 
       #{cjsj3,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.SyLlgl">
+  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_llgl">
     insert into sy_llgl
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="llzj != null">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.SyLlgl">
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Sy_llgl">
     update sy_llgl
     <set>
       <if test="llbh != null">
@@ -114,7 +114,7 @@
     </set>
     where LLZJ = #{llzj,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.SyLlgl">
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Sy_llgl">
     update sy_llgl
     set LLBH = #{llbh,jdbcType=VARCHAR},
       LLLX = #{lllx,jdbcType=VARCHAR},

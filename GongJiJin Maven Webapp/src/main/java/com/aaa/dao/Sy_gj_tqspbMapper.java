@@ -1,17 +1,23 @@
 package com.aaa.dao;
 
-import com.aaa.entity.SyGjTqspb;
+import java.util.List;
+import java.util.Map;
+
+import com.aaa.entity.Sy_gj_tqspb;
 
 public interface Sy_gj_tqspbMapper {
     int deleteByPrimaryKey(Integer tqbh);
 
-    int insert(SyGjTqspb record);
+    int insert(Sy_gj_tqspb record);
 
-    int insertSelective(SyGjTqspb record);
+    int insertSelective(Sy_gj_tqspb record);
 
-    SyGjTqspb selectByPrimaryKey(Integer tqbh);
+    Sy_gj_tqspb selectByPrimaryKey(Integer tqbh);
 
-    int updateByPrimaryKeySelective(SyGjTqspb record);
+    int updateByPrimaryKeySelective(Sy_gj_tqspb record);
 
-    int updateByPrimaryKey(SyGjTqspb record);
+    int updateByPrimaryKey(Sy_gj_tqspb record);
+    
+ 
+    
 }

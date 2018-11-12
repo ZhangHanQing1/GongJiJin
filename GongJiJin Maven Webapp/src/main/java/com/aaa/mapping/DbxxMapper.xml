@@ -69,6 +69,9 @@
       #{dyhtbh,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aaa.entity.Dbxx">
+  <selectKey keyProperty="dbxxzj" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+         </selectKey>
     insert into dbxx
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="dbxxzj != null">
