@@ -25,6 +25,34 @@
     from sy_dk_hkjh
     where HKJHZJ = #{hkjhzj,jdbcType=INTEGER}
   </select>
+   <select id="hkjkAll" resultType="Map">
+  SELECT
+sy_dk_hkjh.HKJHZJ,
+sy_dk_hkjh.DKZH,
+sy_dk_hkjh.YDTQSPZJ,
+sy_dk_hkjh.HKRQ,
+sy_dk_hkjh.QIC,
+sy_dk_hkjh.YHBJ,
+sy_dk_hkjh.YHLX,
+sy_dk_hkjh.ZTZ,
+sy_dk_hkjh.CJR,
+sy_dk_hkjh.CJSJ,
+sy_dk_hkjh.TZZD1,
+sy_dk_hkjh.TZZD2,
+sy_dk_hkjh.TZZD3
+FROM
+sy_dk_hkjh
+  </select>
+  <select id="hkjhIdd" resultType="Map">
+  SELECT  
+  q.YDTQSPZJ,q.SPSJ,g.HTDKJE,g.DKQS,g.DKLX,g.YDHKR,g.DKHKFS, g.JKRXM, g.DKZH, 
+  h.HKJHZJ,h.DKZH,h.HKRQ,h.TZZD2,h.QIC,h.YHBJ,h.YHLX
+  from sy_dk_ydtqsp q
+  LEFT JOIN sy_dk_hkjh h ON q.YDTQSPZJ=h.YDTQSPZJ  
+  LEFT JOIN grzfdkjkhtxx g ON q.HTZJ=g.HTZJ      
+  LEFT JOIN sys_user u ON q.TZZD6=u.user_id
+  WHERE q.YDTQSPZJ=#{ydtqspzj}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sy_dk_hkjh
     where HKJHZJ = #{hkjhzj,jdbcType=INTEGER}

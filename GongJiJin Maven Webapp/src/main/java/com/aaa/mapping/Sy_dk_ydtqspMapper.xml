@@ -43,6 +43,44 @@
     from sy_dk_ydtqsp
     where YDTQSPZJ = #{ydtqspzj,jdbcType=INTEGER}
   </select>
+  <select id="queryId" resultType="Map">
+  
+  SELECT  
+  q.YDTQSPZJ,q.HTZJ,z.GRBH,z.XINGMING,z.XINGBIE,z.SJHM2,z.HYZK,x.ZJMC,z.SBZH,z.XUELI,z.DZXX,z.ZHICHENG,z.JTZZ,z.KHRQ,
+  g.JKRYSR,g.JKRYHCK,g.SWTYHMC,g.HTDKJE,g.DKQS,g.DKLX,g.YDHKR,g.DKHKFS,g.JKRXM,g.CXZHKHYHMC2,g.HKCXZH,g.HKZHMC,g.GFRXM,g.FWLX,g.FWZL,g.FWTNMJ,g.GFRSFZH,g.DKZH,g.FWZJ,g.GFSFK,g.FWTNMJDJ,
+  p.POXM,p.PONL,p.POZJLX,p.POZJHM,p.PODWZH,p.PODWMC,p.PODWDH,p.POGJJZH,
+  t.GTJKRGJJZH,t.GTJKRXM,t.GTJKRSJHM,t.GTJKRDWZH,t.GDDHHM2,t.GTJKRDWMC,t.GTJKRDWDH,t.GTJKRDWDZ,t.GTJKRZJLX,t.GTJKRZJHM,
+  y.DYLX,y.DYRXM,y.DYRSFZH,y.DYWSYQZH,y.DYWTXQZH,y.DYWDZ,y.DBZT,y.DYJE,u.user_name 
+  from sy_dk_ydtqsp q
+  LEFT JOIN grzfdkjkhtxx g ON q.HTZJ=g.HTZJ
+  LEFT JOIN sy_dk_dkrpo p on g.POBH=p.POBH 
+  LEFT JOIN gtjkrxx t ON g.GTJKRZJ=t.GTJKRZJ
+  LEFT JOIN grzhxx z ON g.GRBH=z.GRBH
+  LEFT JOIN zjlxb x ON z.ZJLXBH=x.ZJLXBH
+  LEFT JOIN dbxx d on g.DBHTXXZJ=d.DBXXZJ 
+  LEFT JOIN sy_dk_dyxx y ON d.DYXXZJ=y.DYXXZJ
+  LEFT JOIN sys_user u ON q.TZZD6=u.user_id
+  WHERE q.YDTQSPZJ=#{ydtqspzj}
+  
+  </select>
+  
+  <select id="queryAll" resultType="Map">
+      SELECT
+     p.YDTQSPZJ,
+     p.HTZJ,
+     p.GRBH,
+     p.SQR,
+     p.SQSJ,
+     p.SPZT2,
+     p.DKZH,
+     h.HKJHZJ,
+     h.ZTZ
+     FROM
+     sy_dk_ydtqsp p
+     left join sy_dk_hkjh h on p.YDTQSPZJ=h.HKJHZJ
+  </select>
+  
+   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sy_dk_ydtqsp
     where YDTQSPZJ = #{ydtqspzj,jdbcType=INTEGER}
@@ -68,6 +106,9 @@
       #{dkqs,jdbcType=DECIMAL}, #{dkzh,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aaa.entity.Sy_dk_ydtqsp">
+  <selectKey keyProperty="ydtqspzj" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     insert into sy_dk_ydtqsp
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="ydtqspzj != null">
