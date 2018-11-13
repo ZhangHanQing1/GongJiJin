@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-
 import com.aaa.entity.Sys_menu;
 import com.aaa.entity.Sys_role;
 import com.aaa.entity.Sys_role_menu;
@@ -13,7 +12,7 @@ import com.aaa.entity.Sys_user;
 import com.aaa.entity.Sys_user_post;
 import com.aaa.entity.Sys_user_role;
 
-public interface Sys_userDao {
+public interface Sys_userDaoFFX {
 	public Sys_user ussel(Sys_user s);
 	public List<Sys_menu> mesel(Sys_user_role sur);
 	public List<Map<String, Object>> showUser(@Param("user_name") String user_name);
@@ -43,6 +42,7 @@ public interface Sys_userDao {
 	public List<Map<String, Object>> showMenu2(@Param("url") String url);
 	//添加权限表
 	public boolean addMenu(Sys_menu me);
+	public boolean addMenuFu(Sys_menu me);
 	//通过id查询权限表
 	public Sys_menu showMenu1(Sys_menu sm);
 	//修改权限表

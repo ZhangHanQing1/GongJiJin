@@ -48,6 +48,7 @@ a:link{text-decoration:none;   /* 指正常的未被访问过的链接*/
     <div class="container-fluid layui-nav" style="">
     <div class="navbar-header" >
         <span class="navbar-brand" style="color: red">住房公积金系统</span>
+        <button class="layui-btn layui-btn-normal" id="yinxian" style="height: 30px; margin-top: 10px;">隐藏显示</button>
     </div>
     <div >
        	<ul class="nav navbar-nav navbar-right"> 
@@ -60,7 +61,7 @@ a:link{text-decoration:none;   /* 指正常的未被访问过的链接*/
 </div>
   	
   	
-  	<div class="row-fluid" style="margin-top: -20px;">
+  	<div class="row-fluid" style="margin-top: -20px;" id="yin">
 		<ul class="layui-nav layui-nav-tree layui-inline col-md-2" lay-filter="demo" style="margin-right: 10px;">
 		 <c:forEach items="${list}" var="li">
        		 <!-- 判断父节点是否为root -->
@@ -94,7 +95,13 @@ a:link{text-decoration:none;   /* 指正常的未被访问过的链接*/
   </div>
   <script src="resources/layui/layui.js" charset="utf-8"></script>
   <script>
-	
+	 $("#yinxian").click(function(){
+		if($("#yin").css("display")=="none"){
+			$("#yin").show();
+			}else{
+			$("#yin").hide();
+	}
+	})
 		/* $(".a11").click(function(){
 		if($(".a22").css("display")=="none"){
 			$(".a22").show();

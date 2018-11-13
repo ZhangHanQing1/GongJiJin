@@ -17,10 +17,25 @@
 		</init-param>
 		<!-- <async-supported>true</async-supported> -->
 	</filter>
+	<!-- 过滤器-->
+       <filter>
+      <filter-name>login</filter-name>
+      <filter-class>com.aaa.controller.LoginFilter</filter-class> 
+  </filter>  
 	<filter-mapping>
 		<filter-name>encoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+    <filter-mapping>
+      <filter-name>login</filter-name>
+      <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>  
+	
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

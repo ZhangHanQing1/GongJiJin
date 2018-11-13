@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aaa.dao.Sys_userDao">
+<mapper namespace="com.aaa.dao.Sys_userDaoFFX">
 	<resultMap type="Sys_user" id="us" autoMapping="true">
 		<association property="sys_user_role" column="user_id" javaType="Sys_user_role" autoMapping="true"></association>
 	</resultMap>
@@ -13,7 +13,7 @@
 	</resultMap>
 	<select id="mesel" resultMap="me">
 		select * from Sys_menu sm join Sys_role_menu srm on sm.menu_id=srm.menu_id where srm.role_id=#{role_id}
-	</select>
+	</select> 
 	
 	<select id="showUser" resultType="map" parameterType="String">
 		select u.user_id,u.login_name,u.user_name,u.user_type,u.phonenum,u.sex,u.passwords,u.status,u.del_flag,u.login_date,u.remark,sd.dept_id,sd.dept_name,sup.post_id,p.post_name,sr.role_id,sr.role_name from sys_user u join sys_dept sd on u.dept_id=sd.dept_id join sys_user_post sup on u.user_id=sup.user_id join sys_post p on p.post_id=sup.post_id join sys_user_role sur on sur.user_id=u.user_id join sys_role sr on sr.role_id=sur.role_id
@@ -86,6 +86,9 @@
 	<!-- 添加权限表 -->
 	<insert id="addMenu" parameterType="Sys_menu">
 		insert into Sys_menu(menu_id,menu_name,parent_id,url) values(#{menu_id},#{menu_name},#{parent_id},#{url})
+	</insert>
+	<insert id="addMenuFu" parameterType="Sys_menu">
+		insert into Sys_menu(menu_id,menu_name,parent_id,url,order_num) values(#{menu_id},#{menu_name},#{parent_id},#{url},#{order_num})
 	</insert>
 	<!-- 通过id查询权限表 -->
 	<select id="showMenu1" resultType="Sys_menu">

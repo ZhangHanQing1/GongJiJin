@@ -29,11 +29,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <script src="assets/js/jquery.backstretch.min.js"></script>
      <script src="assets/js/scripts.js"></script>
      <script src="resources/jquery-1.11.3.min.js"></script>
+     <style type="text/css">
+    
+     </style>
   </head>
   
-  <body>
+  <body style="background: url(assets/img/backgrounds/1.jpg)">
      <!-- Top content -->
-        <div class="top-content">
+   
+        <div class="top-content" >
         	
             <div class="inner-bg">
                 <div class="container">

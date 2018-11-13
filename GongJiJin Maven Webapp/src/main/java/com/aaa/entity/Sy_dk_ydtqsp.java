@@ -42,7 +42,7 @@ public class Sy_dk_ydtqsp {
 
     private Date sqsj;
 
-    private Date ydtqrq;
+    private String ydtqrq;
 
     private String spzt2;
 
@@ -214,11 +214,11 @@ public class Sy_dk_ydtqsp {
         this.sqsj = sqsj;
     }
 
-    public Date getYdtqrq() {
+    public String getYdtqrq() {
         return ydtqrq;
     }
 
-    public void setYdtqrq(Date ydtqrq) {
+    public void setYdtqrq(String ydtqrq) {
         this.ydtqrq = ydtqrq;
     }
 

@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.aaa.dao.Sys_userDao;
+import com.aaa.dao.Sys_userDaoFFX;
 import com.aaa.entity.Message;
+
 import com.aaa.entity.Sys_menu;
 import com.aaa.entity.Sys_role;
 import com.aaa.entity.Sys_role_menu;
@@ -18,7 +19,7 @@ import com.aaa.entity.Sys_user_role;
 @Service
 public class Sys_menuServiceImpl implements Sys_menuService {
 	@Autowired
-	private Sys_userDao dao;
+	private Sys_userDaoFFX dao;
 	@Override
 	public List<Sys_menu> smrsel(Sys_user s, Sys_user_role sur) {
 		// TODO Auto-generated method stub
@@ -114,8 +115,15 @@ public class Sys_menuServiceImpl implements Sys_menuService {
 	@Override
 	public boolean addMenu(Sys_menu me) {
 		// TODO Auto-generated method stub
-		boolean num=dao.addMenu(me);
-		return num;
+		if(me.getOrder_num()==null){
+			boolean num=dao.addMenu(me);
+			return num;
+		}else{
+			boolean num1=dao.addMenuFu(me);
+			return num1;
+		}
+		
+		
 	}
 	//通过id查询权限表
 	@Override

@@ -14,10 +14,12 @@ public class Gtjkrxx {
     private String gtjkrzjlx;
 
     private String gtjkrzjhm;
+    
+    private String gtjkrdwdh;
 
-    private BigDecimal ysr;
+    private BigDecimal ysr;   
 
-    private String cdgx;
+	private String cdgx;
 
     private String gddhhm2;
 
@@ -152,4 +154,11 @@ public class Gtjkrxx {
     public void setGtjkrdwdz(String gtjkrdwdz) {
         this.gtjkrdwdz = gtjkrdwdz == null ? null : gtjkrdwdz.trim();
     }
+    public String getGtjkrdwdh() {
+		return gtjkrdwdh;
+	}
+
+	public void setGtjkrdwdh(String gtjkrdwdh) {
+		this.gtjkrdwdh = gtjkrdwdh;
+	}
 }

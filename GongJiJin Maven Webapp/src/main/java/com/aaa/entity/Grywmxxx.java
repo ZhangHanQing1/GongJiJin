@@ -58,7 +58,7 @@ public class Grywmxxx {
 
     private String cjr3;
 
-    private Date cjsj3;
+    private String cjsj3;
 
     private String beiz2;
 
@@ -286,11 +286,11 @@ public class Grywmxxx {
         this.cjr3 = cjr3 == null ? null : cjr3.trim();
     }
 
-    public Date getCjsj3() {
+    public String getCjsj3() {
         return cjsj3;
     }
 
-    public void setCjsj3(Date cjsj3) {
+    public void setCjsj3(String cjsj3) {
         this.cjsj3 = cjsj3;
     }
 

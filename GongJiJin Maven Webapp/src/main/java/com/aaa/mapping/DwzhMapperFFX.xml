@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aaa.fhx.dao.DwzhDao">
+<mapper namespace="com.aaa.dao.DwzhDaoFFX">
 	<select id="showJiaoCun" resultType="map" parameterType="String">
 		select dw.dwywlsh,dw.jjbh,dw.jsztbh,dw.dwbh,fse3,dw.fsrs,dw.zckfse,cjsj3,d.dwmc2,j.ztmc,h.jjmc from dwywmxb dw join dwzh d on d.dwbh=dw.dwbh join jsztb j on j.jsztbh=dw.jsztbh join hjfs h on h.jjbh=dw.jjbh
 		<where>

@@ -70,45 +70,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</h4>
 			</div>
 			<div class="modal-body">
-			<form id="form1">
+			<form id="uploadForm"   enctype="multipart/form-data">
 			   			<table class="table table-bordered text-center" id="table">
 						          <tbody>
     <tr>
       <td colspan="3">单位编号</td>
       <td colspan="2">单位名称</td>
-      <td colspan="3">缴至年月日</td>
+      <td colspan="3">记账日期</td>
     </tr>
     <tr id="trr">
       <td colspan="3"  ><input type="text" name="dwbh"/></td> 
       <td colspan="2"><input type="text" /></td>
-      <td colspan="3"><input type="text" /></td>
+      <td colspan="3"><input type="text" name="hbcjny" id="date"></td>
     </tr>
-      <tr>
-      <td colspan="2">上次汇缴</td>
-      <td colspan="2">本次增加</td>
-      <td colspan="2">本次减少</td>
-      <td colspan="2">本次汇缴  </td>
-    </tr>
-    <tr>
-      <td >人数</td>
-      <td >金额</td>
-      <td >人数</td>
-      <td >金额</td>
-      <td >人数</td>
-      <td >金额</td>
-      <td >人数</td>
-      <td >金额</td>
-    </tr>
-      <tr>
-      <td id="FSRS"></td>
-      <td id="FSE3"></td>
-      <td >0</td>
-      <td >0</td>
-      <td >0</td>
-      <td >0</td>
-      <td id="re">0</td>
-      <td id="jin">0</td>
-    </tr>
+    
     <tr>
       <td>汇缴月数</td>
       <td><select name="fsys" onchange="change()" id="gai"><option value="1">一个月</option>
@@ -125,12 +100,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <option value="12">十二个月</option>
       </select></td>
       <td>汇缴年月</td>
-       <td colspan="2"><input type="text" name="hbcjny" id="date"></td>
+       <td colspan="2"><input type="file" name="file" id="file" onblur="shi()"/></td>
       <td>缴交类型</td>
       <td><select name="jjbh" style="width:180px;">
-         <option value="1">汇缴</option>
+         
          <option value="2">补缴</option>
-         <option value="3">冲缴</option>         
+              
       </select></td>
     </tr>
     <tr>
@@ -246,7 +221,78 @@ $(function(){
   $("#date").val(da);
 });
 
+	     //查询个人账户信息赋值给模态框
+   
+   var idd;
+   $(function(){
+      $("#tbody").on('click','.all',function(){
+      idd=this;
+      alert( idd.id);       
+	     $("#save").click();
+	     
+	     //过滤器赋值
+	     for(var i=0;i<2;i++){
+	       $("#trr").children().eq(i).children().val($(this).parent().parent().children().eq(i).html())
+	      }
+	       
+	      
+	      $.ajax({
+	          url:'DWYW/selectGR',
+	          type:"post",
+	          data:{"dwbh":idd.id},
+	          dataType:"json",
+	          success:function(data){
+	              var grzong=0;var dwzong=0;var zongjs=0;var renshu=1; var zong=0;
+	              for(var i=0;i<data.length;i++){
+	                     renshu+=i;  
+	                    grzong+=data[i].GRYJCE;
+	                     dwzong+=data[i].DWYJCE;
+	                     zongjs+=data[i].GRJCJS3;                   
+	              }
+	              zong=dwzong+grzong;
+	           $("#renshu").val(renshu);
+	           $("#grzong").val(grzong);
+	           $("#dwzong").val(dwzong);
+	           $("#zongjs").val(zongjs);
+	           $(".zong").val(zong);
+	           $("#jin").html(zong);
+	           $("#re").html(renshu);
+	           //调用函数
+	           changeMoneyToChinese(zong);
+	   
+	          }
+	      })
+	     
+	   })
+	})
+	
 	    
+function dian(){
+      var formData = new FormData();
+		      /* var files=$("#file").prop('files');
+		      formData.append("file", files[0]); */
+		     var formData = new FormData($("#uploadForm")[0]);
+ 		      $.ajax({
+		        url:'BuJiao/importexcel',
+		        type:'post',
+		        async:true,
+		        encType: 'multipart/form-data',  //表明上传类型为文件
+		        contentType: false, //禁止设置请求类型
+		        processData: false, //禁止jquery对DAta数据的处理,默认会处理
+		        //禁止的原因是,FormData已经帮我们做了处理
+                data:formData,
+		        dataType:"json",
+		        success:function(data){
+		            if(data==1){
+		              alert("全部开户成功");
+		              $("#grzhxx").reset();
+		            }else{
+		              alert("出现未知错误，请检查表格");
+		            }
+		        }
+		      })
+     
+}	    
 	
 
 

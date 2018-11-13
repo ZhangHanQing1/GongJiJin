@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aaa.entity.Message;
+
 import com.aaa.entity.Sys_menu;
 import com.aaa.entity.Sys_role;
 import com.aaa.entity.Sys_role_menu;
@@ -25,6 +26,7 @@ import com.aaa.entity.Sys_user;
 import com.aaa.entity.Sys_user_post;
 import com.aaa.entity.Sys_user_role;
 import com.aaa.service.Sys_menuService;
+
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -134,6 +136,7 @@ public class Sys_menuController {
 	public void addMenu(Sys_menu sm,HttpServletResponse response) throws IOException{
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out= response.getWriter();
+		System.out.println(sm.getOrder_num());
 		sms.addMenu(sm);
 	}
 	//通过id查询权限表
@@ -142,6 +145,7 @@ public class Sys_menuController {
 	public Sys_menu showMenu1(Sys_menu sm){
 		System.out.println(sm.getMenu_id());
 		Sys_menu list=sms.showMenu1(sm);
+		System.out.println(list);
 		return list;
 	}
 	//修改权限表

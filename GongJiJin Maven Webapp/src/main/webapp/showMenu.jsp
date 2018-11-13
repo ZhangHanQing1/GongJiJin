@@ -36,8 +36,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th>权限url</th>
 			<th>权限节点</th>
 			<th>
-			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-			新增权限
+			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="xinzeng1">
+			新增子权限
+			</button>
+			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalmy" id="xinzeng2">
+			新增父权限
 			</button>
 			</th>
 		</tr>
@@ -103,6 +106,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						data-dismiss="modal">关闭
 				</button>
 				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addMenu()">
+					提交更改
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="myModalmy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" 
+						aria-hidden="true">×
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新增权限（只能添加父集菜单）
+				</h4>
+			</div>
+			<div class="modal-body">
+				
+		<form class="form-horizontal" role="form" id="addMenuFu">
+	<div class="form-group">
+		<label for="lastname" class="col-sm-2 control-label">权限昵称</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="lastname" name="menu_name">
+			<input type="hidden" class="form-control" id="menuId" name="menu_id">
+			<input type="hidden" id="parent_id111" value="0" name="parent_id"/>
+			<input type="hidden" class="form-control" id="order_num11" name="order_num">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="lastname" class="col-sm-2 control-label">权限url</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="lastname" name="url" value="javascript:;">
+		</div>
+	</div>
+	
+	</form>	
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" 
+						data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addMenuFu()">
 					提交更改
 				</button>
 			</div>
@@ -206,7 +254,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </body>
 </html>
 <script type="text/javascript">
-	$(function(){  
+$("#xinzeng1").click(function(){
+	$("#menu_id").val("");
+	//设置时间  
+　 	var myDate = new Date();
+	//获取当前年
+	var year=myDate.getFullYear();
+	//获取当前月
+	var month=myDate.getMonth()+1;
+	//获取当前日
+	var date=myDate.getDate(); 
+	var h=myDate.getHours();       //获取当前小时数(0-23)
+	var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+	var s=myDate.getSeconds();  
+	
+	var now=p(month)+""+p(date)+""+p(h)+''+p(m)+""+p(s);
+ 　	 	$("#menu_id").val(now);
+	})
+	$("#xinzeng2").click(function(){
+		$("#order_num11").val("");
+ 		$("#menuId").val("");
+	//设置时间  
+　 	var myDate = new Date();
+	//获取当前年
+	var year=myDate.getFullYear();
+	//获取当前月
+	var month=myDate.getMonth()+1;
+	//获取当前日
+	var date=myDate.getDate(); 
+	var h=myDate.getHours();       //获取当前小时数(0-23)
+	var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+	var s=myDate.getSeconds();  
+	
+	var now=p(month)+""+p(date)+""+p(h)+''+p(m)+""+p(s);
+ 　	 	$("#order_num11").val(now);
+ 		$("#menuId").val(now);
+	})
+	/* $(function(){  
     	//设置时间  
 　 	 	var myDate = new Date();
 	//获取当前年
@@ -221,7 +305,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	var now=p(month)+""+p(date)+""+p(h)+''+p(m)+""+p(s);
  　	 	$("#menu_id").val(now);
-	}); 
+ 		$("#order_num11").val(now);
+ 		$("#menuId").val(now);
+	});  */
 	
 	
 	function p(s) {
@@ -364,6 +450,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	}
  		});
 	}
+	function addMenuFu(){
+          var obj=$("#addMenuFu").serialize();
+          alert(obj);
+		$.ajax({
+        	url : "addMenu",
+        	type : "post",
+        	async : true,
+        	//contentType: "application/json; charset=utf-8",//需要制定
+        	data : obj,//将json对象转换成json格式的字符串
+       	 	dataType : 'text',//返回的数据类型
+        	success : function(data) {
+        		alert("aa");
+        		selectshang(1);
+        	}
+ 		});
+	}
 	
 	$("#tbody").on("click",".showMenu1",function(){
 		$("#bbbbbbbbb").html("");
@@ -387,13 +489,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        	url : "showMenu222",
 		        	type : "post",
 		       	 	dataType : "JSON",//返回的数据类型
-		        	success : function(data) {
-		          		var ary=data;
+		        	success : function(data1) {
+		          		var ary=data1;
 				     	for(var i=0;i<ary.length;i++){
 				        		var obj=ary[i];//获取当前对象
 				        		if(obj.parent_id=='0'){
-				        		var tr="<option value='"+obj.order_num+"' selected>"+obj.menu_name+"</option>"
-								$("#bbbbbbbbb").append(tr);
+				        		if(data.parent_id==obj.order_num){
+				        			var tr="<option value='"+obj.order_num+"' selected='selected'>"+obj.menu_name+"</option>"
+									$("#bbbbbbbbb").append(tr);
+								}else{
+									var tr="<option value='"+obj.order_num+"'>"+obj.menu_name+"</option>"
+									$("#bbbbbbbbb").append(tr);
+								}
 								}
 				       	}   
 		        	}

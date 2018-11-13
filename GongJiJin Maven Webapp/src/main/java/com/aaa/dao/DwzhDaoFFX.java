@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface DwzhDao {
+public interface DwzhDaoFFX {
 	public List<Map<String, Object>> showJiaoCun(@Param("date1") String date1,@Param("date2") String date2,@Param("dwmc2") String dwmc2);
 	public double showJiaoCun1(@Param("date1") String date1,@Param("date2") String date2,@Param("dwmc2") String dwmc2);
 	public int showJiaoCun11(@Param("date1") String date1,@Param("date2") String date2,@Param("dwmc2") String dwmc2);

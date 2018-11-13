@@ -1,5 +1,6 @@
 package com.aaa.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Sy_dk_hkjh {
@@ -9,13 +10,13 @@ public class Sy_dk_hkjh {
 
     private Integer ydtqspzj;
 
-    private Date hkrq;
+    private String hkrq;
 
-    private Long qic;
+    private BigDecimal qic;
 
-    private Long yhbj;
+    private BigDecimal yhbj;
 
-    private Long yhlx;
+    private BigDecimal yhlx;
 
     private String ztz;
 
@@ -53,35 +54,35 @@ public class Sy_dk_hkjh {
         this.ydtqspzj = ydtqspzj;
     }
 
-    public Date getHkrq() {
+    public String getHkrq() {
         return hkrq;
     }
 
-    public void setHkrq(Date hkrq) {
+    public void setHkrq(String hkrq) {
         this.hkrq = hkrq;
     }
 
-    public Long getQic() {
+    public BigDecimal getQic() {
         return qic;
     }
 
-    public void setQic(Long qic) {
+    public void setQic(BigDecimal qic) {
         this.qic = qic;
     }
 
-    public Long getYhbj() {
+    public BigDecimal getYhbj() {
         return yhbj;
     }
 
-    public void setYhbj(Long yhbj) {
+    public void setYhbj(BigDecimal yhbj) {
         this.yhbj = yhbj;
     }
 
-    public Long getYhlx() {
+    public BigDecimal getYhlx() {
         return yhlx;
     }
 
-    public void setYhlx(Long yhlx) {
+    public void setYhlx(BigDecimal yhlx) {
         this.yhlx = yhlx;
     }
 

@@ -35,7 +35,19 @@
   </properties>
   
   <dependencies>
-  
+  <!--poi插件 -->
+
+<dependency>
+<groupId>org.apache.poi</groupId>
+<artifactId>poi</artifactId>
+<version>3.9</version>
+</dependency>
+
+<dependency>
+<groupId>org.apache.poi</groupId>
+<artifactId>poi-ooxml</artifactId>
+<version>3.9</version>
+</dependency>
 
     <!-- shiro组件 -->
     <!-- 时间操作组件 -->

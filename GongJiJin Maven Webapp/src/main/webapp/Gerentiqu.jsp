@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	 <div class="layui-inline" style="margin-top: 22px;">
+  	 <!-- <div class="layui-inline" style="margin-top: 22px;">
       <label class="layui-form-label">提取类型</label>
       <div class="layui-input-inline">
         	<select id="tqlx_id">
@@ -48,8 +48,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<option value="销户提取">销户提取</option>
         	</select>
       </div>
-    </div>
-    <div class="layui-inline" style="margin-top: 22px;">
+    </div> -->
+    <div class="form-group">
+		<input type="text" class="layui-input" placeholder="提取类型" style="width: 70px;background-color: #dddddd; display: block;margin-top: 40px;">
+		<div class="col-sm-10" style="float: left;">
+			<select id="tqlx_id" class="contractType form-control" style="width: 200px; margin-left: 60px;margin-top: -35px;">
+  				<option value="">全部</option>
+        		<option value="部分提取">部分提取</option>
+        		<option value="销户提取">销户提取</option>
+  			</select>
+		</div>
+	</div>
+    <!-- <div class="layui-inline" style="margin-top: 22px; float: left;">
       <label class="layui-form-label">提取状态</label>
       <div class="layui-input-inline">
         	<select id="tqzt_id">
@@ -58,28 +68,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<option value="未申">未申</option>
         	</select>
       </div>
-    </div>
-    <div class="layui-inline" style="margin-top: 0px;margin-left: 0px;">
+    </div> -->
+    <div class="form-group" style="float: left; margin-top: -90px; margin-left: 400px;">
+		<input type="text" class="layui-input" placeholder="提取类型" style="width: 70px;background-color: #dddddd; display: block;margin-top: 40px;">
+		<div class="col-sm-10" style="float: left;">
+			<select id="tqzt_id" class="contractType form-control" style="width: 200px;margin-left: 60px;margin-top: -35px;">
+  				<option value="通过">通过</option>
+        		<option value="不过">不过</option>
+        		<option value="未申">未申</option>
+  			</select>
+		</div>
+	</div>
+	
+	    <div class="layui-inline" style="margin-top: -45px;margin-left: 0px; float: left;">
+		      <div class="layui-input-inline">
+		        <input type="text" class="layui-input" placeholder="业务日期" style="width: 70px;background-color: #dddddd;">
+		      </div>
+		 </div>
+		 <div style="margin-left: 70px;">
+	    <div class="layui-inline" style="margin-top: -70px;margin-left: 70px;">
 	      <div class="layui-input-inline">
-	        <input type="text" class="layui-input" placeholder="业务日期" style="width: 70px;background-color: #dddddd;">
+	        <input type="text" class="layui-input" id="date1" placeholder="yyyy-MM-dd">
 	      </div>
 	    </div>
-    <div class="layui-inline" style="margin-top: 0px;">
-      <div class="layui-input-inline">
-        <input type="text" class="layui-input" id="date1" placeholder="yyyy-MM-dd">
-      </div>
-    </div>
-    <div class="layui-inline" style="margin-top: 0px;">
-      <div class="layui-input-inline">
-        <input type="text" class="layui-input" id="date1" placeholder="至" style="width: 27px;">
-      </div>
-    </div>
-    <div class="layui-inline">
-      <div class="layui-input-inline">
-        <input type="text" class="layui-input" id="date2" placeholder="yyyy-MM-dd">
-      </div>
-    </div>
-     <button class="layui-btn layui-btn-normal" id="show">查询</button>
+	    <div class="layui-inline" style="margin-top: -70px;">
+	      <div class="layui-input-inline">
+	        <input type="text" class="layui-input" id="date1" placeholder="至" style="width: 27px;">
+	      </div>
+	    </div>
+	    <div class="layui-inline" style="margin-top: -70px;">
+	      <div class="layui-input-inline">
+	        <input type="text" class="layui-input" id="date2" placeholder="yyyy-MM-dd">
+	      </div>
+	    </div>
+     	<button class="layui-btn layui-btn-normal" id="show" style="margin-top: -70px;">查询</button>
+     </div>
      <table class="table table-bordered" style="margin-top: 20px;">
 	<thead>
 		<tr>

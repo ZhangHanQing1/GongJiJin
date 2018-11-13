@@ -54,7 +54,7 @@ public class Grzfdkjkhtxx {
 
     private BigDecimal htdkje;
 
-    private String dklx;
+    private BigDecimal dklx;
 
     private BigDecimal dkqs;
 
@@ -88,7 +88,7 @@ public class Grzfdkjkhtxx {
 
     private Date jkhtqdrq;
 
-    private BigDecimal ydhkr;
+    private String ydhkr;
 
     private String jkrgjjzh;
 
@@ -348,12 +348,12 @@ public class Grzfdkjkhtxx {
         this.htdkje = htdkje;
     }
 
-    public String getDklx() {
+    public BigDecimal getDklx() {
         return dklx;
     }
 
-    public void setDklx(String dklx) {
-        this.dklx = dklx == null ? null : dklx.trim();
+    public void setDklx(BigDecimal dklx) {
+        this.dklx = dklx ;
     }
 
     public BigDecimal getDkqs() {
@@ -484,11 +484,11 @@ public class Grzfdkjkhtxx {
         this.jkhtqdrq = jkhtqdrq;
     }
 
-    public BigDecimal getYdhkr() {
+    public String getYdhkr() {
         return ydhkr;
     }
 
-    public void setYdhkr(BigDecimal ydhkr) {
+    public void setYdhkr(String ydhkr) {
         this.ydhkr = ydhkr;
     }
 
