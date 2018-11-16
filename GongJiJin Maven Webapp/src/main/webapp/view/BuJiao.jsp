@@ -315,10 +315,10 @@ function dian(){
                 data:formData,
 		        dataType:"json",
 		        success:function(data){
-		          if(data==1){
+		          
 		            alert("补缴成功");
 		            window.location.href="view/HuiJiaoCha.jsp"; 
-		          }else{"补缴失败"}
+		      
 		        }
 		      })
      

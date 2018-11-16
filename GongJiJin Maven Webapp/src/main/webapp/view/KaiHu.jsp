@@ -114,7 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </html>
 <script>
 	$("#dianji").click(function tiaojian(){
-			alert(JSON.stringify($("#form1").serializeObject()));
+			/* alert(JSON.stringify($("#form1").serializeObject())); */
 	     $.ajax({
 	     url:"KaiHu/add",
 	       type:"post",

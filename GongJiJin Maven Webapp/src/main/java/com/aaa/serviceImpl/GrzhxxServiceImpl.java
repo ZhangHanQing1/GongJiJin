@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.aaa.dao.DwzhMapper;
 import com.aaa.dao.GrzhxxMapper;
+import com.aaa.entity.Dwzh;
 import com.aaa.entity.Grzhxx;
 import com.aaa.service.GrzhxxService;
 @Service
@@ -27,6 +28,16 @@ public class GrzhxxServiceImpl implements GrzhxxService {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		map.put("khrq", dateFormat.format(new Date(System.currentTimeMillis())));
 		map.put("grzhye",0);
+		Dwzh dwzh=dwzhMapper.selectByPrimaryKey(Integer.parseInt((String)map.get("dwbh")));
+		int i=dwzh.getGrjcbl();
+		int dwjcbl=dwzh.getDwjcbl();
+		Integer num=Integer.parseInt((String)map.get("grjcjs3"));
+		BigDecimal num1=new BigDecimal(i);
+		BigDecimal num4=new BigDecimal(dwjcbl);
+		BigDecimal num2=new BigDecimal(num) ;
+		BigDecimal num3=new BigDecimal(100);
+		map.put("gryjce", num2.multiply(num1).divide(num3));
+		map.put("dwyjce", num2.multiply(num4).divide(num3));
 		return grzhxxMapper.insertSelective(map);
 	}
 	@Transactional
@@ -51,7 +62,18 @@ public class GrzhxxServiceImpl implements GrzhxxService {
 				map.put("jtzz",strings[13]);
 				map.put("yhcxzh",strings[14]);
 				map.put("grjcjs3",strings[15]);
-				/*榛樿鍊艰缃�*/
+                /*计算月缴存额*/
+				Dwzh dwzh=dwzhMapper.selectByPrimaryKey(Integer.parseInt((String)map.get("dwbh")));
+				Integer grjcbl=dwzh.getGrjcbl();
+				Integer dwjcbl=dwzh.getDwjcbl();
+				Integer num=Integer.parseInt((String)strings[15]);
+				BigDecimal num1=new BigDecimal(grjcbl);
+				BigDecimal num4=new BigDecimal(dwjcbl);
+				BigDecimal num2=new BigDecimal(num);
+				BigDecimal num3=new BigDecimal(100);
+				map.put("gryjce", num2.multiply(num1).divide(num3));
+				map.put("dwyjce", num2.multiply(num4).divide(num3));
+				/*默认值设置*/
 				map.put("grzhzt","正常");
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				map.put("khrq", dateFormat.format(new Date(System.currentTimeMillis())));

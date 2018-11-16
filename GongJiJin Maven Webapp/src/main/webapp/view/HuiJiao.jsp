@@ -254,9 +254,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          data:{"dwbh":idd.id},
 	          dataType:"json",
 	          success:function(data){
-	              var grzong=0;var dwzong=0;var zongjs=0;var renshu=1; var zong=0;
+	              var grzong=0;var dwzong=0;var zongjs=0;var renshu=0; var zong=0;
 	              for(var i=0;i<data.length;i++){
-	                     renshu+=i;  
+	                     renshu++;  
 	                    grzong+=data[i].GRYJCE;
 	                     dwzong+=data[i].DWYJCE;
 	                     zongjs+=data[i].GRJCJS3;                   
@@ -293,7 +293,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 //点击保存汇缴
 	function dian(){
-			alert(JSON.stringify($("#form1").serializeObject()));
+			/* alert(JSON.stringify($("#form1").serializeObject())); */
 	     $.ajax({
 	     url:"DWYW/add",
 	       type:"post",

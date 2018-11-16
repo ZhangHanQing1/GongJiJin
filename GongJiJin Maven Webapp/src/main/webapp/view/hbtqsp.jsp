@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          $("#zhhbs").empty();
 	          $.each(data, function(){
 	            var caozuo="";
-	            if(this.tzzd1=="未审批"){
+	            if(this.tzzd1=="未审核"){
 	              caozuo="&nbsp;||&nbsp;<a onclick='confirmZhhbjlb("+this.jlbh+")' href='javascript:void(0)'>通过</a>&nbsp;||&nbsp;"
 	              +"<a onclick='' href='javascript:void(0)'>不通过</a>";
 	            }

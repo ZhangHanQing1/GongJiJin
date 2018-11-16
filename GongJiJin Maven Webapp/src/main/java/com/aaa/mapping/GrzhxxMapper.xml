@@ -17,7 +17,7 @@
         <if test="xingming!=null"> and xingming like concat(concat('%',#{xingming}),'%')</if>
         <if test="grbh != null "> and g.grbh=#{grbh} </if>
       </where>
-      order by g.grzhzt desc
+      order by g.grzhzt,g.grbh desc
   </select>
   <!-- 查询个人账户信息(账户合并用) -->
   <select id="findById" parameterType="java.lang.Integer" resultType="map">
