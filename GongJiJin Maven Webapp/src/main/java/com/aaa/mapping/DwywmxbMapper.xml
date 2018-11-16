@@ -213,18 +213,19 @@
   
   select  GRBH,GRYJCE,DWYJCE,GRJCJS3 from grzhxx where grzhxx.dwbh=#{dwbh}
   </select>
-  <!-- 汇缴保存 -->
+  <!-- 汇缴补缴保存单位业务 -->
   <insert id="add" parameterType="Map">
-     <!--添加数据的同时把主键返回  -->
+     <!--添加单位业务数据的同时把主键返回《汇缴补缴时使用》  -->
   <selectKey keyProperty="dwywlsh" order="AFTER" resultType="Integer">
       SELECT LAST_INSERT_ID()
       <!--select uuid 主键不自增的情况下用  -->
   </selectKey>
     insert into dwywmxb(dwbh,fsys,hbcjny,jjbh,fsrs,user_id,fse3) values(#{dwbh},#{fsys},#{hbcjny},#{jjbh},#{fsrs},#{userId},#{fse3})
   </insert>
+ 
   <!-- 修改个人账户金额 -->
   <update id="uptateGR" parameterType="Map">
-   update grzhxx  set grzhye=gryjce+dwyjce+grzhye  where grzhxx.dwbh=#{dwbh}
+   update grzhxx  set grzhye=(gryjce+dwyjce+grzhye)*#{fsys}  where grzhxx.dwbh=#{dwbh}
   </update>
     <!-- 修单位账户金额和缴至年月日 -->
   <update id="updateDW" parameterType="Map">
@@ -237,7 +238,7 @@
  
  <!-- //单位汇缴明细查询 -->
 	<select id="selectHui" resultType="Map" parameterType="String">
-	  select FSRS,FSE3,HBCJNY,DWMC2,DWYWLSH from dwywmxb join dwzh on dwywmxb.dwbh=dwzh.dwbh
+	  select FSRS,FSE3,HBCJNY,DWMC2,DWYWLSH,jjmc,fsys from dwywmxb join dwzh on dwywmxb.dwbh=dwzh.dwbh join hjfs on hjfs.jjbh=dwywmxb.jjbh
 	   where  DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%') 
 	</select>
 	 <!-- //个人明细查询 -->

@@ -120,7 +120,12 @@ a:link{text-decoration:none;   /* 指正常的未被访问过的链接*/
 });
 function logout(){
 		if(confirm("确认要退出系统吗")){
-		   location.href="show.jsp";
+		  	$.ajax({
+		  		url:"asdf",
+		  		success: function(data){
+		  			location.href="deng.jsp";
+		  		}
+		  	})
 		}
 	}
 </script>

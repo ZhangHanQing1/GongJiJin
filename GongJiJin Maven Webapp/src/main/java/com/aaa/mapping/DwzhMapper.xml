@@ -403,6 +403,9 @@
    <update id="BiLiUp" parameterType="TongYong">
      update dwzh set DWJCBL = #{dwjcbl,jdbcType=INTEGER}, GRJCBL = #{grjcbl,jdbcType=INTEGER} where DWBH = #{dwbh,jdbcType=INTEGER}
    </update>
+    <update id="BiLiUpAnd" parameterType="TongYong">
+     update grzhxx set dwyjce =#{dwjcbl}*grjcjs3/100, gryjce = #{grjcbl,jdbcType=INTEGER}*grjcjs3/100 where DWBH = #{dwbh,jdbcType=INTEGER}
+   </update>
    <!--//  个人基数修改前查询  selectGR  -->
      <select id="selectGR"  resultType="Map" parameterType="String">
     select grbh,dwmc2,grjcjs3,xingming from dwzh join grzhxx on dwzh.dwbh=grzhxx.dwbh where   DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%')

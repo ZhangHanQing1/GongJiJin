@@ -229,4 +229,9 @@ public class Sys_menuController {
 			List<Map<String, Object>> list=sms.showMenu22();
 			return list;
 		}
+		@RequestMapping("/asdf")
+		public void asdf(HttpServletResponse response,HttpSession session) throws IOException{
+			response.setContentType("text/html;charset=utf-8");
+			session.invalidate();
+		}
 }

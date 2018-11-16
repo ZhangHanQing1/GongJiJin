@@ -16,7 +16,7 @@
 	</select> 
 	
 	<select id="showUser" resultType="map" parameterType="String">
-		select u.user_id,u.login_name,u.user_name,u.user_type,u.phonenum,u.sex,u.passwords,u.status,u.del_flag,u.login_date,u.remark,sd.dept_id,sd.dept_name,sup.post_id,p.post_name,sr.role_id,sr.role_name from sys_user u join sys_dept sd on u.dept_id=sd.dept_id join sys_user_post sup on u.user_id=sup.user_id join sys_post p on p.post_id=sup.post_id join sys_user_role sur on sur.user_id=u.user_id join sys_role sr on sr.role_id=sur.role_id
+		select u.user_id,u.login_name,u.user_name,u.user_type,u.phonenum,u.sex,u.passwords,u.status,u.del_flag,u.login_date,u.remark,sd.dept_id,sd.dept_name,sup.post_id,p.post_name,sr.role_id,sr.role_name from sys_user u join sys_dept sd on u.dept_id=sd.dept_id join sys_user_post sup on u.user_id=sup.user_id join sys_post p on p.post_id=sup.post_id join sys_user_role sur on sur.user_id=u.user_id join sys_role sr on sr.role_id=sur.role_id order by u.user_id desc
 		<where>
 			<if test="user_name!=null and user_name!=''">
 				and user_name like "%"#{user_name}"%"
@@ -64,7 +64,7 @@
 	</update>
 	<!-- 查询权限表 -->
 	<select id="showMenu" resultType="map" parameterType="String">
-		select * from sys_menu 
+		select * from sys_menu order by menu_id desc
 		<where>
 			 <if test="menu_name!=null and menu_name!=''">
 				and menu_name like "%"#{menu_name}"%" 
@@ -76,7 +76,7 @@
 	</select>
 	<!-- 查询权限表 -->
 	<select id="showMenu2" resultType="map" parameterType="String">
-		select * from sys_menu 
+		select * from sys_menu order by menu_id desc
 		<where>
 			<if test="url!=null and url!=''">
 				and url like "%"#{url}"%" 

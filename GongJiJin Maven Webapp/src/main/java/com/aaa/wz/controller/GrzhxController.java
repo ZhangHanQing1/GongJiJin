@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aaa.entity.Grzhxx;
-import com.aaa.wz.service.GrzhxxService;
+import com.aaa.wz.service.GrzhxService;
 
 @Controller
 @RequestMapping("/zhxx")
-public class GrzhxxController {
+public class GrzhxController {
 	
 	   @Autowired
-	   private  GrzhxxService  grzhxxService;
+	   private  GrzhxService  grzhxxService;
 	   
 	    @ResponseBody
 		@RequestMapping("/queryId")

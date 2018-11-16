@@ -42,6 +42,7 @@ private ZhxxbgjlbMapper daoo;
 			 TongYong tongYong=Ceshi.getList().get(i);
 			 
 			 dao.BiLiUp(tongYong);
+			 dao.BiLiUpAnd(tongYong);
 			 daoo.BiLiAdd(tongYong);
 		       }
 	}

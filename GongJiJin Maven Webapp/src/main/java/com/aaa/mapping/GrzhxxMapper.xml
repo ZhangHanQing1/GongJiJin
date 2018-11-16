@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.GrzhxxMapper">
+  <!-- 根据Id查询(缴费用) -->
+  <select id="selectById" parameterType="java.lang.Integer" resultType="map">
+      select xingming,grjcjs3,grjcbl,dwmc2 from grzhxx g inner join dwzh d on g.dwbh=d.dwbh and g.grbh=#{grbh}
+  </select>
+  <!-- 根据Id查询(提取公积金用) -->
+  <select id="selectByGrbh" parameterType="java.lang.Integer" resultType="map">
+      select xingming,sbzh,d.dwbh as dwbh,dwmc2,grzhye,yhcxzh from grzhxx g inner join dwzh d on g.dwbh=d.dwbh and g.grbh=#{grbh}
+  </select>
+  <!-- 条件、模糊查询 -->
+  <select id="findByConditions" parameterType="map" resultType="map">
+      select g.grbh as grbh,xingming,grjcjs3,grjcbl,dwmc2,khrq,grzhye,grzhzt from grzhxx g inner join dwzh d on g.dwbh=d.dwbh
+      <where>
+        <if test="dwmc2!=null">dwmc2 like concat(concat('%',#{dwmc2}),'%')</if>
+        <if test="xingming!=null"> and xingming like concat(concat('%',#{xingming}),'%')</if>
+        <if test="grbh != null "> and g.grbh=#{grbh}</if>
+      </where>
+  </select>
+  <!-- 查询个人账户信息(账户合并用) -->
+  <select id="findById" parameterType="java.lang.Integer" resultType="map">
+      select g.grbh as grbh,xingming,dwmc2,grzhye,sbzh from grzhxx g inner join dwzh d on g.dwbh=d.dwbh where g.grbh=#{grbh}
+  </select>
+  <!-- 根据身份证号查询个人其他账户信息(账户合并用) -->
+  <select id="findBySbzh" parameterType="map" resultType="map">
+      select g.grbh as grbh,xingming,dwmc2,grzhye,sbzh from grzhxx g inner join dwzh d on g.dwbh=d.dwbh where g.grzhzt='正常' 
+        <if test="grbh!=null"> and g.grbh!=#{grbh}</if>
+        <if test="sbzh!=null"> and g.sbzh=#{sbzh}</if>
+  </select>
+  <!-- 个人账户的封存 -->
+  <update id="fengcun" parameterType="java.lang.Integer">
+    update grzhxx set grzhzt='封存中' where grbh=#{grbh}
+  </update>
+  <update id="changeGrzhye" parameterType="map">
+    update grzhxx set grzhye=#{grzhye} where grbh=#{grbh}
+  </update>
   <resultMap id="BaseResultMap" type="com.aaa.entity.Grzhxx">
     <id column="GRBH" jdbcType="INTEGER" property="grbh" />
     <result column="DWBH" jdbcType="INTEGER" property="dwbh" />
@@ -111,7 +145,7 @@
       #{sndqlx,jdbcType=DECIMAL}, #{snhqlx,jdbcType=DECIMAL}, #{sndqlxh,jdbcType=DECIMAL}, 
       #{snhqlxh,jdbcType=DECIMAL}, #{bntq3,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Grzhxx">
+  <insert id="insertSelective" parameterType="map">
     insert into grzhxx
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="grbh != null">

@@ -468,6 +468,7 @@ public class DwzhController {
 	public PageInfo<Map<String, Object>> DwzhJiaoCun(String date1,String date2,String dwmc2,Integer startPage){
 		PageHelper.startPage(startPage, 3);
 		List<Map<String, Object>> list=ds.showJiaoCun(date1, date2,dwmc2);
+		System.out.println(list);
 		PageInfo<Map<String, Object>> p1=new PageInfo<Map<String,Object>>(list);
 		return p1;	
 	}

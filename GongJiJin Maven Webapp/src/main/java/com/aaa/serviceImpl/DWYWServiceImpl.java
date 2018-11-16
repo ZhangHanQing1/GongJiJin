@@ -49,6 +49,7 @@ private GrywmxxxMapper daooo;
 		  	  BigDecimal DWYJCE=(BigDecimal) map2.get("DWYJCE");
 		  	  BigDecimal GRYJCE=(BigDecimal) map2.get("GRYJCE");
 		  	  BigDecimal fse=DWYJCE.add(GRYJCE);
+		  	  
 			  Grywmxxx gr=new Grywmxxx();  
 		  	  gr.setGrbh((Integer) map2.get("GRBH"));
 		  	  gr.setDwywlsh((Integer)map.get("dwywlsh"));

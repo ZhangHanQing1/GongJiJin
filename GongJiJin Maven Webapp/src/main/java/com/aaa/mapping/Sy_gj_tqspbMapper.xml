@@ -97,6 +97,9 @@
     YQHJ, JHBH, TQHKLX, TQHKJE, HKZJE, DKYHDM, WDBH3, DKYWMXLX, HKZBJ, HKZLX, HKZFX, 
     CZYWLSH2, PLBZ, CJBH
   </sql>
+  <select id="selectTqspb" resultType="map">
+    select * from sy_gj_tqspb
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -163,7 +166,7 @@
       #{czywlsh2,jdbcType=VARCHAR}, #{plbz,jdbcType=VARCHAR}, #{cjbh,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aaa.entity.Sy_gj_tqspb">
+  <insert id="insertSelective" parameterType="map">
     insert into sy_gj_tqspb
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="tqbh != null">

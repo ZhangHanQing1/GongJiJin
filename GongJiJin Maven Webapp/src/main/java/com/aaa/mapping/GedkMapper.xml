@@ -3,9 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aaa.dao.GrdkDaoFFX">
 	<select id="showGedk" resultType="double" parameterType="String">
-		select COALESCE(sum(htdkje),0) from grzfdkjkhtxx where ydfkrq between #{date1} and  #{date2}
+		select COALESCE(sum(dkffe),0) from sy_dk_ydtqsp where spsj between #{date1} and #{date2}
 	</select>
 	<select id="showGedk1" resultType="int" parameterType="String">
-		select count(*) from grzfdkjkhtxx where ydfkrq between #{date1} and #{date2}
+		select count(*) from sy_dk_ydtqsp where spsj between #{date1} and #{date2}
 	</select>
 </mapper>

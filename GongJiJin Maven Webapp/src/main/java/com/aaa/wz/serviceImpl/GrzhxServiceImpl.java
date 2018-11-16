@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.aaa.dao.GrzhxxMapper;
 import com.aaa.entity.Grzhxx;
-import com.aaa.wz.service.GrzhxxService;
+import com.aaa.wz.service.GrzhxService;
 
 
 @Service
-public class GrzhxxServiceImpl implements  GrzhxxService {
+public class GrzhxServiceImpl implements  GrzhxService {
 	   
 	   @Autowired
 	   private GrzhxxMapper  dao;

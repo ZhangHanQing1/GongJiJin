@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aaa.dao.ZhhbjlbMapper">
+  <resultMap id="BaseResultMap" type="com.aaa.entity.Zhhbjlb">
+    <id column="jlbh" jdbcType="INTEGER" property="jlbh" />
+    <result column="blgrzh" jdbcType="INTEGER" property="blgrzh" />
+    <result column="blgrywmxlsh" jdbcType="INTEGER" property="blgrywmxlsh" />
+    <result column="xhgrzh" jdbcType="INTEGER" property="xhgrzh" />
+    <result column="xhgrzhye" jdbcType="DECIMAL" property="xhgrzhye" />
+    <result column="xhgrdkzh" jdbcType="INTEGER" property="xhgrdkzh" />
+    <result column="xhgrdkye" jdbcType="DECIMAL" property="xhgrdkye" />
+    <result column="cjr" jdbcType="VARCHAR" property="cjr" />
+    <result column="cjsj" jdbcType="VARCHAR" property="cjsj" />
+    <result column="tzzd1" jdbcType="VARCHAR" property="tzzd1" />
+    <result column="tzzd2" jdbcType="VARCHAR" property="tzzd2" />
+    <result column="tzzd3" jdbcType="VARCHAR" property="tzzd3" />
+  </resultMap>
+  <!-- 查询出账户合并申请 -->
+  <select id="findByConditions" parameterType="map" resultType="map">
+    select jlbh,blgrzh,xhgrzh,xhgrzhye,cjsj,tzzd1 from zhhbjlb order by jlbh desc 
+  </select>
+  <sql id="Base_Column_List">
+    jlbh, blgrzh, blgrywmxlsh, xhgrzh, xhgrzhye, xhgrdkzh, xhgrdkye, cjr, cjsj, tzzd1, 
+    tzzd2, tzzd3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from zhhbjlb
+    where jlbh = #{jlbh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from zhhbjlb
+    where jlbh = #{jlbh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aaa.entity.Zhhbjlb">
+    insert into zhhbjlb (jlbh, blgrzh, blgrywmxlsh, 
+      xhgrzh, xhgrzhye, xhgrdkzh, 
+      xhgrdkye, cjr, cjsj, 
+      tzzd1, tzzd2, tzzd3
+      )
+    values (#{jlbh,jdbcType=INTEGER}, #{blgrzh,jdbcType=INTEGER}, #{blgrywmxlsh,jdbcType=INTEGER}, 
+      #{xhgrzh,jdbcType=INTEGER}, #{xhgrzhye,jdbcType=DECIMAL}, #{xhgrdkzh,jdbcType=INTEGER}, 
+      #{xhgrdkye,jdbcType=DECIMAL}, #{cjr,jdbcType=VARCHAR}, #{cjsj,jdbcType=VARCHAR}, 
+      #{tzzd1,jdbcType=VARCHAR}, #{tzzd2,jdbcType=VARCHAR}, #{tzzd3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertzhhbjlb" parameterType="map">
+    insert into zhhbjlb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jlbh != null">
+        jlbh,
+      </if>
+      <if test="blgrzh != null">
+        blgrzh,
+      </if>
+      <if test="blgrywmxlsh != null">
+        blgrywmxlsh,
+      </if>
+      <if test="xhgrzh != null">
+        xhgrzh,
+      </if>
+      <if test="xhgrzhye != null">
+        xhgrzhye,
+      </if>
+      <if test="xhgrdkzh != null">
+        xhgrdkzh,
+      </if>
+      <if test="xhgrdkye != null">
+        xhgrdkye,
+      </if>
+      <if test="cjr != null">
+        cjr,
+      </if>
+      <if test="cjsj != null">
+        cjsj,
+      </if>
+      <if test="tzzd1 != null">
+        tzzd1,
+      </if>
+      <if test="tzzd2 != null">
+        tzzd2,
+      </if>
+      <if test="tzzd3 != null">
+        tzzd3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jlbh != null">
+        #{jlbh,jdbcType=INTEGER},
+      </if>
+      <if test="blgrzh != null">
+        #{blgrzh,jdbcType=INTEGER},
+      </if>
+      <if test="blgrywmxlsh != null">
+        #{blgrywmxlsh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrzh != null">
+        #{xhgrzh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrzhye != null">
+        #{xhgrzhye,jdbcType=DECIMAL},
+      </if>
+      <if test="xhgrdkzh != null">
+        #{xhgrdkzh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrdkye != null">
+        #{xhgrdkye,jdbcType=DECIMAL},
+      </if>
+      <if test="cjr != null">
+        #{cjr,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj != null">
+        #{cjsj,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd1 != null">
+        #{tzzd1,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd2 != null">
+        #{tzzd2,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd3 != null">
+        #{tzzd3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertSelective" parameterType="com.aaa.entity.Zhhbjlb">
+    insert into zhhbjlb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jlbh != null">
+        jlbh,
+      </if>
+      <if test="blgrzh != null">
+        blgrzh,
+      </if>
+      <if test="blgrywmxlsh != null">
+        blgrywmxlsh,
+      </if>
+      <if test="xhgrzh != null">
+        xhgrzh,
+      </if>
+      <if test="xhgrzhye != null">
+        xhgrzhye,
+      </if>
+      <if test="xhgrdkzh != null">
+        xhgrdkzh,
+      </if>
+      <if test="xhgrdkye != null">
+        xhgrdkye,
+      </if>
+      <if test="cjr != null">
+        cjr,
+      </if>
+      <if test="cjsj != null">
+        cjsj,
+      </if>
+      <if test="tzzd1 != null">
+        tzzd1,
+      </if>
+      <if test="tzzd2 != null">
+        tzzd2,
+      </if>
+      <if test="tzzd3 != null">
+        tzzd3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jlbh != null">
+        #{jlbh,jdbcType=INTEGER},
+      </if>
+      <if test="blgrzh != null">
+        #{blgrzh,jdbcType=INTEGER},
+      </if>
+      <if test="blgrywmxlsh != null">
+        #{blgrywmxlsh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrzh != null">
+        #{xhgrzh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrzhye != null">
+        #{xhgrzhye,jdbcType=DECIMAL},
+      </if>
+      <if test="xhgrdkzh != null">
+        #{xhgrdkzh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrdkye != null">
+        #{xhgrdkye,jdbcType=DECIMAL},
+      </if>
+      <if test="cjr != null">
+        #{cjr,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj != null">
+        #{cjsj,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd1 != null">
+        #{tzzd1,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd2 != null">
+        #{tzzd2,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd3 != null">
+        #{tzzd3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aaa.entity.Zhhbjlb">
+    update zhhbjlb
+    <set>
+      <if test="blgrzh != null">
+        blgrzh = #{blgrzh,jdbcType=INTEGER},
+      </if>
+      <if test="blgrywmxlsh != null">
+        blgrywmxlsh = #{blgrywmxlsh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrzh != null">
+        xhgrzh = #{xhgrzh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrzhye != null">
+        xhgrzhye = #{xhgrzhye,jdbcType=DECIMAL},
+      </if>
+      <if test="xhgrdkzh != null">
+        xhgrdkzh = #{xhgrdkzh,jdbcType=INTEGER},
+      </if>
+      <if test="xhgrdkye != null">
+        xhgrdkye = #{xhgrdkye,jdbcType=DECIMAL},
+      </if>
+      <if test="cjr != null">
+        cjr = #{cjr,jdbcType=VARCHAR},
+      </if>
+      <if test="cjsj != null">
+        cjsj = #{cjsj,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd1 != null">
+        tzzd1 = #{tzzd1,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd2 != null">
+        tzzd2 = #{tzzd2,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzd3 != null">
+        tzzd3 = #{tzzd3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where jlbh = #{jlbh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aaa.entity.Zhhbjlb">
+    update zhhbjlb
+    set blgrzh = #{blgrzh,jdbcType=INTEGER},
+      blgrywmxlsh = #{blgrywmxlsh,jdbcType=INTEGER},
+      xhgrzh = #{xhgrzh,jdbcType=INTEGER},
+      xhgrzhye = #{xhgrzhye,jdbcType=DECIMAL},
+      xhgrdkzh = #{xhgrdkzh,jdbcType=INTEGER},
+      xhgrdkye = #{xhgrdkye,jdbcType=DECIMAL},
+      cjr = #{cjr,jdbcType=VARCHAR},
+      cjsj = #{cjsj,jdbcType=VARCHAR},
+      tzzd1 = #{tzzd1,jdbcType=VARCHAR},
+      tzzd2 = #{tzzd2,jdbcType=VARCHAR},
+      tzzd3 = #{tzzd3,jdbcType=VARCHAR}
+    where jlbh = #{jlbh,jdbcType=INTEGER}
+  </update>
+</mapper>

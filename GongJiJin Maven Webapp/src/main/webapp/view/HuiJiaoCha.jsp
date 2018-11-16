@@ -43,7 +43,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th>发生人数</th>
 			<th>发生金额</th>
 			<th>缴至年月日</th>
-	
+	<th>发生月数</th>
+	<th>缴交方式</th>
 			<th>操作</th>
 		</tr>
 	</thead>
@@ -124,6 +125,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  tr+="<td>"+list[i].FSRS+"</td>";
                  tr+="<td>"+list[i].FSE3+"</td>";
                  tr+="<td>"+list[i].HBCJNY+"</td>";
+                 tr+="<td>"+list[i].fsys+"</td>";
+                 tr+="<td>"+list[i].jjmc+"</td>";
                  tr+="<td><input type='button' value='查看详情信息' class='all btn btn-primary' id='"+list[i].DWYWLSH+"'/></td>"; 
                  tr+="</tr>";
                           $("#tbody").append(tr);
@@ -133,7 +136,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          $("#tf").empty();
                var trr="<tr>"
                      trr+="<td colspan='8'><button class='btn btn-primary' onclick='selectHui("+1+")'>首页"
-		                        +"</button>&nbsp;<button onclick='selectHui("+data.prePage+")' class='btn btn-primary'>上一页</button>"
+		                        +"</button>&nbsp;<button onclick='selectHui("+data.prePage+")' class='btn btn-primary'>上一页</button>"+
+		                         "&nbsp;&nbsp;&nbsp;"+data.pageNum+"/"+data.pages+"&nbsp;&nbsp;&nbsp;"
 		                        +"&nbsp;&nbsp;<button  onclick='selectHui("+data.nextPage+")' class='btn btn-primary'>下一页</button>&nbsp;"
 		                        +"<button class='btn btn-primary' onclick='selectHui("+data.pages+")'>尾页</button></td></tr>";
          

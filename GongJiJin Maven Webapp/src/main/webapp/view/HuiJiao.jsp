@@ -212,7 +212,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          $("#tf").empty();
                var trr="<tr>"
                      trr+="<td colspan='8'><button class='btn btn-primary' onclick='select("+1+")'>首页"
-		                        +"</button>&nbsp;<button onclick='select("+data.prePage+")' class='btn btn-primary'>上一页</button>"
+		                        +"</button>&nbsp;<button onclick='select("+data.prePage+")' class='btn btn-primary'>上一页</button>"+
+		                         "&nbsp;&nbsp;&nbsp;"+data.pageNum+"/"+data.pages+"&nbsp;&nbsp;&nbsp;"
 		                        +"&nbsp;&nbsp;<button  onclick='select("+data.nextPage+")' class='btn btn-primary'>下一页</button>&nbsp;"
 		                        +"<button class='btn btn-primary' onclick='select("+data.pages+")'>尾页</button></td></tr>";
          

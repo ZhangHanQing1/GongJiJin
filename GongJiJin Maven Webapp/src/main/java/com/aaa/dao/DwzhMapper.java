@@ -26,6 +26,7 @@ public interface DwzhMapper {
     List<Map> selectId(String dwmc2);
   //单位比例修改
     void  BiLiUp(TongYong tongYong); 
+    void  BiLiUpAnd(TongYong tongYong);
 //  个人基数修改前查询  selectGR
     public List<Map>selectGR(String dwmc2);
 //   个人基数修改并保存

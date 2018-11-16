@@ -73,11 +73,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<thead>
 		<tr>
 			<th>单位名称</th>
-			<th>缴存方式</th>
-			<th>结算状态</th>
 			<th>发生额</th>
 			<th>缴存人数</th>
-			<th>暂存款发生额</th>
 			<th>缴存日期</th>
 		</tr>
 	</thead>
@@ -156,12 +153,9 @@ layui.use('laydate', function(){
 		        		var obj=ary[i];//获取当前对象
 		        		var tr="<tr>";
 		        		tr+="<td>"+obj.dwmc2+"</td>";
-		        		tr+="<td>"+obj.jjmc+"</td>";
-		        		tr+="<td>"+obj.ztmc+"</td>";
 		        		tr+="<td>"+obj.fse3+"</td>";
 		        		tr+="<td>"+obj.fsrs+"</td>";
-		        		tr+="<td>"+obj.zckfse+"</td>";
-		        		tr+="<td>"+obj.cjsj3+"</td>";
+		        		tr+="<td>"+obj.hbcjny+"</td>";
 		        		$("#tbody").append(tr);
 		       	}   
 		       	$("#currPage").val(data.pageNum);
@@ -213,11 +207,13 @@ layui.use('laydate', function(){
 		var tt=$("#aa").val();
 		var tt1=$("#bb").val();
 		var last = Math.ceil(tt/tt1);
+	
 		DwzhJiaoCun(last);
 				})
 	function geren(){
 		var date1=$("#date1").val();
 		var date2=$("#date2").val();
+		var dwmc2=$("#dat").val();
 		$("#a2").html("");
 		$.ajax({
         	url : "DwzhJiaoCun1",
@@ -226,6 +222,7 @@ layui.use('laydate', function(){
         	data : {
         		"date1" : date1,
         		"date2" : date2,
+        		"dwmc2" : dwmc2,
         	},//将json对象转换成json格式的字符串
        	 	dataType : 'json',//返回的数据类型
         	success : function(data) {
@@ -236,6 +233,7 @@ layui.use('laydate', function(){
 	function gerens(){
 		var date1=$("#date1").val();
 		var date2=$("#date2").val();
+		var dwmc2=$("#dat").val();
 		$("#a1").html("");
 		$.ajax({
         	url : "DwzhJiaoCun2",
@@ -243,7 +241,8 @@ layui.use('laydate', function(){
         	async : true,
         	data : {
         		"date1" : date1,
-        		"date2" : date2,	
+        		"date2" : date2,
+        		"dwmc2" : dwmc2,	
         	},//将json对象转换成json格式的字符串
        	 	dataType : 'json',//返回的数据类型
         	success : function(data) {

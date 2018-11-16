@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.aaa.entity.Grzhxx;
 
-public interface GrzhxxService {
+public interface GrzhxService {
 	
 	
 	  //¸ù¾Ý ID²éÑ¯

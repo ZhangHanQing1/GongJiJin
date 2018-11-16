@@ -152,7 +152,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<button type="button" class="btn btn-default" 
 						data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal" onclick="addUser()">
+				<button type="button" id="a1111" class="btn btn-default" onclick="addUser()">
 					提交更改
 				</button>
 			</div>
@@ -436,7 +436,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  		})
 	}
 	function addUser(){
-          var obj=$("#addUser").serialize();
+         uname=$("#user_name1").val();
+	     logname=$("#login_name1").val();
+	     pwd=$("#passwords1").val();
+	     phone=$("#phonenum1").val();
+         var CheckForm1=CheckForm(logname,uname,pwd)
+	     if(CheckForm1!=false){
+	     var phone1=validatemobile(phone)
+	     }
+	     if(CheckForm1!=false&&phone1!=false){
+	      var obj=$("#addUser").serialize();
 		$.ajax({
         	url : "addUser",
         	type : "post",
@@ -453,17 +462,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         			$("#user_name1").val("");
 	        		$("#login_name1").val("");
 	        		$("#passwords1").val("");
+	        		$("#phonenum1").val("");
 	        		var bb=$("#mohu").val();
         			var aa=$("#currPage").val();
         			var cc=$("#currPage1").val();
+        			location.reload();
         			if(bb==""){
-        				selectshang(aa);
+        				selectshang(1);
         			}else{
-        				muhu(cc);
+        				muhu(1);
         			}
         		}
         	}
  		});
+ 		}
 	}
 	
 	$("#tbody").on("click",".updateUser",function(){
@@ -479,6 +491,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	},
        	 	dataType : "text",//返回的数据类型
         	success : function(data) {
+        	
         		var bb=$("#mohu").val();
         		var aa=$("#currPage").val();
         		var cc=$("#currPage1").val();
@@ -501,6 +514,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	},
        	 	dataType : "text",//返回的数据类型
         	success : function(data) {
+        		
         		var bb=$("#mohu").val();
         		var aa=$("#currPage").val();
         		var cc=$("#currPage1").val();
@@ -519,4 +533,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	showPost();
     	showRole();
 	});
+	//手机号
+	function validatemobile(mobile) 
+			{ 
+			if(mobile.length==0) 
+			{ 
+			alert('手机号码不能为空！');
+			return false; 
+			} 
+			if(mobile.length!=11) 
+			{ 
+			alert('请输入有效的手机号码，需是11位！');
+			return false; 
+			} 
+			
+			var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+			if(!myreg.test(mobile)) 
+			{ 
+			alert('请输入有效的手机号码！'); 
+			return false; 
+			} 
+			} 
+	function CheckForm(logname,uname,pwd) {
+			if (logname.length == 0) { 
+			alert("登录名不能为空!"); 
+			return false; 
+			}
+			if (uname.length == 0) { 
+			alert("用户名不能为空!"); 
+			return false; 
+			}
+			if (pwd.length == 0) { 
+			alert("密码不能为空!"); 
+			return false; 
+			}
+		} 		
 </script>
