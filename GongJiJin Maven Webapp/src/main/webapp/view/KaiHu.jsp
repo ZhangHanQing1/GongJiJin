@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+ <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tbody>
     <tr>
       <td>公司名称：</td>
-      <td><input type="text" class="form-control" name="dwmc2" /></td>
+      <td><input type="text" class="form-control" name="dwmc2"  id="dwmc2" /></td>
      <td>公司地址：</td>
       <td><input type="text" class="form-control" name="dwdz" /></td>
       <td>公司类型：</td>
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
      <tr>
       <td>证件号：</td>
-      <td><input type="text" class="form-control" name="dwxz" /></td>
+      <td><input type="text" class="form-control" name="dwxz" id="dwxz"/></td>
      <td>经办人姓名：</td>
       <td><input type="text" class="form-control" name="jbrxm" /></td>
       <td>经办人电话：</td>
@@ -79,9 +79,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
      <tr>
       <td>单位缴存比例：</td>
-      <td><input type="text" class="form-control" name="dwjcbl"placeholder="以%为单位" /></td>
+      <td><input type="text" class="form-control" name="dwjcbl"placeholder="以%为单位" id="dw"/></td>
      <td>个人缴存比例：</td>
-      <td><input type="text" class="form-control" name="grjcbl"placeholder="以%为单位" /></td>
+      <td><input type="text" class="form-control" name="grjcbl"placeholder="以%为单位" id="gr"/></td>
       <td>单位账户：</td>
       <td><input type="text" class="form-control" name="dwzh3" /></td>
        </tr>
@@ -113,8 +113,73 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </body>
 </html>
 <script>
+/*表单验证  */
+$("#dwmc2").blur(function(){
+  dname();
+});
+ function dname(){
+  var age=$("#dwmc2").val();
+    var sp=/^[\u4e00-\u9fa5]{0,}$/ ;
+    if(sp.test(age)){
+       
+       return true;
+    }else{
+       alert("请输入中文");
+       return false;
+    }
+ };
+ $("#dwxz").blur(function(){
+  dwxz();
+});
+ function dwxz(){
+  var age=$("#dwxz").val();
+    var sp=/^\d{15}|\d{18}$/;
+    if(sp.test(age)){
+       
+       return true;
+    }else{
+       alert("请输入15-18位数字");
+       return false;
+    }
+ };     
+ $("#dw").blur(function(){
+       var dw=$("#dw").val();
+   is_number(dw);
+ })
+ $("#gr").blur(function(){
+       var gr=$("#gr").val();
+   is_number(gr);
+ })
+   
+   
+  
+
+ function is_number(num_string){
+		
+		var c;
+		
+		var ch = "0123456789";
+		
+		for (var i = 0; i < num_string.length; i++){
+		
+		c = num_string.charAt(i);
+		
+		if (ch.indexOf(c) == -1)return false;
+		
+		}
+		
+		if(parseInt(num_string) < 5 || parseInt(num_string) > 12){
+		 alert("比例在5-12之间");
+		return false};
+		
+		return true;
+
+}
+ /*开户  */
 	$("#dianji").click(function tiaojian(){
 			/* alert(JSON.stringify($("#form1").serializeObject())); */
+			var check=dwxz();
+			if(check){
 	     $.ajax({
 	     url:"KaiHu/add",
 	       type:"post",
@@ -130,6 +195,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       }
 	       
 	       })
+	       }else{
+	       alert("操作失败");
+	       }
 	       });
 	
 		$.fn.serializeObject = function() {
@@ -147,4 +215,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       });
       return o;
     };
+  
     </script>

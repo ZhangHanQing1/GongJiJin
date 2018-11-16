@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
   </head>
   <body>
-      <table id="grzhs" class="table  text-center table-hover table-bordered" style="width:60%;margin-left:20%" >
+      <table id="grzhs" class="table  text-center table-hover table-bordered" style="width:80%;margin-left:10%" >
         <caption class="text-center h2" >个人信息</caption>
         <thead>
           <tr>

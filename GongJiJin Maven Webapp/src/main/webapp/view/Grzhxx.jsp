@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="resources/Mtils.js"></script>
  </head>
   <body>
-    <div style="width:60%;margin-left: 20%;padding-bottom:20px;" class="text-center h2">
+    <div style="width:80%;margin-left: 10%;padding-bottom:20px;" class="text-center h2">
       <a href="javascript:void(0)" id="one">单个开户</a>&nbsp;/&nbsp;<a href="javascript:void(0)" id="many">批量开户</a>
     </div>
     <form method="post" id="insertGrzh">
