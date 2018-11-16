@@ -98,7 +98,7 @@
     CZYWLSH2, PLBZ, CJBH
   </sql>
   <select id="selectTqspb" resultType="map">
-    select * from sy_gj_tqspb
+    select * from sy_gj_tqspb t inner join grzhxx g where t.grbh=g.grbh
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 

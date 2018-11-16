@@ -38,6 +38,7 @@ public class TqspbController {
     @ResponseBody
     @RequestMapping("selectTqspb")
     public List<Map<String, Object>> selectTqspb(){
-		return service.selectTqspb();
+    	List<Map<String, Object>> list=service.selectTqspb();
+		return list;
     }
 }

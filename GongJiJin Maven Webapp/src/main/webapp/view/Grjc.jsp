@@ -94,14 +94,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  })
         }
         /* 分页查询个人缴费记录(pagehelper) */
-        function selectById(grbh,startPage,PageSize){
+        function selectById(grbh,startPage){
           $.ajax({
 		        url:'Gryw/selectById',
 		        type:'post',
 		        async:true,
 		        /* contentType: "application/json;charset=utf-8", */
 				contentType : "application/x-www-form-urlencoded;charset=utf-8",
-                data:{"grbh":grbh,"startPage":startPage,"PageSize":PageSize},
+                data:{"grbh":grbh,"startPage":startPage},
 		        dataType:"json",
 		        success:function(data){
 		          if(!data.hasPreviousPage){
@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          var thead="<caption class='text-center h3'>缴费历史记录</caption>"
 		                         +"<thead><tr><td colspan='3'>个人缴存余额</td><td colspan='3'>单位缴存余额</td></tr><tr><td>流水单号</td><td>缴费类型</td>"
 		                         +"<td>缴费月份</td><td>缴费时间</td><td>个人缴额</td><td>单位缴额</td></tr></thead>"
-		          var options="<select onchange='selectById("+grbh+","+'this.value'+","+PageSize+")'>";
+		          var options="<select onchange='selectById("+grbh+","+'this.value'+")'>";
 		          for (var i=1;i<=data.pages;i++){
 		            if(i==data.pageNum){
 		              options+="<option selected='selected' value='"+i+"'>"+i+"</option>"
@@ -132,10 +132,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            }
 		          }
 		          options+="</select>";
-		          var tfoot="<tfoot><tr><td colspan='6''><button onclick='selectById("+grbh+","+1+","+PageSize+")'>首页"
-		                        +"</button>&nbsp;<button onclick='selectById("+grbh+","+data.prePage+","+PageSize+")'>上一页</button>"
-		                        +"&nbsp;"+options+"/"+data.pages+"&nbsp;<button  onclick='selectById("+grbh+","+data.nextPage+","+PageSize+")'>下一页</button>&nbsp;"
-		                        +"<button  onclick='selectById("+grbh+","+data.pages+","+PageSize+")'>尾页</button></td></tr></tfoot>";
+		          var tfoot="<tfoot><tr><td colspan='6''><button onclick='selectById("+grbh+","+1+")'>首页"
+		                        +"</button>&nbsp;<button onclick='selectById("+grbh+","+data.prePage+")'>上一页</button>"
+		                        +"&nbsp;"+options+"/"+data.pages+"&nbsp;<button  onclick='selectById("+grbh+","+data.nextPage+")'>下一页</button>&nbsp;"
+		                        +"<button  onclick='selectById("+grbh+","+data.pages+")'>尾页</button></td></tr></tfoot>";
 		          $("#mxxxs").append(thead);
 		          $("#mxxxs").append(tbody);
 		          $("#mxxxs").append(tfoot);

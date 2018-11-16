@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </tr>
           <tr>
 	        <td colspan="2">
-	            <textarea style="width:100%" class="form-control" placeholder="提取原因..."></textarea>
+	            <textarea style="width:100%" class="form-control" placeholder="提取原因..." name="tqyynr"></textarea>
 	        </td>
 	        <td>
 	          <div class="input-group">
@@ -157,6 +157,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            }
 	        }
 	      })
+      })
+      $("input[name='tqze']").blur(function(){
+      var num=parseInt($("input[name='grzhye']").val());
+        if($(this).val()>num){
+          $(this).css("border","1px solid #F00");
+        }else{
+          $(this).css("border","1px solid #ddd");
+        }
       })
        /* 序列化表单 */
        $.fn.serializeObject = function() {

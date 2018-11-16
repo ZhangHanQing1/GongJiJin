@@ -18,7 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <h2 class="text-center" style="width: 60%;margin-left: 20%"><a href="javascript:void(0)" id="one">合并审批</a>/<a href="javascript:void(0)" id="two">提取审批</a></h2>
+    <h2 class="text-center" style="width: 60%;margin-left: 20%"><a href="javascript:void(0)" id="one">合并审批</a>
+    /<a href="javascript:void(0)" id="two">提取审批</a></h2>
     <table class="table table-bordered table-hover text-center" style="width: 60%;margin-left: 20%" id="zhhbjlb">
       <thead>
         <tr>
@@ -47,15 +48,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <td>提取金额</td>
           <td>申请时间</td>
           <td>提取原因</td>
+          <td>状态</td>
         </tr>
       </thead>
-      <tbody id="">
+      <tbody id="gjjtqs">
       
       </tbody>
     </table>
     <script type="text/javascript">
       $(function(){
 		    $("#gjjtq").hide();
+		    findGjjtq();
       })
     	 /* 简易选择卡切换 */
 		$("#one,#two").click(function(){
@@ -80,10 +83,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        dataType:"json",
 	        success:function(data){
 	          $("#zhhbs").empty();
-	          var caozuo="";
 	          $.each(data, function(){
+	            var caozuo="";
 	            if(this.tzzd1=="未审批"){
-	              caozuo="&nbsp;||&nbsp;<a onclick='confirmZhhbjlb("+this.jlbh+")' href='javascript:void(0)'>通过</a>&nbsp;||&nbsp;<a onclick='' href='javascript:void(0)'>不通过</a>";
+	              caozuo="&nbsp;||&nbsp;<a onclick='confirmZhhbjlb("+this.jlbh+")' href='javascript:void(0)'>通过</a>&nbsp;||&nbsp;"
+	              +"<a onclick='' href='javascript:void(0)'>不通过</a>";
 	            }
 	            var tr="<tr>";
 	            tr+="<td>"+this.jlbh+"</td>";
@@ -98,6 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        }
 	      })
       }
+      /* 通过账户合并审批 */
       function confirmZhhbjlb(jlbh){
 	      $.ajax({
 	        url:'zhhbjlb/confirmZhhbjlb',
@@ -110,6 +115,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          if(data==1){
 	            alert("账户合并成功!");
 	            findByConditions();
+	          }
+	        }
+	      })
+      }
+      /* 查询公积金提取申请 */
+      function findGjjtq(){
+	      $.ajax({
+	        url:'tqspb/selectTqspb',
+	        type:'post',
+	        async:true,
+			contentType : "application/x-www-form-urlencoded;charset=utf-8",
+	        dataType:"json",
+	        success:function(data){
+	          $("#gjjtqs").empty();
+	          var caozuo="";
+	          $.each(data, function(){
+	            if(this.SPZT2=="未审核"){
+	              caozuo="&nbsp;||&nbsp;<a onclick='passGjjtq("+this.TQBH+")' href='javascript:void(0)'>通过</a>&nbsp;||&nbsp;"
+	              +"<a onclick='' href='javascript:void(0)'>不通过</a>";
+	            }
+	            var tr="<tr>";
+	            tr+="<td>"+this.GRBH+"</td>";
+	            tr+="<td>"+this.XINGMING+"</td>";
+	            tr+="<td>"+this.SBZH+"</td>";
+	            tr+="<td>"+this.DWZH3+"</td>";
+	            tr+="<td>"+this.DWMC2+"</td>";
+	            tr+="<td>"+this.GRZHYE+"</td>";
+	            tr+="<td>"+this.TQLX+"</td>";
+	            tr+="<td>"+this.TQZE+"</td>";
+	            tr+="<td>"+this.SQSJ+"</td>";
+	            tr+="<td>"+this.TQYYNR+"</td>";
+	            tr+="<td>"+this.SPZT2+caozuo+"</td>";
+	            tr+="</tr>";
+	            $("#gjjtqs").append(tr);
+	          })
+	        }
+	      })
+      }
+      /* 通过公积金提取申请 */
+      function passGjjtq(tqbh){
+	      $.ajax({
+	        url:'tqspb/passTqspb',
+	        type:'post',
+	        async:true,
+	        data:{"tqbh":tqbh},
+			contentType : "application/x-www-form-urlencoded;charset=utf-8",
+	        dataType:"text",
+	        success:function(data){
+	          if(data==1){
+	            alert("公积金提取成功!");
+	            findGjjtq();
 	          }
 	        }
 	      })

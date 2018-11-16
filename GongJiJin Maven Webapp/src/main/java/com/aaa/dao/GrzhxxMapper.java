@@ -11,9 +11,9 @@ public interface GrzhxxMapper {
     int insert(Grzhxx record);
     /*个人开户*/
     int insertSelective(Map<String,Object> map);
-
+    /*查询个人信息(查看个人详细信息用)*/
     Grzhxx selectByPrimaryKey(Integer grbh);
-
+    /*修改个人信息*/
     int updateByPrimaryKeySelective(Grzhxx record);
 
     int updateByPrimaryKey(Grzhxx record);
@@ -27,8 +27,12 @@ public interface GrzhxxMapper {
     List<Map<String, Object>> findBySbzh(Map<String,Object> map);
     /*个人账户的封存*/
     int fengcun(Integer grbh);
+    /*个人账户的启封*/
+    int qifeng(Integer grbh);
     /*个人账户余额的变更*/
     int changeGrzhye(Map<String, Object> map);
     /*查询个人账户信息(公积金提取用)*/
     Map<String, Object> selectByGrbh(Integer grbh);
+    /*检查员工是否在该公司已经开过户*/
+    public List<String> selectSbzhByDwbh(Integer dwzh);
 }

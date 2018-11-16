@@ -18,30 +18,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <form action="" class="">
-      <table class="table table-bordered text-center">
+    <form>
+      <table class="table table-bordered text-center" style="width:60%;margin-left:20%">
         <caption class="text-center h2" >账户合并</caption>
         <thead>
+            <tr id="newZh">
+              <td class="input-group" style="border-bottom-color: #fff;width: 400px;">
+	              <span class="input-group-addon">
+	                保留账户:
+	              </span>
+	              <input type="text" class="form-control"  placeholder="请输入" id="blgrzh"/>
+	              <span class="input-group-btn">
+	                <input type="button" class="btn btn-default"  id="selectById" value="确认"/>
+	              </span>
+	          </td>
+            </tr>
 	        <tr>
-		        <td>公积金账户</td>
-		        <td style="width:200px;">姓名</td>
-		        <td style="width:200px;">公司名称</td>
-		        <td style="width:200px;">余额</td>
-		        <td style="width:200px;">证件信息</td>
+		        <td style="width: 400px">公积金账户</td>
+		        <td>姓名</td>
+		        <td>公司名称</td>
+		        <td>余额</td>
+		        <td>证件信息</td>
+		        <td>操作</td>
 	        </tr>
         </thead>
         <tbody id="zhxxs">
-          <tr id="newZh">
-            <td class="input-group" style="border-top-color: #fff">
-	            <span class="input-group-addon">
-	              保留账户:
-	            </span>
-	            <input type="text" class="form-control"  placeholder="请输入" id="blgrzh"/>
-	            <span class="input-group-btn">
-	              <input type="button" class="btn btn-default"  id="selectById" value="确认"/>
-	            </span>
-	        </td>
-          </tr>
+
         </tbody>
       </table>
     </form>
@@ -56,17 +58,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 data:{"grbh":grbh},
 		        dataType:"json",
 		        success:function(data){
-		           /* [{xingming=田统一, grbh=1, dwmc2=单位一号, grzhye=3200, sbzh=41272319981014xxxx}, 
-		           {xingming=田统一, grbh=3, dwmc2=单位一号, sbzh=41272319981014xxxx}] */
-		           $("#newZh").append("<td>"+data[0].xingming+"</td><td>"+data[0].dwmc2
-		           +"</td><td>"+data[0].grzhye+"元</td><td>"+data[0].sbzh+"</td>");
 		           var tr="";
 		           $.each(data, function(index,object){
-		             if(object.grbh==grbh){
-		             }else{
-		               tr+="<tr><td>"+object.grbh+"&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-default' onclick='insertZhhbjlb("+object.grbh+")' type='button' value='合并此账户'/></td><td>"+object.xingming+"</td><td>"
-		               +object.dwmc2+"</td><td>"+object.grzhye+"元</td><td>"+object.sbzh+"</td></tr>";
-		             }
+		               if(grbh==object.grbh){
+		                 caozuo="保留账户";
+		               }else{
+		                 caozuo="<input class='btn btn-default' onclick='insertZhhbjlb("+object.grbh+")' type='button' value='合并此账户'/>";
+		               }
+		               tr+="<tr><td>"+object.grbh+"</td><td>"+object.xingming+"</td><td>"
+		               +object.dwmc2+"</td><td>"+object.grzhye+"元</td><td>"+object.sbzh
+		               +"</td><td>"+caozuo+"</td></tr>";
 		           })
 		           $("#zhxxs").append(tr);
 		        }

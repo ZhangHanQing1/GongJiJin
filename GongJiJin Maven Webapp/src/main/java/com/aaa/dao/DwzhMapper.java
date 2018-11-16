@@ -34,4 +34,6 @@ public interface DwzhMapper {
     void JiShuAdd(TongYong tongYong);
     //个人基数变更记录
     public List<Map> selectJiShu();
+    
+    List<Map<String,Object>> findAllDwzh();
 }

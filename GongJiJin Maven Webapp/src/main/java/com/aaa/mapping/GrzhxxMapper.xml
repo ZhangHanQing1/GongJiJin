@@ -15,8 +15,9 @@
       <where>
         <if test="dwmc2!=null">dwmc2 like concat(concat('%',#{dwmc2}),'%')</if>
         <if test="xingming!=null"> and xingming like concat(concat('%',#{xingming}),'%')</if>
-        <if test="grbh != null "> and g.grbh=#{grbh}</if>
+        <if test="grbh != null "> and g.grbh=#{grbh} </if>
       </where>
+      order by g.grzhzt desc
   </select>
   <!-- 查询个人账户信息(账户合并用) -->
   <select id="findById" parameterType="java.lang.Integer" resultType="map">
@@ -32,9 +33,17 @@
   <update id="fengcun" parameterType="java.lang.Integer">
     update grzhxx set grzhzt='封存中' where grbh=#{grbh}
   </update>
+  <!-- 个人账户的启封 -->
+  <update id="qifeng" parameterType="java.lang.Integer">
+    update grzhxx set grzhzt='正常' where grbh=#{grbh}
+  </update>
+  <!-- 改变账户余额 -->
   <update id="changeGrzhye" parameterType="map">
     update grzhxx set grzhye=#{grzhye} where grbh=#{grbh}
   </update>
+  <select id="selectSbzhByDwbh" parameterType="java.lang.Integer" resultType="java.lang.String">
+    select sbzh from grzhxx where dwbh=#{dwbh}
+  </select>
   <resultMap id="BaseResultMap" type="com.aaa.entity.Grzhxx">
     <id column="GRBH" jdbcType="INTEGER" property="grbh" />
     <result column="DWBH" jdbcType="INTEGER" property="dwbh" />

@@ -38,6 +38,9 @@
     DWJCRS, DWZHYE, DWXHRQ, DWXHYY, JZNYR, QJJE, QJYS, ZCKYE, DWMC2, DWDZ, FRXM, FXR, 
     JBRXM, JBRDH, GSCLRQ, JGDM, DWKHRQ, DWXZ, DWDH
   </sql>
+  <select id="findAllDwzh" resultType="map">
+    select * from dwzh d inner join dwzhzt dz on d.dwzhztbh=dz.dwzhztbh order by d.dwzhztbh
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

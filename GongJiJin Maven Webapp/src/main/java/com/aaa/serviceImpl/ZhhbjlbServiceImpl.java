@@ -26,7 +26,7 @@ public class ZhhbjlbServiceImpl implements ZhhbjlbService {
 	public int insertZhhbjlb(Map<String, Object> map) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		map.put("cjsj", dateFormat.format(new Date(System.currentTimeMillis())));
-		map.put("tzzd1", "未审批");
+		map.put("tzzd1", "未审核");
 		Grzhxx oldGrzhxx=grzhxxMapper.selectByPrimaryKey((Integer) map.get("xhgrzh"));
 		map.put("xhgrzhye", oldGrzhxx.getGrzhye());
 		mapper.insertzhhbjlb(map);
@@ -35,20 +35,20 @@ public class ZhhbjlbServiceImpl implements ZhhbjlbService {
 	@Transactional
 	@Override
 	public int confirmZhhbjlb(Integer jlbh) {
-		Zhhbjlb zhhbjlb=mapper.selectByPrimaryKey(jlbh);//获取到账户合并记录
-		Grzhxx newGrzhxx=grzhxxMapper.selectByPrimaryKey(zhhbjlb.getBlgrzh());//获取到保留账户
-		Grzhxx oldGrzhxx=grzhxxMapper.selectByPrimaryKey(zhhbjlb.getXhgrzh());//获取到销户账户
+		Zhhbjlb zhhbjlb=mapper.selectByPrimaryKey(jlbh);//鑾峰彇鍒拌处鎴峰悎骞惰褰�
+		Grzhxx newGrzhxx=grzhxxMapper.selectByPrimaryKey(zhhbjlb.getBlgrzh());//鑾峰彇鍒颁繚鐣欒处鎴�
+		Grzhxx oldGrzhxx=grzhxxMapper.selectByPrimaryKey(zhhbjlb.getXhgrzh());//鑾峰彇鍒伴攢鎴疯处鎴�
 		Map<String, Object> map=new HashMap<String, Object>();
 		map.put("grbh", newGrzhxx.getGrbh());
 		map.put("grzhye", newGrzhxx.getGrzhye().add(oldGrzhxx.getGrzhye()));
-		grzhxxMapper.changeGrzhye(map);//为保留账户进行余额的增加
+		grzhxxMapper.changeGrzhye(map);//涓轰繚鐣欒处鎴疯繘琛屼綑棰濈殑澧炲姞
 		Map<String, Object> map2=new HashMap<String, Object>();
 		BigDecimal zero=new BigDecimal(0);
 		map2.put("grbh", oldGrzhxx.getGrbh());
 		map2.put("grzhye", zero);
-		grzhxxMapper.changeGrzhye(map2);//为销户账户进行余额的清零
-		grzhxxMapper.fengcun(oldGrzhxx.getGrbh());//封存销户账户
-		//账户合并申请审批状态修改
+		grzhxxMapper.changeGrzhye(map2);//涓洪攢鎴疯处鎴疯繘琛屼綑棰濈殑娓呴浂
+		grzhxxMapper.fengcun(oldGrzhxx.getGrbh());//灏佸瓨閿�鎴疯处鎴�
+		//璐︽埛鍚堝苟鐢宠瀹℃壒鐘舵�佷慨鏀�
 		Zhhbjlb zhhb1=new Zhhbjlb();
 		zhhb1.setJlbh(jlbh);
 		zhhb1.setTzzd1("已通过");

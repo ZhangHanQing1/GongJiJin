@@ -206,7 +206,7 @@
   <!--根据单位编号查询个人信息  -->
   <select id="selectGR" resultType="Map" parameterType="Integer">
   
-  select  GRYJCE,DWYJCE,GRJCJS3 from grzhxx where grzhxx.dwbh=#{dwbh}
+  select  GRYJCE,DWYJCE,GRJCJS3 from grzhxx where grzhxx.dwbh=#{dwbh} and grzhzt='正常'
   </select>
    <!--根据单位编号查询个人信息  -->
   <select id="selectG" resultType="Map" parameterType="Map">
@@ -239,7 +239,7 @@
  <!-- //单位汇缴明细查询 -->
 	<select id="selectHui" resultType="Map" parameterType="String">
 	  select FSRS,FSE3,HBCJNY,DWMC2,DWYWLSH,jjmc,fsys from dwywmxb join dwzh on dwywmxb.dwbh=dwzh.dwbh join hjfs on hjfs.jjbh=dwywmxb.jjbh
-	   where  DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%') 
+	   where  DWMC2 like concat('%',#{dwmc2,jdbcType=VARCHAR},'%') order by DWYWLSH desc
 	</select>
 	 <!-- //个人明细查询 -->
 	<select id="selectGRM" resultType="Map" parameterType="Integer">

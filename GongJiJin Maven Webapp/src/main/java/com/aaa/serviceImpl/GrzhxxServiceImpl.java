@@ -2,7 +2,6 @@ package com.aaa.serviceImpl;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -12,16 +11,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.aaa.dao.DwzhMapper;
 import com.aaa.dao.GrzhxxMapper;
+import com.aaa.entity.Grzhxx;
 import com.aaa.service.GrzhxxService;
 @Service
 public class GrzhxxServiceImpl implements GrzhxxService {
     @Autowired
     private GrzhxxMapper grzhxxMapper;
+    @Autowired
+    private DwzhMapper dwzhMapper;
 	@Override
 	public int insertGrzhxx(Map<String,Object> map) {
 		map.put("grzhzt","正常");
-		map.put("khrq", new Date());
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		map.put("khrq", dateFormat.format(new Date(System.currentTimeMillis())));
 		map.put("grzhye",0);
 		return grzhxxMapper.insertSelective(map);
 	}
@@ -47,7 +51,7 @@ public class GrzhxxServiceImpl implements GrzhxxService {
 				map.put("jtzz",strings[13]);
 				map.put("yhcxzh",strings[14]);
 				map.put("grjcjs3",strings[15]);
-				/*默认值设置*/
+				/*榛樿鍊艰缃�*/
 				map.put("grzhzt","正常");
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				map.put("khrq", dateFormat.format(new Date(System.currentTimeMillis())));
@@ -72,6 +76,12 @@ public class GrzhxxServiceImpl implements GrzhxxService {
 		if(map.get("grbh")==null||map.get("grbh")==""||map.get("grbh").equals("")){
 			map.remove("grbh");
 		}
+		if(map.get("xingming")==null||map.get("xingming")==""||map.get("xingming").equals("")){
+			map.remove("xingming");
+		}
+		if(map.get("dwmc2")==null||map.get("dwmc2")==""||map.get("dwmc2").equals("")){
+			map.remove("dwmc2");
+		}
 		return grzhxxMapper.findByConditions(map);
 	}
 	@Override
@@ -87,5 +97,37 @@ public class GrzhxxServiceImpl implements GrzhxxService {
 	@Override
 	public Map<String, Object> selectByGrbh(Integer grbh) {
 		return grzhxxMapper.selectByGrbh(grbh);
+	}
+	@Override
+	public List<Map<String, Object>> findAllDwzh() {
+		return dwzhMapper.findAllDwzh();
+	}
+	@Override
+	public Grzhxx selectByPrimaryKey(Integer grbh) {
+		return grzhxxMapper.selectByPrimaryKey(grbh);
+	}
+	@Override
+	public int updateByPrimaryKeySelective(Grzhxx record) {
+		// TODO Auto-generated method stub
+		return grzhxxMapper.updateByPrimaryKeySelective(record);
+	}
+	@Override
+	public int fengcun(Integer grbh) {
+		return grzhxxMapper.fengcun(grbh);
+	}
+	@Override
+	public int qifeng(Integer grbh) {
+		return grzhxxMapper.qifeng(grbh);
+	}
+	@Override
+	public int checkSbzh(Integer dwzh, String sbzh) {
+		List<String> sbzhs=grzhxxMapper.selectSbzhByDwbh(dwzh);
+		int i=0;
+		for (String sbzh1 : sbzhs) {
+			if(sbzh==sbzh1||sbzh.equals(sbzh1)){
+				i=1;
+			}
+		}
+		return i;
 	}
 }

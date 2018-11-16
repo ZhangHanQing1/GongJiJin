@@ -35,10 +35,10 @@ public class GrywController {
     /*查询个人缴费历史记录*/
     @ResponseBody
     @RequestMapping("selectById")
-    public PageInfo<Grywmxxx> selectById(@RequestParam int grzh,@RequestParam(required = false, defaultValue = "1") Integer startPage,
-            @RequestParam(required = false, defaultValue = "2") Integer PageSize){
+    public PageInfo<Grywmxxx> selectById(@RequestParam int grbh,@RequestParam(required = false, defaultValue = "1") Integer startPage,
+            @RequestParam(required = false, defaultValue = "5") Integer PageSize){
     	PageHelper.startPage(startPage,PageSize);
-    	List<Grywmxxx> list=service.selectById(grzh);
+    	List<Grywmxxx> list=service.selectById(grbh);
     	PageInfo<Grywmxxx> pi=new PageInfo<Grywmxxx>(list);
     	return pi;
     }

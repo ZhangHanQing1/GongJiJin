@@ -11,6 +11,8 @@ public interface GrywmxxxMapper {
     int insert(Grywmxxx record);
     /*ä¸ªäººç¼´è´¹*/
     int insertByMap(Map<String, Object> map);
+    
+    void insertSelective(Grywmxxx record);
 
     Grywmxxx selectByPrimaryKey(Integer grywmxbh);
 
@@ -19,8 +21,4 @@ public interface GrywmxxxMapper {
     int updateByPrimaryKey(Grywmxxx record);
     /* æŸ¥è¯¢ä¸ªäººç¼´è´¹å†å²è®°å½•*/
     List<Grywmxxx> selectById(int grbh);
-    //¸öÈËÃ÷Ï¸Ìí¼Ó
-    int insertSelective(Grywmxxx record);
-
-    
 }

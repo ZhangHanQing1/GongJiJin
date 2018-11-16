@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<thead>
 		<tr>
-			
+			<th>单位流水号</th>
 			<th>单位名称</th>
 			<th>发生人数</th>
 			<th>发生金额</th>
@@ -120,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          $("#tbody").empty();
          for(var i=0;i<list.length;i++){
                var tr="<tr>";
-                 
+                tr+="<td>"+list[i].DWYWLSH+"</td>"; 
                  tr+="<td>"+list[i].DWMC2+"</td>";
                  tr+="<td>"+list[i].FSRS+"</td>";
                  tr+="<td>"+list[i].FSE3+"</td>";
