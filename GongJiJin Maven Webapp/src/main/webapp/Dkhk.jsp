@@ -43,17 +43,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <script type="text/javascript">
     $(function(){			
-			queryAll();			
+			queryAll(1);			
 		});
 		//查询所有
-		function queryAll(){
+		function queryAll(startPage){
+			$("#tab1").html("");
 			$.ajax({
 				url:"ydtqsp/all",
 				type:"post",
+				data : {
+					"startPage" : startPage
+				},
 				dataType:"json",
 				success:function(data){
-					for(var i=0;i<data.length;i++){
-						var obj=data[i];	
+					var ary=data.list;
+					for(var i=0;i<ary.length;i++){
+						var obj=ary[i];		
 						if(obj.SPZT2=="已发放"){					
 						var tr="<tr>";
 						tr+="<td>"+obj.YDTQSPZJ+"</td>";
@@ -66,12 +71,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						tr+="<td>"+obj.DKZH+"</td>";						
 						tr+="<td><input type='button' value='结算' class='button' data-toggle='modal' data-target='#myModal' onclick='hkjhIdd("+obj.YDTQSPZJ+")'/></td>";						
 						tr+="</tr>"; 
-						$("#tab1").append(tr);}
-						
+						$("#tab1").append(tr);
+						}						
 					}
+				$("#currPage").val(data.pageNum);
+				$("#aa").val(data.total);
+				$("#bb").val(data.pageSize);
+				$("#currPage").blur(function() {
+					var last = Math.ceil(data.total / data.pageSize);
+					var curr = $("#currPage").val();
+					if(last<curr){
+					   $("#currPage").val(last);
+					   queryAll(last);
+					}
+					if(curr<=0){
+					  $("#currPage").val(1);
+					   queryAll(1);
+					}
+					 queryAll(curr);
+				});				
+				if (data.isFirstPage) {
+					$("#syy").attr("disabled", "disabled");
+					$("#shouye").attr("disabled", "disabled");
+				} else {
+					$("#syy").removeAttr("disabled", "disabled");
+					$("#shouye").removeAttr("disabled", "disabled");
 				}
+				if (data.isLastPage) {
+					$("#xyy").attr("disabled", "disabled");
+					$("#weiye").attr("disabled", "disabled");
+				} else {
+					$("#xyy").removeAttr("disabled", "disabled");
+					$("#weiye").removeAttr("disabled", "disabled");
+				}
+				}				
 			})
-		}    
+		}   
+		function syy(){
+		var currPage = parseInt($("#currPage").val());
+		queryAll(currPage - 1);
+	}
+	function xyy(){
+		var currPage = parseInt($("#currPage").val());
+		queryAll(currPage + 1);
+	}
+	function shouye(){
+		queryAll(1);
+	}
+	function weiye(){
+		var tt=$("#aa").val();
+		var tt1=$("#bb").val();
+		var last = Math.ceil(tt/tt1);
+		queryAll(last);
+				}
         //根据商品id查询单个商品信息
 		function hkjhIdd(obj){
 			var YDTQSPZJ=obj;
@@ -84,8 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				},
 				dataType:'json',
 				success:function(data){	
-				/* for(var i=0;i<data.length;i++){
-						var obj=data[i];			 */	
+				   
 	                $("#did").val(data.YDTQSPZJ);    		     
                     $("#jkrxm").val(data.JKRXM);
 					$("#dkzh").val(data.DKZH);
@@ -102,55 +153,84 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					$("#QIC").val(data.QIC);
 					$("#user_name").val(data.user_name);										
 				    $("#tab2").append(tr);
-											
+					shen();		
+							
 				}
 			})
 		} 
-function shen(){
-   
+		var arr=[]; 
+		
+function shen(){   
+       $("#tab3").html("");
        var ben = document.getElementById("TZZD2").value;
        var qi = document.getElementById("QIC").value;
        var lv = document.getElementById("dklx").value;
        var v=1;      
         /*
-             总利息 = 总贷款额 X 月利率 X ( 还款期数 - 1 ) /2
+                 总利息 = 总贷款额 X 月利率 X ( 还款期数 - 1 ) /2
         */
-      var zongxi = ben * lv * (qi -1) /2; 
-         
+       var zongxi = ben * lv * (qi -1) /2;          
         /*
-     每月还款额 = 总贷款额 X 月利率 X ( 1+月利率 ) ^ 还款期数 / ( ( 1+月利率 ) ^ 还款期数 -1 )
-      
+      每月还款额 = 总贷款额 X 月利率 X ( 1+月利率 ) ^ 还款期数 / ( ( 1+月利率 ) ^ 还款期数 -1 )     
         */      
-      var moon =(Number(ben) * Number(lv) * (Math.pow(Number(v)+Number(lv),Number(qi))))/((Math.pow(Number(v)+Number(lv),Number(qi)))-1);
-        
-        
+       var moon =(Number(ben) * Number(lv) * (Math.pow(Number(v)+Number(lv),Number(qi))))/((Math.pow(Number(v)+Number(lv),Number(qi)))-1);               
         //以还本金
         var yi_ben = 0;
         var z_xi=0;
         var tr="<tr>";	
+       	
         for(var i = 1;i<(Number(qi)+1);i++){
             //本月还的利息
-            var moon_xi = (Number(ben) - Number(yi_ben)) * Number(lv);        
-            
+            var moon_xi = (Number(ben) - Number(yi_ben)) * Number(lv);                    
             z_xi += moon_xi;
             //本月还的本金
-            var moon_ben = Number(moon)-Number(moon_xi);
-            
+            var moon_ben = Number(moon)-Number(moon_xi);            
             yi_ben +=  moon_ben;
-            var sheng_ben = Number(ben) - Number(yi_ben);               
-            var html = "<tr><td>"+i+"</td><td>"+moon_xi.toFixed(2)+"</td><td>"+moon_ben.toFixed(2)+"</td><td>"+moon.toFixed(2)+"</td><td>"+sheng_ben.toFixed(2)+"</td></tr>";
-            $(".suning").append(html);
-
+            var sheng_ben = Number(ben) - Number(yi_ben); 
+              if(arr[i]==i){
+              var html = "<tr><td><input type='checkbox' disabled='disabled' name='q' /></td><td>"+i+"</td><td>"+moon_xi.toFixed(2)+"</td><td>"+moon_ben.toFixed(2)+"</td><td>"+moon.toFixed(2)+"</td><td>"+sheng_ben.toFixed(2)+"</td></tr>";
+              }else{
+              var html = "<tr><td><input type='checkbox' name='q' /></td><td>"+i+"</td><td>"+moon_xi.toFixed(2)+"</td><td>"+moon_ben.toFixed(2)+"</td><td>"+moon.toFixed(2)+"</td><td>"+sheng_ben.toFixed(2)+"</td></tr>";
+              }
+            
+            $(".suning").append(html);                
         }
-          
-}                                
-    
-             
-    </script>
+         $("#zz").val(moon.toFixed(2)); 
+}           
+         
+          function jujue(obj){
+         	var HKJHZJ=obj;	
+         		
+			$.ajax({
+				url:"ydtqsp/update10",
+				type:"post",
+				data:{			
+					"hkjhzj":$("#HKJHZJ").val()
+				},								
+				success:function(){
+				   
+				
+				
+              }
+         })
+       }           
+    function myFunction(){
+      
+     $("input[name=q]:checked").parent().next().html("");    
+     $("input[name=q]:checked").attr("disabled","disabled");
+     arr.push($("input[name=q]:checked").parent().next().html(""));
+	 alert("还款成功！");
+	 jujue();		
+	  
+}            
 
-  </head>
-  
+
+    </script>
+  </head>  
   <body>
+
+    <input type="hidden" id="aa"/>
+      <input type="hidden" id="bb"/>
     	<table class="table table-striped">   	  
     	<thead>
     		<tr>
@@ -166,7 +246,14 @@ function shen(){
     		</tr>   		
     		</thead>
     		<tbody id="tab1"></tbody>
-    	</table>     	    	
+    	</table>   
+    	<ul class="pager" id="ul1" style="display: block;">
+		<li><button type="button" class="btn btn-default" id="shouye" onclick="shouye()">首页</button></li>
+		<li><button type="button" class="btn btn-default" id="syy" onclick="syy()">上一页</button></li>
+		<li><button type="button" class="btn btn-default" id="xyy" onclick="xyy()">下一页</button></li>
+		<li><button type="button" class="btn btn-default" id="weiye" onclick="weiye()">尾页</button></li>
+		<li style="font-weight: lighter;">当前第<input type="text" id="currPage" style="height:35px;width:50px;border-radius:10px;text-align: center;"/>页</li>
+		</ul>     	    	
     	<!-- 模态框（Modal） -->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog " style="width:1000px;">
@@ -182,7 +269,7 @@ function shen(){
 			<div class="modal-body">
 				<table class="table table-striped">
      <caption><h1>还款信息</h1></caption>
-  <tbody id="tab1">
+  <tbody id="tab2">
       <tr>
       <td>计划编号：</td>
       <td><input type="text" class="form-control" id="HKJHZJ" readonly="readonly"/><input type="hidden" id="did">
@@ -213,49 +300,50 @@ function shen(){
       <td>发放日期：</td>
       <td><input type="text" class="form-control" id="spsj" readonly="readonly"/></td>   
       <td>操作人员：</td>
-      <td><select  class="form-control"><option>统一</option><option >老汉</option><option >酸菜</option><option >牛肉面</option></select></td>
-         
+      <td><select  class="form-control"><option>统一</option><option >老汉</option><option >酸菜</option><option >牛肉面</option></select></td>         
       </tr>
     </tbody>
 </table>	
+  <form >
 <table class="table table-striped suning" id="suning">   	  
     	<thead>
-    		<tr>   			
+    		<tr>
+    		    <th></th>   			
     			<th>期次</th>    			
     			<th>应还利息</th>
     			<th>应还本金</th>
     			<th>应还总额</th>
     			<th>剩余金额</th>   			     			  			    			    	    				
-    		</tr>
-    		<tr >  			
-    					 
-    			
-				   			
-    		</tr>
+    		</tr>    		
+    		  
+    		   			   					     							   			
+    		
     		</thead>
-    		<tbody id="tab2"></tbody>
+    		<tbody id="tab3">
+    		 
+    		   		   					     							   			
+    		
+    		
+    		</tbody>
     	</table>
     	<table class="table table-striped " >   	  
     	<thead>
     		<tr>   			
     			<th>还款金额</th>    			
     			<th>支付密码</th>
-    			<th>操作</th>
-    					     			  			    			    	    				
+    			<th>操作</th>    					     			  			    			    	    				
     		</tr>
     		<tr >  			
-    			<td><input type="text" class="form-control" id="" /></</td>		 
+    			<td><input type="text" class="form-control" id="zz" readonly="readonly"/></td>		 
     			<td><input type="password" class="form-control" id="" /></</td>
-    			<td><button type="button">确认还款</button></td>		 
-    			
-				   			
+    			<td><button type="button" onclick="myFunction()">确认还款</button></td>		     							   			
     		</tr>
     		</thead>
-    		<tbody id="tab2"></tbody>
+    		
     	</table>  													
 				</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" onclick="shen()">生成计划
+				<button type="button" class="btn btn-default" data-dismiss="modal" >关闭
 				</button>
 				<button type="button" class="btn btn-primary"  data-dismiss="modal">
 					完成
@@ -264,6 +352,6 @@ function shen(){
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
-
+</form>
   </body>
 </html>

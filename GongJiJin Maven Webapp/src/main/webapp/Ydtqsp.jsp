@@ -39,20 +39,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 }
  .button3 {background-color: #f44336;} /* Red */ 
    </style>
+   
+   
 	<script type="text/javascript">
 		$(function(){			
-			queryAll();			
+			queryAll(1);			
 		});
 		//查询所有
-		function queryAll(){
+		function queryAll(startPage){
+			$("#tab1").html("");
 			$.ajax({
 				url:"ydtqsp/all",
 				type:"post",
+				data : {
+					"startPage" : startPage
+				},
 				dataType:"json",
 				success:function(data){
-					for(var i=0;i<data.length;i++){
-						var obj=data[i];
-						if(obj.SPZT2=="待审批"){												
+					var ary=data.list;
+					for(var i=0;i<ary.length;i++){						
+						var obj=ary[i];	
+							if(obj.SPZT2=="待审批"){											
 						var tr="<tr>";
 						tr+="<td>"+obj.YDTQSPZJ+"</td>";
 						tr+="<td>"+obj.HTZJ+"</td>";
@@ -65,9 +72,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						tr+="</tr>"; 
 						$("#tab1").append(tr);}
 					}
+				$("#currPage").val(data.pageNum);
+				$("#aa").val(data.total);
+				$("#bb").val(data.pageSize);
+				$("#currPage").blur(function() {
+					var last = Math.ceil(data.total / data.pageSize);
+					var curr = $("#currPage").val();
+					if(last<curr){
+					   $("#currPage").val(last);
+					   queryAll(last);
+					}
+					if(curr<=0){
+					  $("#currPage").val(1);
+					   queryAll(1);
+					}
+					 queryAll(curr);
+				});
+				
+				if (data.isFirstPage) {
+					$("#syy").attr("disabled", "disabled");
+					$("#shouye").attr("disabled", "disabled");
+				} else {
+					$("#syy").removeAttr("disabled", "disabled");
+					$("#shouye").removeAttr("disabled", "disabled");
 				}
+				if (data.isLastPage) {
+					$("#xyy").attr("disabled", "disabled");
+					$("#weiye").attr("disabled", "disabled");
+				} else {
+					$("#xyy").removeAttr("disabled", "disabled");
+					$("#weiye").removeAttr("disabled", "disabled");
+				}
+				}
+				
 			})
-		}    
+		}   
+		function syy(){
+		var currPage = parseInt($("#currPage").val());
+		queryAll(currPage - 1);
+	}
+	function xyy(){
+		var currPage = parseInt($("#currPage").val());
+		queryAll(currPage + 1);
+	}
+	function shouye(){
+		queryAll(1);
+	}
+	function weiye(){
+		var tt=$("#aa").val();
+		var tt1=$("#bb").val();
+		var last = Math.ceil(tt/tt1);
+		queryAll(last);
+				}
 		
 		//根据商品id查询单个商品信息
 		function queryId(obj){
@@ -179,6 +235,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   	
   <body>
+    <input type="hidden" id="aa"/>
+<input type="hidden" id="bb"/>
     	<table class="table table-striped">
     
     	<thead>
@@ -195,7 +253,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		</thead>
     		<tbody id="tab1"></tbody>
     	</table>
-    
+    <ul class="pager" id="ul1" style="display: block;">
+		<li><button type="button" class="btn btn-default" id="shouye" onclick="shouye()">首页</button></li>
+		<li><button type="button" class="btn btn-default" id="syy" onclick="syy()">上一页</button></li>
+		<li><button type="button" class="btn btn-default" id="xyy" onclick="xyy()">下一页</button></li>
+		<li><button type="button" class="btn btn-default" id="weiye" onclick="weiye()">尾页</button></li>
+		<li style="font-weight: lighter;">当前第<input type="text" id="currPage" style="height:35px;width:50px;border-radius:10px;text-align: center;"/>页</li>
+		</ul>   
     <!-- 模态框（Modal） -->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog " style="width:1500px;">

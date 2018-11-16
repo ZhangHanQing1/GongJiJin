@@ -41,33 +41,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
       <tr>
       <td>个人账户：</td>
-      <td><input type="text" class="form-control" name="gtjkrgjjzh" /></td>
-      <td>姓名：</td>
-      <td><input type="text" class="form-control" name="gtjkrxm" /></td>
-      </tr>
-      <tr>
-      <td>手机号码：</td>
-      <td><input type="text" class="form-control" name="gtjkrsjhm" /></td>
-      <td>单位编号：</td>
-      <td><input type="text" class="form-control" name="gtjkrdwzh" /></td>
-      </tr>
-      <tr>
-      <td>固定电话号码：</td>
-      <td><input type="text" class="form-control" name="gddhhm2" /></td>       
+      <td><input type="text" class="form-control" name="gtjkrgjjzh" placeholder="请输入" /></td>
       <td>单位名称：</td>
-      <td><input type="text" class="form-control" name="gtjkrdwmc" /></td>
+      <td><input type="text" class="form-control" name="gtjkrdwmc"  placeholder="请输入"/></td>      
+      </tr>
+      <tr>
+      <td>单位编号：</td>
+      <td><input type="text" class="form-control" name="gtjkrdwzh"  placeholder="请输入"/></td>
+      <td>固定电话号码：</td>
+      <td><input type="text" class="form-control" name="gddhhm2"  placeholder="请输入"/></td>        
       </tr>
       <tr>
       <td>单位电话：</td>
-      <td><input type="text" class="form-control" name="sjhm2" /></td>     
+      <td><input type="text" class="form-control" name="sjhm2"  placeholder="请输入"/></td>     
       <td>单位地址：</td>
-      <td><input type="text" class="form-control" name="gtjkrdwdz" /></td>
+      <td><input type="text" class="form-control" name="gtjkrdwdz"  placeholder="请输入"/></td>
       </tr>
+      <tr>
+      <td>姓名：</td>
+      <td><input type="text" class="form-control" name="gtjkrxm" placeholder="请输入" /></td>
+      <td>手机号码：</td>
+      <td><input type="text" class="form-control" name="gtjkrsjhm"  placeholder="请输入"/></td>
+      </tr>     
       <tr>
       <td>证件类型：</td>
       <td><select name="gtjkrzjlx" class="form-control"><option>身份证</option><option >户口本</option></select>
       <td>证件号码：</td>
-      <td><input type="text" class="form-control" name="gtjkrzjhm" /></td>      
+      <td><input type="text" class="form-control" name="gtjkrzjhm"  placeholder="请输入"/></td>      
     </tr>
     
      

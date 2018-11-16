@@ -56,6 +56,7 @@ private GrywmxxxMapper daooo;
 		  	  gr.setDwje(DWYJCE);
 		  	  gr.setGrje(GRYJCE);
 		  	  gr.setFse3(fse);
+		  	  
 		  	  daooo.insertSelective(gr);	  
 		}
 		System.out.println(list);

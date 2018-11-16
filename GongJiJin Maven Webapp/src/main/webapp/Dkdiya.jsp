@@ -40,26 +40,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tbody>
          
      <tr>
-     <td>抵押类型：</td>
-     <td><input type="text" class="form-control" name="dylx" /></td>
      <td>抵押姓名：</td>
-     <td><input type="text" class="form-control" name="dyrxm" /></td>
-     </tr> 
-     <tr>
+     <td><input type="text" class="form-control" name="dyrxm"  placeholder="请输入"/></td>
      <td>抵押身份证号：</td>
-     <td><input type="text" class="form-control" name="dyrsfzh" /></td>
-     <td>抵押所有权证号：</td>
-     <td><input type="text" class="form-control" name="dywsyqzh" /></td>
+     <td><input type="text" class="form-control" name="dyrsfzh"  placeholder="请输入"/></td>
+     
+     
      </tr> 
      <tr>
-     <td>抵押他项权证号：</td>
-     <td><input type="text" class="form-control" name="dywtxqzh" /></td>
+      <td>抵押类型：</td>
+     <td><select name="dylx" class="form-control"><option>不动产抵押</option><option >动产抵押</option></select></td> 
      <td>抵押地址：</td>
-     <td><input type="text" class="form-control" name="dywdz" /></td>
+     <td><input type="text" class="form-control" name="dywdz"   placeholder="请输入"/></td>     
+     </tr> 
+     <tr>
+     <td>抵押所有权证号：</td>
+     <td><input type="text" class="form-control" name="dywsyqzh"  placeholder="请输入"/></td>
+     <td>抵押他项权证号：</td>
+     <td><input type="text" class="form-control" name="dywtxqzh"  placeholder="请输入" /></td>    
      </tr>
      <tr> 
      <td>抵押物状态：</td>
-     <td><input type="text" class="form-control" name="dbzt" /></td>    
+     <td><select name="dbzt" class="form-control"><option>已抵押</option><option >未抵押</option></select></td>    
      <td>抵押物金额：</td>
      <td><input type="text" class="form-control" name="dyje" /></td>      
     </tr> 
@@ -88,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      success:function(data){
 					if(data=='1'){
 						
-						window.location.href="KaiHu.jsp";
+						window.location.href="Dkshenqing.jsp";
 					}else{
 						
 						alter(data);

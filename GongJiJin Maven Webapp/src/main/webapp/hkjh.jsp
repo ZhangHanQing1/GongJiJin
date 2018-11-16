@@ -43,17 +43,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <script type="text/javascript">
     $(function(){			
-			queryAll();			
+			queryAll(1);			
 		});
 		//查询所有
-		function queryAll(){
+		function queryAll(startPage){
+			$("#tab1").html("");
 			$.ajax({
 				url:"ydtqsp/all",
 				type:"post",
+				data : {
+					"startPage" : startPage
+				},
 				dataType:"json",
 				success:function(data){
-					for(var i=0;i<data.length;i++){
-						var obj=data[i];	
+					var ary=data.list;
+					for(var i=0;i<ary.length;i++){
+						var obj=ary[i];	
 						if(obj.SPZT2=="已发放"){					
 						var tr="<tr>";
 						tr+="<td>"+obj.YDTQSPZJ+"</td>";
@@ -69,9 +74,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						$("#tab1").append(tr);}
 						
 					}
+					$("#currPage").val(data.pageNum);
+				$("#aa").val(data.total);
+				$("#bb").val(data.pageSize);
+				$("#currPage").blur(function() {
+					var last = Math.ceil(data.total / data.pageSize);
+					var curr = $("#currPage").val();
+					if(last<curr){
+					   $("#currPage").val(last);
+					   queryAll(last);
+					}
+					if(curr<=0){
+					  $("#currPage").val(1);
+					   queryAll(1);
+					}
+					 queryAll(curr);
+				});
+				
+				if (data.isFirstPage) {
+					$("#syy").attr("disabled", "disabled");
+					$("#shouye").attr("disabled", "disabled");
+				} else {
+					$("#syy").removeAttr("disabled", "disabled");
+					$("#shouye").removeAttr("disabled", "disabled");
 				}
+				if (data.isLastPage) {
+					$("#xyy").attr("disabled", "disabled");
+					$("#weiye").attr("disabled", "disabled");
+				} else {
+					$("#xyy").removeAttr("disabled", "disabled");
+					$("#weiye").removeAttr("disabled", "disabled");
+				}
+				}
+				
 			})
-		}    
+		}   
+		function syy(){
+		var currPage = parseInt($("#currPage").val());
+		queryAll(currPage - 1);
+	}
+	function xyy(){
+		var currPage = parseInt($("#currPage").val());
+		queryAll(currPage + 1);
+	}
+	function shouye(){
+		queryAll(1);
+	}
+	function weiye(){
+		var tt=$("#aa").val();
+		var tt1=$("#bb").val();
+		var last = Math.ceil(tt/tt1);
+		queryAll(last);
+				}
         //根据商品id查询单个商品信息
 		function hkjhIdd(obj){
 			var YDTQSPZJ=obj;
@@ -107,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			})
 		} 
 function shen(){
-   
+    $("#tab3").html("");
        var ben = document.getElementById("TZZD2").value;
        var qi = document.getElementById("QIC").value;
        var lv = document.getElementById("dklx").value;
@@ -151,6 +205,8 @@ function shen(){
   </head>
   
   <body>
+  <input type="hidden" id="aa"/>
+<input type="hidden" id="bb"/>
     	<table class="table table-striped">   	  
     	<thead>
     		<tr>
@@ -166,7 +222,14 @@ function shen(){
     		</tr>   		
     		</thead>
     		<tbody id="tab1"></tbody>
-    	</table>     	    	
+    	</table>  
+    	<ul class="pager" id="ul1" style="display: block;">
+		<li><button type="button" class="btn btn-default" id="shouye" onclick="shouye()">首页</button></li>
+		<li><button type="button" class="btn btn-default" id="syy" onclick="syy()">上一页</button></li>
+		<li><button type="button" class="btn btn-default" id="xyy" onclick="xyy()">下一页</button></li>
+		<li><button type="button" class="btn btn-default" id="weiye" onclick="weiye()">尾页</button></li>
+		<li style="font-weight: lighter;">当前第<input type="text" id="currPage" style="height:35px;width:50px;border-radius:10px;text-align: center;"/>页</li>
+		</ul>   	    	
     	<!-- 模态框（Modal） -->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog " style="width:1000px;">
@@ -233,7 +296,7 @@ function shen(){
 				   			
     		</tr>
     		</thead>
-    		<tbody id="tab2"></tbody>
+    		<tbody id="tab3"></tbody>
     	</table>  													
 				</div>
 			<div class="modal-footer">

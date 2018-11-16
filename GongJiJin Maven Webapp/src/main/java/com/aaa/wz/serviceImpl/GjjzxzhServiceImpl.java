@@ -22,7 +22,12 @@ public class GjjzxzhServiceImpl implements GjjzxzhService{
 				// TODO Auto-generated method stub
 				return dao.gjjzxAll();
 			}
-	  
+			@Override
+			public void update(Gjjzxzh gjjzxzh) {
+				// TODO Auto-generated method stub
+				dao.updateByPrimaryKeySelective(gjjzxzh);
+			}
+
 	
 
 }

@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
     <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="../layui/css/layui.css">	
 	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
     <script src="resources/jquery-1.11.3.min.js"></script>	
     <script src="resources/jquery.form.js"></script>
@@ -57,90 +58,119 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     
-       <form class="form-horizontal" role="form" id="form1">
-       <table class="table table-striped">
-           <caption><h1>贷款申请基本信息</h1></caption>
+    <form class="form-horizontal layui-form" role="form" id="form1">
+    <table class="table table-striped">
+           <caption><h1>基本信息</h1></caption>
   <tbody>
     <tr>
       <td>借款人公积金账号：</td>
-      <td><input type="text" class="form-control" name="grbh" id="account" onblur="checkaccount()"/></td>
+      <td><input type="text" class="form-control" name="grbh" id="account" onblur="checkaccount()"/></td>      
       <td>借款人姓名：</td>
       <td><input type="text" class="form-control"  id="xingming"/></td>
       <td>借款人性别：</td>
       <td><input type="text" class="form-control"  id="xingbie"/></td>     
+      </tr>
+      <tr>
       <td>借款人手机号：</td>
       <td><input type="text" class="form-control"  id="sjhm2"/></td>
       <td>婚姻状态：</td>
       <td><input type="text" class="form-control"  id="hyzk"/></td>
-     </tr>
-     <tr>
+      <td>邮箱：</td>
+      <td><input type="text" class="form-control"  id="dzxx"/></td>
+      </tr>                
+      <tr>     
       <td>借款人证件类型：</td>
       <td><select  class="form-control"><option value="1">身份证</option></select></td>           
       <td>借款人证件号：</td>   
       <td><input type="text" class="form-control" id="sbzh" /></td>                 
       <td>学历：</td>
       <td><input type="text" class="form-control"  id="xueli"/></td>
-      <td>邮箱：</td>
-      <td><input type="text" class="form-control"  id="dzxx"/></td>
-      <td>职位：</td>
-      <td><input type="text" class="form-control"  id="zhicheng"/></td>
+      
      </tr>
      <tr>
+      <td>职位：</td>
+      <td><input type="text" class="form-control" id="zhicheng"   /></td>        
       <td>家庭住址：</td>
       <td><input type="text" class="form-control"  id="jtzz"/></td>
       <td>开户日期：</td>
       <td><input type="text" class="form-control"  id="khrq"/></td>
+      </tr>
+
+    
+    </tbody>
+</table>
+ <table class="table table-striped">
+           <caption><h1>还款信息</h1></caption>
+  <tbody>
+      <tr>
       <td>月收入：</td>
-      <td><input type="text" class="form-control"  name="jkrysr"/></td>
+      <td><input type="text" class="form-control"  name="jkrysr"  placeholder="请输入" /></td>     
       <td>银行存款：</td>
-      <td><input type="text" class="form-control"  name="jkryhck"/></td>    
+      <td><input type="text" class="form-control"  name="jkryhck" placeholder="请输入金额"  /></td>    
       <td>委托银行：</td>
       <td><select name="swtyhmc" class="form-control"><option>中国银行</option><option >建设银行</option><option >农业银行</option><option >工商银行</option></select></td> 
       </tr>
-      <tr>              
+      <tr> 
       <td>贷款金额：</td>
-      <td><input type="text" class="form-control" name="htdkje" /></td>
+      <td><input type="text" class="form-control layui-input" name="htdkje" placeholder="请输入金额"   /></td>                  
       <td>贷款期数：</td>
-      <td><input type="text" class="form-control" name="dkqs" /></td>
+      <td><select name="dkqs" class="form-control"><option value="12">12期</option><option value="24">24期</option><option value="36">36期</option><option value="48">48期</option><option value="60">60期</option><option value="120">120期</option><option value="240">240期</option></select></td>
       <td>贷款利率：</td>
-      <td><input type="text" class="form-control" name="dklx" /></td>
+      <td><select name="dklx" class="form-control"><option value="0.0371">等额本息利率</option><option value="0.0381">等额本金利率</option></select></td>
+      
+      </tr>  
+      <tr>   
       <td>还款日：</td>
-      <td><input type="text" class="form-control" name="ydhkr" /></td>      
+      <td><input type="text" class="form-control" name="ydhkr" placeholder="请输入每月几日还款"/></td> 
       <td>还款方式：</td>
       <td><select name="dkhkfs" class="form-control"><option>等额本息还款</option><option>等额本金还款</option></select></td>
+      <td>收款人：</td>
+      <td><input type="text" class="form-control" name="jkrxm" placeholder="请输入"   /></td>                        
+      
       </tr>  
         
       <tr>
-      <td>收款人：</td>
-      <td><input type="text" class="form-control" name="jkrxm" /></td>                        
-      <td>开户银行：</td>  
-      <td><select name="cxzhkhyhmc2" class="form-control"><option>中国银行</option><option >建设银行</option><option >农业银行</option><option >工商银行</option></select></td> 
-      <td>还款账户号：</td>
-      <td><input type="text" class="form-control" name="hkcxzh" /></td>
-      <td>还款账户名：</td>
-      <td><input type="text" class="form-control" name="hkzhmc" /></td>  
+      
       <td>购房人姓名：</td>
-      <td><input type="text" class="form-control" name="gfrxm" /></td>         
-      </tr>  
+      <td><input type="text" class="form-control" name="gfrxm" placeholder="请输入"   /></td>        
+      <td>还款账户号：</td>
+      <td><input type="text" class="form-control" name="hkcxzh" placeholder="请输入"  /></td>
+      <td>还款账户名：</td>
+      <td><input type="text" class="form-control" name="hkzhmc" placeholder="请输入"  /></td>  
+      
+      
+       </tr>      
+     <tr>
+    </tbody>
+</table>
+ <table class="table table-striped">
+           <caption><h1>购房信息</h1></caption>
+  <tbody>
+
       <tr>
       <td>房间类型：</td>
       <td><select name="fwlx" class="form-control" name="fwlx" ><option value="1">商品房</option><option value="2">房改房</option><option value="3">小产权房</option></select></td>
       <td>房屋位置：</td>
-      <td><input type="text" class="form-control" name="fwzl" /></td>
+      <td><input type="text" class="form-control" name="fwzl" placeholder="请输入"  /></td>
       <td>房屋面积：</td>
-      <td><input type="text" class="form-control" name="fwtnmj" /></td>
+      <td><input type="text" class="form-control" name="fwtnmj" placeholder="请输入"   /></td>
+     </tr>
+     <tr>
+      <td>开户银行：</td>  
+      <td><select name="cxzhkhyhmc2" class="form-control"><option>中国银行</option><option >建设银行</option><option >农业银行</option><option >工商银行</option></select></td> 
       <td>证件号码：</td>
-      <td><input type="text" class="form-control" name="gfrsfzh" /></td>    
+      <td><input type="text" class="form-control" name="gfrsfzh" placeholder="请输入" lay-verify="identity" /></td>    
       <td>银行账户：</td>
-      <td><input type="text" class="form-control" name="dkzh" /></td>     
+      <td><input type="text" class="form-control" name="dkzh" placeholder="请输入"  /></td>  
+          
       </tr>
       <tr>    
       <td>房屋总价：</td>
-      <td><input type="text" class="form-control" name="fwzj" /></td>
+      <td><input type="text" class="form-control" name="fwzj" placeholder="请输入金额"  /></td>
       <td>购房首付款：</td>
-      <td><input type="text" class="form-control" name="gfsfk" /></td>
+      <td><input type="text" class="form-control" name="gfsfk" placeholder="请输入金额"  /></td>
       <td>房屋面积单价：</td>
-      <td><input type="text" class="form-control" name="fwtnmjdj" /></td>
+      <td><input type="text" class="form-control" name="fwtnmjdj" placeholder="请输入金额"  /></td>
       
        </tr>      
      <tr>
@@ -157,7 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </html>
 <script>
 	$("#dianji").click(function tiaojian(){
-			alert(JSON.stringify($("#form1").serializeObject()));
+			
 	     $.ajax({
 	     url:"htxx/add",
 	       type:"post",

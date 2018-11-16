@@ -64,28 +64,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tr> 
     <tr> 
       <td>配偶公积金账号：</td>
-      <td><input type="text" class="form-control" name="pogjjzh" id="account"/></td>
+      <td><input type="text" class="form-control" name="pogjjzh" placeholder="请输入" /></td>
       <td>配偶单位电话：</td>
-      <td><input type="text" class="form-control" name="podwdh" /></td>      
+      <td><input type="text" class="form-control" name="podwdh" placeholder="请输入" /></td>      
      </tr>      
      <tr>
+      <td>配偶单位账号：</td>
+      <td><input type="text" class="form-control" name="podwzh" placeholder="请输入" /></td>
+      <td>配偶单位名称：</td>
+      <td><input type="text" class="form-control" name="podwmc" placeholder="请输入" /></td>
+      </tr>
+     <tr>
       <td>配偶姓名：</td>
-      <td><input type="text" class="form-control" name="poxm" /></td>
+      <td><input type="text" class="form-control" name="poxm" placeholder="请输入" /></td>
       <td>配偶年龄：</td>
-      <td><input type="text" class="form-control" name="ponl" /></td>  
+      <td><input type="text" class="form-control" name="ponl" placeholder="请输入" /></td>  
       </tr> 
       <tr>   
       <td>证件类型：</td>
       <td><select name="pozjlx" class="form-control"><option>身份证</option><option>户口本</option></select></td>
       <td>证件号码：</td>
-      <td><input type="text" class="form-control" name="pozjhm" /></td> 
+      <td><input type="text" class="form-control" name="pozjhm" placeholder="请输入" /></td> 
       </tr> 
-      <tr>
-      <td>配偶单位账号：</td>
-      <td><input type="text" class="form-control" name="podwzh" /></td>
-      <td>配偶单位名称：</td>
-      <td><input type="text" class="form-control" name="podwmc" /></td>
-      </tr>
+      
       
      
     </tbody>
